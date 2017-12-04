@@ -1,0 +1,906 @@
+1	StandardInvoiceTBL
+	Add Columnns
+	i)TypeOfMeasure-nvarchar(50)
+=============================================================================
+
+2	StandardInvoiceZoneTBL
+	Add Columnns
+	i)TypeOfMeasure-nvarchar(50)
+=============================================================================
+
+3	StandardInvoiceCaclvTBL
+	Add Columnns
+	i)TypeOfMeasure-nvarchar(50)
+=============================================================================
+
+4	tbl_PaidReport
+	Add Columnns
+	i)TypeOfMeasure-nvarchar(50)
+=============================================================================
+
+5	AllInvoiceByJobNumberTBL
+	Add Columnns
+	i)TypeOfMeasure-nvarchar(50)
+=============================================================================
+
+6	Jobs
+	Add Columnns
+	i)ShellAllowance-decimal(18, 2)
+	ii)RepairAllowance-decimal(18, 2)
+	iii)HealthAllowance-decimal(18, 2)
+	iv)BudgetAllowance-decimal(18, 2)
+=============================================================================
+
+7	StandardInvoiceZoneTBL
+	Add Column
+	i)TypeOfMeasure-nvarchar(50)
+=============================================================================
+
+8      
+ USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UpdateZoneAllThingByID]    Script Date: 12/4/2017 2:02:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_UpdateZoneAllThingByID]  
+@RowId int,  
+@location nvarchar(50),  
+--@SC nvarchar(5),  
+@TypeOfMeasure	nvarchar(20), 
+@liurpCode nvarchar(50),  
+@unit nvarchar(50),  
+@laborRate nvarchar(50),  
+@costPerUnit nvarchar(50)  
+as  
+Update StandardInvoiceZoneTBL set location=@location,TypeOfMeasure=@TypeOfMeasure,liurpCode=@liurpCode,unit=@unit,laborRate=@laborRate,costPerUnit=@costPerUnit where RowId=@RowId
+
+==========================================================================================================================================================
+
+
+9
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_InsertZoneInvoiceContain]    Script Date: 12/4/2017 2:05:20 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_InsertZoneInvoiceContain]      
+@CatId int,      
+@MDID int,      
+@location nvarchar(50),      
+--@SC nvarchar(5), 
+@TypeOfMeasure nvarchar(20),    
+@liurpCode nvarchar(50),      
+@unit nvarchar(50),      
+@laborRate nvarchar(50),      
+@costPerUnit nvarchar(50)     
+as
+insert into StandardInvoiceZoneTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit)
+
+==========================================================================================================================================================
+
+10
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[InsertJob]    Script Date: 12/4/2017 2:06:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[InsertJob]                  
+@JobNumber varchar(50),                  
+@DateAssigned datetime,  
+@AuditScheduleDate datetime,                  
+@DateCompleted datetime,                  
+@UtilityCompany1 int,                  
+@UtilityCompany2 int,      
+@zone nvarchar(50),                  
+@FirstName varchar(50),                  
+@LastName varchar(50),                  
+@AccountNumber varchar(50),                  
+@MailingAddress1 varchar(50),                  
+@ServiceAddress1 varchar(50),                  
+@MailingCity varchar(50),                  
+@ServiceCity varchar(50),                  
+@MailingState int,                  
+@ServiceState int,                  
+@MailingZipCode varchar(50),                  
+@ServiceZipCode varchar(50),                  
+@YearHomeBuilt varchar(50),                  
+@ServiceCounty int,                  
+@HomePhone varchar(50),                  
+@CellPhone varchar(50),                  
+@NumberOfOccupants int,                  
+@HeatSource varchar(50),                  
+@TypeOfHeat varchar(50),                  
+@WaterHeaterType varchar(50),                  
+@AirConditionerType varchar(50),                  
+@NumACUnits nvarchar(50),                  
+@YearlyKWHHours  nvarchar(50),                  
+@JuneKWHHours  nvarchar(50),                  
+@JulyKWHHours  nvarchar(50),                  
+@AugustKWHHours  nvarchar(50),                  
+@SeptemberKWHHours  nvarchar(50),                  
+@Low1KWHHours  nvarchar(50),                  
+@Low2KWHHours  nvarchar(50),                  
+@BaseLoad  nvarchar(50),                  
+@TWSeasonal  nvarchar(50),                  
+@TSSeasonal  nvarchar(50),                  
+@SpendingAllowance money,                  
+@ONTRACK varchar(50),                  
+@OwnerTenant varchar(50),                  
+@LandLordName varchar(50),                  
+@LandLordPhone varchar(50),                  
+@LLEmailOrFax varchar(50),                  
+@LLAddress varchar(50),                  
+@LLCity varchar(50),                  
+@LLState  int,                  
+@LLZipCode varchar(50),                  
+@PCAP varchar(50),                  
+@PCapAmount money,                  
+@TODCUSTOMER varchar(50),                  
+@SSNumLast4 varchar(50),                  
+@SummerSeasonalUse  nvarchar(50),                  
+@WinterSeasonalUse  nvarchar(50),                  
+@AnnualBaseUse  nvarchar(50),                  
+@TotalAnnualUse  nvarchar(50),                  
+@ContactDate datetime,                  
+@ContactTime datetime,                  
+@ContactType  int,                  
+@ContactPerson  int,                  
+@ContactResult  int,                  
+@CWReturnDate datetime,                  
+@Act129 varchar(1),                 
+@Act129II varchar(1),
+@Inspection varchar(1),
+@Remedial varchar(1),                 
+@BaseLoadOnly varchar(1),                  
+@HighPriority varchar(1),                  
+@FullCost varchar(1),                  
+@Login varchar(50) = 'LA',                  
+@LowCost VarChar(1),                  
+@OnTrackAmount money,                  
+@WorkPhone VarChar(50),                  
+@SeasonalSpendingAllowance money,                  
+@WarmOrWarmPlus VarChar(10),            
+@Uid int,
+@JobVendor nvarchar(50),
+@Email nvarchar(100),
+@ShellAllowance  decimal,
+@RepairAllowance   decimal,
+@HealthAllowance decimal,
+@BudgetAllowance decimal          
+                  
+As                  
+                  
+Declare @DateScheduled datetime                  
+Set @DateScheduled = '1/1/1900'                  
+                  
+                  
+If Exists (Select * from Jobs Where  @JobNumber =JobNumber )                  
+Begin                  
+ Select  3 As MsgNum, 'Duplicate Job Number' as ResultMsg                  
+ Return                  
+End                  
+                  
+                  
+ Begin Tran InsertJob                  
+ Insert Into                   
+  Jobs                  
+                   
+ (   
+  JobNumber,         
+  WarmOrWarmPlus,                 
+  DateAssigned,                  
+  DateCompleted,  
+  AuditScheduleDate,                  
+  UtilityCompany1,                  
+  UtilityCompany2,                  
+  PPlZone,    
+  FirstName,                  
+  LastName,                  
+  AccountNumber,                  
+  MailingAddress1,                  
+  ServiceAddress1,                  
+  MailingCity,                  
+  ServiceCity,                  
+  MailingState,                  
+  ServiceState,                  
+  MailingZipCode,                  
+  ServiceZipCode,                  
+  YearHomeBuilt,                  
+  ServiceCounty,                  
+  HomePhone,                  
+  CellPhone,                  
+  NumberOfOccupants,               
+  HeatSource,                  
+  TypeOfHeat,                  
+  WaterHeaterType,                  
+  AirConditionerType,                  
+  NumACUnits,                  
+  YearlyKWHHours,                  
+  JuneKWHHours,                  
+  JulyKWHHours,                  
+  AugustKWHHours,                  
+  SeptemberKWHHours,                  
+  Low1KWHHours,                  
+  Low2KWHHours,                  
+  BaseLoad,                  
+  TWSeasonal,                  
+  TSSeasonal,                  
+  SpendingAllowance,                  
+  ONTRACK,                  
+  OwnerTenant,                  
+  LandLordName,                  
+  LandLordPhone,                  
+  LLEmailOrFax,                  
+  LLAddress,                  
+  LLCity,                  
+  LLState,                  
+  LLZipCode,                  
+  PCAP,                  
+  PCapAmount,                  
+  TODCUSTOMER,                  
+  SSNumLast4,                  
+  SummerSeasonalUse,                  
+  WinterSeasonalUse,                  
+  AnnualBaseUse,               
+  TotalAnnualUse,                  
+  --- add new 10 jun 2013                  
+  SeasonalSpendingAllowance,                  
+                    
+  ContactDate,                  
+  ContactTime,                  
+  ContactType,                  
+  ContactPerson,                  
+  ContactResult,                  
+  CWReturnDate,                  
+  Act129,                
+  Act129II,
+  Inspection,
+  Remedial,                  
+  BaseLoadOnly,                  
+  HighPriority,                  
+  FullCost,                  
+  Login,                  
+  DateScheduled,                  
+  LowCost,                  
+  OnTrackAmount,                  
+  WorkPhone,                  
+  Paid,                  
+  PaidDate,            
+  UsrID,
+  [Status],
+  Email,
+  ShellAllowance,
+  RepairAllowance,
+  HealthAllowance,
+  BudgetAllowance
+                
+ )                  
+Values                  
+ (                  
+  @JobNumber,              
+  @WarmOrWarmPlus,                  
+  @DateAssigned,                  
+  @DateCompleted,                  
+  @AuditScheduleDate,  
+  @UtilityCompany1,                  
+  @UtilityCompany2,                  
+  @zone,      
+  @FirstName,                  
+  @LastName,                  
+  @AccountNumber,                  
+  @MailingAddress1,                  
+  @ServiceAddress1,                  
+  @MailingCity,                  
+  @ServiceCity,                  
+  @MailingState,                  
+  @ServiceState,                  
+  @MailingZipCode,                  
+  @ServiceZipCode,                  
+  @YearHomeBuilt,                  
+  @ServiceCounty,                  
+  @HomePhone,                  
+  @CellPhone,                  
+  @NumberOfOccupants,                  
+  @HeatSource,                  
+  @TypeOfHeat,                  
+  @WaterHeaterType,                  
+  @AirConditionerType,                  
+  @NumACUnits,                  
+  @YearlyKWHHours,                  
+  @JuneKWHHours,                  
+  @JulyKWHHours,                  
+  @AugustKWHHours,                  
+  @SeptemberKWHHours,                  
+  @Low1KWHHours,       
+  @Low2KWHHours,                
+  @BaseLoad,                  
+  @TWSeasonal,                  
+  @TSSeasonal,                  
+  @SpendingAllowance,                  
+  @ONTRACK,                  
+  @OwnerTenant,                  
+  @LandLordName,                  
+  @LandLordPhone,                  
+  @LLEmailOrFax,                  
+  @LLAddress,                  
+  @LLCity,                  
+  @LLState,                  
+  @LLZipCode,                  
+  @PCAP,                  
+  @PCapAmount,                  
+  @TODCUSTOMER,                  
+  @SSNumLast4,                  
+  @SummerSeasonalUse,                  
+  @WinterSeasonalUse,                  
+  @AnnualBaseUse,                  
+  @TotalAnnualUse,                  
+  --- add new 10 jun 2013                  
+  @SeasonalSpendingAllowance,                  
+                    
+  @ContactDate,                  
+  @ContactTime,                  
+  @ContactType,                  
+  @ContactPerson,                  
+  @ContactResult,                  
+  @CWReturnDate,                  
+ @Act129,                
+  @Act129II,
+  @Inspection,
+  @Remedial,                  
+  @BaseLoadOnly,                  
+  @HighPriority ,                  
+  @FullCost,                  
+  @Login,                  
+  @DateScheduled,                  
+  @LowCost,                  
+  @OnTrackAmount,                  
+  @WorkPhone,                  
+  'U',                  
+  Cast('1/1/1950' as datetime),            
+  @Uid,                  
+  '',
+  @Email,
+  @ShellAllowance,
+@RepairAllowance,
+@HealthAllowance,
+@BudgetAllowance                
+ )           
+ if(@UtilityCompany1='2')               
+ Begin          
+   if not exists(select * from PPLAuditPage1Ver2 where JobNumber=@JobNumber)          
+ Begin          
+  insert into PPLAuditPage1Ver2 (JobNumber) values (@JobNumber)       
+  insert into PPLInvoicePage1 (JobNumber) values (@JobNumber)       
+ End        
+ End        
+         
+ if(@UtilityCompany1='1')               
+ Begin          
+   if not exists(select * from METEDAuditPage1 where JobNumber=@JobNumber)          
+ Begin          
+  insert into METEDAuditPage1 (JobNumber) values (@JobNumber)           
+ End        
+ End              
+                   
+ If @@Error !=0                  
+ Begin                  
+  RollBack Tran  InsertJob                  
+  Select 1 As MsgNum, 'InsertJOB The Very Top  Insert Failed with SQL Error = ' + @@Error  as ResultMsg          
+  Return                  
+ End                  
+ Else                  
+ Begin                  
+  Commit Tran  InsertJOB                  
+  Select  0 As MsgNum, 'Insert Job Very Successful' as ResultMsg                  
+  exec InitializeAllPPLInvoicePages @JobNumber -- Add new job to invoice table right away                  
+ End                  
+ Return                  
+ Select 2 As MsgNum, 'Duplicate Job Number Found  Insert Failed  '  as ResultMsg                  
+ Return
+
+====================================================================================================================================================
+
+11
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateJobWithJob]    Script Date: 12/4/2017 2:08:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[UpdateJobWithJob]          
+@JobNumber varchar(50),                          
+@DateAssigned datetime,                          
+@DateCompleted datetime,  
+@AuditScheduleDate datetime,
+@GoBackRecive datetime, 
+@GoBackSchedule datetime, 
+@GoBackReturne datetime,                        
+@UtilityCompany1 int,                          
+@UtilityCompany2 int,              
+@zone nvarchar(50),                          
+@FirstName varchar(50),                          
+@LastName varchar(50),                          
+@AccountNumber varchar(50),                          
+@MailingAddress1 varchar(50),                          
+@ServiceAddress1 varchar(50),                          
+@MailingCity varchar(50),                          
+@ServiceCity varchar(50),                          
+@MailingState int,                          
+@ServiceState int,                          
+@MailingZipCode varchar(50),                          
+@ServiceZipCode varchar(50),                          
+@YearHomeBuilt varchar(50),                          
+@ServiceCounty int,                          
+@HomePhone varchar(50),                          
+@CellPhone varchar(50),                          
+@NumberOfOccupants int,                          
+@HeatSource varchar(50),                          
+@TypeOfHeat varchar(50),                          
+@WaterHeaterType varchar(50),                          
+@AirConditionerType varchar(50),                          
+@NumACUnits nvarchar(50),                          
+@YearlyKWHHours  nvarchar(50),                          
+@JuneKWHHours  nvarchar(50),                          
+@JulyKWHHours  nvarchar(50),                          
+@AugustKWHHours  nvarchar(50),                          
+@SeptemberKWHHours  nvarchar(50),                          
+@Low1KWHHours  nvarchar(50),                          
+@Low2KWHHours  nvarchar(50),                          
+@BaseLoad  nvarchar(50),                          
+@TWSeasonal  nvarchar(50),                          
+@TSSeasonal  nvarchar(50),                          
+@SpendingAllowance money,                          
+@ONTRACK varchar(50),                          
+@OwnerTenant varchar(50),                          
+@LandLordName varchar(50),                          
+@LandLordPhone varchar(50),                          
+@LLEmailOrFax varchar(50),                          
+@LLAddress varchar(50),                          
+@LLCity varchar(50),                          
+@LLState  int,                          
+@LLZipCode varchar(50),                          
+@PCAP varchar(50),                          
+@PCapAmount money,                          
+@TODCUSTOMER varchar(50),                          
+@SSNumLast4 varchar(50),                          
+@SummerSeasonalUse  nvarchar(50),                          
+@WinterSeasonalUse  nvarchar(50),                          
+@AnnualBaseUse  nvarchar(50),                          
+@TotalAnnualUse  nvarchar(50),                          
+@ContactDate datetime,                          
+@ContactTime datetime,                          
+@ContactType  int,                          
+@ContactPerson  int,                          
+@ContactResult  int,                          
+@CWReturnDate datetime,                          
+@Act129 varchar(1),                         
+@Act129II varchar(1), 
+@Inspection varchar(1),                         
+@Remedial varchar(1),               
+@BaseLoadOnly varchar(1),                          
+@HighPriority varchar(1),                          
+@FullCost varchar(1),                          
+@Login varchar(50) = 'LA',                          
+@LowCost VarChar(1),                          
+@OnTrackAmount money,                          
+@WorkPhone VarChar(50),                          
+@SeasonalSpendingAllowance money,                          
+@WarmOrWarmPlus VarChar(10),          
+@RescheduledDate datetime,          
+@DateScheduled datetime,          
+@DateScheduledComments varchar(256),           
+@AuditorName varchar(50),
+@Email nvarchar(100),
+@ShellAllowance  decimal(18,2),
+@RepairAllowance   decimal(18,2),
+@HealthAllowance decimal(18,2),
+@BudgetAllowance decimal(18,2)                  
+as          
+Begin          
+update jobs set          
+JobNumber=@JobNumber,          
+WarmOrWarmPlus=@WarmOrWarmPlus,          
+DateAssigned=@DateAssigned,          
+DateCompleted=@DateCompleted,  
+AuditScheduleDate=@AuditScheduleDate, 
+GoBackRecive=@GoBackRecive,
+GoBackSchedule=@GoBackSchedule,
+GoBackReturne=@GoBackReturne,         
+UtilityCompany1=@UtilityCompany1,          
+UtilityCompany2=@UtilityCompany2,          
+PPlZone=@zone,          
+FirstName=@FirstName,          
+LastName=@LastName,          
+AccountNumber=@AccountNumber,          
+MailingAddress1=@MailingAddress1,          
+ServiceAddress1=@ServiceAddress1,          
+MailingCity=@MailingCity,          
+ServiceCity=@ServiceCity,          
+MailingState=@MailingState,          
+ServiceState=@ServiceState,          
+MailingZipCode=@MailingZipCode,          
+ServiceZipCode=@ServiceZipCode,          
+YearHomeBuilt=@YearHomeBuilt,          
+ServiceCounty=@ServiceCounty,          
+HomePhone=@HomePhone,          
+CellPhone=@CellPhone,          
+NumberOfOccupants=@NumberOfOccupants,          
+HeatSource=@HeatSource,          
+TypeOfHeat=@TypeOfHeat,          
+WaterHeaterType=@WaterHeaterType,          
+AirConditionerType=@AirConditionerType,          
+NumACUnits=@NumACUnits,          
+YearlyKWHHours=@YearlyKWHHours,          
+JuneKWHHours=@JuneKWHHours,          
+JulyKWHHours=@JulyKWHHours,          
+AugustKWHHours=@AugustKWHHours,          
+SeptemberKWHHours=@SeptemberKWHHours,          
+Low1KWHHours=@Low1KWHHours,          
+Low2KWHHours=@Low2KWHHours,          
+BaseLoad=@BaseLoad,          
+TWSeasonal=@TWSeasonal,          
+TSSeasonal=@TSSeasonal,          
+SpendingAllowance=@SpendingAllowance,          
+ONTRACK=@ONTRACK,          
+OwnerTenant=@OwnerTenant,          
+LandLordName=@LandLordName,          
+LandLordPhone=@LandLordPhone,          
+LLEmailOrFax=@LLEmailOrFax,          
+LLAddress=@LLAddress,          
+LLCity=@LLCity,          
+LLState=@LLState,          
+LLZipCode=@LLZipCode,          
+PCAP=@PCAP,          
+PCapAmount=@PCapAmount,          
+TODCUSTOMER=@TODCUSTOMER,          
+SSNumLast4=@SSNumLast4,          
+SummerSeasonalUse=@SummerSeasonalUse,          
+WinterSeasonalUse=@WinterSeasonalUse,          
+AnnualBaseUse=@AnnualBaseUse,          
+TotalAnnualUse=@TotalAnnualUse,          
+SeasonalSpendingAllowance=@SeasonalSpendingAllowance,          
+ContactDate=@ContactDate,          
+ContactTime=@ContactTime,          
+ContactType=@ContactType,          
+ContactPerson=@ContactPerson,          
+ContactResult=@ContactResult,          
+CWReturnDate=@CWReturnDate,          
+Act129=@Act129,          
+Act129II=@Act129II,    
+Inspection=@Inspection,
+Remedial=@Remedial,       
+BaseLoadOnly=@BaseLoadOnly,          
+HighPriority=@HighPriority,          
+FullCost=@FullCost,          
+[Login]=@Login,          
+DateScheduled=@DateScheduled,          
+LowCost=@LowCost,          
+OnTrackAmount=@OnTrackAmount,          
+WorkPhone=@WorkPhone,          
+RescheduledDate=@RescheduledDate,          
+DateScheduledComments=@DateScheduledComments,          
+AuditorName=@AuditorName,
+Email=@Email,
+ShellAllowance=@ShellAllowance,
+  RepairAllowance=@RepairAllowance,
+  HealthAllowance=@HealthAllowance,
+  BudgetAllowance=@BudgetAllowance
+          
+where JobNumber=@JobNumber       
+      
+      
+  if(@UtilityCompany1=1)    
+ begin    
+ Update                     
+  METEDAuditPage1                    
+                    
+ Set   AuditorName=@AuditorName      
+ where JobNumber=@JobNumber       
+  end    
+      
+  else if(@UtilityCompany1=2)    
+  begin    
+  Update                     
+  PPLAuditPage1Ver2                    
+                    
+ Set   Auditor=@AuditorName   where JobNumber=@JobNumber     
+  end    
+   else if(@UtilityCompany1!= 2  and @UtilityCompany1!= 2 )    
+  begin    
+  Update                     
+  Jobs                                
+  Set   AuditorName=@AuditorName  where JobNumber=@JobNumber      
+  end    
+      
+      
+         
+if(@UtilityCompany1=1)        
+Begin        
+Delete from PPLAuditPage1Ver2 where JobNumber=@JobNumber        
+End        
+Else if(@UtilityCompany1=2)        
+Begin        
+Delete from METEDAuditPage1 where JobNumber=@JobNumber        
+End        
+Else if(@UtilityCompany1 != 2 and @UtilityCompany1 != 1)        
+Begin        
+Delete from METEDAuditPage1 where JobNumber=@JobNumber        
+Delete from PPLAuditPage1Ver2 where JobNumber=@JobNumber        
+End         
+End
+
+=======================================================================================================
+
+12
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_InsertInvoiceContain]    Script Date: 12/4/2017 2:09:22 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_InsertInvoiceContain]    
+@CatId int,    
+@MDID int,    
+@location nvarchar(50),    
+@TypeOfMeasure nvarchar(25),    
+@liurpCode nvarchar(50),    
+@unit nvarchar(50),    
+@laborRate nvarchar(50),    
+@costPerUnit nvarchar(50)   
+as    
+insert into StandardInvoiceTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit)    
+insert into StandardInvoiceZoneTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit) 
+insert into StandardInvoiceCaclvTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit) 
+
+==================================================================================================================================================================================================
+
+13 
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UpdateAllThingByID]    Script Date: 12/4/2017 2:10:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_UpdateAllThingByID]
+@RowId int,
+@location nvarchar(50),
+@TypeOfMeasure nvarchar(25),
+@liurpCode nvarchar(50),
+@unit nvarchar(50),
+@laborRate nvarchar(50),
+@costPerUnit nvarchar(50),
+@Description nvarchar(1000)
+as
+Update StandardInvoiceTBL set [Description]=@Description, location=@location,TypeOfMeasure=@TypeOfMeasure,liurpCode=@liurpCode,unit=@unit,laborRate=@laborRate,costPerUnit=@costPerUnit where RowId=@RowId
+
+
+=========================================================================================================================================================================================================
+
+14
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_InsertAct129CaclvInvoiceContain]    Script Date: 12/4/2017 2:11:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_InsertAct129CaclvInvoiceContain]      
+@CatId int,      
+@MDID int,      
+@location nvarchar(50),      
+@TypeOfMeasure nvarchar(25),      
+@liurpCode nvarchar(50),      
+@unit nvarchar(50),      
+@laborRate nvarchar(50),      
+@costPerUnit nvarchar(50)     
+as
+insert into StandardInvoiceCaclvTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit) 
+
+==========================================================================================================================================================================================================
+
+15
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_UpdateAllAct129CaclvByID]    Script Date: 12/4/2017 2:12:35 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_UpdateAllAct129CaclvByID]  
+@RowId int,  
+@location nvarchar(50),  
+@TypeOfMeasure nvarchar(5),  
+@liurpCode nvarchar(50),  
+@unit nvarchar(50),  
+@laborRate nvarchar(50),  
+@costPerUnit nvarchar(50)  
+as  
+Update StandardInvoiceCaclvTBL set location=@location,TypeOfMeasure=@TypeOfMeasure,liurpCode=@liurpCode,unit=@unit,laborRate=@laborRate,costPerUnit=@costPerUnit where RowId=@RowId
+
+=========================================================================================================================================================================================================
+16
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[Proc_InsertOrUpdatePaidAmount]    Script Date: 12/4/2017 2:13:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER Proc [dbo].[Proc_InsertOrUpdatePaidAmount]   
+@JobNumber nvarchar(50),  
+@NoOfInvoice int,  
+@PaidTotalAmount nvarchar(50),
+@JobCompanyType int
+as
+Declare @PaidAmount decimal(18,2)
+Declare @PaidRemainingAmt decimal(18,2)  
+Declare @PaidTotal_Amount decimal(18,2)  
+Declare @JobID nvarchar(50)
+set @JobID=(select ID from Jobs where JobNumber=@JobNumber)
+if exists(select JobNumber from tbl_paidreport where JobNumber=@JobNumber and  NoOfInvoice=@NoOfInvoice)  
+Begin
+ set @PaidAmount = (select PaidAmount from tbl_paidreport where JobNumber=@JobNumber and  NoOfInvoice=@NoOfInvoice) 
+ set @PaidTotal_Amount=@PaidTotalAmount
+ set @PaidRemainingAmt=(select PaidRemainingAmount from tbl_paidreport where JobNumber=@JobNumber and  NoOfInvoice=@NoOfInvoice) 
+ 
+ update tbl_paidreport set PaidTotalAmount=@PaidTotalAmount,JobCompanyType=@JobCompanyType,JobID=@JobID,PaidRemainingAmount=(@PaidTotal_Amount-@PaidAmount) where JobNumber=@JobNumber and  NoOfInvoice=@NoOfInvoice  
+End  
+Else  
+Begin  
+Insert into tbl_paidreport(JobNumber,NoOfInvoice,PaidTotalAmount,JobCompanyType,JobID,PaidStatus,PaidRemainingAmount) values(@JobNumber,@NoOfInvoice,@PaidTotalAmount,@JobCompanyType,@JobID,'Not Paid',@PaidTotalAmount)  
+End
+
+
+=============================================================================================================================================================================================================
+
+17
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[Proc_InvoiceShow]    Script Date: 12/4/2017 2:14:44 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[Proc_InvoiceShow]   --exec Proc_InvoiceShow '186969',1,2                   
+@Job_No nvarchar(50),                  
+ @Invoice_No int,                  
+ @Utility_No int                   
+AS                  
+BEGIN                  
+ -- SET NOCOUNT ON added to prevent extra result sets from exec Proc_InvoiceShow '666666',1,2                   
+ -- interfering with SELECT statements.                  
+ --left join SubCat_TBL S on S.SubCatId=I.SubCatId                  
+ SET NOCOUNT ON;                  
+ if @Utility_No=2                  
+ BEGIN                  
+ SELECT I.*,C.Category,(J.FirstName+' '+J.LastName) as Name,J.MailingAddress1,(J.MailingCity+','+S.State+'.'+J.MailingZipCode) as Adr, (select top 1 CONVERT(VARCHAR(10),ContactResultDate,101) from ContactAttempts where JobNumber=@Job_No and ContactResultID=4 order by ID Desc)ContactResultDate,              
+       (case when J.HomePhone is null OR J.HomePhone='' then J.CellPhone else J.HomePhone end)Phone,case when P.DateJobComplete='1900-01-01 00:00:00.000' then null else CONVERT(VARCHAR(10),P.DateJobComplete,101) end as Comp_Date,CONVERT(VARCHAR(10),I.submit_date,101)as Submit_Date                  
+      ,(select (Sum(Convert(money,Total))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)Fnl_Total                  
+ ,(select (Sum(Convert(money,LaborRate))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)labor_Total                  
+      ,(select (Sum(Convert(money,CostPerUnit))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)cost_Total                  
+      , (case when I.SC is null OR I.SC=''  then '-' else I.SC end)SC1                  
+         , (case when I.THW is null  OR I.THW='' then '-' else I.THW end)THW1                  
+                  , (case when I.TMC is null OR I.TMC='' then '-' else('$'+Convert(nvarchar,Convert(money,I.TMC)))end)TMC1                     
+                    , (case when I.CostPerUnit is null OR I.CostPerUnit='' then '-' else '$'+I.CostPerUnit end)CostPerUnit1                  
+                    ,('$'+I.Total)Total1,('$'+Convert(nvarchar,Convert(money,I.LaborRate)))LaborRate1                  
+                    ,(case when J.Act129II=1 OR J.Act129=1 then 'Act 129' else 'USP' end)ACT                  
+                    ,(case when J.Act129II=1 OR J.Act129=1 then 'USP' else 'Act 129' end)ACT2                  
+        ,(case when J.WarmOrWarmPlus='Warm' then 'Warm' else 'WarmPlus' end)Warm1                  
+       ,(case when J.WarmOrWarmPlus='Warm' then 'WarmPlus' else 'Warm' end)Warm2 from AllInvoiceByJobNumberTBL I                  
+left join Category_TBL C on C.CatID=I.catId                  
+                  
+right join PPLAuditPage1Ver2 P on P.JobNumber=I.JobNumber                   
+                  
+right join Jobs J on J.JobNumber=I.JobNumber                  
+right join States S on S.ID=J.MailingState                  
+left join  InvoiceCatGOrder O on I.catId=o.catid and I.NoOfInvoice=o.InvoiceNo and I.JobNumber=o.JobNum                  
+where I.JobNumber=@Job_No and I.NoOfInvoice=@Invoice_No and Utility=@Utility_No order by o.ordernum                  
+                  
+END                  
+                  
+else if @Utility_No=1                 
+BEGIN                  
+ SELECT I.InvoiceRowId,I.NoOfInvoice,I.catId,I.SubCategory,I.Location,I.SC,I.LiurpCode,(case when I.Unit is null  OR I.Unit='' OR I.Unit='0.00' OR I.Unit='0' then '-' else('$'+Convert(nvarchar,Convert(money,I.Unit))) end)Unit,I.LaborRate,I.CostPerUnit,I.THW,I.TMC,I.QTY,I.Total,I.RowType,I.JobNumber,I.UserId,I.SwapId,I.Utility,I.submit_date,I.Rad_btn,I.SubCatId,I.LR,C.Category,(J.FirstName+' '+J.LastName) as Name,J.MailingAddress1,(J.MailingCity+','+S.State+'.'+J.MailingZipCode) as Adr,(select top 1 CONVERT(VARCHAR(10),ContactResultDate,101) from ContactAttempts where JobNumber=@Job_No and ContactResultID=4 order by ID Desc)ContactResultDate,                                
+       (case when J.HomePhone is null OR J.HomePhone='' then J.CellPhone else J.HomePhone end)Phone,case  when P.JobFinishedDate='1900-01-01 00:00:00.000' then null else  CONVERT(VARCHAR(10),P.JobFinishedDate,101) end as Comp_Date,CONVERT(VARCHAR(10),I.submit_date,101)as Submit_Date        
+      ,(select (Sum(Convert(money,Total))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)Fnl_Total               
+ ,(select (Sum(Convert(money,LaborRate))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)labor_Total                  
+      ,(select (Sum(Convert(money,CostPerUnit))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)cost_Total                  
+      , (case when I.SC is null OR I.SC=''  then '-' else I.SC end)SC1                  
+         , (case when I.THW is null  OR I.THW='' OR I.THW='0.00' OR I.THW='0' OR I.THW='-' then '-' else(Convert(nvarchar,Convert(money,I.THW))) end)THW1               
+                  , (case when I.TMC is null OR I.TMC='' OR I.TMC='0.00' OR I.TMC='0' then '-' else(I.TMC)end)TMC1                                            
+                    , (case when I.CostPerUnit is null OR I.CostPerUnit='' OR I.CostPerUnit='0.00' OR I.CostPerUnit='0' OR I.CostPerUnit='-' then '-' else '$'+I.CostPerUnit end)CostPerUnit1                  
+                    ,('$'+I.Total)Total1,(case when I.LaborRate is null OR I.LaborRate='' OR I.LaborRate='0.00' OR I.LaborRate='0' OR I.LaborRate='-' then '-' else('$'+Convert(nvarchar,Convert(money,I.LaborRate)))end)LaborRate1                  
+                    ,(case when J.Act129II=1 OR J.Act129=1 then 'Act 129' else 'USP' end)ACT                  
+  ,(case when J.Act129II=1 OR J.Act129=1 then 'USP' else 'Act 129' end)ACT2                  
+        ,(case when J.WarmOrWarmPlus='Warm' then 'Warm' else 'WarmPlus' end)Warm1                  
+       ,(case when J.WarmOrWarmPlus='Warm' then 'WarmPlus' else 'Warm' end)Warm2 from AllInvoiceByJobNumberTBL I                  
+left join MetedCategory_TBL C on C.CatID=I.catId                  
+                  
+right join METEDAuditPage1 P on P.JobNumber=I.JobNumber                  
+                  
+right join Jobs J on J.JobNumber=I.JobNumber                  
+right join States S on S.ID=J.MailingState                  
+left join  InvoiceCatGOrder O on I.catId=o.catid and I.NoOfInvoice=o.InvoiceNo and I.JobNumber=o.JobNum                  
+where I.JobNumber=@Job_No and I.NoOfInvoice=@Invoice_No and Utility=@Utility_No order by o.ordernum                  
+END                  
+                  
+else if @Utility_No=7 or @Utility_No=9 or @Utility_No=4 or @Utility_No=3               
+BEGIN                  
+ SELECT I.*,C.Category,(J.FirstName+' '+J.LastName) as Name,J.MailingAddress1,(J.MailingCity+','+S.State+'.'+J.MailingZipCode) as Adr,(select top 1 CONVERT(VARCHAR(10),ContactResultDate,101) from ContactAttempts where JobNumber=@Job_No and ContactResultID=4)ContactResultDate,                                
+       (case when J.HomePhone is null OR J.HomePhone='' then J.CellPhone else J.HomePhone end)Phone,CONVERT(VARCHAR(10),'09/30/2014',101)as Comp_Date,CONVERT(VARCHAR(10),I.submit_date,101)as Submit_Date                  
+      ,(select (Sum(Convert(money,Total))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)Fnl_Total                  
+ ,(select (Sum(Convert(money,LaborRate))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)labor_Total                  
+      ,(select (Sum(Convert(money,CostPerUnit))) from AllInvoiceByJobNumberTBL where NoOfInvoice=@Invoice_No and JobNumber=@Job_No and Utility=@Utility_No)cost_Total                  
+      , (case when I.SC is null OR I.SC=''  then '-' else I.SC end)SC1                  
+         , (case when I.THW is null  OR I.THW='' then '-' else I.THW end)THW1                  
+                  , (case when I.TMC is null OR I.TMC='' then '-' else('$'+Convert(nvarchar,Convert(money,I.TMC)))end)TMC1           
+            
+                    , (case when I.CostPerUnit is null OR I.CostPerUnit='' then '-' else '$'+I.CostPerUnit end)CostPerUnit1                  
+                    ,('$'+I.Total)Total1,('$'+Convert(nvarchar,Convert(money,I.LaborRate)))LaborRate1                  
+                    from AllInvoiceByJobNumberTBL I                  
+left join PrivateCatTBL C on C.CatID=I.catId                  
+right join Jobs J on J.JobNumber=I.JobNumber                  
+right join States S on S.ID=J.MailingState                  
+left join  InvoiceCatGOrder O on I.catId=o.catid and I.NoOfInvoice=o.InvoiceNo and I.JobNumber=o.JobNum                  
+where I.JobNumber=@Job_No and I.NoOfInvoice=@Invoice_No and Utility=@Utility_No order by o.ordernum                  
+END               
+                  
+END 
+
+
+==================================================================================================================================================================================
+
+18
+
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_InsertInvoiceContain]    Script Date: 12/4/2017 2:16:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_InsertInvoiceContain]    
+@CatId int,    
+@MDID int,    
+@location nvarchar(50),    
+@TypeOfMeasure nvarchar(25),    
+@liurpCode nvarchar(50),    
+@unit nvarchar(50),    
+@laborRate nvarchar(50),    
+@costPerUnit nvarchar(50)   
+as    
+insert into StandardInvoiceTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit)    
+insert into StandardInvoiceZoneTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit) 
+insert into StandardInvoiceCaclvTBL(CatId,MDID,location,TypeOfMeasure,liurpCode,unit,laborRate,costPerUnit) values(@CatId,@MDID,@location,@TypeOfMeasure,@liurpCode,@unit,@laborRate,@costPerUnit) 
+
+
+======================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
