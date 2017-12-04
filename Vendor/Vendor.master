@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Vendor.master.cs" Inherits="Vendor_Vendor" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <link href="../images/favicon.ico" rel="icon" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="fix_div">
+            <!-- header -->
+            <div class="header">
+                <div class="logo_div">
+                    <a href="../Home.aspx">
+                        <img src="../images/logo.jpg" alt="" /></a></div>
+                <div class="header_middiv">
+                    Customer Service</div>
+                <div class="head_right">
+                    <div class="top_icons">
+                        <ul>
+                            <li><a href="../DisplayJobSearchRecords.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["jobs"].ToString()%>&Gt=Vendor"
+                                class="back" title="Back" style="height:20px;width:20px;"></a></li>
+                            <li><a href="../Home.aspx" class="home" title="Home"></a></li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <br />
+                    <div class="head_link">
+                        <%-- <a href="admin/Admin_Unfinalize.aspx">Administer Database</a>--%>
+                        <asp:LinkButton ID="lnk_adminis" runat="server" OnClick="lnk_adminis_Click">Administer Database</asp:LinkButton>
+                        <span id="span_word" runat="server">|</span>
+                        <asp:LinkButton ID="lnkLogin" runat="server" Text="Logout" OnClick="lnkLogin_Click"></asp:LinkButton>
+                        <br />
+                        Hello
+                        <%=StrUserName %><br />
+                    </div>
+                </div>
+            </div>
+            <!-- end header -->
+            <div class="clear">
+            </div>
+            <!-- mid section1 -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- end mid section2 -->
+            <div class="clear">
+            </div>
+            <!-- footer -->
+            <div class="footer" style="padding-bottom: 40px;">
+                Custom Weatherization, LLC © 2013</div>
+            <!-- end footer -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>

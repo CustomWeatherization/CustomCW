@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Cweather</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+
+<!-- tooltip msg -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<script type="text/javascript">
+$(document).ready(function() {
+//Tooltips
+$(".tip_trigger").hover(function(){
+tip = $(this).find('.tip');
+tip.show(); //Show tooltip
+}, function() {
+tip.hide(); //Hide tooltip		  
+}).mousemove(function(e) {
+var mousex = e.pageX + 20; //Get X coodrinates
+var mousey = e.pageY + 20; //Get Y coordinates
+var tipWidth = tip.width(); //Find width of tooltip
+var tipHeight = tip.height(); //Find height of tooltip
+
+//Distance of element from the right edge of viewport
+var tipVisX = $(window).width() - (mousex + tipWidth);
+//Distance of element from the bottom of viewport
+var tipVisY = $(window).height() - (mousey + tipHeight);
+
+if ( tipVisX < 20 ) { //If tooltip exceeds the X coordinate of viewport
+mousex = e.pageX - tipWidth - 20;
+} if ( tipVisY < 20 ) { //If tooltip exceeds the Y coordinate of viewport
+mousey = e.pageY - tipHeight - 20;
+} 
+tip.css({  top: mousey, left: mousex });
+});
+});
+
+</script>
+</head>
+
+<body>
+<div class="fix_div">
+<!-- header -->
+<div class="header">
+<div class="logo_div"><a href="#"><img src="images/logo.jpg" /></a></div>
+<div class="header_middiv"></div>
+<div class="head_link"><a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+</div>
+<!-- end header -->
+
+<div class="clear"></div>
+
+<!-- form section -->
+<div class="jobstatus">
+<h1>Read Messages</h1>
+<p>You may hover over the text <strong>Read Message</strong> to get a preview of the message without marking it as read, to save it for marking it as read later. </p>
+
+<p>To read a message AND mark it as read, click on the hyperlink for the message. Doing this will also give you a hyperlink to the job number on the Update Jobs Page. To reply to the sender and include the message in the job itself you must click on the job number link on the next page.</p>
+</div>
+<div class="clear"></div>
+<div class="grid">
+<h4>No Outstanding messages were found.</h4>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="12%">Sender Name</th>
+    <th width="12%">Job Number</th>
+    <th width="13%">Read or Unread</th>
+    <th width="13%">Toggle Read or Unread</th>
+    <th width="13%">Message Sent</th>
+    <th width="12%">Read Message</th>
+    <th width="13%">Recipient Name</th>
+    <th width="12%">Customer</th>
+  </tr>
+  <tr>
+    <td><strong>Billie Shiner</strong></td>
+    <td><a href="#">170626</a></td>
+    <td>Read</td>
+    <td>Unread</td>
+    <td>Yes</td>
+    <td><a class="tip_trigger" href="#"><img src="images/msg.png" width="25" />
+    <span class="tip" style="width: 400px;">Welcome to Grandpeople. We specialize in graphic design, photography, illustration and creative direction. Feel free to have a look at our selected work for clients and collaborators from around the globe.</span></a>
+    </td>
+    <td><strong>Angie Bracero</strong></td>
+    <td><strong>Carmen Cortes</strong></td>
+  </tr>
+</table>
+</div>
+<div class="clear"></div>
+<div class="btmbutton">
+<input name="" type="button" value="Cancel" />
+</div>
+<!-- end form section -->
+
+<div class="clear"></div>
+
+<!-- footer -->
+<div class="footer">Custom Weatherization, LLC © 2013</div>
+<!-- end footer -->
+</div>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        h2
+        {
+            font-size: 20px;
+            padding-left: 20px;
+        }
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+        p
+        {
+            float: left;
+            width: 100%;
+        }
+        td
+        {
+            margin: 2px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="../images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <!--
+<div class="clear"></div>
+<div align="center">WARM Lighting and Smart Power Strip Installations</div>
+<strong><u>LIURP WARM Bulbs</u></strong> are warranted for one year. They are to be installed in lights used an average of 2 hours or more in a 24 hour period year round - Maximum 12 for Met-Ed, Penelec, and Penn Power. <br />
+<strong><u>Act 129 Bulbs</u></strong> are non-warranted CFLs. They are to be installed in addition to the 12 CFLs covered under LIURP WARM. Install these bulbs in lights that are on greater than 1 hour per day and less than 2 hours per day. Install specialty CFLs in lights that are on greater than 2 hours per day. Your goal for Act 129 installations is, whenever possible, to install at least 2 Act 129 bulbs/households, an <strong><u>average</u></strong> of 4 per household - maximum 12 for Met-Ed, Penelec, and Penn Power. For WPP a maximum of 24 bulbs can be installed using the Act 129 parameters; however, your goal is to install as many CFLs as possible. Use a permanent marker to mark Act 129 bulbs with NW (no warranty).
+-->
+        <p align="left">
+            <b>Electric Water Heating Assessment</b> Water Heater Fuel Type:
+            <input type="radio">
+            1. Electric
+            <input type="radio">
+            2. Fuel Oil
+            <input type="radio">
+            3. Utility Gas
+            <input type="radio">
+            4. Bottled Gas/Propane
+            <input type="radio">
+            99. Other
+            <input type="text" class="txt_style8" style="width: 75px;">
+        </p>
+        <div class="tab" style="border: 1px solid #000; padding: 10px; float: left; width: 100%;
+            margin-bottom: 20px;">
+            <div style="width: 100%; float: left;">
+                <p style="float: left; width: 10% !important;"></p>
+                    Document water heating issues here, such as family runs out of hot water, tank rusted:
+                    &nbsp; &nbsp;
+                    <p style="float: right; width: 90% !important;"></p>
+                        &nbsp; &nbsp;
+                        <textarea style="width: 97%; height: 50px;"></textarea>
+
+            </div>
+            <table width="55%" border="0" cellspacing="5" cellpadding="5" align="left">
+                <tr>
+                    <td>
+                        Is the water heater leaking?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Is the water heater rusted/corroded?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Are the element(s) bad?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Is the unit rated R8 or less?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Will water heater be replaced?<input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Existing Water Heater size:
+                        <input type="text" class="txt_style8" style="width: 50px;">
+                    </td>
+                    <td>
+                        Replacement size:
+                        <input type="text" class="txt_style8" style="width: 50px;">
+                    </td>
+                </tr>
+            </table>
+            <table width="30%" border="1" cellspacing="0" cellpadding="5" align="right">
+                <tr>
+                    <td>
+                        Are you going to:
+                    </td>
+                    <td>
+                        Yes
+                    </td>
+                    <td>
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Replace or add expansion tank:
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Replace Element(s):
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Replace Thermostats:
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Flush Tank?
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Add/replace pressure relief valve
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Add/replace pressure relief pipe
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5" align="right" style="margin-top: 10px;">
+                <tr>
+                    <td>
+                        Did you change the temperature?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                    No &nbsp; &nbsp; If yes, set both elements to the same temperature.</td>
+                </tr>
+                <tr>
+                    <td>
+                        Existing Temp:
+                        <input type="text" class="txt_style8" style="width: 50px;">
+                        Test location:
+                        <input type="text" class="txt_style8" style="width: 200px;">
+                        Adjusted Temp:
+                        <input type="text" class="txt_style8" style="width: 50px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Are you wrapping water pipes in unheated areas?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No If so, # of linear ft:
+                        <input type="text" class="txt_style8" style="width: 50px;">
+                        Location
+                        <input type="text" class="txt_style8" style="width: 200px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comments:
+                        <input type="text" class="txt_style8" style="width: 90%;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Are there any other hot water leaks?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No If yes, where?
+                        <input type="text" class="txt_style8" style="width: 25%px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Are you going to repair leaks?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No If yes, where?
+                        <input type="text" class="txt_style8" style="width: 25%px;">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--newtable end-->
+        <table width="100%" border="0" cellspacing="0" cellpadding="5" align="right" style="margin-top: 10px;">
+            <tr>
+                <td>
+                    Is customer on the time-of-day (TOD) rate?
+                    <input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    If yes, is customer saving on this rate?
+                    <input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Does customer's lifestyle suit the rate change? </br>(Use Human Services Web Site
+                    rate comparison tool.)
+                    <input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Is customer going to switch to the TOD rate?
+                    <input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Does the customer have a water heater timer?
+                    <input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Timer installed?<input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Would a GFX System work? Shower is used at least 15 minutes per day; basement drain
+                    stack servicing the most used shower is exposed; at least 34" of vertical height
+                    </br>available on the drain stack; drain pipe is at least 3" in diameter:
+                    <input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    If yes, how far is the drain pipe from the cold water supply?
+                    <input type="text" class="txt_style8" style="width: 55px;">
+                    How far is the drain pipe from the water heater?
+                    <input type="text" class="txt_style8" style="width: 55px;">
+                    Installing GFX?<input type="radio">
+                    Yes
+                    <input type="radio">
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    comment: &nbsp; &nbsp;
+                    <textarea style="width: 90%; height: 50px;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

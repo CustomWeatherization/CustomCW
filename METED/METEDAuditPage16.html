@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+                <td colspan="3">
+                    Copy this page for as many tests that are needed. Typically, there should be two
+                    of this form, one for pre-work testing and one for post-work testing.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" />
+                    Pre-test
+                </td>
+                <td>
+                    <input type="radio" />
+                    Post-Test
+                </td>
+                <td>
+                    Tech Name
+                    <input type="text" class="txt_size" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" />
+                    Auditor
+                </td>
+                <td>
+                    <input type="radio" />
+                    Crew
+                    <input type="text" class="txt_address" />
+                </td>
+                <td>
+                    Test Date:
+                    <input type="text" class="txt_size" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <strong>Combustion Safety Testing</strong> Are there Combustion Appliances?<input
+                        type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    Combustion Equipment Safety Tests must be performed if any air sealing will be done
+                    or is done. If post-treatment blower door test is lower than the pre-treatment test,
+                    the chart below MUST be completed. Refer to the Procedure Manual for complete testing
+                    procedure.
+                </td>
+            </tr>
+        </table>
+        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;">
+            Are there any unvented combustion heating appliances?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td align="center">
+                    </td>
+                    <td align="center" colspan="2">
+                        CO Initial Reading
+                    </td>
+                    <td align="center" colspan="2">
+                        CO After<br />
+                        5-10
+                        <br />
+                        Min
+                    </td>
+                    <td align="center">
+                        Gas<br />
+                        Leak<br />
+                        Det Y/N
+                    </td>
+                    <td align="center">
+                        Flame<br />
+                        Rollout<br />
+                        Y/N
+                    </td>
+                    <td align="center" colspan="2">
+                        Spillage Y/N
+                    </td>
+                    <td align="center" colspan="2">
+                        Spillage after<br />
+                        1 min Y/N
+                    </td>
+                    <td align="center" colspan="2">
+                        Draft Pressure PA
+                    </td>
+                    <td align="center" colspan="2">
+                        Draft Pass Y/N
+                    </td>
+                    <td align="center" colspan="2">
+                        CO Flue
+                    </td>
+                    <td align="center" colspan="2">
+                        CO Pass Y/N
+                    </td>
+                    <td align="center" colspan="3">
+                        Optional
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Appliance
+                    </td>
+                    <td align="center">
+                        AMB
+                    </td>
+                    <td align="center">
+                        CAZ
+                    </td>
+                    <td align="center">
+                        AMB
+                    </td>
+                    <td align="center">
+                        CAZ
+                    </td>
+                    <td align="center">
+                    </td>
+                    <td align="center">
+                    </td>
+                    <td align="center">
+                        W/C
+                    </td>
+                    <td align="center">
+                        NAT
+                    </td>
+                    <td align="center">
+                        W/C
+                    </td>
+                    <td align="center">
+                        NAT
+                    </td>
+                    <td align="center">
+                        W/C
+                    </td>
+                    <td>
+                        NAT
+                    </td>
+                    <td align="center">
+                        W/C
+                    </td>
+                    <td>
+                        NAT
+                    </td>
+                    <td align="center">
+                        W/C
+                    </td>
+                    <td>
+                        NAT
+                    </td>
+                    <td align="center">
+                        W/C
+                    </td>
+                    <td>
+                        NAT
+                    </td>
+                    <td align="center">
+                        Stack Temp
+                    </td>
+                    <td>
+                        O2
+                    </td>
+                    <td>
+                        Eff.
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Water Heater
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Furnace/Boiler
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Gas Range
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Other
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="text" class="txt_mob" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="text" class="txt_mob" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                    <td align="center">
+                        <input type="text" class="small_field" />
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td width="33%">
+                        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;">
+                            <strong>Burners:</strong>
+                            <br />
+                            Write in CO ppm for
+                            <br />
+                            each burner:<br />
+                            <strong>Oven</strong>
+                            <br />
+                            If CO at oven vent is 100 ppm or more, install CO alarm and recommend service. No
+                            air sealing is allowed until CO level drops below 100 ppm.
+                            <p>
+                                <strong>Oven:</strong></p>
+                            CO Ambient:
+                            <input type="text" class="txt_sevvy" />
+                            <br />
+                            <br />
+                            CO at oven vent:
+                            <input type="text" class="txt_sevvy" />
+                        </div>
+                    </td>
+                    <td width="33%" align="center">
+                        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;
+                            width: 70%">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="10">
+                                <tr>
+                                    <td>
+                                        <input type="text" class="txt_sevvy" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="txt_sevvy" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="txt_sevvy" />
+                                    </td>
+                                    <td>
+                                        <input type="text" class="txt_sevvy" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td align="right" valign="top">
+                        Notes:
+                        <input type="text" multiple="multiple" class="txt_multipal" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        AMB = Ambient, CAZ = Combustion Appliance Zone, Det = Detected, W/C = Worst Case
+                        Conditions, NAT = Natural, Temp = Temperature, Eff = Efficiency
+                        <br />
+                        Pa = Pascal, IWC = Inches of Water Column: 50 Pa. = .2 IWC, 25 Pa. = .1 IWC, 1 Pa.
+                        = 0.00401 IWC
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <h4 align="center">
+            BPI Minimum Acceptable Draft Test Reading at Outdoor Air Temperature Ranges</h4>
+        <table width="80%" border="1" cellspacing="0" cellpadding="10" align="center">
+            <tr>
+                <td align="center">
+                    Degrees F
+                </td>
+                <td align="center">
+                    <19
+                </td>
+                <td align="center">
+                    20s
+                </td>
+                <td align="center">
+                    30s
+                </td>
+                <td align="center">
+                    40s
+                </td>
+                <td align="center">
+                    50s
+                </td>
+                <td align="center">
+                    60s
+                </td>
+                <td align="center">
+                    70s
+                </td>
+                <td align="center">
+                    80s
+                </td>
+                <td align="center">
+                    >90s
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    Pascals (Pa)
+                </td>
+                <td align="center">
+                    -2.5*
+                </td>
+                <td align="center">
+                    -2.25*
+                </td>
+                <td align="center">
+                    -2*
+                </td>
+                <td align="center">
+                    -1.75*
+                </td>
+                <td align="center">
+                    -1.5*
+                </td>
+                <td align="center">
+                    -1.25*
+                </td>
+                <td align="center">
+                    -1*
+                </td>
+                <td align="center">
+                    -.75*
+                </td>
+                <td align="center">
+                    -0.5*
+                </td>
+            </tr>
+        </table>
+        <table width="80%" border="0" cellspacing="0" cellpadding="10" align="center">
+            <tr>
+                <td>
+                    * Actual equation is (T_out/40)-2.75
+                </td>
+            </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+                <td>
+                    Outdoor Temperature:
+                    <input type="text" class="txt_city" />
+                    <br />
+                    <br />
+                    CAZ Worse Case Depressurization: Natural:<input type="text" class="txt_city" />
+                    WC:<input type="text" class="txt_city" />
+                    Diff:<input type="text" class="txt_city" />
+                    <br />
+                    <br />
+                    Pass?
+                    <input type="radio" />Yes
+                    <input type="radio" />No
+                    <br />
+                    <br />
+                    <input type="checkbox" />
+                    Emergency situation. Gas company called to fix gas leak or other.<br />
+                    <br />
+                    <input type="checkbox" />
+                    Work cannot continue due to one or more failed tests over Action Level.
+                </td>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                        <tr>
+                            <td colspan="2">
+                                Select Appliances on At Worst Case Test:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                                Dryer
+                            </td>
+                            <td>
+                                <input type="checkbox" />
+                                Whole House Fan
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                                Bath Fan
+                            </td>
+                            <td>
+                                <input type="checkbox" />
+                                HVAC Air Handler
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                                Kitchen Fan
+                            </td>
+                            <td>
+                                <input type="checkbox" />
+                                <input type="text" class="txt_city" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                                Attic Fan
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" valign="top">
+                    Notes:
+                    <textarea style="width: 90%; height: 50px;"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

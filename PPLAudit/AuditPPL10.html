@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Cweather</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<style>
+h2{font-size: 20px;
+padding-left:20px;
+}
+table{border:0;}
+p span{font-size:18px; color:#000000; text-decoration:underline;}
+table tr td span{font-size:14px; font-weight:bold; color:#000000; text-decoration:underline;}
+.txt_name {
+border: none;
+border-bottom: solid 1px rgb(219, 219, 219);
+font-weight: normal;
+color: rgb(153, 153, 153);
+width: 100%;
+}
+.txt_name {
+border-bottom: none;
+}
+</style>
+</head>
+
+<body>
+<div class="fix_div">
+<!-- header -->
+<div class="header">
+<div class="logo_div"><a href="#"><img src="images/logo.jpg" /></a></div>
+<div class="header_middiv"></div>
+<div class="head_link"><a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+</div>
+<!-- end header -->
+<div class="clear"></div>
+<!-- form section -->
+<h1 class="heading_text">Select System Type FIRST</h1>
+<h2 align="center">DUCT TESTING, REPAIR & SEALING FORM</h2> <br />
+<div class="newtable"> <!--newtable begin-->
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100px"> &nbsp; <strong> <u> System Type </u> </strong></td>
+    <td>
+         <table width="100%" border="1" cellspacing="0" cellpadding="5">
+          <tr>
+            <td>Heat Pump: <input type="checkbox" /></td>
+            <td>Central Air Only <input type="checkbox" /></td>
+            <td>Elec. Furnace <input type="checkbox" /></td>
+          </tr>
+          <tr>
+              <td colspan="3">Other <input type="checkbox" /> <input type="text" class="txt_style2" /></td>
+          </tr>
+         </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+          <table width="100%" border="1" cellspacing="0" cellpadding="5">
+              <tr>
+                <td><u> <strong>Supply Duct Locations</strong></u> </td>
+                <td>Basement / Walls <br /> <input type="text" class="txt_parcent" value="%" /></td>
+                <td>Attic <br /> <input type="text" class="txt_parcent" value="%" /></td>
+                <td>Garage <br /> <input type="text" class="txt_parcent" value="%" /></td>
+                <td>Vented Crawl <br /> <input type="text" class="txt_parcent" value="%" /></td>
+              </tr>
+          </table>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2" height="45"> &nbsp; <u><strong>Air Handler Location</strong><u> <br /> &nbsp; <input type="text" class="txt_below" /></td>
+  </tr>
+  <tr>
+       <td colspan="2">
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>&nbsp; <u><strong>Duct Materials</strong></u> </td>
+                <td>Metal <input type="checkbox" /></td>
+                <td>Duct Board <input type="checkbox" /></td>
+                <td>Flex <input type="checkbox" /></td>
+              </tr>
+           </table>
+
+       </td>
+  </tr>
+  <tr>
+       <td colspan="2">
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+              <tr>
+                <td>&nbsp; <u><strong>Filter Locations</strong></u> </td>
+                <td>In Cabinet <input type="checkbox" /></td>
+                <td>Ext. Slot <input type="checkbox" /></td>
+                <td align="right"><u><strong>Return Register Slot Covered</strong></u>  <input type="checkbox" />  Yes</td>
+                <td><input type="checkbox" /> No</td>
+              </tr>
+           </table>
+
+       </td>
+  </tr>
+  <tr>
+       <td colspan="2" height="40">
+           &nbsp; <strong><u>Situation I:</u>  Ducts are all in basement or walls and there is a single or no return register</strong>
+       </td>
+  </tr>
+   <tr>
+       <td colspan="2">
+         <ul>
+		<li>Re-connect accessible disconnected ducts</li>
+		<li>Support sagging ducts with wire or strap</li>
+		<li>Run the air handler fan and seal <i><b>large</b></i> supply and return leaks</li>
+		<li>If there is no return, either create one or vent basement to living space</li>
+	     </ul>
+       </td>
+  </tr>
+  <tr>
+       <td colspan="2" height="40">
+           &nbsp; <strong><u>Situation II:</u> Ducts are all in basement or walls and there are multiple return registers</strong>
+       </td>
+  </tr>
+  <tr>
+       <td colspan="2">
+        <ul>
+		<li>Open basement door and depressurize house to 25 Pascals</li>
+		<li>Pressure pan all return registers and enter pressures in table</li>
+		<li>For all registers with pressure &gt; 1 Pascal, seal accessible leaks between the building cavity
+			containing the register and exterior zones.  To locate leaks, run the air handler fan and use smoke</li>
+		<li>Enter final pressure pan reading in table</li>
+		<li>Do <i><b>NOT</b></i> seal leaks in basement returns unless they are big enough to depressurize the basement
+			at least 2 Pascals with the air handler fan</li>
+	    </ul>
+       </td>
+  </tr>
+  <tr>
+       <td colspan="2" height="40">
+           &nbsp; <strong><u>Situation III:</u> There is duct work in exterior zones</strong>
+       </td>
+  </tr>
+  <tr>
+       <td colspan="2">
+        <ul>
+		<li>If there is ductwork in the basement, open the basement door</li>
+		<li>Depressurize house to 25 Pascals abd oressure pan all supply and return registers.  Enter the pressure in the table</li>
+		<li>Seal leaks between ducts/building cavities and exterior zones until all pressure pan readings are below 1 Pascal or no further sealing is practical.
+			If leakage is sever, some drywall demolition/replacement may be justified</li>
+		<li>Enter pressure pan readings in table</li>
+	</ul>
+       </td>
+  </tr>
+</table>
+<div class="botom_tab">
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>Register Number</td>
+    <td>#1</td>
+    <td>#2</td>
+    <td>#3</td>
+    <td>#4</td>
+    <td>#5</td>
+    <td>#6</td>
+    <td>#7</td>
+    <td>#8</td>
+  </tr>
+  <tr>
+    <td>Room</td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+  </tr>
+  <tr>
+    <td>Read</td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>Supply</td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>Return</td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>Register Number</td>
+    <td>#9</td>
+    <td>#10</td>
+    <td>#11</td>
+    <td>#12</td>
+    <td>#13</td>
+    <td>#14</td>
+    <td>#15</td>
+    <td>#16</td>
+  </tr>
+  <tr>
+    <td>Room</td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+    <td><input type="text" class="num_txt" /></td>
+  </tr>
+  <tr>
+    <td>Read</td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="51">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td width="52">Pre</td>
+                 <td>Post</td>
+             </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>Supply</td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>Return</td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+    <td>
+        <table border="1" width="100%" cellpadding="0" cellspacing="0">
+             <tr>
+                 <td><input type="text" class="num_pre" /></td>
+                 <td><input type="text" class="num_pre" /></td>
+             </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+     <td colspan="9" align="center"> <input type="button" value="Save" /> <input type="button" value="cancle" /></td>
+  </tr>
+</table>
+<br />
+<strong><u>Note:</u> Number registers by floor going away from Air Handler Unit (AHU). Register # will always be the one closest to AHU.</strong>
+<br /><br />
+</div>
+</div> <!--newtable end-->
+</div>
+</body>
+</html>

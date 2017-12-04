@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Cweather</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<style>
+h2{font-size: 20px;
+text-align:center;
+text-decoration:underline;
+}
+table{border:0;}
+p span{font-size:18px; color:#000000; text-decoration:underline;}
+table tr td span{font-size:14px; font-weight:bold; color:#000000;}
+</style>
+</head>
+
+<body>
+<div class="fix_div">
+<!-- header -->
+<div class="header">
+<div class="logo_div"><a href="#"><img src="images/logo.jpg" /></a></div>
+<div class="header_middiv"></div>
+<div class="head_link"><a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+</div>
+<!-- end header -->
+
+<div class="clear"></div>
+
+
+
+<!-- form section -->
+<h2>Blower Door Testing Information Form</h2> <br />
+<table width="100%" cellspacing="0" cellpadding="10" border="1">
+  <tr>
+      <td>Target MVG: <input type="text" value="1220" class="txt_name" /></td>
+      <td>CFM 50</td>
+      <td>Temperature</td>
+  </tr>
+  <tr>
+      <td>Pre-weatherization reading: <input type="text" class="txt_name" /></td>
+      <td>CFM 50, basement door open</td>
+      <td>Indoor <input type="text" value="69" class="txt_name" /></td>
+  </tr>
+  <tr>
+      <td>Pre-weatherization reading: <input type="text" value="3847" class="txt_name" /></td>
+      <td>CFM 50, basement door open</td>
+      <td>Outdoor  <input type="text" value="60" class="txt_name" /></td>
+  </tr>
+  <tr>
+      <td>Post-weatherization reading: <input type="text" class="txt_name" /></td>
+      <td colspan="2">CFM 50 basement <input type="checkbox"  /> Open &nbsp; &nbsp; <input type="checkbox"  /> Close </td>
+  </tr>
+   <tr>
+      <td colspan="3">Total Reduction: <input type="text" value="557" class="txt_name" />  </td>
+  </tr>
+</table>
+<h4>*5 Point Test Optional Method</h4> <br />
+<p> <span>Notes: </span>  Consider areas that are heated and used daily as intentionally heated and should be inside the thermal (insulation) and pressure (air sealed) area. The thermal and pressure boundaries must be at the same place. When testing, use house to outside (H/OO pressures near 50 Pa if possible. Use same gauge for all tests. The ceiling leakage Ratio is the (House/Zone divided by the House/Outside) times 100%. 90% or better passes. If the ratio is less than 90% (.9), the home must receive air sealing treatment for both bypasses and convective loops. A zone is any area that might be connected to the house and you want to determine if there are leaks to the outside or leaks to the house. Ducts that are considered zones should be tested using the Duct Testing, Repair and Sealing Sheet. If the ceilings and rood deck are on a common rafter, such as flat roofs or cathedral ceilings, there is no attic and therefore no attic pressure tests need to be taken. "Outside" means out of the entire structure.</p>
+<br />
+<table width="100%" border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <td colspan="7" align="center"><h3>PRESSURES</h3></td>
+  </tr>
+  <tr>
+    <td width="20%">&nbsp;</td>
+    <td colspan="2"  align="center">What was blower door test set at? House/Outside</td>
+    <td  align="center">House/Zone</td>
+    <td>&nbsp;</td>
+    <td align="center">Zone/Outside</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span>ZONES</span></td>
+    <td align="center"><span>Pre-Treat</span></td>
+    <td  align="center"><span>Final</span></td>
+    <td  align="center"><span>Pre-Treat</span></td>
+    <td  align="center"><span>Final</span></td>
+    <td  align="center"><span>Pre-Treat</span></td>
+    <td  align="center"><span>Final</span></td>
+  </tr>
+  <tr>
+    <td align="center"><span>Example: Attic</span></td>
+    <td align="center"> -50 </td>
+    <td  align="center"> -50 </td>
+    <td  align="center"> -40 </td>
+    <td  align="center"> -50 </td>
+    <td  align="center" width="100px;">-10 (attic is connected to the house and needs to be separated by air sealing the attic floor)</td>
+    <td  align="center">0</td>
+  </tr>
+  <tr>
+    <td><span>Basement</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" />  </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Vented Crawlspace</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" />  </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Attic A</span></td>
+    <td align="center">  <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center">  <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Attic B</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Kneewall A</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Kneewall B</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Garage</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Garage Attic</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Cantilever Overhang</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Cantilever Overhang</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Other</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Other</span></td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td><span>Other</span></td>
+        <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td align="center"> <input type="text" class="txt_base" size="7" value="-50" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td><input type="text" class="txt_base" size="7" /> </td>
+    <td> <input type="text" class="txt_base" size="7" /> </td>
+  </tr>
+  <tr>
+    <td colspan="7" align="center"> <input type="button" value="Save" /> <input type="button" value="Cancle" /> </td>
+  </tr>
+</table>
+
+</div>
+</div> <!--main div end-->
+
+</div>
+
+<!-- end form section -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

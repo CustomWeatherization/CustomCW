@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Cweather</title>
+<link href="../css/default.css" rel="stylesheet" type="text/css" />
+<style>
+h2{font-size: 20px;
+padding-left:20px;
+}
+table{border:0;}
+p span{font-size:18px; color:#000000; text-decoration:underline;}
+table tr td span{font-size:14px; font-weight:bold; color:#000000; text-decoration:underline;}
+.txt_name {
+border: none;
+border-bottom: solid 1px rgb(219, 219, 219);
+font-weight: normal;
+color: rgb(153, 153, 153);
+width: 100%;
+}
+.txt_name {
+border-bottom: none;
+}
+</style>
+</head>
+
+<body>
+<div class="fix_div">
+<!-- header -->
+<div class="header">
+<div class="logo_div"><a href="#"><img src="../images/logo.jpg" /></a></div>
+<div class="header_middiv"></div>
+<div class="head_link"><a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+</div>
+<!-- end header -->
+
+<div class="clear"></div>
+<!-- form section -->
+ <!-- inv_table begin -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+      <td colspan="3" align="right">
+       <span class="txt_green">**** FINALIZED PPL Invoice *****</span>   
+       <span class="txt_orng">Job Number: 171718   Page # 1</span> 
+     </td>
+  </tr>
+  <tr>
+      <td colspan="3" align="right">Go to page <a href="#" class="linkp">1</a> <a href="#" class="linkp">2</a> <a href="#" class="linkp">3</a> <a href="#" class="linkp">4</a> <a href="#" class="linkp">5</a></td>
+  </tr>
+  <tr>
+      <td colspan="3" align="right"><input type="button" value="Cancle" class="btnc" /> <input type="button" value="Print Invoice" class="btnp" /> </td>
+  </tr>
+  <tr>
+    <td>Job Number: 171718</td>
+    <td align="center">Customer Name: Tom McCurley</td>
+    <td align="right">CUSTOM WEATHERIZATION, LLC</td>
+  </tr>
+</table>
+<div class="inv_table">
+<table width="100%" border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <td colspan="12" style="background:rgb(211, 211, 211)"><h3>INSTRUCTIONS:</h3></td>
+  </tr>
+  <tr>
+    <td colspan="12" bgcolor="#efefef">
+    <div class="equle_tab"><p>If column <strong>S/C= S</strong> (Measures with the cost per unit provided),enter the numbers of units installed in the <strong>Qty</strong> column.   <strong>SHADED ITEMS ARE SHELL MEASURES</strong>	 Multiply <strong>Qty * Cost Per Unit</strong> and enter in the <strong>TOTAL</strong> column.</p>
+      <p>If column <strong>S/C= C</strong> (Special Measures with no contract price), enter the measure description in the <strong>MEASURE DESCRIPTION</strong> column, the type of unit in the <strong>UNIT</strong> column and the number of units installed in the <strong>Qty</strong> column. DO NOT FORGET TO ENTER THE <strong>CATEGORY</strong> AND THE <strong>LIURP CODE</strong> IN THE APPROPRIATE COLUMNS. Enter the total hours to complete the measure in the <strong>THW</strong> column using the decimal equivalents for partial hours. Enter the cost of all materials used in the <strong>TMC</strong> column. For custom measures only, the Labor Rate for 1 worker is $43 per hour, for 2 is $66 per hour. Circle or highlight the appropriate rate in the <strong>Labor Rate</strong> column. To calculate the <strong>TOTAL</strong> column, multiply <strong>THW *</strong> the circled <strong>Labor Rate</strong> then add the <strong>TMC</strong>. Enter the result in the <strong>TOTAL</strong> column. </p>
+      <p>If column <strong>S/C= SC</strong> (Contract Measures whose LIURP Code is the same as that for the R-value of the insulation used), enter the number of units installed in the <strong>Qty</strong> column. Multiply <strong>Qty * Cost Per Unit</strong> and enter in the <strong>TOTAL</strong> column. (The number in Italics besides each of these measures are for CACLV use only.)</p>
+      </div>
+      </td>
+  </tr>
+  <tr>
+    <th width="120">Location</th>
+    <th width="80">Category</th>
+    <th>LIURP <br /> Code</th>
+    <th width="350">MEASURE DESCRIPTION</th>
+    <th>S/C</th>
+    <th width="50">Unit</th>
+    <th>Labor Rate</th>
+    <th>THW</th>
+    <th>TMC</th>
+    <th>Cost Per Unit</th>
+    <th>QTY<br />(all req)</th>
+    <th>TOTAL</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><strong>ADMIN</strong></td>
+    <td align="center">None</td>
+    <td>Cancellation Charge - Involving Site Visit</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">55.34</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">None</td>
+    <td>Cancellation Charge - No Site Visit</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">28</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><strong>AUDIT</strong></td>
+    <td align="center">None</td>
+    <td>Baseload Audit</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">67.53</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">None</td>
+    <td><em>With Baseload Audit only</em>: Water Heating Assessment done in conjunction</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">8.44</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">none</td>
+    <td>Full Cost Audit (Includes Solar Water Heating Audit)</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">92.11</td>
+    <td align="right"><input type="text" class="txt_val" value="1" /></td>
+    <td align="right"><input type="text" class="txt_val" value="$92.11" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">None</td>
+    <td>Blower Door Only (When both Pre & Post tests are completed use quantity=2)</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">29.92</td>
+    <td align="right"><input type="text" class="txt_val" value="2" /></td>
+    <td align="right"><input type="text" class="txt_val" value="$59.84" /></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">None</td>
+    <td>Brultech Monitoring</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">10.47</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">None</td>
+    <td>Solar Water Heating Customer Education (enter Cost per Unit as per agreement with PPL)</td>
+    <td align="center">C</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">8.00</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center">Each</td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center">Each</td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><strong>AIR SEALING</strong></td>
+    <td align="center">12</td>
+    <td>Caulk Baseboards, Wall Trim or Cracks</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">0.86</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">12</td>
+    <td>Foam Seams & Cracks</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">2.01</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">12</td>
+    <td>Repair / Block Holes with 1/2" R-Max (Thermax, Cellutex, Foam Board)</td>
+    <td align="center">S</td>
+    <td align="center">Sq. Ft.</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">2.12</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">12</td>
+    <td>Tyvek</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">0.53</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center"><input type="text" class="txt_val" /></td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center"><input type="text" class="txt_val" /></td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center"><input type="text" class="txt_val" /></td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><strong>APP/LIGHTING</strong></td>
+    <td align="center">78</td>
+    <td>CFL - Candle Base</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">7.20</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">7C</td>
+    <td>Clean A/C Coils</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">6.88</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">7C</td>
+    <td>Clean Refrigerator Coils</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">13.76</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">7C</td>
+    <td>Air Conditioner Filter</td>
+    <td align="center">S</td>
+    <td align="center">Each</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">22.66</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">7C</td>
+    <td>Air Conditioner Filter Cleaning</td>
+    <td align="center">C</td>
+    <td align="center">Each</td>
+    <td align="center">43/68</td>
+    <td align="right">0.25</td>
+    <td><input type="text" class="txt_thw"/></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_val" disabled="disabled" /></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center"><input type="text" class="txt_val" /></td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="txt_val" /></td>
+    <td><input type="text" class="new_field" /></td>
+    <td align="center">C</td>
+    <td align="center"><input type="text" class="txt_val" /></td>
+    <td align="center">43/68</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" /></td>
+    <td align="right"></td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td><strong>ATTIC</strong></td>
+    <td align="center">29</td>
+    <td>Door - Insultate Door - Attic</td>
+    <td align="center">S</td>
+    <td align="center">Lin Ft.</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">37.06</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">43</td>
+    <td>Attic - Overblow R-30 Batts with Loose Fill Insulation (R-8)</td>
+    <td align="center">S</td>
+    <td align="center">Cu.ft.</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">0.53</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+  <tr>
+    <td><input type="text" class="txt_hour" /></td>
+    <td></td>
+    <td align="center">43</td>
+    <td>Attic - Blown Insulation (R-8)</td>
+    <td align="center">S</td>
+    <td align="center">Cu. Ft.</td>
+    <td align="center">43</td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td bgcolor="#CCCCCC"><input type="text" class="txt_thw" disabled="disabled" /></td>
+    <td align="right">0.53</td>
+    <td align="right"><input type="text" class="txt_val" /></td>
+    <td align="right"></td>
+  </tr>
+</table>
+</div> <!-- inv_table end -->
+</div>
+</div> <!--main div end-->
+
+</div>
+
+<!-- end form section -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

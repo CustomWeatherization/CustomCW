@@ -1,0 +1,220 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="METED_Audit_MasterPage.master.cs"
+    Inherits="METED_METED_Audit_MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Custom Weatherization/ METED Audit</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+     <link href="../images/favicon.ico" rel="icon" type="image/x-icon" />
+    <style type="text/css">
+        #feedback
+        {
+            font-size: 12px;
+        }
+        #selectable .ui-selecting
+        {
+            background: rgb(126, 126, 126);
+            padding-left: 10px;
+        }
+        #selectable .ui-selected
+        {
+            background: rgb(126, 126, 126);
+            color: white;
+            padding-left: 10px;
+        }
+        #selectable .ui-selected a
+        {
+            color: white;
+        }
+    </style>
+    <style type="text/css">
+        .ajaxtooltip
+        {
+            position: absolute; /*leave this alone*/
+            display: none; /*leave this alone*/
+            width: 300px;
+            left: 0; /*leave this alone*/
+            top: 0; /*leave this alone*/
+            background: lightyellow;
+            border: 2px solid gray;
+            border-width: 1px 2px 2px 1px;
+            padding: 5px;
+        }
+    </style>
+     <style>
+    .main_left1
+    {
+    /* height: 500px;*/
+float: left;
+width: 300px;
+margin-right: 0px;
+position: fixed;}
+.main_left1 ul{display:block; padding:0;}
+.main_left1 ul li{list-style-type: none;
+display: block;
+border-bottom: solid 1px rgb(219, 219, 219);
+text-align: left;
+float: left;
+width: 84%;}
+.main_left1 ul li a{line-height:28px; text-decoration:none; white-space:nowrap; background-color: #3570a0; font-family:Arial, Helvetica, sans-serif; font-size:13px; cursor:pointer;}
+.main_left1 ul li a:hover{text-decoration:underline; color:rgb(65, 65, 65);}
+
+.top_icons ul li:hover > div{ display:block !important;}
+    </style>
+  <%--  <style>
+    .main_left1{height: 500px;
+float: left;
+width: 300px;
+margin-right: 0px;
+position: fixed;}
+.main_left1 ul{display:block; padding:0;}
+.main_left1 ul li{list-style-type: none;
+display: block;
+border-bottom: solid 1px rgb(219, 219, 219);
+text-align: left;
+float: left;
+width: 84%;}
+.main_left1 ul li a{line-height:28px; text-decoration:none; white-space:nowrap; background-color: #3570a0; font-family:Arial, Helvetica, sans-serif; font-size:13px; cursor:pointer;}
+.main_left1 ul li a:hover{text-decoration:underline; color:rgb(65, 65, 65);}
+
+    </style>--%>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <%--<asp:ScriptManager ID="script" runat="server">
+    </asp:ScriptManager>--%>
+    <ajaxToolkit:ToolkitScriptManager ID="scrpt" runat="server">
+    </ajaxToolkit:ToolkitScriptManager>
+    <div>
+        <div class="fix_div">
+            <!-- header -->
+            <div class="header">
+                <div class="logo_div">
+                    <a href="../Home.aspx">
+                        <img src="../images/logo.jpg" /></a></div>
+                <div class="header_middiv">
+                    Customer Service
+                </div>
+                <div class="head_right">
+                    <div class="top_icons">
+                        <ul>
+                            <li>
+                                <asp:LinkButton ID="LnkBack" runat="server" title="Back" CssClass="back" style="height:20px !important; width:20px !important;" OnClick="LnkInvoice_Click"></asp:LinkButton>
+                            </li>
+                            <li><a href="../Home.aspx" class="home" title="Home"></a></li>
+                            <li>
+                                
+                                <asp:LinkButton ID="LnkInvoice" runat="server" title="Invoice" CssClass="billing" OnClick="LnkInvoice_Click"></asp:LinkButton>
+                                 <div class="main_left1" id="InvoicePPL" style="display:none">
+                                            <ul id="Ul4"> 
+                                            <%if (dtInvoice.Rows.Count > 0 && !DBNull.Value.Equals(dtInvoice.Rows[0]["IncoiceNo"])) %>
+                                            <%for (int i = 1; i <= Convert.ToInt32(dtInvoice.Rows[0]["IncoiceNo"]); i++)%>
+                                            <%{%>
+                                                  <li id="Invoice<%=i%>"><a href="../Invoice_Crystal.aspx?Back=dj&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1&InvoiceNo=<%=i%>">Invoice<%=i%></a> </li>
+                                            <%}%>
+                                            </ul>
+                                            </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <br />
+                    <div class="head_link">
+                        <span id="lnk_admin" runat="server"><a href="../admin/Admin_Login.aspx">Administer Database</a>
+                            |</span>
+                        <asp:LinkButton ID="lnkLogin" runat="server" Text="Logout" OnClick="lnkLogin_Click"></asp:LinkButton>
+                        <br />
+                        Hello
+                        <%=StrUserName %></div>
+                </div>
+            </div>
+            <!-- end header -->
+            <div class="clear">
+            </div>
+            <!-- form section -->
+            <div class="searchbynumber">
+                <div class="main">
+                    <!--main div begin-->
+                    <div class="main_left" id="Quick_Link" style="height:80%">
+                        <h2>
+                            Quick Links</h2>
+                        <ul id="selectable">
+                            <%if (Request.QueryString["Jobs"] != null && Request.QueryString["Utility"] != null)
+                              { %>
+                            <li id="Page1"> <a href="METED_Audit_Page1.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(1) Customer Info</a> </li>
+                            <li id="Page2"> <a href="METED_Audit_Page2.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(2) Demographic</a> </li>
+                            <li id="Page3"> <a href="METED_Audit_Page3.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(3) Customer Interview</a> </li>
+                            <li id="Page4"> <a href="METED_Audit_Page4.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(4) CFL Standard Bulbs</a> </li>
+                            <li id="Page5"> <a href="METED_Audit_Page5.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(5) LED Bulbs/ ACT 129</a> </li>
+                            <li id="Page6"> <a href="METED_Audit_Page6.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(6) Refrigerators</a> </li>
+                            <li id="Page7"> <a href="METED_Audit_Page7.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(7) Freezers</a> </li>
+                            <li id="Page8"> <a href="METED_Audit_Page8.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(8) Washer and Dryer Assessment</a> </li>
+                            <li id="Page9"> <a href="METED_Audit_Page9.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(9) Electric Water Heating Assessment</a> </li>
+                            <li id="Page10"><a href="METED_Audit_Page10.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(10) Heat Pump Water Heater</a> </li>
+                            <li id="Page11"><a href="METED_Audit_Page11.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(11) Cooling Assessment</a> </li>
+                            <li id="Page12"><a href="METED_Audit_Page12.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(12) Heating Assessment</a> </li>
+                            <li id="Page13"><a href="METED_Audit_Page13.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(13) Fossil Fuel Heating Assessment</a> </li>
+                            <li id="Page14"><a href="METED_Audit_Page14.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(14) Ductless Mini-Split Heat Pump</a> </li>
+                            <li id="Page15"><a href="METED_Audit_Page15.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(15) House Photos</a> </li>
+                            <li id="Page16"><a href="METED_Audit_Page16.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(16) Basement/Crawl/Belly</a> </li>
+                            <li id="Page17"><a href="METED_Audit_Page17.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(17) Attic Access</a> </li>
+                            <li id="Page18"><a href="METED_Audit_Page18.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(18) Air Leakage Testing</a> </li>
+                            <li id="Page19"><a href="METED_Audit_Page19.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(19) CAZ Testing 1</a> </li>
+                            <li id="Page20"><a href="METED_Audit_Page20.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(20) CAZ Testing 2</a> </li>
+                            <li id="Page21"><a href="METED_Audit_Page21.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(21) CAZ Testing 3</a> </li>
+                            <li id="Page22"><a href="METED_Audit_Page22.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(22) CAZ Testing 4</a> </li>
+                            <li id="Page23"><a href="METED_Audit_Page23.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(23) House Air Sealing</a> </li>
+                            <li id="Page24"><a href="METED_Audit_Page24.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(24) Measures Called & Refused</a> </li>
+                            <li id="PagePhoto"><a href="METED_Photo_Page_Manage.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>">(Photos)Other Photos</a> </li>
+                            <%} %>
+                        </ul>
+                    </div>
+                    <div class="main_right">
+                        <!--main_right begin-->
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!--main_right end-->
+                    <div class="clear">
+                    </div>
+                </div>
+                <!--main div end-->
+            </div>
+            <!-- end form section -->
+            <div class="clear">
+            </div>
+            <!-- footer -->
+            <div class="footer">
+                Custom Weatherization, LLC © 2013</div>
+            <!-- end footer -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>
+
+<script type="text/javascript">
+$("#ctl00_LnkInvoice").hover(function () {
+             $("#InvoicePPL").show();
+            }, 
+        function () {
+       $("#InvoicePPL").hide();
+        });
+        
+        $("#InvoicePPL").hover(function () {
+             $("#InvoicePPL").show();
+
+            }, 
+        function () {
+        $("#InvoicePPL").hide();
+        });
+</script>

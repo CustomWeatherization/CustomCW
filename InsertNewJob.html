@@ -1,0 +1,1049 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+                Insert New Job</div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <!-- end header -->
+        <div class="clear">
+        </div>
+        <!-- form section -->
+        <div class="form_div">
+            <div class="section">
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="25%">
+                            Job Number:
+                        </td>
+                        <td width="25%">
+                            Date Received:
+                        </td>
+                        <td width="25%">
+                            Date Completed:
+                        </td>
+                        <td>
+                            Return Date:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                                                 <asp:TextBox ID="txtJobNumber" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                                                   <asp:TextBox ID="txtDateReceived" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                             <asp:TextBox ID="txtDateCompleted" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtReturnDate" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Re-Scheduled Date:
+                        </td>
+                        <td>
+                            Enter Scheduling Instructions below
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input11" type="text" />
+                        </td>
+                        <td>
+                            <textarea name="" cols="35" rows="2"></textarea>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Utility Company 1:
+                        </td>
+                        <td>
+                            Utility Company 2:
+                        </td>
+                        <td>
+                            Auditor Name:
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:DropDownList ID="DDl_UtilityCompany_1" runat="server">
+                                </asp:DropDownList>
+                        </td>
+                        <td>
+                           <asp:DropDownList ID="DDL_UtilityCompany_2" runat="server">
+                                </asp:DropDownList>
+                        </td>
+                        <td>
+                            <input name="input12" type="text" />
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2>
+                                Job Type</h2>
+                        </td>
+                        <td colspan="3">
+                            <asp:CheckBox ID="chkAct129" runat="server" Text="Act 129" />
+                            
+                           <asp:CheckBox ID="chkBaseLoad" runat="server" Text="BaseLoad Only" />
+                           
+                            <asp:CheckBox ID="chkHighPriority" runat="server" Text="High Priority" />
+                            
+                           <asp:CheckBox ID="chkLowCost" runat="server" Text="Low Cost" />
+                           
+                          <asp:CheckBox ID="chkFullCost" runat="server" Text="Full Cost" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="33%">
+                            First Name:
+                        </td>
+                        <td width="33%">
+                            Last Name:
+                        </td>
+                        <td width="33%">
+                            Account:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtAccountNumber" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <div class="form_box1">
+                    <h1>
+                        Mailing Address</h1>
+                    <div align="center">
+                        <input name="" type="checkbox" value="" />
+                        Set Service To Mailing Address
+                    </div>
+                    <br />
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tr>
+                            <td width="50%">
+                                Address:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtAddress_Mailing" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                City:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtCity_Mailing" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddl_State_Mailing" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zipcode:
+                            </td>
+                            <td>
+                                    <asp:TextBox ID="txtZipCode_Mailing" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Year Home Built:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtHomeBuilt" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h2>
+                                    Phones:</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone# (home):
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPhone_Home" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="smalltext">10 digits <strong>No other chars</strong></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone# (cell):
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPhone_Cell" runat="server" CssClass="smalltext"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="smalltext">home or cell required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone#(work):
+                            </td>
+                            <td>
+                                <asp:TextBox ID="TextBox2_Work" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <span class="smalltext">home or cell required</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form_box2">
+                    <h1>
+                        Service Address</h1>
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tr>
+                            <td width="50%">
+                                Address:
+                            </td>
+                            <td>
+                               <asp:TextBox ID="txtAddress_Service" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                City:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtCity_Service" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                State:
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddl_State_Service" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Zipcode:
+                            </td>
+                            <td>
+                                   <asp:TextBox ID="txtZipCode" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                County:
+                            </td>
+                            <td>
+                                   <asp:DropDownList ID="ddlCounty" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Number Of Occupants:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtNumberOfOccupants" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    Heating & WaterHeater & Air Conditioning</h1>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <th width="25%">
+                            Heat Source:
+                        </th>
+                        <th width="25%">
+                            Heat Type:
+                        </th>
+                        <th width="25%">
+                            Water Heater Type:
+                        </th>
+                        <th>
+                            Air Conditioning:
+                        </th>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                          
+                            <input name="" type="checkbox" value="" />
+                            Bottled Gas<br />
+                            <input name="" type="checkbox" value="" />
+                            City Steam<br />
+                            <input name="" type="checkbox" value="" />
+                            Coal<br />
+                            <input name="" type="checkbox" value="" />
+                            Electric<br />
+                            <input name="" type="checkbox" value="" />
+                            Kerosene<br />
+                            <input name="" type="checkbox" value="" />
+                            Natural Gas<br />
+                            <input name="" type="checkbox" value="" />
+                            Oil<br />
+                            <input name="" type="checkbox" value="" />
+                            Solar<br />
+                            <input name="" type="checkbox" value="" />
+                            Unknown
+                        </td>
+                        <td valign="top">
+                            <input name="" type="checkbox" value="" />
+                            Baseboard<br />
+                            <input name="" type="checkbox" value="" />
+                            Ceiling<br />
+                            <input name="" type="checkbox" value="" />
+                            Floor Cable<br />
+                            <input name="" type="checkbox" value="" />
+                            Heat Pump<br />
+                            <input name="" type="checkbox" value="" />
+                            Hot Water Boiler<br />
+                            <input name="" type="checkbox" value="" />
+                            Space Heaters<br />
+                            <input name="" type="checkbox" value="" />
+                            Unknown<br />
+                            <input name="" type="checkbox" value="" />
+                            Wall Heaters<br />
+                            <input name="" type="checkbox" value="" />
+                            Warm Air Furnace
+                        </td>
+                        <td valign="top">
+                            <input name="" type="checkbox" value="" />
+                            Bottled Gas<br />
+                            <input name="" type="checkbox" value="" />
+                            City Steam<br />
+                            <input name="" type="checkbox" value="" />
+                            Coal<br />
+                            <input name="" type="checkbox" value="" />
+                            Electric<br />
+                            <input name="" type="checkbox" value="" />
+                            Natural Gas<br />
+                            <input name="" type="checkbox" value="" />
+                            Oil<br />
+                            <input name="" type="checkbox" value="" />
+                            Solar<br />
+                            <input name="" type="checkbox" value="" />
+                            Unknown
+                        </td>
+                        <td valign="top">
+                            <input name="" type="checkbox" value="" />
+                            Central Air Unit<br />
+                            <input name="" type="checkbox" value="" />
+                            Portable Unit<br />
+                            <input name="" type="checkbox" value="" />
+                            Unknown<br />
+                            <input name="" type="checkbox" value="" />
+                            Wall Unit<br />
+                            <input name="" type="checkbox" value="" />
+                            Window Unit<br />
+                            <br />
+                            Total Number of Units
+                            <br />
+                            <asp:TextBox ID="txt_TotalNumberOfUnit" runat="server"></asp:TextBox>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    PPL Seasonal Costs and Allowances</h1>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="25%">
+                            <strong>Yearly KWH Hours:</strong>
+                        </td>
+                        <td width="25%">
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td width="25%">
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            JuneKWH:
+                        </td>
+                        <td>
+                            July KWH:
+                        </td>
+                        <td>
+                            August KWH:
+                        </td>
+                        <td>
+                            September KWH:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Low1 KWH Hours:</strong>
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Low2 KWH Hours:</strong>
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            BaseLoad:
+                        </td>
+                        <td>
+                            TWinter Seasonal:
+                        </td>
+                        <td>
+                            TSummer Seasonal:
+                        </td>
+                        <td>
+                            Spending Allowance: $
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="input" type="text" value="0" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    PPL Proprietary Usage</h1>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="33%">
+                            On Track:
+                        </td>
+                        <td width="33%">
+                            On Track Amount:
+                        </td>
+                        <td width="33%">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="" type="radio" value="" />
+                            Yes &nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />
+                            No
+                        </td>
+                        <td>
+                            <input name="input4" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="" type="radio" value="" />
+                            Owner&nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />
+                            Tenant
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h2>
+                                Landlord Information <strong>MUST</strong> be completed if you are a Tenant</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Landlord Name:
+                        </td>
+                        <td>
+                            Landlord Phone (10 digits only):
+                        </td>
+                        <td>
+                            Email Or Fax:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input3" type="text" />
+                        </td>
+                        <td>
+                            <input name="input3" type="text" />
+                        </td>
+                        <td>
+                            <input name="input3" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address:
+                        </td>
+                        <td>
+                            City:
+                        </td>
+                        <td>
+                            State:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input3" type="text" />
+                        </td>
+                        <td>
+                            <input name="input3" type="text" />
+                        </td>
+                        <td>
+                            <select name="LLState" size="1">
+                                <option value=""></option>
+                                <option value="3">MA</option>
+                                <option value="1">NJ</option>
+                                <option value="4">NY</option>
+                                <option value="2">PA</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ZipCode:
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input3" type="text" />
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    MET ED Proprietary Usage</h1>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td width="25%">
+                            PCAP:
+                        </td>
+                        <td width="25%">
+                            PCAP Amount:
+                        </td>
+                        <td width="25%">
+                            TOD Customer:
+                        </td>
+                        <td>
+                            Last 4 SS#:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="" type="radio" value="" />
+                            Yes &nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />
+                            No
+                        </td>
+                        <td>
+                            <input name="input5" type="text" value="0" />
+                        </td>
+                        <td>
+                            <input name="" type="radio" value="" />
+                            Yes &nbsp;&nbsp;&nbsp;&nbsp;<input name="" type="radio" value="" />
+                            No
+                        </td>
+                        <td>
+                            <input name="input6" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Summer Seasonal Use:
+                        </td>
+                        <td>
+                            Winter Seasonal Use:
+                        </td>
+                        <td>
+                            Annual Base Use:
+                        </td>
+                        <td>
+                            Total Annual Use:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input10" type="text" />
+                        </td>
+                        <td>
+                            <input name="input9" type="text" />
+                        </td>
+                        <td>
+                            <input name="input8" type="text" />
+                        </td>
+                        <td>
+                            <input name="input7" type="text" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    Custom Weatherization Contact Attempt(s) <a href="#">Contact Attempts Report </a>
+                </h1>
+                <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                    <tr>
+                        <td colspan="5">
+                            <h3>
+                                To Enter a new contact attempt simply select from the 3 drop boxes below and the
+                                attempt will be saved when you save the JOB. <span>You must select from all 3.</span>
+                            </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Date:
+                        </td>
+                        <td width="20%">
+                            Time:
+                        </td>
+                        <td width="20%">
+                            Contact Type:
+                        </td>
+                        <td width="20%">
+                            Contact Person:
+                        </td>
+                        <td>
+                            Contact Result:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="input13" type="text" />
+                        </td>
+                        <td>
+                            <input name="input14" type="text" />
+                        </td>
+                        <td>
+                            <input name="input15" type="text" />
+                        </td>
+                        <td>
+                            <input name="input16" type="text" />
+                        </td>
+                        <td>
+                            <input name="input17" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2/22/2013
+                        </td>
+                        <td>
+                            10:43:35 AM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Robert Moux
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2/13/2013
+                        </td>
+                        <td>
+                            9:32:39 AM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Robert Moux
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2/4/2013
+                        </td>
+                        <td>
+                            12:44:44 PM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Robert Moux
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            8/13/2012
+                        </td>
+                        <td>
+                            9:43:09 PM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            8/3/2012
+                        </td>
+                        <td>
+                            9:41:01 AM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            8/1/2012
+                        </td>
+                        <td>
+                            1:40:33 PM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            7/10/2012
+                        </td>
+                        <td>
+                            4:03:11 PM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Robert Moux
+                        </td>
+                        <td>
+                            Scheduled Appointment
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            7/10/2012
+                        </td>
+                        <td>
+                            10:47:42 AM
+                        </td>
+                        <td>
+                            Letter
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Waiting For Response
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            7/9/2012
+                        </td>
+                        <td>
+                            9:53:03 AM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            7/6/2012
+                        </td>
+                        <td>
+                            2:52:28 PM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Left Voice Mail Message
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3/19/2012
+                        </td>
+                        <td>
+                            3:42:16 PM
+                        </td>
+                        <td>
+                            Phone
+                        </td>
+                        <td>
+                            Longo, Leighann
+                        </td>
+                        <td>
+                            Will Call Back
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    Add a New Comment And/Or Send a message About this Job to Other Employee(s)</h1>
+                <div align="center">
+                    <textarea name="" cols="150" rows="20"></textarea></div>
+                <div class="clear">
+                </div>
+                <div class="msg_box1">
+                    <h1>
+                        Save Note & Send Message</h1>
+                    <div align="center">
+                        <select name="" size="5" multiple="">
+                            <option value="3">DeBellis, Dylan</option>
+                            <option value="2">Longo, Leighann</option>
+                            <option value="1">Lozar, Peter</option>
+                            <option value="4">McNeil, Otis</option>
+                            <option value="6">Moux, Robert</option>
+                            <option value="8">Ouimet, Anthony</option>
+                            <option value="7">Schuck, Jim</option>
+                            <option value="5">Then, Ed</option>
+                            <option value="10">Verchort, Neil</option>
+                        </select><br />
+                        <input name="" type="button" value="Save/Send Message" />
+                    </div>
+                    <p>
+                        Enter note / hold control key then click to select employee(s) to send the note
+                        as a message.</p>
+                </div>
+                <div class="msg_box2">
+                    <h1>
+                        Save Note</h1>
+                    <div align="center">
+                        <input name="" type="button" value="Save Note Only" /></div>
+                    <p>
+                        Enter note and click Save Note Only button. Note will be saved with job and no message
+                        sent.</p>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section">
+                <h1>
+                    Comments History</h1>
+                <div align="center">
+                    <textarea name="" cols="150" rows="30">
+-------------------------------------------------------------------------------------------------------------------------
+Tuesday, January 15, 2013 10:00:32 AM  Moux.R 
+------------------------------------------------------------------------------------------------------------------------------------------------
+Wife is in the hospital and will call back.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Friday, July 20, 2012 1:58:35 PM  Longo.L 
+------------------------------------------------------------------------------------------------------------------------------------------------
+CUSTOMER HAD NO PROOF OF INCOME/WILL NOT SCHEDULE UNTIL CUSTOMER HAS PROOF
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Monday, March 19, 2012 3:43:04 PM  Longo.L 
+------------------------------------------------------------------------------------------------------------------------------------------------
+CUSTOMERS WIFE IS INTHE HOSPITAL AND IS VERY SICK- SHE WILL BE GETTING TRANSPORTED SO THE CUSTOMER WILL NTO BE ABLE TO SET UP AN APPOINTMENT UNTILL ATLEAST 3 MONTHS FROM RIGHT NOW. SPOKE WITH FRANK- WAITING ON RESPONSE
+</textarea></div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="btmbutton">
+                <input name="" type="button" value="Save" />&nbsp;&nbsp;
+                <input name="" type="button" value="Questionaire" />&nbsp;&nbsp;
+                <input name="" type="button" value="Print" />&nbsp;&nbsp;
+                <input name="" type="button" value="Cancel" />
+            </div>
+        </div>
+        <!-- end form section -->
+        <div class="clear">
+        </div>
+        <!-- footer -->
+        <div class="footer">
+            Custom Weatherization, LLC © 2013</div>
+        <!-- end footer -->
+    </div>
+</body>
+</html>

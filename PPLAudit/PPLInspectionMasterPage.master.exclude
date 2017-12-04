@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="PPLInspectionMasterPage.master.cs" Inherits="PPLAudit_PPLInspectionMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../Js/ajaxtooltip.js"></script>
+
+    <script type="text/javascript" src="../Js/jquery-1.2.2.pack.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <link href="../images/favicon.ico" rel="icon" type="image/x-icon" />
+    <style type="text/css">
+        #feedback
+        {
+            font-size: 12px;
+        }
+        #selectable .ui-selecting
+        {
+            background: rgb(126, 126, 126);
+            padding-left: 10px;
+        }
+        #selectable .ui-selected
+        {
+            background: rgb(126, 126, 126);
+            color: white;
+            padding-left: 10px;
+        }
+        #selectable .ui-selected a
+        {
+            color: white;
+        }
+    </style>
+    <style type="text/css">
+        .ajaxtooltip
+        {
+            position: absolute; /*leave this alone*/
+            display: none; /*leave this alone*/
+            width: 300px;
+            left: 0; /*leave this alone*/
+            top: 0; /*leave this alone*/
+            background: lightyellow;
+            border: 2px solid gray;
+            border-width: 1px 2px 2px 1px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="fix_div">
+            <!-- header -->
+            <div class="header">
+                <div class="logo_div">
+                    <a href="../Home.aspx">
+                        <img src="../images/logo.jpg" /></a></div>
+                <div class="header_middiv">
+                    Customer Service
+                </div>
+                <div class="head_right">
+                    <div class="top_icons">
+                        <ul>
+                            <li><a href="../DisplayJobSearchRecords.aspx?InvoiceNo=<%=Request.QueryString["InvoiceNo"].ToString()%>&Jobs=<%=Request.QueryString["jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>"
+                                class="back" title="Back"></a></li>
+                            <li><a href="../Home.aspx" class="home" title="Home"></a></li>
+                            <li>
+                                <%--<a href="PPL_Invoice_Page1.aspx?Jobs=<%=Request.QueryString["jobs"].ToString()%>&Utility=<%=Request.QueryString["Utility"].ToString()%>"
+                                class="billing"></a>--%>
+                                <asp:LinkButton ID="LnkInvoice" runat="server" title="Invoice" CssClass="billing"
+                                    OnClick="LnkInvoice_Click"></asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <br />
+                    <div class="head_link">
+                       <span id="hid_link" runat="server"> <a href="../admin/Admin_Login.aspx">Administer Database</a> |</span>
+                        <asp:LinkButton ID="lnkLogin" runat="server" Text="Logout" OnClick="lnkLogin_Click"></asp:LinkButton>
+                        <br />
+                        Hello
+                        <%=StrUserName %></div>
+                </div>
+                <%--/* Fixed Header Button */
+                    
+                    <td align="center" colspan="2">
+              <input type="submit" name="ctl00$ContentPlaceHolder1$btnUpdate" value="Save" id="ctl00_ContentPlaceHolder1_btnUpdate" class="btn_all"><b style="padding-left:30px;"></b>  <input type="submit" name="ctl00$ContentPlaceHolder1$btn_cancel" value="Cancle" id="ctl00_ContentPlaceHolder1_btn_cancel" class="btn_all">
+              
+              </td>
+              /* Fixed Header Button */--%>
+            </div>
+            <!-- end header -->
+            <div class="clear">
+            </div>
+            <!-- form section -->
+            <div class="searchbynumber">
+                <h1>
+                    PPL Inspection for Job Number: <span id="JobNumber" runat="server">Number</span>
+                </h1>
+                <div class="main">
+                    <!--main div begin-->
+                    <div class="main_right">
+                        <!--main_right begin-->
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!--main_right end-->
+                    <div class="clear">
+                    </div>
+                    <%-- <div class="btmbutton">
+                    <input name="" type="button" value="Cancel"  class="btn_all" /></div>--%>
+                </div>
+                <!--main div end-->
+            </div>
+            <!-- end form section -->
+            <div class="clear">
+            </div>
+            <!-- footer -->
+            <div class="footer">
+                Custom Weatherization, LLC © 2013</div>
+            <!-- end footer -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>

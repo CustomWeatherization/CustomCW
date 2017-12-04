@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="../images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <!--
+<div class="clear"></div>
+<div align="center">WARM Lighting and Smart Power Strip Installations</div>
+<strong><u>LIURP WARM Bulbs</u></strong> are warranted for one year. They are to be installed in lights used an average of 2 hours or more in a 24 hour period year round - Maximum 12 for Met-Ed, Penelec, and Penn Power. <br />
+<strong><u>Act 129 Bulbs</u></strong> are non-warranted CFLs. They are to be installed in addition to the 12 CFLs covered under LIURP WARM. Install these bulbs in lights that are on greater than 1 hour per day and less than 2 hours per day. Install specialty CFLs in lights that are on greater than 2 hours per day. Your goal for Act 129 installations is, whenever possible, to install at least 2 Act 129 bulbs/households, an <strong><u>average</u></strong> of 4 per household - maximum 12 for Met-Ed, Penelec, and Penn Power. For WPP a maximum of 24 bulbs can be installed using the Act 129 parameters; however, your goal is to install as many CFLs as possible. Use a permanent marker to mark Act 129 bulbs with NW (no warranty).
+-->
+        <strong>Cooling Assessment</strong> <span class="span1">Summer Seasonal Use:</span>
+        <input type="text" class="txt_city" />
+        <strong>kWh</strong>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%;">
+            <strong>Cooling Load Reduction Measures</strong> Summer Seasonal use of 2,000 kWh
+            or more qualifies for roof coat/window film, ACs and/or shell measures <strong>if related
+                to cooling.</strong>
+            <br />
+            <br />
+            <strong>Window Film:</strong> Are there any windows on the west, south and east
+            that are not shaded in the summer during the hours of 9 AM and 4 PM?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No
+            <br />
+            <br />
+            Approximate total sq. footage of window film needed:
+            <input type="text" class="txt_city" />
+            # and location of west facing windows to receive film:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            # and location of south facing windows to receive film:
+            <input type="text" class="txt_city" />
+            # and location of east facing windows to receive film:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            <strong>Reflective Roof Coating:</strong> Is there any roof area that faces south
+            and receives sun all day in the summer and is metal or roll roof material?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No
+            <br />
+            <br />
+            Install roof coat?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No &nbsp; &nbsp; Approx sq. footage of roof, times 2 for 2 coats:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            Are there other steps to reduce A/C use i.e., AC timers, Fans, Screens?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No &nbsp; &nbsp; Will install:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            comment:
+            <textarea style="width: 92%; height: 50px;"></textarea>
+        </div>
+        <!--newtable end-->
+        <div style="border: 1px solid #000; padding: 10px; width: 100%;">
+            <strong>Room AC units:</strong> Is the EER on the existing room AC 6 or lower as
+            labeled, calculated or metered? If so, it can be replaced with an Energy Star rated
+            unit, but the Summer Seasonal Use (kWh) must be 2,000 or more to replace 1 unit
+            and 2,500 to replace 2 units and 3,000 to replace 3 units.
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%;">
+            <table width="90%" border="1" cellspacing="0" cellpadding="5" align="center">
+                <tr>
+                    <th>
+                        Unit Watts
+                    </th>
+                    <th>
+                        EER = BTU/hr Watts
+                    </th>
+                    <th>
+                        Replace AC?
+                    </th>
+                    <th>
+                        Current Size BTU/hr
+                    </th>
+                    <th>
+                        Current Location
+                    </th>
+                    <th>
+                        New Size BTU/hr
+                    </th>
+                    <th>
+                        Installed Location
+                    </th>
+                    <th>
+                        Replace Filter?
+                    </th>
+                    <th>
+                        Clean Filter?
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Yes
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td width="20%">
+                        What are the customer's window
+                        <br />
+                        AC thermostat use habits?
+                    </td>
+                    <td>
+                        <textarea style="width: 100%; height: 50px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+            Total number of AC units to be replaced?
+            <input type="text" class="txt_city" />
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%; margin: 10px 0;">
+            <strong>Central AC:</strong> Replacement determined by kWh use and the SEER (age
+            and efficiency) of the existing unit. Replace SEER 8 or less with SEER 13 or higher.
+            Replacement requires FirstEnergy approval. Please note: Customer must have at least
+            3,000 kWh of summer use in order to qualify for replacement.
+            <br />
+            <br />
+            What are customer's AC thermostat use habits?
+            <input type="text" class="txt_style8" />
+            <br />
+            <br />
+            Is the thermostat accurate?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No
+            <input type="radio">
+            If not, why?
+            <input type="text" class="txt_style1" />
+            <br />
+            <br />
+            Do you recommend replacement of thermostat?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No
+            <br />
+            <br />
+            Is filter slot covered?
+            <input type="radio">
+            Yes
+            <input type="radio">
+            No
+            <input type="radio">
+            N/A &nbsp; &nbsp; If no, install cover. &nbsp; &nbsp; Location of A-coil?
+            <input type="radio">
+            Inside
+            <input type="radio">
+            Outside
+            <br />
+            <br />
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        Can you visually inspect the A-coil?
+                    </td>
+                    <td>
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                    <td>
+                        If yes, is cleaning<br />
+                        recommended?
+                    </td>
+                    <td>
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                    <td>
+                        If yes, cleaning<br />
+                        performed by:
+                    </td>
+                    <td>
+                        <input type="radio">
+                        Auditor
+                        <input type="radio">
+                        3rd Party Contractor
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        If visually unable to inspect A-coil, does usage
+                        <br />
+                        warrant 3rd party clean and tune?
+                    </td>
+                    <td>
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                    <td>
+                        If yes, was 3rd party
+                        <br />
+                        contractor contacted?
+                    </td>
+                    <td>
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                    <td>
+                        Clean/Tune?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        If clean and tune recommended, why?
+                        <input type="text" class="txt_style8" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        New filter(s) installed in the system?<input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                    <td>
+                        Number Installed:
+                    </td>
+                    <td>
+                        <input type="text" class="txt_city" />
+                    </td>
+                    <td>
+                        Filter(s) to be cleaned
+                        <br />
+                        in the system?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                    <td>
+                        Number Cleaned:<input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="40">
+                        Coils to be cleaned?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No &nbsp; &nbsp; C/A unit to be replaced?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No &nbsp; &nbsp; Size of Unit:
+                        <input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <strong>Duct work Sealing and/or Duct Installation: Are there obvious duct leaks in
+                            any duct work that is outside the thermal boundary?</strong>
+                    </td>
+                    <td colspan="2">
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No &nbsp; &nbsp; Location:<input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" height="40">
+                        Insulation to be installed?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No &nbsp; &nbsp; Sealing to be completed?
+                        <input type="radio">
+                        Yes
+                        <input type="radio">
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        comments:
+                        <textarea style="width: 92%; height: 50px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

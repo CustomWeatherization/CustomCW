@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <strong>Basement/Crawl Spaces/Mobile Home Belly</strong>
+        <br />
+        <br />
+        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;">
+            <strong>Basement Air Sealing:</strong>
+            <br />
+            <br />
+            <input type="checkbox" />
+            Perimeter (doors, windows, rim joist, walls)
+            <input type="checkbox" />
+            Ceiling
+            <input type="checkbox" />
+            Ducts
+            <input type="checkbox" />
+            Other
+            <input type="text" class="txt_style11" />
+            <br />
+            <br />
+            Decide if the basement and/or crawl space is inside/outside the thermal and pressure
+            boundaries. Then decide if air sealing/insulation should be at the basement and/or
+            crawl space perimeter or at ceiling.
+            <br />
+            <strong>Insulation:</strong>
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td align="center">
+                        Area
+                    </td>
+                    <td align="center">
+                        Location
+                    </td>
+                    <td align="center">
+                        Sq Ft
+                    </td>
+                    <td align="center">
+                        Existing Effective R Value
+                    </td>
+                    <td align="center">
+                        Add R
+                    </td>
+                    <td align="center">
+                        New Insulation Type
+                    </td>
+                    <td align="center">
+                        Comments (such as joists running lengthwise or widthwise - 16" or 24" joist bay
+                        size)
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="12%">
+                        Floor/Crawl Space
+                    </td>
+                    <td width="14%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="7%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="14%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="7%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="15%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Perimeter
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Other
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Belly
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            Install ground cover:
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; If so, sq ft installed:<input type="text" class="txt_city" />
+            <br />
+            <br />
+        </div>
+        <strong>Are there any kneewalls?</strong>
+        <input type="radio" />
+        Yes
+        <input type="radio" />
+        No &nbsp; &nbsp; <strong>Are they air sealed or blocked at the joist bays?</strong>
+        <input type="radio" />
+        Yes
+        <input type="radio" />
+        No &nbsp; &nbsp; <strong>If not, please block them!</strong>
+        <br />
+        <br />
+        <strong>Insulation:</strong>
+        <input type="checkbox" />
+        Heating
+        <input type="checkbox" />
+        Cooling
+        <div class="newtable">
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td align="center">
+                        Area
+                    </td>
+                    <td align="center">
+                        Location
+                    </td>
+                    <td align="center">
+                        Sq Ft
+                    </td>
+                    <td align="center">
+                        Existing Effective R Value
+                    </td>
+                    <td align="center">
+                        Add R
+                    </td>
+                    <td align="center">
+                        New Insulation Type
+                    </td>
+                    <td align="center">
+                        Comments
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="12%">
+                        Unfloored Attic 1
+                    </td>
+                    <td width="14%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="7%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="15%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="7%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="14%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Unfloored Attic 2
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Unfloored Attic 3
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Floored Attic 1
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Floored Attic 2
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Cathedral
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Finished Attic
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Kneewall Floored
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Kneewall Unfloored
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Slopes
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Vertical Kneewall
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Vertical Kneewall
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <strong>Attic Ventilation</strong></p>
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td align="center">
+                        Ventilation Type
+                    </td>
+                    <td align="center">
+                        Proposed Additional Ventilation
+                    </td>
+                    <td align="center">
+                        Location
+                    </td>
+                    <td align="center">
+                        Comments
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="25%">
+                        Roof Vent
+                    </td>
+                    <td width="25%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="25%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Gable Vent
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Soffit Vent
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        Ridge Vent
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <br />
+        Comments
+        <textarea style="width: 90%; height: 50px;"></textarea>
+    </div>
+</body>
+</html>

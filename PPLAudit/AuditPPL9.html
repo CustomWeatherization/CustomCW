@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Cweather</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<style>
+h2{font-size: 20px;
+padding-left:20px;
+}
+table{border:0;}
+p span{font-size:18px; color:#000000; text-decoration:underline;}
+table tr td span{font-size:14px; font-weight:bold; color:#000000; text-decoration:underline;}
+</style>
+</head>
+
+<body>
+<div class="fix_div">
+<!-- header -->
+<div class="header">
+<div class="logo_div"><a href="#"><img src="images/logo.jpg" /></a></div>
+<div class="header_middiv"></div>
+<div class="head_link"><a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+</div>
+<!-- end header -->
+
+<div class="clear"></div>
+
+
+
+<!-- form section -->
+<style>
+.txt_name {
+border: none;
+border-bottom: solid 1px rgb(219, 219, 219);
+font-weight: normal;
+color: rgb(153, 153, 153);
+width: 100%;
+}
+.txt_name {
+border-bottom: none;
+}
+</style>
+<h2>Combustion Appliances Pre-Test</h2> <br />
+<table width="100%" border="1" cellspacing="0" cellpadding="5">
+  <tr>
+    <td colspan="2"><h3>Are there any combustion appliances in the home? <input type="checkbox" /> Y <input type="checkbox" /> N </h3></td>
+  </tr>
+  <tr>
+    <td colspan="2">If yes, Combustible Equipment Safety Testing must have been done by the contractor if any air sealing was done. 
+Are there any <span>UNVENTED</span> combustion heating applicances?   <input type="checkbox" /> Y <input type="checkbox" /> N </td>
+  </tr>
+  <tr>
+    <td colspan="2"><strong>If yes, no air sealing may be performed that tightens structure below 3000 CFM-50Pa, & Wx release form signed.</strong></td>
+  </tr>
+  <tr>
+    <td><span>Step 1:</span>  Record the outside temperature and zero the analyzer.</td>
+    <td><span>Step 7:</span>  Turn on the water heater first.</td>
+  </tr>
+  <tr>
+    <td><span>Step 2:</span> Record house ambient CO & CO in CAZ-nothing is on.</td>
+    <td><span>Step 8:</span> Check for spillage.</td>
+  </tr>
+  <tr>
+    <td><span>Step 3:</span> Look for signs of roll out of back drafting-nothing is on.</td>
+    <td><span>Step 9:</span> Measure undiluted Co.</td>
+  </tr>
+  <tr>
+    <td><span>Step 4:</span>  Perform a gas leak test.</td>
+    <td><span>Step 10:</span> Record if the draft was established at one minute.</td>
+  </tr>
+  <tr>
+    <td><span>Step 5:</span>  Drill hole for the draft measurement.</td>
+    <td><span>Step 11:</span> Repeat spillage, CO & draft test for boiler or furnace.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><span>Step 6:</span>  Start the worst case depressurization test procedure - appliances off; measure base pressure; pressure in the CAZ under worst case condition; <strong>THEN</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2">Outdoor Temperature  <input type="text" style="width:10%; border-bottom:1px #ccc solid" class="txt_name" /></td>
+  </tr>
+</table>
+<br />
+<tbody>
+  <tr>
+    <td class="TinestText" width="1%" align="Center">&nbsp;</td>
+</tr>
+</tbody>
+<table width="100%" cellspacing="0" cellpadding="5" border="1px">
+<tbody>
+<tr>
+	<td align="center" valign="bottom">
+		<b>Appliances</b>
+	</td>
+	<td colspan="2" align="Center" style="Font-Size:9">
+		<b>CO</b>
+		<br>&nbsp;
+	</td>
+	<td colspan="2" align="Center" style="Font-Size:9">
+		<b>Backdraft
+		<br>Y/N</b>
+	</td>
+	<td colspan="2" align="Center" style="Font-Size:9">
+		<b>Draft<br>
+		(1 min.)
+		Established
+		<br>Y/N</b>
+	</td>
+	<td colspan="2" align="Center" style="Font-Size:9">
+		<b>Draft Pressure<br><br>
+		Pa.
+	</b>
+	</td>
+	<td colspan="2" align="Center" style="Font-Size:9">
+		<b>Draft Pass<br>
+		<br>Y/N</b>
+	</td>
+	<td align="Center" style="Font-Size:9">
+		<b>Undil.<br>
+		CO<br>
+		Flue
+	</b></td>
+	<td align="Center" style="Font-Size:9">
+		<b>Gas<br>
+		Leak Det.
+		<br>Y/N/NA</b>
+		
+	</td>
+		<td align="Center" style="Font-Size:9">
+		<b>Percent<br>
+		<br>Eff.</b>
+	</td><td align="Center" style="Font-Size:9">
+		<b>Percent<br>
+		<br>Eff.</b>
+	</td>
+</tr>
+   <tr>
+    <td><span> </span></td>
+    <td align="center">AMB</td>
+    <td align="center">CAZ</td>
+    <td align="center">W/C</td>
+    <td align="center">NAT</td>
+    <td align="center">W/C</td>
+    <td align="center">NAT</td>
+    <td align="center">W/c</td>
+    <td align="center">NAT</td>
+    <td align="center">W/C</td>
+    <td align="center">NAT</td>
+    <td align="center"> </td>
+    <td align="center"> </td>
+    <td align="center"> </td><td align="center"> </td>
+
+
+  </tr>
+  <tr>
+    <td align="left">Water <br>Heater</td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td><td align="center"><input type="text" class="txt_name"></td>
+  </tr>
+  <tr>
+    <td align="left">Furnace <br>Boiler</td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td><td align="center"><input type="text" class="txt_name"></td>
+  </tr>
+  <tr>
+    <td align="left">Outher</td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td><td align="center"><input type="text" class="txt_name"></td>
+  </tr>
+  <tr>
+    <td align="left">Outher</td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+    <td align="center"><input type="text" class="txt_name"></td>
+  </tr>
+  </tbody></table>
+  
+  <table width="100%"  cellspacing="0" cellpadding="5" border="1px">
+<tbody>
+  <tr> 
+  <td align="center" width="50%">Stove and Oven CO</td>
+  <td align="center">Check Appliances at Worst Case Test</td>
+  </tr>
+  <tr>
+  <td align="center">Rear Left Burner <input type="text" class="ppl9text"><input type="radio"/>&nbsp;&nbsp;<input type="radio" width="25%"/>Rear Right Burner<input type="text" class="ppl9text"></td>
+    <td>&nbsp;&nbsp;
+Dryer &nbsp;<input type="checkbox">&nbsp;Y&nbsp;<input type="checkbox" >&nbsp;N&nbsp;&nbsp;Whole House Fan&nbsp;<input type="checkbox">&nbsp;Y&nbsp;<input type="checkbox" >&nbsp;N
+	</td>
+    </tr>
+  <tr>
+  <td align="center">Front Left Burner <input type="text" class="ppl9text"><input type="radio"/>&nbsp;&nbsp;<input type="radio" width="25%"/>Front Right Burner<input type="text" class="ppl9text"></td>
+    <td>&nbsp;&nbsp;
+BathFan &nbsp;<input type="checkbox">&nbsp;Y&nbsp;<input type="checkbox" >&nbsp;N&nbsp;&nbsp; Kitchen Fan  &nbsp;<input type="checkbox">&nbsp;Y&nbsp;<input type="checkbox" >&nbsp;N
+				
+    </td>
+    </tr>
+    <tr>
+    <td align="left"><center><b>Oven CO Data</b></center><br />CO Ambient  <input type="tel" class="ppl9text" /> CO At oven vent  <input type="tel" class="ppl9text" /></td>
+    <td>
+<h2>     HVAC Air Handler  &nbsp; <input type="checkbox" />&nbsp;Y&nbsp;<input type="checkbox" />&nbsp;N</h2>
+    </td>
+    </tr>
+    </table>
+      <table width="100%"  cellspacing="0" cellpadding="5" border="1px">
+      <tbody>
+     <tr align="left">
+    <td>
+    <h2  style=" padding:0;">CAZ WC/D&nbsp; <input type="tetx" class="ppl9text" style="width:12%;"/>&nbsp;Nat:&nbsp; <input type="tetx" class="ppl9text" style="width:12%;"/>&nbsp;W/C:&nbsp; <input type="tetx" style="width:12%;" class="ppl9text"/>&nbsp;Diff:&nbsp; <input  style="width:12%;" type="tetx" class="ppl9text"/>&nbsp;Pass:</h2>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    CO alarms installed in these locations: &nbsp; &nbsp;  <input type="text" class="ppl9text" style="width:60%;" style="width:25%;"
+    </td></tr>
+    <tr>
+    <td><h2 style="padding:0;">Emergency Situation: Gas company called to fix gas leak or other.   &nbsp; &nbsp;&nbsp;<input type="checkbox" />&nbsp;Y&nbsp;<input type="checkbox" />&nbsp;N&nbsp;</h2></td>
+    </tr>
+    <tr>
+    <td>
+    <h2 style="padding:0;">
+Work cannot continue due to one or more failed test over Action Level     &nbsp; &nbsp;&nbsp;<input type="checkbox" />&nbsp;Y&nbsp;<input type="checkbox" />&nbsp;N&nbsp; 
+    </h2>
+    </td>    
+    </tr>
+    </tbody>
+
+</tbody>
+</table>
+  <table width="100%"  cellspacing="0" cellpadding="5" border="0">
+
+ <tr><td colspan="2"><strong>AMB=Ambient</strong></td><td colspan="2"><strong>CAZ=Cumbustible Appliance </strong><br /><strong> Zone</strong></td><td><strong>w/C=Worst</strong><br /><strong> Case</strong></td><td colspan="2"> <strong>NAT=Natural Pa.=Pascals EFF=Efficiency Diff=Difference</strong></td></tr>
+</table>
+<table width="100%"  cellspacing="0" cellpadding="5" border="1">
+<tr>
+<td><strong>CO Test Results</strong></td>
+<td><strong>And / Or</strong></td>
+<td><strong>Spillage & Draft Test Results</strong></td>
+<td><strong>Retrofit Action</strong></td>
+<td style="width=1px;padding: 0;
+background: black;" style="background:black;" rowspan="8">&nbsp;</td>
+<td><strong>CAZ Depressurization Limits: Venting Conditions</strong></td>
+<td><strong>Limit (Pa.)</strong></td>
+</tr>
+
+<tr>
+<td align="center">0-25 PPM</td>
+<td align="center">And <br />/ Or</td>
+<td align="center">Passes</td>
+<td align="center">Proceed with work</td>
+
+<td align="center">Orphan natural draft water heater (including outside chimney)</td>
+<td align="center">-2</td>
+</tr>
+
+<tr>
+<td align="center">26-100 PPM</td>
+<td align="center">And	</td>
+<td align="center">Passes</td>
+<td align="center">Recommend that CO problem be fixed</td>
+
+<td align="center">Natural draft boiler or furnace commonly vented with water heater</td>
+<td align="center">-3</td>
+</tr>
+
+
+<tr>
+<td align="center">26-100 PPM</td>
+<td align="center">And	</td>
+<td align="center">Fails at worst case only</td>
+<td align="center">Recommend a service call for the appliance and/or repairs to the home to correct the problem</td>
+
+<td align="center">Natural draft boiler or furnace with damper commonly vented with water heater	</td>
+<td align="center">-5</td>
+</tr>
+
+<tr>
+<td align="center">100-400 PPM</td>
+<td align="center">And	</td>
+<td align="center">Fails under natural conditions</td>
+<td align="center">Stop work; work may not proceed until the system is serviced and the problem is corrected</td>
+
+<td align="center">Individual natural draft boiler or furnace	</td>
+<td align="center">-5</td>
+</tr>
+
+<tr>
+<td align="center">400 PPM</td>
+<td align="center">And	</td>
+<td align="center">Passes</td>
+<td align="center">Stop work; work may not proceed until the system is serviced and the problem is corrected</td>
+
+<td align="center">Individual natural draft boiler or furnace commonly vented with water heater</td>
+<td align="center">-5</td>
+</tr>
+
+<tr>
+<td align="center">400 PPM</td>
+<td align="center">And	</td>
+<td align="center">Fails under any condition</td>
+<td align="center">Emergency: Shut off fuel to the appliances and have the homeowner call for service immediately</td>
+
+<td align="center">Power vented or induce draft boiler or furnace alone , or fan assisted DWH alone</td>
+<td align="center">-15</td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+
+<td align="center">Chimney-top draft induce; exhaust type or equivalent; high static pressure flame renention head oil burner; Direct vented appliances; Sealed combustion appliances</td>
+<td align="center">-50</td>
+</tr>
+
+</table>
+<br />
+<h2 align="center">Minimum Worst Case Draft, Acceptable Ranges</h2>
+<h2 align="center">Outdoor Temperature(F)</h2>
+<br />
+  <table width="100%"  cellspacing="0" cellpadding="5" border="1">
+<tr>
+<td align="center">
+<strong>Appliances</strong>
+ </td>
+<td align="center">
+<strong>10</strong>
+ </td>
+<td align="center">
+<strong>20</strong>
+ </td>
+<td align="center">
+<strong>30</strong>
+ </td>
+<td align="center">
+<strong>40</strong>
+ </td>
+<td align="center">
+<strong>50</strong>
+ </td>
+<td align="center">
+<strong>60</strong>
+ </td>
+<td align="center">
+<strong>70</strong>
+ </td>
+<td align="center">
+<strong>80</strong>
+ </td>
+<td align="center">
+<strong>90</strong>
+ </td>
+</tr> 
+<tr>
+<td align="center">
+<strong>Gas-Fired furnace boiler or water heater w/ atmospheric chimney</strong>
+ </td>
+<td align="center">
+-2.5 Pa.
+-0.01
+IWC
+ </td>
+<td align="center">
+ -2.00 Pa.
+-0.009
+IWC
+ </td>
+<td align="center">
+ -2.00 Pa.
+-0.008</strong>
+ </td>
+<td align="center">
+-1.75 Pa.
+-0.007
+IWC
+ </td>
+<td align="center">
+-1.50 Pa.
+-0.006
+IWC
+ </td>
+<td align="center">
+  -1.25 Pa.
+-0.005
+IWC
+ </td>
+<td align="center">
+  -1.00 Pa.
+-0.004
+IWC
+ </td>
+<td align="center">
+    -0.75 Pa.
+-0.003
+IWC
+ </td>
+<td align="center">
+  -0.50 Pa.
+-0.002
+IWC
+ </td>
+</tr> 
+<tr>
+<td align="center">
+<strong>Oil-Fired furnace boiler or water heater w/ atmospheric chimney</strong>
+ </td>
+<td align="center">
+   -15 Pa.
+-0.06
+IWC
+ </td>
+<td align="center">
+-13 Pa.
+-0.053
+IWC
+ </td>
+<td align="center">
+
+ </td>
+<td align="center">
+    -11 Pa.
+-0.045
+IWC
+ </td>
+<td align="center">
+
+ </td>
+<td align="center">
+
+ </td>
+<td align="center">
+    -9 Pa.
+-0.039
+IWC
+ </td>
+<td align="center">
+
+ </td>
+<td align="center">
+  -7 Pa.
+-0.03
+IWC
+ </td>
+</tr> 
+
+ </table>
+</div>
+</div> <!--main div end-->
+
+</div>
+
+<!-- end form section -->
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

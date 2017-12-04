@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="../images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <strong>Heat Pump:</strong> Replacement determined by kWh use and the HSPF (age
+        and efficiency) of the existing unit. Replace HSPF 9 or less with HSPF 13 or higher.
+        Replacement requires FirstEnergy approval. <strong>Please note:</strong> Customer
+        must have at least 4,500 kWh of seasonal use in order to qualify for replacement.
+        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+            <tr>
+                <td>
+                    What are customer's Heat Pump thermostat use habits?
+                    <input type="text" class="txt_style1" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Is the thermostat accurate?
+                    <input type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No
+                    <input type="radio" />
+                    If not,why?
+                    <input type="text" class="txt_style1" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Is filter slot covered?
+                    <input type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No &nbsp; &nbsp; If no, install cover. &nbsp; &nbsp; Can you visually inspect the
+                    A-coil?
+                    <input type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    If yes, is cleaning recommended?
+                    <input type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No &nbsp; &nbsp; If yes, cleaning performed by:
+                    <input type="radio" />
+                    Auditor
+                    <input type="radio" />
+                    3rd Party Contractor
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                If visually unable to inspect A-coil, does
+                                <br />
+                                usage warrant 3rd party clean and tune?
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No &nbsp; &nbsp; If yes, was 3rd party contacted?
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No &nbsp; &nbsp; Clean/Tune?
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    If clean and tune recommended, why?
+                    <input type="text" class="txt_style9" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                New filter(s) installed in the system?
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                            <td>
+                                Number Installed:
+                                <input type="text" class="txt_city" />
+                            </td>
+                            <td>
+                                Filter(s) to be cleaned
+                                <br />
+                                in the system?
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                            <td>
+                                Number Cleaned:
+                                <input type="text" class="txt_city" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Coils to be cleaned?
+                    <input type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No &nbsp; &nbsp; Heat Pump to be replaced?
+                    <input type="radio" />
+                    Yes
+                    <input type="radio" />
+                    No &nbsp; &nbsp; Size of Unit:<input type="text" class="txt_city" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="70%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <strong>Duct work Sealing and/or Duct Installation: Are there obvious
+                                    <br />
+                                    duct leaks in any duct work that is outside the thermal boundary? </strong>
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                            <td>
+                                Location:
+                                <input type="text" class="txt_city" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                Insulation to be installed?
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                            <td>
+                                Sealing to be completed?
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                            <td>
+                                <strong>Heat pump energy education
+                                    <br />
+                                    pamphlet provided to customer?</strong>
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                Yes
+                                <input type="radio" />
+                                No
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comments:
+                    <textarea style="width: 92%; height: 50px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <strong>Electric Heat:</strong> Type of Heating System:
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                1 Electric Baseboard
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                2. Electric Heat Pump
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                3. Electric Boiler
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                4. Electric Furnace
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                5. Electric Radiant
+                            </td>
+                            <td>
+                                <input type="radio" />
+                                6. Electric Wall Blowers
+                            </td>
+                            <td colspan="2">
+                                <input type="radio" />
+                                99. Other
+                                <input type="text" class="txt_city" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%;">
+            What are customer's Electric Heat thermostat use habits?
+            <input type="text" class="txt_style9" />
+            <br />
+            <br />
+            Is the thermostat(s) accurate?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No
+            <input type="radio" />If not, why?
+            <input type="text" class="txt_style8" />
+            <br />
+            <br />
+            Do you recommend replacement of thermostats?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Explain Details:
+            <input type="text" class="txt_style11" />
+            <br />
+            <br />
+            Is filter slot covered?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; If no, install cover. &nbsp; &nbsp; Provide Locations of Thermostats:<input
+                type="text" class="txt_style11" />
+            <br />
+            <br />
+            Clean/Tune?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No
+            <br />
+            <br />
+            If clean and tune recommended, why?
+            <input type="text" class="txt_style9" />
+            <br />
+            <br />
+            New filter(s) installed in the system?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Number Installed:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            Filter(s) to be cleaned in the system?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Number Cleaned:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            Electric heater to be replaced?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Size of Unit:
+            <input type="text" class="txt_city" />
+            <br />
+            <br />
+            Any electric heating system repairs?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Explain Details:
+            <input type="text" class="txt_style1" />
+            <br />
+            <br />
+            Does family use electric space heaters INSTEAD of or in addition to their primary
+            heat source?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Location:
+            <input type="text" class="txt_ver" />
+            <br />
+            <br />
+            If PCAP customer answers yes, good opportunity to explain his/her program responsibilities
+            <br />
+            <br />
+            <strong>Duct work Sealing and/or Duct Installation: Are there obvious duct leaks in
+                any duct work that is outside the thermal boundary?</strong>
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No
+            <br />
+            <br />
+            Location:
+            <input type="text" class="txt_ver" />
+            Insulation to be installed?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No &nbsp; &nbsp; Sealing to be completed?
+            <input type="radio" />
+            Yes
+            <input type="radio" />
+            No
+            <br />
+            <br />
+            Comments:
+            <textarea style="width: 90%; height: 50px;"></textarea>
+        </div>
+    </div>
+</body>
+</html>

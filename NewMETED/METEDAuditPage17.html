@@ -1,0 +1,653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <h3>
+            House Air Sealing</h3>
+        <div class="newtable">
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td align="center">
+                        UI/Lin. Ft/#
+                    </td>
+                    <td align="center">
+                        Location(s)
+                    </td>
+                    <td align="center">
+                        Materials
+                    </td>
+                    <td align="center">
+                        Labor Hrs
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%" align="center">
+                        <h3>
+                            Doors:</h3>
+                    </td>
+                    <td width="10%">
+                    </td>
+                    <td width="10%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="25%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td width="25%">
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Replace
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Repair
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Weatherstrip
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Sweep(s)
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Threshold(s)
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Sealing
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <h3>
+                            Windows:</h3>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Replace
+                    </td>
+                    <td>
+                        <input type="checkbox" />
+                        Repair
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Replace broken glass
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Reglaze
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Weatherstrip
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Sash lock(s)
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Sealing
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <h3>
+                            Other:</h3>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Dryer/Other Vents
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Fireplace
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Plumbing
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Electrical
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Walls
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Stairs
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Other
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+            </table>
+            <strong>Attics</strong> Indicate areas where air sealing is needed and/or performed:
+            <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td align="center" width="35%">
+                        Air Sealing Measures:
+                    </td>
+                    <td align="center" width="50%">
+                        Materials
+                    </td>
+                    <td>
+                        Labor hrs Optional
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Top Plates
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Plumbing Penetrations
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Electrical Penetrations
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Dropped Ceilings
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Bulkhead soffits
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Recessed fixtures
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Access
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Ducts
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        AC or htg system air handler
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Open Chaseways
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" />
+                        Other
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                    <td>
+                        <input type="text" class="new_field" />
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td valign="top">
+                        Notes:<textarea style="width: 95%; height: 50px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

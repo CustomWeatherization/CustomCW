@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>
+                        <strong>Fossil Fuel Heating Assessment</strong>
+                    </td>
+                    <td>
+                        Primary Heating Source:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Add additional duct run?</strong>
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                    <td>
+                        <input type="radio" />
+                        1. Utility Gas
+                        <input type="radio" />
+                        2. Fuel Oil
+                        <input type="radio" />
+                        3. Wood
+                        <input type="radio" />
+                        4. Coal
+                        <input type="radio" />
+                        5. Solar
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="radio" />
+                        6. City Steam
+                        <input type="radio" />
+                        7. Bottled Gas/ Propane
+                        <input type="radio" />
+                        8. Kerosene
+                        <input type="radio" />
+                        99. Other (please describe)<input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Would minor retrofitting reduce the need for supplemental electric space heating?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" valign="top">
+                        List measures installed
+                        <textarea style="width: 85%; height: 100px;"> </textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%; margin-top: 10px;">
+            <strong>Structure Assessment</strong>
+            <br />
+            A blower door test must be conducted if: the home has installed electric heat, AC
+            is present with summer seasonal use of at least 2000 kWh, or electric space heaters
+            are present with winter seasonal use of at least 2000 kWh. Use the Blower Door Testing
+            Information Sheet to document the Building Airflow Standard (BAS), and the testing
+            results.
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td valign="top">
+                        If blower door test is<br />
+                        not being
+                        <br />
+                        completed, why?
+                    </td>
+                    <td colspan="3">
+                        <textarea style="width: 95%; height: 100px;"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        If the blower door test indicates air sealing is to be performed, indicate location
+                        of air leaks.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Location of air leaks:
+                    </td>
+                    <td>
+                        <input type="text" class="txt_size" />
+                    </td>
+                    <td>
+                        Location of air leaks:
+                    </td>
+                    <td>
+                        <input type="text" class="txt_size" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Location of air leaks:
+                    </td>
+                    <td>
+                        <input type="text" class="txt_size" />
+                    </td>
+                    <td>
+                        Location of air leaks:
+                    </td>
+                    <td>
+                        <input type="text" class="txt_size" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        Live Knob & Tube?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Location:
+                        <input type="text" class="txt_size" />
+                        &nbsp; &nbsp; Abatement:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        Evidence of Mold?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Evidence of moisture, water?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Location:
+                        <input type="text" class="txt_size" />
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        Document any<br />
+                        structural problems
+                        <br />
+                        such as roof leaks,<br />
+                        poor drainage, etc,<br />
+                        here.
+                    </td>
+                    <td colspan="3">
+                        <textarea style="width: 95%; height: 100px;"> </textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; width: 100%;">
+            <strong>Mechanical Ventilation</strong>
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>
+                        <strong>Kitchen:</strong>
+                    </td>
+                    <td>
+                        Existing:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No Measured Fan Flow
+                        <input type="text" class="txt_city" />
+                        CFM Add
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                        <input type="checkbox" />
+                        Vents out Recirculates
+                        <input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comments:
+                    </td>
+                    <td>
+                        <textarea style="width: 95%; height: 100px;"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>1st Floor Bathrooms:</strong> Existing:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Measured Fan Flow<input type="text" class="txt_city" />
+                        &nbsp; &nbsp; CFM Add:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    Light in existing:
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                                <td>
+                                    Replacemenst<br />
+                                    requires light:
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                                <td>
+                                    Is the fan on its own switch?
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                                <td>
+                                    Is fan on shared switch?
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comments:
+                    </td>
+                    <td>
+                        <textarea style="width: 95%; height: 100px;"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>2nd Floor Bathrooms:</strong> Existing:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Measured Fan Flow<input type="text" class="txt_city" />
+                        &nbsp; &nbsp; CFM Add:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    Light in existing:
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                                <td>
+                                    Replacemenst<br />
+                                    requires light:
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                                <td>
+                                    Is the fan on its own switch?
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                                <td>
+                                    Is fan on shared switch?
+                                    <input type="radio" />
+                                    Yes
+                                    <input type="radio" />
+                                    No
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comments:
+                    </td>
+                    <td>
+                        <textarea style="width: 95%; height: 100px;"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>If adding a fan:</strong>
+                    </td>
+                    <td>
+                        Ceiling:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Size:<input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Wall:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Size:<input type="text" class="txt_city" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[SelectStates]
+[SelectCounties]
+[SelectUtilityCompanies]
+
+[InsertJob]
+
+[UpdateJob]
+-----------------------------
+
+http://208.58.127.103/cweather/JobsStatus.Asp?Num=1
+
+[SelectJobsStatus]
+
+
+http://208.58.127.103/cweather/
+ValidateLogin

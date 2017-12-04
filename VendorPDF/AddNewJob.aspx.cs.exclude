@@ -1,0 +1,1325 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Xml.Linq;
+using System.Globalization;
+
+public partial class AddNewJob : System.Web.UI.Page
+{
+    dc_AddNewJob objNewJob = new dc_AddNewJob();
+    smUtil objSmUtil = new smUtil();
+    dcContactAttemptsReport objCAR = new dcContactAttemptsReport();
+    public DataTable dtContactAttempts = new DataTable();
+    static string strJobNumber = "";
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            if (chkSetServiceToMailingAddress.Checked)
+            {
+                txtAddress_Service.Text = txtAddress_Mailing.Text;
+                txtZipCode_Service.Text = txtZipCode_Mailing.Text;
+                txtCity_Service.Text = txtCity_Mailing.Text;
+                ddl_State_Service.SelectedValue = ddl_State_Mailing.SelectedValue;
+            }
+
+            if (Request.QueryString["Jobs"] != null)
+            {
+                if (Request.QueryString["Jobs"] != "")
+                {
+                    showComments();
+                }
+            }
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["JobNew"] != null)
+                {
+                    if (Request.QueryString["JobNew"] != "")
+                    {
+                        txtJobNumber.Text = Request.QueryString["JobNew"].ToString();
+                        txtJobNumber.Enabled = false;
+                        txtEnterSeheduling.Visible = false;
+                    }
+
+                }
+                else
+                {
+                }
+
+                strJobNumber = "";
+
+                ShowCounties();
+                ShowState();
+                ShowUtilityCompany();
+                FillImployee();
+                ShowContactPerson();
+                ShowContactType();
+                ShowContactResult();
+                if (Request.QueryString["Jobs"] != null)
+                {
+                    if (Request.QueryString["Jobs"] != "")
+                    {
+                        strJobNumber = Request.QueryString["Jobs"].ToString();
+                        txtEnterSeheduling.Visible = true;
+                        FillDataForUpdate();
+                    }
+
+                }
+            }
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+
+    #region Fill County
+
+    public void ShowCounties()
+    {
+        try
+        {
+            DataTable dt = objNewJob.ShowCounties();
+            ddlCounty.DataSource = dt;
+            ddlCounty.DataValueField = "ID";
+            ddlCounty.DataTextField = "County";
+            ddlCounty.DataBind();
+
+            ddlCounty.Items.Insert(0, new ListItem("Select County", "0"));
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+    #endregion
+    #region Fill State
+
+    public void ShowState()
+    {
+        try
+        {
+            DataTable dt = objNewJob.ShowStates();
+            ddl_State_Mailing.DataSource = dt;
+            ddl_State_Mailing.DataValueField = "ID";
+            ddl_State_Mailing.DataTextField = "State";
+            ddl_State_Mailing.DataBind();
+            ddl_State_Mailing.Items.Insert(0, new ListItem("Select State", "0"));
+
+            ddl_State_Service.DataSource = dt;
+            ddl_State_Service.DataValueField = "ID";
+            ddl_State_Service.DataTextField = "State";
+            ddl_State_Service.DataBind();
+            ddl_State_Service.Items.Insert(0, new ListItem("Select State", "0"));
+
+
+            ddl_State_PPLproprietary.DataSource = dt;
+            ddl_State_PPLproprietary.DataValueField = "ID";
+            ddl_State_PPLproprietary.DataTextField = "State";
+            ddl_State_PPLproprietary.DataBind();
+            ddl_State_PPLproprietary.Items.Insert(0, new ListItem("Select State", "0"));
+
+
+
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+    }
+    #endregion
+    #region Fill Utility Company
+
+    public void ShowUtilityCompany()
+    {
+        try
+        {
+
+            DataTable dt = objNewJob.ShowUtilityCompanies();
+            DDL_UtilityCompany_2.DataSource = dt;
+            DDL_UtilityCompany_2.DataValueField = "ID";
+            DDL_UtilityCompany_2.DataTextField = "UtilityCompany";
+            DDL_UtilityCompany_2.DataBind();
+
+            DDL_UtilityCompany_2.Items.Insert(0, new ListItem("Select Utility", "0"));
+
+            DDl_UtilityCompany_1.DataSource = dt;
+            DDl_UtilityCompany_1.DataValueField = "ID";
+            DDl_UtilityCompany_1.DataTextField = "UtilityCompany";
+            DDl_UtilityCompany_1.DataBind();
+
+            DDl_UtilityCompany_1.Items.Insert(0, new ListItem("Select Utility", "0"));
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+    }
+    #endregion
+    #region Fill Contact Person
+
+    public void ShowContactPerson()
+    {
+        try
+        {
+            DataTable dt = objNewJob.ShowContactPerson();
+            ddlContactPerson.DataSource = dt;
+            ddlContactPerson.DataValueField = "ID";
+            ddlContactPerson.DataTextField = "ContactPerson";
+            ddlContactPerson.DataBind();
+            ddlContactPerson.Items.Insert(0, new ListItem("Select Contact Person", "0"));
+
+
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+    #endregion
+    #region Fill Contact Type
+
+    public void ShowContactType()
+    {
+        try
+        {
+            DataTable dt = objNewJob.ShowContactType();
+            ddlContactType.DataSource = dt;
+            ddlContactType.DataValueField = "ID";
+            ddlContactType.DataTextField = "ContactType";
+            ddlContactType.DataBind();
+
+            ddlContactType.Items.Insert(0, new ListItem("Select Contact Type", "0"));
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+    #endregion
+    #region Fill Contact Result
+    public void ShowContactResult()
+    {
+        try
+        {
+            DataTable dt = objNewJob.ShowContactResult();
+            ddlContactResult.DataSource = dt;
+            ddlContactResult.DataValueField = "ID";
+            ddlContactResult.DataTextField = "ContactResult";
+            ddlContactResult.DataBind();
+            ddlContactResult.Items.Insert(0, new ListItem("Select Contact Result", "0"));
+
+
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+    #endregion
+
+    #region Fill Employee
+    public void FillImployee()
+    {
+        try
+        {
+            if (Cache["ShowEmployee"] == null)
+            {
+                DataTable dt = objNewJob.ShowEmployee();
+                lstEmployeeForSendSaveComments.DataSource = dt;
+                lstEmployeeForSendSaveComments.DataValueField = "ID";
+                lstEmployeeForSendSaveComments.DataTextField = "FullName";
+                lstEmployeeForSendSaveComments.DataBind();
+                lstEmployeeForSendSaveComments.Items.Insert(0, new ListItem("", "0"));
+                Cache["ShowEmployee"] = dt;
+            }
+            else
+            {
+                lstEmployeeForSendSaveComments.DataSource = Cache["ShowEmployee"];
+                lstEmployeeForSendSaveComments.DataValueField = "ID";
+                lstEmployeeForSendSaveComments.DataTextField = "FullName";
+                lstEmployeeForSendSaveComments.DataBind();
+                lstEmployeeForSendSaveComments.Items.Insert(0, new ListItem("", "0"));
+            }
+        }
+        catch
+        {
+        }
+
+    }
+
+    #endregion
+
+
+
+
+
+    #region insert Job
+    protected void txtSave_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            bool HeatSource = false;
+
+            foreach (ListItem item in chkLst_HeatSource.Items)
+            {
+                if (item.Selected)
+                {
+                    HeatSource = true;
+                }
+            }
+
+            bool Heat_Type = false;
+
+            foreach (ListItem item in chklst_Heat_Type.Items)
+            {
+                if (item.Selected)
+                {
+                    Heat_Type = true;
+                }
+            }
+
+            bool WaterHeaterType = false;
+
+            foreach (ListItem item in chklst_WaterHeaterType.Items)
+            {
+                if (item.Selected)
+                {
+                    WaterHeaterType = true;
+                }
+            }
+
+            bool Air_Conditioning = false;
+
+            foreach (ListItem item in chkLst_Air_Conditioning.Items)
+            {
+                if (item.Selected)
+                {
+                    Air_Conditioning = true;
+                }
+            }
+
+
+
+
+            if (HeatSource == false || Heat_Type == false || WaterHeaterType == false || Air_Conditioning == false)
+            {
+                Response.Write("<script>alert('Please Select Atleast One Option From each section of Heating,WaterHeater,Air Conditioning');</script>");
+            }
+            else
+            {
+                //string AddSection = "";
+                //if (HeatSource == false)
+                //{
+                //    AddSection = "Heat Source" + "," + AddSection;
+
+                //}
+                //if (Heat_Type == false)
+                //{
+                //    AddSection = "Heat Type" + "," + AddSection;
+
+                //}
+                //if (WaterHeaterType == false)
+                //{
+                //    AddSection = "Water Heater Type" + "," + AddSection;
+
+                //}
+                //if (Air_Conditioning == false)
+                //{
+                //    AddSection = "Air Conditioning" + "," + AddSection;
+                //}
+
+
+                //if (AddSection != "")
+                //{
+                //    AddSection = AddSection.Substring(0, AddSection.Length - 1);
+                //    Response.Write("<script>alert('Please Select Atleast One Option From Section(" + AddSection + ")');</script>");
+                //}
+
+                if (rdoYes_OnTrack.Checked == false && rdoNo_OnTrack.Checked == false)
+                {
+                    Response.Write("<script>alert('Please select any one option of on track');</script>");
+                }
+                else
+                {
+                    if (rdoTenant.Checked == false && rdoOwner.Checked == false)
+                    {
+                        Response.Write("<script>alert('Please Select Any One Option From TENANT or OWNER');</script>");
+                    }
+                    else
+                    {
+                        string Str_HeatType = "";
+                        foreach (ListItem item in chklst_Heat_Type.Items)
+                        {
+                            if (item.Selected)
+                            {
+                                if (Str_HeatType == "")
+                                {
+                                    Str_HeatType = item.Value;
+                                }
+                                else
+                                {
+                                    Str_HeatType = Str_HeatType + "," + item.Value;
+                                }
+
+
+                            }
+
+                        }
+                        string Str_HeatSource = "";
+                        foreach (ListItem item in chkLst_HeatSource.Items)
+                        {
+                            if (item.Selected)
+                            {
+                                if (Str_HeatSource == "")
+                                {
+                                    Str_HeatSource = item.Value;
+                                }
+                                else
+                                {
+                                    Str_HeatSource = Str_HeatSource + "," + item.Value;
+                                }
+
+                                //  Str_HeatType= chklst_Heat_Type.SelectedValue;
+                            }
+
+                        }
+
+
+                        string Str_WaterHeaterType = "";
+                        foreach (ListItem item in chklst_WaterHeaterType.Items)
+                        {
+                            if (item.Selected)
+                            {
+                                if (Str_WaterHeaterType == "")
+                                {
+                                    Str_WaterHeaterType = item.Value;
+                                }
+                                else
+                                {
+                                    Str_WaterHeaterType = Str_WaterHeaterType + "," + item.Value;
+                                }
+
+                                //  Str_HeatType= chklst_Heat_Type.SelectedValue;
+                            }
+
+                        }
+                        string Str_Air_Conditioning = "";
+                        foreach (ListItem item in chkLst_Air_Conditioning.Items)
+                        {
+                            if (item.Selected)
+                            {
+                                if (Str_Air_Conditioning == "")
+                                {
+                                    Str_Air_Conditioning = item.Value;
+                                }
+                                else
+                                {
+                                    Str_Air_Conditioning = Str_Air_Conditioning + "," + item.Value;
+                                }
+
+                                //  Str_HeatType= chklst_Heat_Type.SelectedValue;
+                            }
+
+                        }
+                        string strOwnerTenent = "";
+                        //owner Tenent
+                        if (rdoOwner.Checked)
+                        {
+                            strOwnerTenent = "O";
+                        }
+                        else if (rdoTenant.Checked)
+                        {
+                            strOwnerTenent = "T";
+                        }
+                        string strOntrack = "";
+                        //Ontrack
+                        if (rdoNo_OnTrack.Checked)
+                        {
+                            // strOntrack = rdoNo_OnTrack.Text;
+                            strOntrack = "NO";
+                        }
+                        else if (rdoYes_OnTrack.Checked)
+                        {
+                            // strOntrack = rdoYes_OnTrack.Text;
+                            strOntrack = "YES";
+                        }
+
+                        //
+
+                        string strPCAP = "";
+                        if (rdoPCAP_Yes.Checked)
+                        {
+                            strPCAP = rdoPCAP_Yes.Text;
+                        }
+                        else if (rdoPCAP_No.Checked)
+                        {
+                            strPCAP = rdoPCAP_No.Text;
+                        }
+                        //TOD
+                        string strTOD = "";
+                        if (rdoTOD_Yes.Checked)
+                        {
+                            strTOD = rdoTOD_Yes.Text;
+                        }
+                        else if (rdoTOD_No.Checked)
+                        {
+                            strTOD = rdoTOD_No.Text;
+                        }
+
+                        FillDefaultvalueforBlanck();
+
+                        string strLoginName = objSmUtil.GetCookie("UserName");
+                        string SAllowance = "";
+                        SAllowance = txtSpendingAllowance.Text;
+                        string SAllowance2 = SAllowance.Replace("$", "");
+
+                        if (SAllowance2 == "")
+                        {
+                            SAllowance2 = "0";
+                        }
+
+                        int TSummerSeasonal, TWinterSeasonal, BaseLoad;
+                        TSummerSeasonal = TWinterSeasonal = BaseLoad = 0;
+                        if (hdnTSummerSeasonal.Value != "")
+                        {
+                            TSummerSeasonal = Convert.ToInt32(hdnTSummerSeasonal.Value);
+                        }
+
+                        if (hdnTWinterSeasonal.Value != "")
+                        {
+                            TWinterSeasonal = Convert.ToInt32(hdnTWinterSeasonal.Value);
+                        }
+
+                        if (hdnBaseLoad.Value != "")
+                        {
+                            BaseLoad = Convert.ToInt32(hdnBaseLoad.Value);
+                        }
+
+                        objNewJob.InserJob(txtJobNumber.Text, txtDateReceived.Text, txtDateCompleted.Text, Convert.ToInt32(DDl_UtilityCompany_1.SelectedValue), Convert.ToInt32(DDL_UtilityCompany_2.SelectedValue), txtFirstName.Text, txtLastName.Text, txtAccountNumber.Text, txtAddress_Mailing.Text, hdnAddress_Service.Value, txtCity_Mailing.Text, hdnCity_Service.Value, Convert.ToInt32(ddl_State_Mailing.SelectedValue), Convert.ToInt32(hdn_State_Service.Value), txtZipCode_Mailing.Text, hdnZipCode_Service.Value, txtHomeBuilt.Text, Convert.ToInt32(ddlCounty.SelectedValue), txtPhone_Home.Text, txtPhone_Cell.Text, Convert.ToInt32(txtNumberOfOccupants.Text), Str_HeatSource, Str_HeatType, Str_WaterHeaterType, Str_Air_Conditioning, Convert.ToInt32(txt_TotalNumberOfUnit_AirConditioning.Text), Convert.ToInt32(txtYearlyKWH_Hours.Text), Convert.ToInt32(txtJuneKWH.Text), Convert.ToInt32(txtJulyKWH.Text), Convert.ToInt32(txtAugustKWH.Text), Convert.ToInt32(txtSeptemberKWH.Text), Convert.ToInt32(txtLow1KWHHours.Text), Convert.ToInt32(txtLow2KWH_Hours.Text), BaseLoad, TWinterSeasonal, TSummerSeasonal, SAllowance2, strOntrack, strOwnerTenent, txtLandlordName.Text, txtLandlordPhone.Text, txtLandlordEmailOrFax.Text, txtLandlordAddress.Text, txtLandlordCity.Text, Convert.ToInt32(ddl_State_PPLproprietary.SelectedValue), txtLandlordZipCode.Text, strPCAP, txtPCAP_Amount.Text, strTOD, txtLast_4_SS.Text, Convert.ToInt32(txtSummer_SesonalUse.Text), Convert.ToInt32(txtWinter_SesonalUse.Text), Convert.ToInt32(txtAnnualBaseUse.Text), Convert.ToInt32(txtTotalAnnualUse.Text), txtDate_ContactAttempt.Text, txtTime_ContactAttempt.Text, Convert.ToInt32(ddlContactType.SelectedValue), Convert.ToInt32(ddlContactPerson.SelectedValue), Convert.ToInt32(ddlContactResult.SelectedValue), txtReturnDate.Text, chkAct129.Checked, chkBaseLoad.Checked, chkHighPriority.Checked, chkFullCost.Checked, strLoginName, chkLowCost.Checked, txtOnTrackAmount.Text, txtPhone_Work.Text, Convert.ToDecimal(txt_SeasonalSpendingAllowance.Text));
+                        ScriptManager.RegisterStartupScript(this, GetType(), "Scrpt", "MessageAndRedirectPage();", true);
+                    }
+                }
+            }
+        }
+        catch
+        {
+        }
+
+    }
+
+
+
+    /// <summary>
+    ///This is for giving defalult value for ("") coz its gives error while saving recrod
+    /// </summary>
+    public void FillDefaultvalueforBlanck()
+    {
+        try
+        {
+
+            // ____________This is for PPL Seasonal Costs and Allowances_______________
+            if (txtTotalAnnualUse.Text == "")
+            {
+                txtTotalAnnualUse.Text = "0";
+            }
+
+            if (txt_SeasonalSpendingAllowance.Text == "")
+            {
+                txt_SeasonalSpendingAllowance.Text = "0";
+            }
+
+            if (txtYearlyKWH_Hours.Text == "")
+            {
+                txtYearlyKWH_Hours.Text = "0";
+            }
+            if (txtJuneKWH.Text == "")
+            {
+                txtJuneKWH.Text = "0";
+            }
+
+            if (txtJulyKWH.Text == "")
+            {
+                txtJulyKWH.Text = "0";
+            }
+
+            if (txtAugustKWH.Text == "")
+            {
+                txtAugustKWH.Text = "0";
+            }
+
+            if (txtSeptemberKWH.Text == "")
+            {
+                txtSeptemberKWH.Text = "0";
+            }
+            if (txtLow1KWHHours.Text == "")
+            {
+                txtLow1KWHHours.Text = "0";
+            }
+
+            if (txtLow2KWH_Hours.Text == "")
+            {
+                txtLow2KWH_Hours.Text = "0";
+            }
+            if (txtBaseLoad.Text == "")
+            {
+                txtBaseLoad.Text = "0";
+            }
+            if (txtTWinterSeasonal.Text == "")
+            {
+                txtTWinterSeasonal.Text = "0";
+            }
+            if (txtTSummerSeasonal.Text == "")
+            {
+                txtTSummerSeasonal.Text = "0";
+            }
+
+            if (txtOnTrackAmount.Text == "")
+            {
+                txtOnTrackAmount.Text = "0";
+            }
+
+            //________________MET ED Proprietary Usage__________________
+
+            if (txtPCAP_Amount.Text == "")
+            {
+                txtPCAP_Amount.Text = "0";
+            }
+            if (txtLast_4_SS.Text == "")
+            {
+                txtLast_4_SS.Text = "0";
+            }
+
+            if (txtSummer_SesonalUse.Text == "")
+            {
+                txtSummer_SesonalUse.Text = "0";
+            }
+
+            if (txtWinter_SesonalUse.Text == "")
+            {
+                txtWinter_SesonalUse.Text = "0";
+            }
+            if (txtAnnualBaseUse.Text == "")
+            {
+                txtAnnualBaseUse.Text = "0";
+            }
+            if (txtTotalAnnualUse.Text == "")
+            {
+                txtTotalAnnualUse.Text = "0";
+            }
+        }
+        catch
+        {
+        }
+
+    }
+    #endregion
+
+    #region Fill Data For Update
+    public void FillDataForUpdate()
+    {
+        try
+        {
+            DataTable dtU = objNewJob.ShowJobByJobNumber_ByJobNumber(strJobNumber);
+            if (dtU.Rows.Count > 0)
+            {
+                //***********First Block*******************
+                txtJobNumber.Text = dtU.Rows[0]["JobNumber"].ToString();
+                txtJobNumber.Enabled = false;
+
+                txtDateReceived.Text = Convert.ToDateTime(dtU.Rows[0]["DateAssigned"]).ToString("MM/dd/yyyy");
+                hdnTxtDateReceived.Value = Convert.ToDateTime(dtU.Rows[0]["DateAssigned"]).ToString("MM/dd/yyyy");
+                txtDateReceived.Enabled = false;
+
+                if (Convert.ToString(dtU.Rows[0]["DateCompleted"]) != "")
+                {
+                    if (Convert.ToDateTime(dtU.Rows[0]["DateCompleted"]).ToString("MM/dd/yyyy") != "01/01/1900")
+                    {
+                        txtDateCompleted.Text = Convert.ToDateTime(dtU.Rows[0]["DateCompleted"]).ToString("MM/dd/yyyy");
+                        hdntxtDateCompleted.Value = Convert.ToDateTime(dtU.Rows[0]["DateCompleted"]).ToString("MM/dd/yyyy");
+                        //txtDateCompleted.Enabled = false;
+                    }
+                }
+
+                if (Convert.ToString(dtU.Rows[0]["CWReturnDate"]) != "")
+                {
+                    if (Convert.ToDateTime(dtU.Rows[0]["CWReturnDate"]).ToString("MM/dd/yyyy") != "01/01/1900")
+                    {
+                        txtReturnDate.Text = Convert.ToDateTime(dtU.Rows[0]["CWReturnDate"]).ToString("MM/dd/yyyy");
+                        hdnTxtReturnDate.Value = Convert.ToDateTime(dtU.Rows[0]["CWReturnDate"]).ToString("MM/dd/yyyy");
+                        //txtReturnDate.Enabled = false;
+                    }
+                }
+
+                if (Convert.ToString(dtU.Rows[0]["ReScheduledDate"]) != "")
+                {
+                    if (Convert.ToDateTime(dtU.Rows[0]["ReScheduledDate"]).ToString("MM/dd/yyyy") != "01/01/1900")
+                    {
+                        txtRe_ScheduledDate.Text = Convert.ToDateTime(dtU.Rows[0]["ReScheduledDate"]).ToString("MM/dd/yyyy");
+                        //  txtRe_ScheduledDate.Enabled = false;
+                    }
+                }
+                if (Convert.ToString(dtU.Rows[0]["DateScheduled"]) != "")
+                {
+                    if (Convert.ToDateTime(dtU.Rows[0]["DateScheduled"]).ToString("MM/dd/yyyy") != "01/01/1900")
+                    {
+                        lblScheduleDtae.Visible = true;
+                        txtScheduleDtae.Visible = true;
+                        txtScheduleDtae.Text = Convert.ToDateTime(dtU.Rows[0]["DateScheduled"]).ToString("MM/dd/yyyy");
+                    }
+                }
+
+                txtEnterSeheduling.Text = dtU.Rows[0]["DateScheduledComments"].ToString();
+                //  txtEnterSeheduling.Enabled = false;
+
+                txtAuthorName.Text = dtU.Rows[0]["AuditorName"].ToString();
+                txtAuthorName.Enabled = false;
+
+                if (Convert.ToString(dtU.Rows[0]["UtilityCompany1"]) != "0")
+                {
+                    DDl_UtilityCompany_1.SelectedValue = dtU.Rows[0]["UtilityCompany1"].ToString();
+
+                }
+                if (Convert.ToString(dtU.Rows[0]["UtilityCompany2"]) != "0")
+                {
+                    DDL_UtilityCompany_2.SelectedValue = dtU.Rows[0]["UtilityCompany2"].ToString();
+
+                }
+                DDL_UtilityCompany_2.Enabled = false;
+                DDl_UtilityCompany_1.Enabled = false;
+
+                //***********Job Type Section*******************
+                if (Convert.ToBoolean(dtU.Rows[0]["Act129"]) == true)
+                {
+                    chkAct129.Checked = true;
+                }
+                if (Convert.ToBoolean(dtU.Rows[0]["BaseLoadOnly"]) == true)
+                {
+                    chkBaseLoad.Checked = true;
+                }
+                if (Convert.ToBoolean(dtU.Rows[0]["HighPriority"]) == true)
+                {
+                    chkHighPriority.Checked = true;
+                }
+                if (Convert.ToBoolean(dtU.Rows[0]["LowCost"]) == true)
+                {
+                    chkLowCost.Checked = true;
+                }
+                if (Convert.ToBoolean(dtU.Rows[0]["FullCost"]) == true)
+                {
+                    chkFullCost.Checked = true;
+                }
+
+                chkAct129.Enabled = false;
+                chkBaseLoad.Enabled = false;
+                chkHighPriority.Enabled = false;
+                chkLowCost.Enabled = false;
+                chkFullCost.Enabled = false;
+
+                //**************Name Detail*******************
+
+                txtFirstName.Text = dtU.Rows[0]["FirstName"].ToString();
+                txtFirstName.Enabled = false;
+                txtLastName.Text = dtU.Rows[0]["LastName"].ToString();
+                txtLastName.Enabled = false;
+                txtAccountNumber.Text = dtU.Rows[0]["AccountNumber"].ToString();
+                txtAccountNumber.Enabled = false;
+
+                //**************Mailing Address*******************
+
+
+                txtAddress_Mailing.Text = dtU.Rows[0]["MailingAddress1"].ToString();
+                txtAddress_Mailing.Enabled = false;
+                //  if (Convert.ToBoolean(dtU.Rows[0][""]) == true)
+                //{
+                //    chkSetServiceToMailingAddress.Checked = true;
+                //}
+
+                txtCity_Mailing.Text = dtU.Rows[0]["MailingCity"].ToString();
+                txtCity_Mailing.Enabled = false;
+
+                txtZipCode_Mailing.Text = dtU.Rows[0]["MailingZipCode"].ToString();
+                txtZipCode_Mailing.Enabled = false;
+
+                if (Convert.ToString(dtU.Rows[0]["MailingState"]) != "0")
+                {
+                    ddl_State_Mailing.SelectedValue = dtU.Rows[0]["MailingState"].ToString();
+                    ddl_State_Mailing.Enabled = false;
+
+                }
+                txtHomeBuilt.Text = dtU.Rows[0]["YearHomeBuilt"].ToString();
+                txtHomeBuilt.Enabled = false;
+
+                //**************Phone detail*******************
+
+                txtPhone_Home.Text = dtU.Rows[0]["HomePhone"].ToString();
+                txtPhone_Home.Enabled = false;
+
+                txtPhone_Cell.Text = dtU.Rows[0]["CellPhone"].ToString();
+                txtPhone_Cell.Enabled = false;
+
+                txtPhone_Work.Text = dtU.Rows[0]["WorkPhone"].ToString();
+                txtPhone_Work.Enabled = false;
+
+                //**************Service Address*******************
+
+                txtAddress_Service.Text = dtU.Rows[0]["ServiceAddress1"].ToString();
+                txtAddress_Service.Enabled = false;
+
+                txtCity_Service.Text = dtU.Rows[0]["ServiceCity"].ToString();
+                txtCity_Service.Enabled = false;
+
+                txtZipCode_Service.Text = dtU.Rows[0]["ServiceZipCode"].ToString();
+                txtZipCode_Service.Enabled = false;
+
+                if (Convert.ToString(dtU.Rows[0]["ServiceState"]) != "0")
+                {
+                    ddl_State_Service.SelectedValue = dtU.Rows[0]["ServiceState"].ToString();
+
+
+                }
+                if (Convert.ToString(dtU.Rows[0]["ServiceCounty"]) != "0")
+                {
+                    ddlCounty.SelectedValue = dtU.Rows[0]["ServiceCounty"].ToString();
+
+
+                }
+                ddl_State_Service.Enabled = false;
+                ddlCounty.Enabled = false;
+                txtNumberOfOccupants.Text = dtU.Rows[0]["NumberOfOccupants"].ToString();
+                txtNumberOfOccupants.Enabled = false;
+
+                //**************Checked SetService To MailingAddress Checkbox*******************
+
+                chkSetServiceToMailingAddress.Enabled = false;
+
+
+                //**************Heating & WaterHeater & Air Conditioning*******************
+                string StrTemp = "";
+                StrTemp = dtU.Rows[0]["HeatSource"].ToString().Replace(" ", "");
+                string[] k = StrTemp.Split(',');
+
+                // k = dtU.Rows[0]["HeatSource"].ToString().Split(',');
+
+                for (int m = 0; m < k.Length; m++)
+                {
+                    for (int i = 0; i < chkLst_HeatSource.Items.Count; i++)
+                    {
+                        if (chkLst_HeatSource.Items[i].Value == k[m])
+                        {
+                            chkLst_HeatSource.Items[i].Selected = true;
+
+                        }
+                        chkLst_HeatSource.Items[i].Enabled = false;
+                    }
+                }
+
+                StrTemp = dtU.Rows[0]["TypeOfHeat"].ToString().Replace(" ", "");
+                k = StrTemp.Split(',');
+                // k = dtU.Rows[0]["TypeOfHeat"].ToString().Split(',');
+                for (int m = 0; m < k.Length; m++)
+                {
+                    for (int i = 0; i < chklst_Heat_Type.Items.Count; i++)
+                    {
+                        if (chklst_Heat_Type.Items[i].Value == k[m])
+                        {
+                            chklst_Heat_Type.Items[i].Selected = true;
+
+                        }
+                        chklst_Heat_Type.Items[i].Enabled = false;
+                    }
+                }
+
+
+                StrTemp = dtU.Rows[0]["WaterHeaterType"].ToString().Replace(" ", "");
+                k = StrTemp.Split(',');
+                // k = dtU.Rows[0]["WaterHeaterType"].ToString().Split(',');
+                for (int m = 0; m < k.Length; m++)
+                {
+                    for (int i = 0; i < chklst_WaterHeaterType.Items.Count; i++)
+                    {
+                        if (chklst_WaterHeaterType.Items[i].Value == k[m])
+                        {
+                            chklst_WaterHeaterType.Items[i].Selected = true;
+
+                        }
+                        chklst_WaterHeaterType.Items[i].Enabled = false;
+                    }
+                }
+
+
+                StrTemp = dtU.Rows[0]["AirConditionerType"].ToString().Replace(" ", "");
+                k = StrTemp.Split(',');
+                // k = dtU.Rows[0]["AirConditionerType"].ToString().Split(',');
+                for (int m = 0; m < k.Length; m++)
+                {
+                    for (int i = 0; i < chkLst_Air_Conditioning.Items.Count; i++)
+                    {
+                        if (chkLst_Air_Conditioning.Items[i].Value == k[m])
+                        {
+                            chkLst_Air_Conditioning.Items[i].Selected = true;
+
+                        }
+                        chkLst_Air_Conditioning.Items[i].Enabled = false;
+                    }
+
+                }
+                txt_TotalNumberOfUnit_AirConditioning.Text = dtU.Rows[0]["NumACUnits"].ToString();
+                txt_TotalNumberOfUnit_AirConditioning.Enabled = false;
+
+                //**************PPL Seasonal Costs and Allowances*******************
+
+                txtYearlyKWH_Hours.Text = dtU.Rows[0]["YearlyKWHHours"].ToString();
+                txtYearlyKWH_Hours.Enabled = false;
+
+
+                txtJuneKWH.Text = dtU.Rows[0]["JuneKWHHours"].ToString();
+                txtJuneKWH.Enabled = false;
+
+
+                txtJulyKWH.Text = dtU.Rows[0]["JulyKWHHours"].ToString();
+                txtJulyKWH.Enabled = false;
+
+
+                txtAugustKWH.Text = dtU.Rows[0]["AugustKWHHours"].ToString();
+                txtAugustKWH.Enabled = false;
+
+                txtSeptemberKWH.Text = dtU.Rows[0]["SeptemberKWHHours"].ToString();
+                txtSeptemberKWH.Enabled = false;
+
+                txtLow1KWHHours.Text = dtU.Rows[0]["Low1KWHHours"].ToString();
+                txtLow1KWHHours.Enabled = false;
+
+
+                txtLow2KWH_Hours.Text = dtU.Rows[0]["Low2KWHHours"].ToString();
+                txtLow2KWH_Hours.Enabled = false;
+
+
+                txtBaseLoad.Text = dtU.Rows[0]["BaseLoad"].ToString();
+                txtBaseLoad.Enabled = false;
+
+
+                txtTWinterSeasonal.Text = dtU.Rows[0]["TWSeasonal"].ToString();
+                txtTWinterSeasonal.Enabled = false;
+
+                txtTSummerSeasonal.Text = dtU.Rows[0]["TSSeasonal"].ToString();
+                txtTSummerSeasonal.Enabled = false;
+
+
+                txtSpendingAllowance.Text = "$" + Convert.ToString(Math.Round(Convert.ToDecimal(Convert.ToString(dtU.Rows[0]["SpendingAllowance"]).Replace("$", "")), 2));
+                txtSpendingAllowance.Enabled = false;
+
+                //*******************PPL Proprietary Usage***********************
+                if (Convert.ToString(dtU.Rows[0]["ONTRACK"]) == "YES")
+                {
+                    rdoYes_OnTrack.Checked = true;
+
+                }
+                else if (Convert.ToString(dtU.Rows[0]["ONTRACK"]) == "NO")
+                {
+                    rdoNo_OnTrack.Checked = true;
+                }
+                rdoNo_OnTrack.Enabled = false;
+                rdoYes_OnTrack.Enabled = false;
+
+                txtOnTrackAmount.Text = Math.Round(Convert.ToDecimal(dtU.Rows[0]["OnTrackAmount"]), 2).ToString();
+                txtOnTrackAmount.Enabled = false;
+
+
+                if (Convert.ToString(dtU.Rows[0]["OwnerTenant"]) == "O")
+                {
+                    rdoOwner.Checked = true;
+
+                }
+                else if (Convert.ToString(dtU.Rows[0]["OwnerTenant"]) == "T")
+                {
+                    rdoTenant.Checked = true;
+                }
+                rdoOwner.Enabled = false;
+                rdoTenant.Enabled = false;
+                //*******************Landlord Information MUST  be completed if the customer is a Tenant***********************
+                txtLandlordName.Text = dtU.Rows[0]["LandLordName"].ToString();
+                txtLandlordName.Enabled = false;
+
+                txtLandlordPhone.Text = dtU.Rows[0]["LandLordPhone"].ToString();
+                txtLandlordPhone.Enabled = false;
+
+                txtLandlordEmailOrFax.Text = dtU.Rows[0]["LLEmailOrFax"].ToString();
+                txtLandlordEmailOrFax.Enabled = false;
+
+                txtLandlordAddress.Text = dtU.Rows[0]["LLAddress"].ToString();
+                txtLandlordAddress.Enabled = false;
+
+                txtLandlordCity.Text = dtU.Rows[0]["LLCity"].ToString();
+                txtLandlordCity.Enabled = false;
+
+                txtLandlordZipCode.Text = dtU.Rows[0]["LLZipCode"].ToString();
+                txtLandlordZipCode.Enabled = false;
+
+
+                if (Convert.ToString(dtU.Rows[0]["LLState"]) != "0")
+                {
+                    ddl_State_PPLproprietary.SelectedValue = dtU.Rows[0]["LLState"].ToString();
+                    ddl_State_PPLproprietary.Enabled = false;
+
+                }
+
+                //*******************MET ED Proprietary Usage***********************
+                if (Convert.ToString(dtU.Rows[0]["PCAP"]) == "NO")
+                {
+                    rdoPCAP_No.Checked = true;
+
+                }
+                else if (Convert.ToString(dtU.Rows[0]["PCAP"]) == "YES")
+                {
+                    rdoPCAP_Yes.Checked = true;
+                }
+                rdoPCAP_No.Enabled = false;
+                rdoPCAP_Yes.Enabled = false;
+
+                txtPCAP_Amount.Text = dtU.Rows[0]["LLZipCode"].ToString();
+                txtPCAP_Amount.Enabled = false;
+
+                if (Convert.ToString(dtU.Rows[0]["TODCUSTOMER"]) == "NO")
+                {
+                    rdoTOD_No.Checked = true;
+
+                }
+                else if (Convert.ToString(dtU.Rows[0]["TODCUSTOMER"]) == "YES")
+                {
+                    rdoTOD_Yes.Checked = true;
+                }
+                rdoTOD_No.Enabled = false;
+                rdoTOD_Yes.Enabled = false;
+
+                txtLast_4_SS.Text = dtU.Rows[0]["SSNumLast4"].ToString();
+                txtLast_4_SS.Enabled = false;
+
+                txtSummer_SesonalUse.Text = dtU.Rows[0]["SummerSeasonalUse"].ToString();
+                txtSummer_SesonalUse.Enabled = false;
+
+                txtWinter_SesonalUse.Text = dtU.Rows[0]["WinterSeasonalUse"].ToString();
+                txtWinter_SesonalUse.Enabled = false;
+
+                txtAnnualBaseUse.Text = dtU.Rows[0]["AnnualBaseUse"].ToString();
+                txtAnnualBaseUse.Enabled = false;
+
+                txtTotalAnnualUse.Text = dtU.Rows[0]["TotalAnnualUse"].ToString();
+                txtTotalAnnualUse.Enabled = false;
+
+                if (Convert.ToString(dtU.Rows[0]["SeasonalSpendingAllowance"]) != "")
+                {
+                    txt_SeasonalSpendingAllowance.Text = Math.Round(Convert.ToDecimal(dtU.Rows[0]["SeasonalSpendingAllowance"]), 2).ToString();
+                }
+                txt_SeasonalSpendingAllowance.Enabled = false;
+
+                //*******************Custom Weatherization Contact Attempt(s)         Contact Attempts Report ***********************
+
+                ShowContactAttempt();
+
+                //*******************Add a New Comment And/Or Send a message About this Job to Other Employee(s) ***********************
+
+                //*******************Comments History ***********************
+
+
+                // ********____ Code by Sudhanshu ON 16 May 2013 For Showing Panel According to Utility Company 1 _____*********** // 
+
+                if (DDl_UtilityCompany_1.SelectedValue == "1")
+                {
+                    pnlMetEd.Visible = true;
+                }
+                else if (DDl_UtilityCompany_1.SelectedValue == "2")
+                {
+                    pnlPPLShow.Visible = true;
+                    if (rdoTenant.Checked)
+                    {
+                        courier.Attributes.Add("style", "display:block;");
+                    }
+                }
+                else if (DDl_UtilityCompany_1.SelectedValue == "3")
+                {
+                    pnlPPLShow.Visible = true;
+                }
+                else
+                {
+                    pnlMetEd.Visible = false;
+                    pnlPPLShow.Visible = false;
+                }
+                // ********____ End/ Code by Sudhanshu ON 16 May 2013 For Showing Panel According to Utility Company 1 _____*********** // 
+            }
+        }
+        catch
+        {
+
+        }
+
+    }
+
+    #endregion
+
+    protected void btnSaveAndSend_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int msgId = 0;
+            if (txtCommentsSendAnd.Text != "" && lstEmployeeForSendSaveComments.SelectedValue != "0")
+            {
+                msgId = objNewJob.InsertJobMessage(txtCommentsSendAnd.Text);
+
+                string strUId = objSmUtil.GetCookie("UId");
+                objNewJob.InsertJobMessageReadUnread(Convert.ToInt32(strUId), Convert.ToInt32(lstEmployeeForSendSaveComments.SelectedValue), Request.QueryString["Jobs"].ToString(), msgId);
+                txtCommentsSendAnd.Text = "";
+            }
+        }
+        catch
+        {
+        }
+
+
+    }
+    #region Save Comments
+    protected void BtnSaveComments_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string objUserName = objSmUtil.GetCookie("UserId");
+            strJobNumber = Request.QueryString["Jobs"].ToString();
+
+            objNewJob.InsertJobComments(strJobNumber, txtCommentsSendAnd.Text, "", objUserName.ToString());
+            showComments();
+            txtCommentsSendAnd.Text = "";
+            Response.Write("<script>alert('Comment Post Successfully');</script>");
+            //lblMsgComentSave.Text = "Comment Post Successfully";
+            //lblMsgComentSave.ForeColor = System.Drawing.Color.Green;
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+    #endregion
+
+    #region Show Comments
+    public void showComments()
+    {
+        try
+        {
+            strJobNumber = Request.QueryString["Jobs"].ToString();
+            DataTable dt = objNewJob.ShowCommentsHistory(strJobNumber);
+            if (dt.Rows.Count > 0)
+            {
+                dlComments.DataSource = dt;
+                dlComments.DataBind();
+                btnPrintHistory.Visible = true;
+            }            
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+    }
+    #endregion
+
+    protected void txtCancel_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (Request.QueryString["UC"] != null)
+            {
+                Response.Redirect("JobsStatus.aspx?UC=" + Request.QueryString["UC"].ToString());
+            }
+            else if (Request.QueryString["JobNew"] != null)
+            {
+                Response.Redirect("Home.aspx");
+            }
+        }
+        catch
+        {
+        }
+
+    }
+
+
+    #region Update Record
+    protected void btnUpdate_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (ddlContactType.SelectedValue == "0" && ddlContactPerson.SelectedValue == "0" && ddlContactResult.SelectedValue == "0")
+            {
+                Response.Write("<script>alert('You must select at least one message recipient.');</script>");
+            }
+            else
+            {
+                UpdateBindJob();
+            }
+        }
+        catch
+        {
+        }
+
+    }
+    #endregion
+
+
+    public void UpdateBindJob()
+    {
+        try
+        {
+            strJobNumber = Request.QueryString["Jobs"].ToString();
+            string str_ScheduledDate = "";
+            if (ddlContactResult.SelectedValue == "4")
+            {
+                lblScheduleDtae.Visible = true;
+                txtScheduleDtae.Visible = true;
+                str_ScheduledDate = txtScheduleDtae.Text;
+            }
+            if (ddlContactResult.SelectedValue == "4" && str_ScheduledDate == "")
+            {
+                Response.Write("<script>alert('You must select ScheduledDate first .');</script>");
+            }
+            else if (ddlContactResult.SelectedValue == "11" && txtRe_ScheduledDate.Text == "")
+            {
+                Response.Write("<script>alert('You must select Re-ScheduledDate first .');</script>");
+            }
+            else
+            {
+
+                objNewJob.UpdateChange(txtEnterSeheduling.Text, txtRe_ScheduledDate.Text, str_ScheduledDate, strJobNumber, txtDateCompleted.Text, txtReturnDate.Text);
+
+                if (ddlContactType.SelectedValue != "0" && ddlContactPerson.SelectedValue != "0" && ddlContactResult.SelectedValue != "0")
+                {
+                    objCAR.InsertJobContactAttempts(Request.QueryString["Jobs"].ToString(), txtDate_ContactAttempt.Text + " " + txtTime_ContactAttempt.Text, ddlContactType.SelectedValue, ddlContactPerson.SelectedValue, ddlContactResult.SelectedValue);
+                }
+            }
+            ShowContactAttempt();
+        }
+        catch
+        {
+
+        }
+
+    }
+
+
+    public void ShowContactAttempt()
+    {
+        try
+        {
+            dtContactAttempts = objNewJob.ShowContactAttemptsReport(strJobNumber);
+            txtTime_ContactAttempt.Text = DateTime.Now.ToString("HH:mm:ss tt");
+            txtDate_ContactAttempt.Text = DateTime.Now.ToString("MM/dd/yyyy");
+        }
+        catch
+        {
+        }
+
+    }
+
+
+    protected void DDl_UtilityCompany_1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            if (DDl_UtilityCompany_1.SelectedValue == "1")
+            {
+                pnlMetEd.Visible = true;
+                pnlPPLShow.Visible = false;
+            }
+            else if (DDl_UtilityCompany_1.SelectedValue == "2")
+            {
+                pnlMetEd.Visible = false;
+                pnlPPLShow.Visible = true;
+
+            }
+            else
+            {
+                pnlMetEd.Visible = false;
+                pnlPPLShow.Visible = false;
+            }
+        }
+        catch
+        {
+        }
+
+    }
+    protected void DDL_UtilityCompany_2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            if (DDL_UtilityCompany_2.SelectedValue == "1")
+            {
+
+                pnlMetEd.Visible = true;
+                pnlPPLShow.Visible = false;
+
+            }
+            else if (DDL_UtilityCompany_2.SelectedValue == "2")
+            {
+
+                pnlMetEd.Visible = false;
+                pnlPPLShow.Visible = true;
+
+            }
+            else
+            {
+                pnlMetEd.Visible = false;
+                pnlPPLShow.Visible = false;
+            }
+        }
+        catch
+        {
+        }
+
+    }
+
+    protected void btnQuestionaire_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("PPLQuestionairePage.aspx?Jobs=" + Request.QueryString["Jobs"] + "&UC=" + Request.QueryString["UC"].ToString());
+        }
+        catch
+        {
+        }
+    }
+
+
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        UpdateBindJob();
+
+    }
+
+
+}

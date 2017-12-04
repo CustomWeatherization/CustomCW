@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Cweather</title>
+<link href="../css/default.css" rel="stylesheet" type="text/css" />
+<style>
+h2{font-size: 20px;
+padding-left:20px;
+}
+body{font-size:13px;}
+input[type="radio"]
+{
+	margin-left:10px;
+}
+input[type="checkbox"]
+{
+	margin:0 0 10px 10px;
+}
+</style>
+</head>
+
+<body>
+<div class="fix_div">
+<!-- header -->
+<div class="header">
+<div class="logo_div"><a href="#"><img src="images/logo.jpg" /></a></div>
+<div class="header_middiv"></div>
+<div class="head_link"><a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+</div>
+<!-- end header -->
+<div class="clear"></div>
+<!-- form section -->
+<div class="newtable"> <!--newtable begin-->
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td>6. Age of Occupants: 
+    Under Age 19: <input type="text" value="" class="txt_state" /> 
+    Ages 19 to 62: <input type="text" value="" class="txt_state" />
+    Over 62: <input type="text" value="" class="txt_state" />
+    </td>
+  </tr>
+  <tr>
+    <td>7. Occupancy Type:
+    <input type="radio" /> 1. Own
+    <input type="radio" /> 2. Rent
+    <input type="radio" /> 99. Other
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>8. Structure Type:</td>
+            <td><input type="checkbox" /> 1. 1-1/2 Story or 2 Story
+                <input type="checkbox" /> 2. Ranch
+                <input type="checkbox" /> 3. Bi-level
+                <input type="checkbox" /> 4. Mobile Home
+                <input type="checkbox" /> 5. Row House (inside) <br />
+                <input type="checkbox" /> 6. Row House (outside)
+                <input type="checkbox" /> 7. Duplex
+                <input type="checkbox" /> 8. Multi Family
+                <input type="checkbox" /> 99. Other <input type="text" value="" class="txt_state" />
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>9. Year Constructed: <input type="text" value="" class="txt_city" /> </td>
+  </tr>
+  <tr>
+    <td>10. Size of Electrically Heated Area: <input type="text" value="" class="txt_city" /> sq. ft. </td>
+  </tr>
+  <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>11. Type of Air Conditioning: </td>
+            <td><input type="checkbox" /> 1. 1-1/2 Story or 2 Story
+                <input type="checkbox" /> 2. Ranch
+                <input type="checkbox" /> 3. Bi-level
+                <input type="checkbox" /> 4. Mobile Home
+                <input type="checkbox" /> 5. Row House (inside) <br />
+                <input type="checkbox" /> 6. Row House (outside)
+                <input type="checkbox" /> 7. Duplex
+                <input type="checkbox" /> 8. Multi Family
+                <input type="checkbox" /> 99. Other <input type="text" value="" class="txt_state" />
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>12. Number of Window or Wall AC Units: <input type="text" value="" class="txt_city" /> </td>
+  </tr>
+  <tr>
+    <td>13. Number of Rooms Routinely Air Conditioned: <input type="text" value="" class="txt_city" /> </td>
+  </tr>
+  <tr>
+    <td>14. Size of Area Cooled: <input type="text" value="" class="txt_city" /> sq. ft.</td>
+  </tr>
+  <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>15. Primary Heating Source: </td>
+            <td><input type="radio" /> 1. Electric
+                <input type="radio" /> 2. Utility Gas
+                <input type="radio" /> 3. Fuel Oil
+                <input type="radio" /> 4. Wood
+                <input type="radio" /> 5. Coal
+                <input type="radio" /> 6. Solar
+                <input type="radio" /> 7. City Steam <br />
+                <input type="radio" /> 8. Bottled Gas/ Propane
+                <input type="radio" /> 9. Kerosene
+                <input type="radio" /> 99. Other (please describe) <input type="text" value="" class="txt_city" />
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>16. Type of Heating System: </td>
+            <td><input type="radio" /> 1 Electric Baseboard
+                <input type="radio" /> 2. Electric Heat Pump
+                <input type="radio" /> 3. Electric Boiler
+                <input type="radio" /> 4. Electric Furnace <br />
+                <input type="radio" /> 5. Electric Radiant
+                <input type="radio" /> 6. Electric Wall Blowers
+                <input type="radio" /> 7. Gas Furnace 
+                <input type="radio" /> 8. Gas Boiler
+                <input type="radio" /> 9. Oil Furnace <br />
+                <input type="radio" /> 10. Oil Boiler
+                <input type="radio" /> 99. Other (please describe) <input type="text" value="" class="txt_city" />
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>17. What is the Main Source of Supplemental Heat? </td>
+            <td><input type="radio" /> 00. None
+                <input type="radio" /> 1. Fuel Oil/Kerosene
+                <input type="radio" /> 2. Utility Gas <br />
+                <input type="radio" /> 3. Bottled Gas/Propane 
+                <input type="radio" /> 4. Electricity
+                <input type="radio" /> 5. Coal
+                <input type="radio" /> 6. City Steam
+                <input type="radio" /> 7. Wood
+                <input type="radio" /> 8. Solar <br />
+                <input type="radio" /> 99. Other (please describe) <input type="text" value="" class="txt_city" />
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td>18. What is the Contribution of the Main Supplemental Heat Source to the Total Household Heating?</td>
+  </tr>
+  <tr>
+    <td>
+    <input type="radio" /> 1. Totally heated by suppl source
+    <input type="radio" /> 2. Most htg (at least half) from suppl source
+    <input type="radio" /> 3. Less than half of htg from suppl source <br />
+    <input type="radio" /> 4. Supplemental heat seldom used
+    <input type="radio" /> 5. Suppl heat is present but never used
+    <input type="radio" /> 6. Supplemental heat is not present <br />
+    <input type="radio" /> 99. Other (please describe) <input type="text" value="" class="txt_city" />
+    Location: <input type="text" value="" class="txt_style11" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+   19. How many unblocked fireplaces are present in the customer's dwelling?<input type="text" value="" class="txt_city" />(Enter actual number; enter "0" if none.)
+    </td>
+  </tr>
+   <tr>
+        <td> 20. Water Heater Fuel Type: 
+        <input type="radio" /> 1. Electric
+        <input type="radio" /> 2. Fuel Oil
+        <input type="radio" /> 3. Utility Gas
+        <input type="radio" /> 4. Bottled Gas/Propane
+        <input type="radio" /> 99. Other <input type="text" value="" class="txt_city" />
+        </td>
+  </tr>
+  <tr>
+        <td> 21. Dryer Type: 
+        <input type="checkbox" /> Electric
+        <input type="checkbox" /> Gas
+        </td>
+  </tr>
+  <tr>
+        <td valign="top"> Comments:
+        <textarea cols="100" rows="5"></textarea>
+        </td>
+  </tr>
+</table>
+
+</div> <!--newtable end-->
+</div>
+</body>
+</html>

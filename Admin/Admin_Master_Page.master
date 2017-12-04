@@ -1,0 +1,408 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin_Master_Page.master.cs"
+    Inherits="Admin_Admin_Master_Page" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../css/default.css" rel="stylesheet" type="text/css" />
+    <link href="../images/favicon.ico" rel="icon" type="image/x-icon" />
+    <style type="text/css">
+        .main_right1
+        {
+            width: 95%;
+            min-height: 500px;
+            float: left;
+            border: solid 1px rgb(179, 179, 179);
+            padding: 20px;
+        }
+        .style1
+        {
+            height: 19px;
+            padding: 2px 7px 2px 7px;
+            color: black;
+            font-size: 15px;
+            background-color: lavender;
+        }
+        .style2
+        {
+            height: 19px;
+            padding: 2px 7px 2px 7px;
+            color: black;
+            font-size: 15px;
+            background-color: lavender;
+            width: 137px;
+        }
+        .style3
+        {
+            height: 19px;
+            padding: 2px 7px 2px 7px;
+            color: black;
+            font-size: 15px;
+            background-color: lavender;
+            width: 92px;
+        }
+        #nav
+        {
+            list-style: none inside;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            z-index: 9999;
+            position: relative;
+        }
+        #nav li
+        {
+            display: block;
+            position: relative;
+            float: left;
+            background: #3570a0; /* menu background color */
+           
+        }
+        #nav li a
+        {
+            display: block;
+            padding: 0;
+            text-decoration: none;
+            width: 186px; /* this is the width of the menu items */
+            line-height: 35px; /* this is the hieght of the menu items */
+            color: #ffffff; /* list item font color */
+             font-family: Arial, Helvetica, sans-serif;
+             font-size:14px;
+        }
+        #nav li li a
+        {
+            font-size: 14px;
+             font-family: Arial, Helvetica, sans-serif;
+        }
+        /* smaller font size for sub menu items */
+        #nav li:hover
+        {
+            background: #3AC0F2;
+        }
+        /* highlights current hovered list item and the parent list items when hovering over sub menues */
+        /*--- Sublist Styles ---*/
+        #nav ul
+        {
+            position: absolute;
+            padding: 0;
+            left: 0;
+            display: none; /* hides sublists */
+        }
+        #nav li:hover ul ul
+        {
+            display: none;
+        }
+         #nav li:hover ul ul ul
+        {
+            display: none;
+        }
+        /* hides sub-sublists */
+        #nav li:hover ul
+        {
+            display: block;
+        }
+        
+        /* shows sublist on hover */
+        #nav li li:hover ul
+        {
+            display: block; /* shows sub-sublist on hover */
+            margin-left: 185px; /* this should be the same width as the parent list item */
+            margin-top: -35px; /* aligns top of sub menu with top of list item */
+        }
+         #nav li li li:hover ul 
+        {
+            display: block; /* shows sub-sublist on hover */
+            margin-left: 185px; /* this should be the same width as the parent list item */
+            margin-top: -35px; /* aligns top of sub menu with top of list item */
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <ajaxToolkit:ToolkitScriptManager ID="script" runat="server">
+    </ajaxToolkit:ToolkitScriptManager>
+    <div>
+        <div class="fix_div">
+            <!-- header -->
+            <div class="header">
+                <div class="logo_div">
+                    <a href="../Home.aspx">
+                        <img src="../images/logo.jpg" /></a>
+                </div>
+                <div class="header_middiv">
+                </div>
+                <div class="head_link" id="Divlt_name" runat="server">
+                    <%-- <a href="#">Administer Database</a> --%><asp:Label ID="lt_name" runat="server"
+                        Style="font-size: 16px; color: rgba(95, 109, 116, 1); font-family: HelveticaNeueBlackItalic;"></asp:Label>|
+                    <asp:LinkButton ID="lnkLogin" runat="server" Text="Logout" OnClick="lnkLogin_Click"></asp:LinkButton>
+                    <br />
+                </div>
+            </div>
+            <!-- end header -->
+            <div class="clear">
+            </div>
+            <!-- form section -->
+            <div class="searchbynumber">
+                <div class="main">
+                    <!--main div begin-->
+                    <div class="main_right1">
+                        <!--main_right begin-->
+                   <%--     <div class="nav">--%>
+                            <ul id="nav">
+                               <%-- <li><a href="#">Main Item 1</a></li>--%>
+                                <li><a href="#">Pricelist</a>
+                                <ul>
+                                       
+                                        <li id="Cat" runat="server"><a href="#">BCOC&raquo; </a>
+                                            <ul>
+                                             <li><a href="CommonCategory.aspx">Category</a></li>
+                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>
+                                              <li><a href="BcocAllThing.aspx">BCOC Details</a></li>                                    
+                                            </ul>
+                                        </li>
+                                         <li id="subcat" runat="server"><a href="#">CACLV &raquo;</a>
+                                            <ul>
+                                               <li id="Li2" runat="server"><a href="#">DCED&raquo; </a>
+                                            <ul>
+                                             <li><a href="CommonCategory.aspx">Category</a></li>
+                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>
+                                              <li><a href="AddDCEDAllThing.aspx">DCED Details</a></li>                                    
+                                            </ul>
+                                             </li>
+                                           
+                                               <li id="Li3" runat="server"><a href="#">Met-Ed &raquo; </a>
+                                            <ul>
+                                             <li><a href="AddMetedCategory.aspx">Category</a></li>
+                                             <li><a href="AddMetedSubCategory.aspx">SubCategory</a></li>
+                                              <li><a href="AddAllMetedThing.aspx">Met-Ed Details</a></li>   
+                                           <%--    <li><a href="MetedWarmPlusThings.aspx">Met-Ed W+ Details</a></li>  --%>                               
+                                            </ul>
+                                             </li>
+                                          
+                                               <li id="Li4" runat="server"><a href="#">Met-Ed W+&raquo; </a>
+                                            <ul>
+                                             <li><a href="AddMetedCategory.aspx">Category</a></li>
+                                             <li><a href="AddMetedSubCategory.aspx">SubCategory</a></li>
+                                             <%-- <li><a href="AddAllMetedThing.aspx">Met-Ed Details</a></li>   --%>
+                                               <li><a href="MetedWarmPlusThings.aspx">Met-Ed W+ Details</a></li>                                 
+                                            </ul>
+                                             </li>
+                                           
+                                               <li id="Li5" runat="server"><a href="#">PPL&raquo; </a>
+                                            <ul>
+                                             <li><a href="AddCategory.aspx">Category</a></li>
+                                             <li><a href="AddSubCategory.aspx">SubCategory</a></li>
+                                              <li><a href="AddAllThing.aspx">PPL Details</a></li>   
+                                            <%--   <li><a href="Act129_2_AllThing.aspx">PPL Act129 II Details</a></li>  --%>                               
+                                            </ul>
+                                             </li>
+                                           
+                                               <li id="Li6" runat="server"><a href="#">PPL ACT129 II&raquo; </a>
+                                            <ul>
+                                             <li><a href="AddCategory.aspx">Category</a></li>
+                                             <li><a href="AddSubCategory.aspx">SubCategory</a></li>
+                                          <%--  <li><a href="AddSubCategory.aspx">SubCategory</a></li>--%>
+                                               <li><a href="Act129_2_AllThing.aspx">PPL Act129 II Details</a></li>                                 
+                                            </ul>
+                                             </li>
+                                           
+                                               <li id="Li7" runat="server"><a href="#">UGI&raquo; </a>
+                                            <ul>
+                                             <li><a href="CommonCategory.aspx">Category</a></li>
+                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>
+                                              <li><a href="AddUGIAllThing.aspx">UGI Details</a></li>   
+                                                                        
+                                            </ul>
+                                             </li>
+                                            </ul>
+                                            
+                                        </li>
+                                         <li id="LipPrivate" runat="server"><a href="#">PPL Zone 1 & 2&raquo;</a>
+                                           
+                                            <ul>
+                                             <li><a href="CommonCategory.aspx">Category</a></li>
+                                             <%--<li><a href="CommonSubCategory.aspx">SubCategory</a></li>--%>
+                                             <li><a href="AddMetedSubCategory.aspx">SubCategory</a></li>
+                                              <li><a href="PPlZoneAllThing.aspx">PPL Zone 1 & 2 Details</a></li>   
+                                                                        
+                                            </ul>
+                                           
+                                           
+                                        </li>
+                                        <li id="Li" runat="server"><a href="#">Private&raquo;</a>
+                                            <ul>
+                                             <li><a href="PrivateCategory.aspx">Category</a></li>
+                                             <li><a href="PrivateSubCat.aspx">SubCategory</a></li>
+                                              <li><a href="PrivateAllThing.aspx">Private Details</a></li>   
+                                                                        
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                 
+                                  
+                                <%--     <li><a href="AddCategory.aspx">PPL Category</a></li>
+                                        <li><a href="AddSubCategory.aspx">PPL Subcategory</a></li>
+                                        <li><a href="AddAllThing.aspx">PPL All Thing</a></li>
+                                        <li><a href="PPlZoneAllThing.aspx">PPL Zone 1 & 2</a></li>
+                                        <li><a href="Act129_2_AllThing.aspx">PPL ZONE CACLV ACT129 II</a></li>
+                                         <li><a href="AddMetedCategory.aspx">METED Category</a></li>
+                                        <li><a href="AddMetedSubCategory.aspx">METED Subcategory</a></li>
+                                        <li><a href="AddAllMetedThing.aspx">METED All Thing</a></li>
+                                        <li><a href="MetedWarmPlusThings.aspx">METED(W+) All Thing</a></li>
+                                          <li><a href="PrivateCategory.aspx">Private Category</a></li>
+                                        <li><a href="PrivateSubCat.aspx">Private Subcategory</a></li>
+                                        <li><a href="PrivateAllThing.aspx">Private All Thing</a></li>
+                                         <li><a href="CommonCategory.aspx">Add Category</a></li>
+                                        <li><a href="CommonSubCategory.aspx">Add SubCategory</a></li>
+                                       
+                                        <li><a href="AddUGIAllThing.aspx">UGI All Thing</a></li>
+                                        <li><a href="AddDCEDAllThing.aspx">DCED All Thing</a></li>--%>
+                                   <%-- <ul>
+                                       
+                                        <li id="Cat" runat="server"><a href="#">PPL&raquo; </a>
+                                            <ul>
+                                            
+                                            <li><a href="AddCategory.aspx">PPL Category</a></li>
+                                        <li><a href="AddSubCategory.aspx">PPL Subcategory</a></li>
+                                        <li><a href="AddAllThing.aspx">PPL All Thing</a></li>
+                                        <li><a href="PPlZoneAllThing.aspx">PPL Zone 1 & 2</a></li>
+                                        <li><a href="Act129_2_AllThing.aspx">PPL ZONE CACLV ACT129 II</a></li>
+                                            </ul>
+                                        </li>
+                                         <li id="subcat" runat="server"><a href="#">METED &raquo;</a>
+                                            <ul>
+                                               <li><a href="AddMetedCategory.aspx">METED Category</a></li>
+                                        <li><a href="AddMetedSubCategory.aspx">METED Subcategory</a></li>
+                                        <li><a href="AddAllMetedThing.aspx">METED All Thing</a></li>
+                                        <li><a href="MetedWarmPlusThings.aspx">METED(W+) All Thing</a></li>
+                                            </ul>
+                                        </li>
+                                         <li id="LipPrivate" runat="server"><a href="#">Private Customer&raquo;</a>
+                                            <ul>
+                                                <li><a href="PrivateCategory.aspx">Private Category</a></li>
+                                        <li><a href="PrivateSubCat.aspx">Private Subcategory</a></li>
+                                        <li><a href="PrivateAllThing.aspx">Private All Thing</a></li>
+                                            </ul>
+                                        </li>
+                                        <li id="Li" runat="server"><a href="#">Common&raquo;</a>
+                                            <ul>
+                                                <li><a href="CommonCategory.aspx">Add Category</a></li>
+                                        <li><a href="CommonSubCategory.aspx">Add SubCategory</a></li>
+                                        <li><a href="BcocAllThing.aspx">BCOC All Thing</a></li>
+                                        <li><a href="AddUGIAllThing.aspx">UGI All Thing</a></li>
+                                        <li><a href="AddDCEDAllThing.aspx">DCED All Thing</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>--%>
+                                </li>
+                                <li id="cng_pwd" runat="server"><a href="Admin_Change.aspx">Change Password</a></li>
+                                <li><a href="Admin_Unfinalize.aspx">Update/Edit/Delete</a></li>
+                                       <li id="rpt1" runat="server"><a href="#" id="a_rpt1" runat="server">
+                                    Members</a>
+                                    <ul>
+                                     <li id="rpt" runat="server"><a href="ViewUserDetails.aspx" id="a_rpt" runat="server">Member Profile</a></li>
+                                       <%-- <li id="TimeClk_rpt" runat="server"><a href="TimeClockReport.aspx">Time Clock Report</a></li>--%>
+                                         <li id="TimeClk_rpt" runat="server"><a href="TimeClockCount.aspx">Time Clock Report</a></li>
+                                         <li id="Li1" runat="server"><a href="#">Member Payment Report&raquo; </a>
+                                            <ul>
+                                             <li><a href="PaymentSubmit.aspx">Payment Report</a></li>
+                                        <li><a href="OldpaidPaymentSubmit.aspx">Old Payment Report</a></li>
+                                            
+                                            </ul>
+                                        </li>
+                                        
+                                       
+                                        <li><a href="LeaveApproval.aspx">PTO Approval</a></li>
+                                        <li><a href="Occurrences.aspx">Occurrences</a></li>
+                                    </ul>
+                                </li>
+                                <li id="sta_menu" runat="server"><a href="JobStatusMenu.aspx">Acct's Receivable</a>
+                                    <ul>
+                                        <li><a href="PaidReportPage.aspx">Reports</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <%-- <ul>
+                               <li id="Cat" runat="server"><a href="AddCategory.aspx">PPL</a>
+                                    <ul>
+                                        <li><a href="AddCategory.aspx">PPL Category</a></li>
+                                        <li><a href="AddSubCategory.aspx">PPL Subcategory</a></li>
+                                        <li><a href="AddAllThing.aspx">PPL All Thing</a></li>
+                                        <li><a href="PPlZoneAllThing.aspx">PPL Zone 1 & 2</a></li>
+                                        <li><a href="Act129_2_AllThing.aspx">PPL ZONE CACLV ACT129 II</a></li>
+                                    </ul>
+                                </li>
+                                <li id="subcat" runat="server"><a href="AddMetedCategory.aspx">METED</a>
+                                    <ul>
+                                        <li><a href="AddMetedCategory.aspx">METED Category</a></li>
+                                        <li><a href="AddMetedSubCategory.aspx">METED Subcategory</a></li>
+                                        <li><a href="AddAllMetedThing.aspx">METED All Thing</a></li>
+                                        <li><a href="MetedWarmPlusThings.aspx">METED(W+) All Thing</a></li>
+                                    </ul>
+                                </li>--%>
+                              <%--  <li id="LipPrivate" runat="server"><a href="PrivateCategory.aspx">Private Customer</a>
+                                    <ul>
+                                        <li><a href="PrivateCategory.aspx">Private Category</a></li>
+                                        <li><a href="PrivateSubCat.aspx">Private Subcategory</a></li>
+                                        <li><a href="PrivateAllThing.aspx">Private All Thing</a></li>
+                                    </ul>
+                                </li>
+                                <li id="Li" runat="server"><a href="CommonCategory.aspx">Common</a>
+                                    <ul>
+                                        <li><a href="CommonCategory.aspx">Add Category</a></li>
+                                        <li><a href="CommonSubCategory.aspx">Add SubCategory</a></li>
+                                        <li><a href="BcocAllThing.aspx">BCOC All Thing</a></li>
+                                        <li><a href="AddUGIAllThing.aspx">UGI All Thing</a></li>
+                                        <li><a href="AddDCEDAllThing.aspx">DCED All Thing</a></li>
+                                    </ul>
+                                </li>--%>
+                                <%--<li><a href="#">Add All Thing</a></li>--%>
+                            <%--    <li id="cng_pwd" runat="server"><a href="Admin_Change.aspx">Change Password</a></li>
+                                <li><a href="Admin_Unfinalize.aspx">Administer Database</a></li>--%>
+                                <%--  <li id="rpt" runat="server"><a href="ReportPage.aspx" id="a_rpt" runat="server">Report</a>--%>
+                        <%--        <li id="rpt" runat="server"><a href="ViewUserDetails.aspx" id="a_rpt" runat="server">
+                                    Report</a>
+                                    <ul>
+                                        <li id="TimeClk_rpt" runat="server"><a href="TimeClockReport.aspx">Time Clock Report</a></li>
+                                        <li><a href="PaymentSubmit.aspx">Payment Report</a></li>
+                                        <li><a href="OldpaidPaymentSubmit.aspx">Old Payment Report</a></li>
+                                        <li><a href="LeaveApproval.aspx">Approval Leave</a></li>
+                                        <li><a href="Occurrences.aspx">Occurrences</a></li>
+                                    </ul>
+                                </li>
+                                <li id="sta_menu" runat="server"><a href="JobStatusMenu.aspx">Job Payment Report</a>
+                                    <ul>
+                                        <li><a href="PaidReportPage.aspx">Reports</a></li>
+                                    </ul>
+                                </li>
+                            </ul>--%>
+                            <div class="clear">
+                            </div>
+                        
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <!--main_right end-->
+                    <div class="clear">
+                    </div>
+                </div>
+                <!--main div end-->
+            </div>
+            <!-- end form section -->
+            <div class="clear">
+            </div>
+            <!-- footer -->
+            <div class="footer">
+                Custom Weatherization, LLC © 2013
+            </div>
+            <!-- end footer -->
+        </div>
+    </div>
+    </form>
+</body>
+</html>

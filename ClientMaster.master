@@ -1,0 +1,1750 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ClientMaster.master.cs"
+    Inherits="ClientMaster" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Welcome to Cweather</title>
+    <style>
+        .pnlBackGround
+        {
+            position: fixed;
+            top: 10%;
+            left: 10px;
+            width: 300px;
+            height: 135px;
+            text-align: center;
+            background-color: White;
+            border: solid 3px black;
+            margin-left: 655px;
+            margin-top: 180px;
+        }
+        .leaves-tbl
+        {
+            border: 1px solid #A1DCF2;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .leaves-tbl tr th
+        {
+            padding: 15px 10px;
+            border: 1px solid #A1DCF2;
+            font-family: Arial;
+            font-size: 10pt;
+            text-align: center;
+            font-style: normal;
+        }
+        .leaves-tbl tr td
+        {
+            padding: 15px 10px;
+            border: 1px solid #A1DCF2;
+            font-family: Arial;
+            font-size: 10pt;
+            text-align: center;
+            font-style: normal;
+        }
+        .leaves-tbl select
+        {
+            width: 100%;
+            border-radius: 10px;
+            padding: 8px;
+        }
+        .table tr td input, textarea, textbox, select
+        {
+            padding: 5px 5px;
+            border-radius: 5px;
+        }
+        .img-circle
+        {
+            border-radius: 50%;
+        }
+        .Background
+        {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+        .Popup
+        {
+            padding: 20px 0px;
+            background-color: #FFFFFF;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            overflow: auto;
+            padding-left: 10px;
+            width: 782px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .Popup1
+        {
+            padding: 16px 0px;
+            background-color: #FFFFFF;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            padding-left: 0px;
+            width: 1422px;
+            height: 710px;
+            border-radius: 10px;
+        }
+        .Popup4
+        {
+            padding: 20px 0px;
+            background-color: #FFFFFF;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            padding-left: 10px;
+            width: 940px;
+            height: 335px;
+            border-radius: 10px;
+        }
+        .Popup2
+        {
+            padding: 20px 0px;
+            background-color: #FFFFFF;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            padding-left: 10px;
+            width: 1000px;
+            height: 665px;
+            border-radius: 10px;
+        }
+        .Popup7{
+            padding: 18px 0px;
+            background-color: #FFFFFF;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            padding-left: 20px;
+            width: 541px;
+            height: 130px;
+            border-radius: 10px;
+        }
+        .Popup3
+        {
+            padding: 20px 0px;
+            background-color: #FFFFFF;
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+            padding-left: 10px;
+            width: 525px;
+            height: 205px;
+            border-radius: 10px;
+        }
+        #ctl00_UpdatePanel1 table tr td input, textarea, textbox, select
+        {
+            padding: 5px 5px;
+            border-radius: 5px;
+        }
+        .lbl
+        {
+            font-size: 16px;
+            font-style: italic;
+            font-weight: bold;
+        }
+        #ctl00_pnlTypeOfTimeView
+        {
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+        table tr td .h3-section
+        {
+            float: left;
+            margin-right: 2px;
+        }
+        #ctl00_UpdatePanel1 table tr .address-section input, textarea, textbox, select
+        {
+            margin-bottom: 10px;
+        }
+        .paidBtn
+        {
+            background: #28A3D1;
+            color: #fff;
+            border: 0;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            padding: 5px 20px; /* border-bottom-left-radius: 5px; */
+            cursor: pointer;
+        }
+        .paidBtnDis
+        {
+            background: #A1DCF2;
+            color: #fff;
+            border: 0;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            padding: 5px 20px; /* border-bottom-left-radius: 5px; */
+            cursor: pointer;
+        }
+        .PayBtn
+        {
+            background: #28A3D1;
+            color: #fff;
+            border: 0;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            padding: 5px 20px; /* border-bottom-left-radius: 5px; */
+            cursor: pointer;
+            float: right; /*margin-right: -175px;*/
+            margin-top: 30px;
+        }
+        .RejectBtn
+        {
+            background: #28A3D1;
+            color: #fff;
+            border: 0;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding: 5px 20px;
+            border-bottom-left-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        .JobBtn
+        {
+            background: #28A3D1;
+            color: #fff;
+            border: 0;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding: 5px 20px;
+            border-bottom-left-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            float: left;
+        }
+        .textbox88 {
+    border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #717171;
+    border-radius: 5px;
+    padding: 8px;
+    width: 30px;
+    margin: 10px 0 5px 0;
+}
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+.modal
+{
+   position: absolute;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    -moz-opacity: 0.8;
+}
+.center
+{
+  z-index: 1500;
+    margin: 300px auto;
+
+    width: 0px;
+    background-color: White;
+    border-radius: 10px;
+    filter: alpha(opacity=100);
+  
+    opacity: 1;
+    -moz-opacity: 1;
+}
+.center img
+{
+    height:250px;
+    width: 250px;
+}
+
+#ctl00_UpdateProgress1
+{z-index: 1000000;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+#ctl00_UpdateProgress2
+{z-index: 1000000;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.chkbox{min-width: 180px;display: none;}
+</style>
+
+    <script type="text/javascript" src="Admin/Scripts/colors.js"></script>
+
+    <script type="text/javascript" src="Admin/Scripts/colorPicker.data.js"></script>
+
+    <script type="text/javascript" src="Admin/Scripts/colorPicker.js"></script>
+
+    <script type="text/javascript" src="Admin/Scripts/jqColor.js"></script>
+
+    <%--  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>inline-block--%>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+        <Services>
+            <asp:ServiceReference Path="~/App_Code/SearchName.cs" />
+        </Services>
+    </asp:ToolkitScriptManager>
+     <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                    <ProgressTemplate>
+                        <div class="modal">
+                            <div class="center">
+                                <img alt="" src="images/loading.gif" />Please Wait....
+                            </div>
+                        </div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+    
+            <%--<asp:Panel ID="pnl_update" runat="server"  CssClass="Popup" align="center" style = "display:none"> pnlBackGround 2-popup cover-bg--%>
+         
+            <asp:Panel ID="pnl_update" runat="server" CssClass="Popup" DefaultButton="btn_Update"
+                Style="display: none">
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                         <ContentTemplate>
+                <%-- <table id="Table1" runat="server" backcolor="#E6E6ED" cssclass="Popup"
+                        width="225px" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(0, 0, 0, 0.33); padding-left: 4px; z-index: 9999; padding-left: 4px;display: none">--%>
+                <div class="section">
+                    <div>
+                        <h1>
+                            <asp:Label ID="lblFirstName" runat="server"></asp:Label>&nbsp;<asp:Label ID="lblLastName"
+                                runat="server"></asp:Label>
+                                <%--<input id="imgCloseBtn" type="image" src="Admin/images/Cross3.png"  alt="Submit" style="float: right;height:35px;width:35px;margin-right: 20px;" onclick="CloseUserDetailsPopup()"/>--%>
+           <asp:ImageButton ID="imgCloseBtn" runat="server"  ImageUrl="Admin/images/Cross3.png" Height="35px" Width="35px" Style="float: right; margin-right: 20px;" OnClientClick="CloseUserDetailsPopup()"/><%--OnClick="btn_cancel_Click" --%>
+                        </h1>
+                                               
+                        <table width="100%" border="0" cellspacing="10" cellpadding="5">
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Job Title</i></b><br />
+                                    <%--<asp:Image ID="imgProfilePanel" ImageUrl="" runat="server" Height="100px" Width="100px"/><br />
+                   <asp:FileUpload ID="profileUpload" runat="server" onchange="showpreview(this);" CssClass="fileUpload"  />--%>
+                                </td>
+                                <td width="25%">
+                                    <asp:Label ID="lblDesignation" Text="Administrator" runat="server" ForeColor="Blue"
+                                        CssClass="text_style"></asp:Label>
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Date Of Birth:</i></b>
+                                </td>
+                                <td width="25%">
+                                    <%-- <asp:TextBox ID="txtBirthDate" runat="server" CssClass="text_style" placeHolder="Enter Date" ></asp:TextBox>--%>
+                                    <asp:Label ID="lblBirthDate" runat="server"></asp:Label>
+                                    <%--    <asp:Image class="imgBirthDate" ID="imgBirthDate" runat="server" ImageUrl="Admin/images/Pencil.png" Height="15px" Width="15px" />--%>
+                                    <%--  <asp:CalendarExtender ID="TextBox1_CalendarExtender" runat="server" BehaviorID="TextBox1_CalendarExtender" TargetControlID="txtBirthDate">
+                    </asp:CalendarExtender>--%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Start Date:</i></b>
+                                </td>
+                                <td width="25%">
+                                    <asp:Label ID="lblJoiningDate" runat="server" Text="Not Available" CssClass="text_style"></asp:Label>
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Phone:</i></b>
+                                </td>
+                                <td width="25%">
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Contact Number" Style="display: none"></asp:TextBox>
+                                    <asp:Label ID="lblPhoneNumber" runat="server"></asp:Label>
+                                    <asp:Image class="imgPhoneNumber" ID="imgPhoneNumber" runat="server" ImageUrl="Admin/images/Pencil.png"
+                                        Height="15px" Width="15px" />
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Address:</i></b>
+                                </td>
+                                <td class="address-section" width="25%" style="height: 20px;">
+                                    <asp:TextBox ID="txtAddress" runat="server" placeholder="Address" Style="display: none"></asp:TextBox>
+                                    <asp:Label ID="lblAddress" runat="server">Enter Address</asp:Label>
+                                    <asp:Image class="imgAdd" ID="imgAdd" runat="server" ImageUrl="Admin/images/Pencil.png"
+                                        Height="15px" Width="15px" />
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>City:</i></b>
+                                </td>
+                                <td class="address-section" width="25%" style="height: 20px;">
+                                    <asp:TextBox ID="txtCity" runat="server" placeholder="City" Style="display: none"></asp:TextBox>
+                                    <asp:Label runat="server" ID="lblCity"></asp:Label>
+                                    <asp:Image class="imgCity" ID="imgCity" runat="server" ImageUrl="Admin/images/Pencil.png"
+                                        Height="15px" Width="15px" />
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>State:</i></b>
+                                </td>
+                                <td class="address-section" width="25%" style="height: 20px;">
+                                    <asp:TextBox ID="txtState" runat="server" placeholder="State" Style="display: none"></asp:TextBox>
+                                    <asp:Label runat="server" ID="lblState"></asp:Label>
+                                    <asp:Image class="imgState" ID="imgState" runat="server" ImageUrl="Admin/images/Pencil.png"
+                                        Height="15px" Width="15px" />
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Zip:</i></b>
+                                </td>
+                                <td class="address-section" width="25%" style="height: 20px;">
+                                    <asp:TextBox ID="txtPincode" runat="server" placeholder="Zip" Style="display: none"
+                                        MaxLength="6"></asp:TextBox>
+                                    <asp:Label runat="server" ID="lblPincode"></asp:Label>
+                                    <asp:Image class="imgPincode" ID="imgPincode" runat="server" ImageUrl="Admin/images/Pencil.png"
+                                        Height="15px" Width="15px" />
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Email:</i></b>
+                                </td>
+                                <td width="25%">
+                                    <asp:Label ID="lblEmail" runat="server" Text="Not Available" CssClass="text_style"></asp:Label>
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    <b><i>Personal Salary:</i></b>
+                                </td>
+                                <td width="25%">
+                                    <asp:Label ID="lblSalary" runat="server" Text="Not Available" CssClass="text_style"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%--   <input id="lnkPrsonalSalry" type="submit" value="Wage and/or Salary History" onclick="return ShowPanelPaymentHistory()" />--%>
+                                    <asp:LinkButton ID="lnkPrsonalSalry" Font-Size="Small" runat="server" Text="Wage and/or Salary History"
+                                        OnClientClick="return ShowPanelPaymentHistory()"></asp:LinkButton><%--OnClick="lbnPayment_Click"--%>
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                </td>
+                                <td width="25%">
+                                    <%--   <asp:LinkButton ID="lnkbtnPayStub" Font-Size="Small" runat="server" Text="View Pay Stubs" OnClick="lbnPayStubs_Click"></asp:LinkButton>--%>
+                                    <a id="lnkbtnPayStub" runat="server" href="https://www.paycheckrecords.com/login.jsp"
+                                        target="_blank" style="font-size: small">View Pay Stubs</a>
+                                </td>
+                                <td width="5%" style="padding: 15px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Button ID="btn_submit" Text="Update" runat="server" ValidationGroup="G" CssClass="BtnPrintHistory"
+                                        Style="margin-left: 308px;" OnClick="btn_submit_Click" />
+                                    <asp:Button ID="btn_cancel" Text="Cancel" runat="server" CssClass="BtnPrintHistory"
+                                        OnClientClick="return CloseUserDetailsPopup()" /><%--OnClick="btn_cancel_Click"--%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <h3 class="h3-section">
+                                        <b><i>
+                                            <asp:Label ID="lblTotalHours" runat="server" Text="" ForeColor="Blue"></asp:Label></i>
+                                        </b>
+                                    </h3>
+                                    <asp:ImageButton ID="imgShowView" runat="server" ImageUrl="Admin/images/minus7.png"
+                                        Height="15px" Width="15px" OnClientClick="return HideUserTimeDetails()" Style="display: block;
+                                        float: left" /><%--OnClick="ShowUserTimeDetails_Click1"--%>
+                                    <asp:ImageButton ID="imgHideView" runat="server" ImageUrl="Admin/images/plus7.png"
+                                        Style="display: none; float: left" Height="15px" Width="15px" Title="Show Time Off Details"
+                                        OnClientClick="return ShowUserTimeDetails()" />
+                                    <%--OnClick="HideUserTimeDetails_Click1"--%>
+                                    <h3 style="float: right">
+                                        <u>
+                                            <asp:LinkButton ID="lnkTimeOffDetails" Text="Request Time Off" runat="server" OnClientClick="return OpenPanelRequestTimeoff()"></asp:LinkButton><%--OnClick="lnkTimeOffDetails_Click"--%>
+                                        </u>
+                                    </h3>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <asp:Panel ID="pnlTypeOfTimeView" runat="server" Style="display: block">
+                            <table width="100%" border="0" cellspacing="8px">
+                                <tr>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        Type of Time Off
+                                    </th>
+                                    <th>
+                                        Since Joining
+                                    </th>
+                                    <th>
+                                        This Year
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lnkEmergencyPaid" runat="server" OnClick="lnkEmergencyPaid_Click">Emergency Paid Time Off</asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblEmergencyPaidTimeOffSinceJoin" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblEmergencyPaidTimeOffThisYear" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lnkEmergencyTime" runat="server" OnClick="lnkEmergencyTime_Click">Emergency Time Off</asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblEmergencyTimeOffSinceJoin" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblEmergencyTimeOffThisYear" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                     <asp:LinkButton ID="lblHoliday" runat="server" OnClientClick="return ShowPanelHoiday()">Holiday Pay</asp:LinkButton>
+                                       <%-- <asp:Label ID="lblHoliday" runat="server" Text="Holiday Pay" Font-Size="Medium" ForeColor="#13729f"></asp:Label>--%>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblHolidayPaySinceJoin" runat="server" Text="0"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblHolidayPayThisYear" runat="server" Text="0"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lnkSickness" runat="server" OnClick="lnkSickness_Click">Sickness</asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblSicknessSinceJoinnig" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblSicknessThisYear" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lnkUnpaidLeave" runat="server" OnClick="lnkUnpaid_Click">Unpaid Leave</asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblUnpaidSinceJoining" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblUnpaidThisYear" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lnkUnpaidSickness" runat="server" OnClick="lnkUnpaidSickness_Click">Unpaid Sickness</asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblUnpaidSicknessSinceJoinning" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblUnpaidSicknessThisYear" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lnkVacation" runat="server" OnClick="lnkVacation_Click">Vacation</asp:LinkButton>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblHolidaySinceJoining" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblHolidayThisYear" runat="server" Text="0 Hr."></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:LinkButton ID="lbtnOccurences" runat="server" 
+                                            Text="Occurrences" OnClick="lbtnOccurences_Click"></asp:LinkButton><%--OnClick="lbtnOccurences_Click" OnClientClick="return ShowOccurences()" --%>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblOccurencesSinceJoinng" runat="server" Text="0"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblOccurencesThisYear" runat="server" Text="0"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </asp:Panel>                      
+                    </div>       
+               </div>
+                 </ContentTemplate>
+                          <Triggers>
+                           <asp:PostBackTrigger ControlID="btn_submit" />
+                       </Triggers>
+                       </asp:UpdatePanel>
+            </asp:Panel>
+        
+    <%--   </table>--%>
+      <asp:UpdateProgress ID="UpdateProgress2" runat="server" AssociatedUpdatePanelID="updateReqTimeoff">
+                    <ProgressTemplate>
+                        <div class="modal">
+                            <div class="center">
+                                <img alt="" src="images/loading.gif" />
+                            </div>
+                        </div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+    <asp:UpdatePanel ID="updateReqTimeoff" runat="server">
+        <ContentTemplate>
+            <asp:Button ID="btnShow" runat="server" Style="display: none" OnClick="btnShowPopup_Click1" />
+            <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="pnlPaymentHistory"
+                TargetControlID="btnShow" BehaviorID="mpeSalaryHistory" BackgroundCssClass="Background" Y="15"> <%--X="512" Y="15"--%>
+            </ajaxToolkit:ModalPopupExtender>
+            <asp:Panel ID="pnlPaymentHistory" runat="server" CssClass="Popup1" align="center"
+                Style="display: none">
+                <div style="width: 87%">
+                    <div style="text-align: center; width: 100% !important;" class="divalign">
+                        <h1 class="assign" style="width: 100% !important;">
+                            <b>
+                                <asp:Label runat="server" ID="Label1" Text="Salary History"></asp:Label></b>
+                            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="Admin/images/Cross3.png"
+                                Height="35px" Width="35px" Style="float: right; margin-right: -27px;" OnClientClick="return hidePaymentHistory()" /></h1>
+                        <%--OnClick="btn_cancelPayment_Click"--%>
+                    </div>
+                    <div class="rounded_corners" style="width: 100%; overflow: auto; max-height: 665px;"
+                        id="div_grid" runat="server">
+                        <asp:GridView ID="grdPaymentHistory" runat="server" Width="100%" DataKeyNames="User_Id"
+                            class="leaves-tbl" AutoGenerateColumns="false" PageSize="10" AllowPaging="true"
+                            OnPageIndexChanging="grdPaymentHistory_PageIndexChanging" HeaderStyle-BackColor="#3AC0F2"
+                            HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White"
+                            RowStyle-ForeColor="#3A3A3A" EmptyDataText="No Request Available">
+                            <RowStyle BackColor="#A1DCF2" ForeColor="#3A3A3A"></RowStyle>
+                            <Columns>
+                                <asp:TemplateField HeaderText="Previous Hourly Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbl_Login" runat="server" Text='<%#Eval("HourlyOldRate","{0:c}")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Current Hourly Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblUserName" runat="server" Text='<%#Eval("HourlyNewRate","{0:c}")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Previous Salary">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("OldSalary","{0:c}")%>'
+                                            ForeColor="Blue"></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Current Salary">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblToDate" runat="server" Text='<%#Eval("NewSalary","{0:c}")%>' ForeColor="Blue"></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="DateTime">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblFromTime" runat="server" Text='<%# Eval("Date")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                
+                                 <asp:TemplateField HeaderText="DateTime">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblFromTime" runat="server" Text='<%# Eval("Date")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                 <asp:TemplateField HeaderText="BCOC Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblBCOCRate" runat="server" Text='<%# Eval("BCOC_Invoice")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="Private Customer Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPrivateCustRate" runat="server" Text='<%# Eval("Private_Customer_Invoice")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="DCED Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbldcedrate" runat="server" Text='<%# Eval("DCED_Invoice")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="PPL Z1&Z2 Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblpplz1z2rate" runat="server" Text='<%# Eval("PplZ1Z2")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="UGI Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblUgirate" runat="server" Text='<%# Eval("UGI_Invoice")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                
+                                 <asp:TemplateField HeaderText="Extra Measure">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblExtraMeasure" runat="server" Text='<%# Eval("ExtraMesr")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="Inspection Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblInspectionRate" runat="server" Text='<%# Eval("InspectionRate")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="Hourly Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblHourlyrate" runat="server" Text='<%# Eval("HourlyRate")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="PPL Audit Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPPlrate" runat="server" Text='<%# Eval("AuditRate")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="METED Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblmetedrate" runat="server" Text='<%# Eval("MetedAudit")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                 <asp:TemplateField HeaderText="Invoice Rate">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblpercentagerate" runat="server" Text='<%# Eval("PersentageRate")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                
+                            </Columns>
+                            <HeaderStyle BackColor="#3AC0F2" ForeColor="White"></HeaderStyle>
+                            <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+                        </asp:GridView>
+                    </div>
+                </div>
+            </asp:Panel>
+            <asp:Button ID="btnShowPopup" runat="server" Style="display: none" OnClick="btnShowPopup_Click1" />
+            <asp:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnl_update"
+                BehaviorID="mpeUser" TargetControlID="btnShowPopup" BackgroundCssClass="Background" Y="15"><%-- X="550" Y="15"--%>
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="pnlRequestTimeOff" runat="server" CssClass="Popup4" align="center" Style="display: none">
+                <div style="width: 100%">
+                    <div style="text-align: center; width: 100% !important;" class="divalign">
+                        <h1 class="assign" style="width: 100% !important;">
+                            <b>
+                                <asp:Label runat="server" ID="lblRequestedOff" Text="REQUEST TIME OFF"></asp:Label></b>
+                            <%--<input id="imgBtnRequestTimeOffClick" type="image" src="Admin/images/Cross3.png"  alt="Submit" style="float: right;height:35px;width:35px;margin-right: 20px;" onclick="ClosePanelRequestTimeoff()">--%>
+                            <asp:ImageButton ID="imgBtnRequestTimeOffClick" runat="server" OnClientClick="return ClosePanelRequestTimeoff()"
+                                ImageUrl="Admin/images/Cross3.png" Height="35px" Width="35px" Style="float: right;
+                                margin-right: 20px;" /></h1>
+                        <%--OnClick="btn_cancel_Click"--%>
+                    </div>
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                        <tr>
+                            <td width="20%">
+                                Type Of Time Requested:
+                            </td>
+                            <td width="20%">
+                                From Date:
+                            </td>
+                            <td width="20%">
+                                To Date:
+                            </td>
+                            <td width="16%">
+                                <asp:Label runat="server" Text="From Time:" ID="lblFromTime" Style="display: none"></asp:Label>
+                            </td>
+                            <td width="16%">
+                                <asp:Label runat="server" Text="To Time:" ID="lblToTime" Style="display: none"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:DropDownList ID="ddlTypeOfRequested" runat="server" CssClass="textbox88" Width="200px"
+                                    onChange="diffDaysddl();">
+                                    <asp:ListItem Text="Type of Time Requested" Value="0"></asp:ListItem>
+                                    <asp:ListItem Text="Vacation" Value="1"></asp:ListItem>
+                                    <asp:ListItem Text="Sickness" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="Unpaid" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="Unpaid Sickness" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="Emergency Paid Time Off" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="Emergency Time Off" Value="6"></asp:ListItem>
+                                  <%--  <asp:ListItem Text="Holiday Pay" Value="7"></asp:ListItem>--%>
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="rfv_DDL_AllDates" runat="server" ValidationGroup="R"
+                                    ControlToValidate="ddlTypeOfRequested" ErrorMessage="Select Requested Type" InitialValue="0"
+                                    Display="Dynamic"></asp:RequiredFieldValidator>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtFromDate" runat="server" Width="180px" CssClass="textbox88" onChange="diffDays();"
+                                    placeholder="MM/dd/yyyy"></asp:TextBox><%--OnTextChanged="txtFromDate_Click"  AutoPostBack="true"--%>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="R"
+                                    ControlToValidate="txtFromDate" ErrorMessage="Select From Date" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <ajaxToolkit:CalendarExtender ID="CalendarExtender10" runat="server" TargetControlID="txtFromDate">
+                                </ajaxToolkit:CalendarExtender>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtToDate" Width="180px" runat="server" CssClass="textbox88" onChange="diffDays();"
+                                    placeholder="MM/dd/yyyy"></asp:TextBox><%--OnTextChanged="txtToDate_Click"  AutoPostBack="true"--%>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="R"
+                                    ControlToValidate="txtToDate" ErrorMessage="Select To Date" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:CompareValidator Display="Dynamic" ValidationGroup="R" ID="CompareValidator1"
+                                    runat="server" ControlToCompare="txtFromDate" ControlToValidate="txtToDate" ErrorMessage="ToDate is Greater than FromDate"
+                                    Operator="GreaterThanEqual" Type="Date"></asp:CompareValidator>
+                                <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtToDate">
+                                </ajaxToolkit:CalendarExtender>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlFromTime" AppendDataBoundItems="true" Width="150px" runat="server"
+                                    Style="display: none" CssClass="textbox88">
+                                    <asp:ListItem Text="Select From Time" Value="0" />
+                                    <asp:ListItem Text="12:00 AM" Value="1" />
+                                    <asp:ListItem Text="12:30 AM" Value="2" />
+                                    <asp:ListItem Text="01:00 AM" Value="3" />
+                                    <asp:ListItem Text="01:30 AM" Value="4" />
+                                    <asp:ListItem Text="02:00 AM" Value="5" />
+                                    <asp:ListItem Text="02:30 AM" Value="6" />
+                                    <asp:ListItem Text="03:00 AM" Value="7" />
+                                    <asp:ListItem Text="03:30 AM" Value="8" />
+                                    <asp:ListItem Text="04:00 AM" Value="9" />
+                                    <asp:ListItem Text="04:30 AM" Value="10" />
+                                    <asp:ListItem Text="05:00 AM" Value="11" />
+                                    <asp:ListItem Text="05:30 AM" Value="12" />
+                                    <asp:ListItem Text="06:00 AM" Value="13" />
+                                    <asp:ListItem Text="06:30 AM" Value="14" />
+                                    <asp:ListItem Text="07:00 AM" Value="15" />
+                                    <asp:ListItem Text="07:30 AM" Value="16" />
+                                    <asp:ListItem Text="08:00 AM" Value="17" />
+                                    <asp:ListItem Text="08:30 AM" Value="18" />
+                                    <asp:ListItem Text="09:00 AM" Value="19" />
+                                    <asp:ListItem Text="09:30 AM" Value="20" />
+                                    <asp:ListItem Text="10:00 AM" Value="21" />
+                                    <asp:ListItem Text="10:30 AM" Value="22" />
+                                    <asp:ListItem Text="11:00 AM" Value="23" />
+                                    <asp:ListItem Text="11:30 AM" Value="24" />
+                                    <asp:ListItem Text="12:00 PM" Value="25" />
+                                    <asp:ListItem Text="12:30 PM" Value="26" />
+                                    <asp:ListItem Text="01:00 PM" Value="27" />
+                                    <asp:ListItem Text="01:30 PM" Value="28" />
+                                    <asp:ListItem Text="02:00 PM" Value="29" />
+                                    <asp:ListItem Text="02:30 PM" Value="30" />
+                                    <asp:ListItem Text="03:00 PM" Value="31" />
+                                    <asp:ListItem Text="03:30 PM" Value="32" />
+                                    <asp:ListItem Text="04:00 PM" Value="33" />
+                                    <asp:ListItem Text="04:30 PM" Value="34" />
+                                    <asp:ListItem Text="05:00 PM" Value="35" />
+                                    <asp:ListItem Text="05:30 PM" Value="36" />
+                                    <asp:ListItem Text="06:00 PM" Value="37" />
+                                    <asp:ListItem Text="06:30 PM" Value="38" />
+                                    <asp:ListItem Text="07:00 PM" Value="39" />
+                                    <asp:ListItem Text="07:30 PM" Value="40" />
+                                    <asp:ListItem Text="08:00 PM" Value="41" />
+                                    <asp:ListItem Text="08:30 PM" Value="42" />
+                                    <asp:ListItem Text="09:00 PM" Value="43" />
+                                    <asp:ListItem Text="09:30 PM" Value="44" />
+                                    <asp:ListItem Text="10:00 PM" Value="45" />
+                                    <asp:ListItem Text="10:30 PM" Value="46" />
+                                    <asp:ListItem Text="11:00 PM" Value="47" />
+                                    <asp:ListItem Text="11:30 PM" Value="48" />
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="R"
+                                    ControlToValidate="ddlFromTime" ErrorMessage="Select From Time" InitialValue="0"
+                                    Display="Dynamic"></asp:RequiredFieldValidator>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlToTime" AppendDataBoundItems="true" Width="150px" runat="server"
+                                    Style="display: none" CssClass="textbox88">
+                                    <asp:ListItem Text="Select To Time" Value="0" />
+                                    <asp:ListItem Text="12:00 AM" Value="1" />
+                                    <asp:ListItem Text="12:30 AM" Value="2" />
+                                    <asp:ListItem Text="01:00 AM" Value="3" />
+                                    <asp:ListItem Text="01:30 AM" Value="4" />
+                                    <asp:ListItem Text="02:00 AM" Value="5" />
+                                    <asp:ListItem Text="02:30 AM" Value="6" />
+                                    <asp:ListItem Text="03:00 AM" Value="7" />
+                                    <asp:ListItem Text="03:30 AM" Value="8" />
+                                    <asp:ListItem Text="04:00 AM" Value="9" />
+                                    <asp:ListItem Text="04:30 AM" Value="10" />
+                                    <asp:ListItem Text="05:00 AM" Value="11" />
+                                    <asp:ListItem Text="05:30 AM" Value="12" />
+                                    <asp:ListItem Text="06:00 AM" Value="13" />
+                                    <asp:ListItem Text="06:30 AM" Value="14" />
+                                    <asp:ListItem Text="07:00 AM" Value="15" />
+                                    <asp:ListItem Text="07:30 AM" Value="16" />
+                                    <asp:ListItem Text="08:00 AM" Value="17" />
+                                    <asp:ListItem Text="08:30 AM" Value="18" />
+                                    <asp:ListItem Text="09:00 AM" Value="19" />
+                                    <asp:ListItem Text="09:30 AM" Value="20" />
+                                    <asp:ListItem Text="10:00 AM" Value="21" />
+                                    <asp:ListItem Text="10:30 AM" Value="22" />
+                                    <asp:ListItem Text="11:00 AM" Value="23" />
+                                    <asp:ListItem Text="11:30 AM" Value="24" />
+                                    <asp:ListItem Text="12:00 PM" Value="25" />
+                                    <asp:ListItem Text="12:30 PM" Value="26" />
+                                    <asp:ListItem Text="01:00 PM" Value="27" />
+                                    <asp:ListItem Text="01:30 PM" Value="28" />
+                                    <asp:ListItem Text="02:00 PM" Value="29" />
+                                    <asp:ListItem Text="02:30 PM" Value="30" />
+                                    <asp:ListItem Text="03:00 PM" Value="31" />
+                                    <asp:ListItem Text="03:30 PM" Value="32" />
+                                    <asp:ListItem Text="04:00 PM" Value="33" />
+                                    <asp:ListItem Text="04:30 PM" Value="34" />
+                                    <asp:ListItem Text="05:00 PM" Value="35" />
+                                    <asp:ListItem Text="05:30 PM" Value="36" />
+                                    <asp:ListItem Text="06:00 PM" Value="37" />
+                                    <asp:ListItem Text="06:30 PM" Value="38" />
+                                    <asp:ListItem Text="07:00 PM" Value="39" />
+                                    <asp:ListItem Text="07:30 PM" Value="40" />
+                                    <asp:ListItem Text="08:00 PM" Value="41" />
+                                    <asp:ListItem Text="08:30 PM" Value="42" />
+                                    <asp:ListItem Text="09:00 PM" Value="43" />
+                                    <asp:ListItem Text="09:30 PM" Value="44" />
+                                    <asp:ListItem Text="10:00 PM" Value="45" />
+                                    <asp:ListItem Text="10:30 PM" Value="46" />
+                                    <asp:ListItem Text="11:00 PM" Value="47" />
+                                    <asp:ListItem Text="11:30 PM" Value="48" />
+                                </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" Style="display: none" runat="server"
+                                    ValidationGroup="R" ControlToValidate="ddlToTime" ErrorMessage="Select To Time"
+                                    InitialValue="0" Display="Dynamic"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Additional Comments:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" CssClass="textbox88"
+                                    Width="100%" Height="120px"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                                <asp:Button ID="btnSubmitTime" runat="server" Text="Submit" class="btn_all" OnClick="btnSumitRequestTime_Click"
+                                    ValidationGroup="R" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </asp:Panel>
+            <asp:Button ID="btnPanelShowOff" runat="server" Style="display: none" OnClick="btnPanelShowOff_Click1" />
+            <asp:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnlRequestTimeOff"
+                TargetControlID="btnPanelShowOff" BackgroundCssClass="Background"
+                BehaviorID="mpeUserRTimeOff" Y="150"> <%--X="520" Y="150"--%>
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="pnlShowOccrRespose" runat="server" CssClass="Popup3" Style="display: none">
+                <div style="text-align: center; width: 100% !important;" class="divalign">
+                    <h1 class="assign" style="width: 100% !important;">
+                        <b>
+                            <asp:Label runat="server" ID="Label3" Text="Add Response"></asp:Label></b>
+                        <asp:ImageButton ID="imgbtnRespoceClose" runat="server" OnClientClick="return CloseResponseBox()"
+                            ImageUrl="Admin/images/Cross3.png" Height="35px" Width="35px" Style="float: right;
+                            margin-right: 20px;" /></h1>
+                  
+                </div>
+                <br />
+                <asp:TextBox ID="txtResponse" runat="server" TextMode="MultiLine" Width="500px" Height="80px"></asp:TextBox><br />
+                
+                <div style="text-align: center">
+                    <asp:Button ID="btnSubmitOccur" Text="Accept" runat="server" ValidationGroup="G"
+                        CssClass="BtnPrintHistory" OnClick="btn_submit_Occur_Click" />
+                    <asp:Button ID="btnCancelOccur" Text="Cancel" runat="server" OnClientClick="return CloseResponseBox()"
+                        CssClass="BtnPrintHistory" />
+                </div>
+            </asp:Panel>
+            <asp:Button ID="btnShowOccurenceResponse" runat="server" Style="display: none" OnClick="btnPanelShowOccurences_Click" />
+            <asp:ModalPopupExtender ID="ModalPopupExtender5" BehaviorID="mpe1" runat="server"
+                PopupControlID="pnlShowOccrRespose" TargetControlID="btnShowOccurenceResponse"
+                BackgroundCssClass="Background" Y="150">
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="pnlVacationDetailsShow" runat="server" CssClass="Popup2" Style="display: none">
+                <div style="width: 100%">
+                    <div style="text-align: center; width: 100% !important;" class="divalign">
+                        <h1 class="assign" style="width: 100% !important;">
+                            <b>
+                                <asp:Label runat="server" ID="Label4" Text="Request TimeOff Details"></asp:Label></b>
+                            <asp:ImageButton ID="ImageButton1" runat="server" OnClientClick="return CloseVaction()"
+                                ImageUrl="Admin/images/Cross3.png" Height="35px" Width="35px" Style="float: right;
+                                margin-right: 20px;" /></h1>
+                    </div>
+                    <br />
+                    <table align="center">
+                        <tr>
+                            <td>
+                                <strong>Request Type:-</strong>&nbsp;<asp:DropDownList ID="ddlRequestType" runat="server"
+                                    Style="border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+                                    color: black; border-radius: 5px; padding: 8px; margin: 0; width: 200px;" maxlength="40"
+                                    AutoPostBack="true" OnSelectedIndexChanged="ddlRequestType_SelectedIndexChanged">
+                                    <asp:ListItem Text="All" Value="0"></asp:ListItem>
+                                    <asp:ListItem Text="Vacation" Value="1"></asp:ListItem>
+                                    <asp:ListItem Text="Sickness" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="Unpaid" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="Unpaid Sickness" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="Emergency Paid Time Off" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="Emergency Time Off" Value="6"></asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <div style="float: right; margin-right: 23px;" id="div1" runat="server">
+                        <strong>Page Size:&nbsp;</strong>
+                        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+                            <asp:ListItem Text="10" Value="10"></asp:ListItem>
+                            <asp:ListItem Text="15" Value="15"></asp:ListItem>
+                            <asp:ListItem Text="20" Value="20"></asp:ListItem>
+                            <asp:ListItem Text="ALL" Value="0"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="rounded_corners" style="width: 98%; overflow: auto; max-height: 500px;">
+                        <div class="rounded_corners" style="width: 100%;" id="div2" runat="server">
+                            <asp:GridView ID="gvVacationDetails" runat="server" Width="100%" DataKeyNames="ID"
+                                class="leaves-tbl" AutoGenerateColumns="false" PageSize="10" AllowPaging="true"
+                                OnPageIndexChanging="gvVacationDetails_PageIndexChanging" HeaderStyle-BackColor="#3AC0F2"
+                                HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White"
+                                RowStyle-ForeColor="#3A3A3A" EmptyDataText="No Request Available">
+                                <RowStyle BackColor="#A1DCF2" ForeColor="#3A3A3A"></RowStyle>
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Login Id" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lbl_Login" runat="server" Text='<%#Eval("LoginID")%>'></asp:Label>
+                                            <asp:HiddenField ID="hdnEmployeeId" runat="server" Value='<%#Eval("ID")%>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="User Name">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblUserName" runat="server" Text='<%#Eval("Name")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Request For">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblRequestType" runat="server" Text='<%#Eval("TypeOfRequesteType")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="From Date">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("FromDate")%>' ForeColor="Blue"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="To Date">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblToDate" runat="server" Text='<%#Eval("ToDate")%>' ForeColor="Blue"></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="From Time">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblFromTime" runat="server" Text='<%# Eval("FromTime")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="To Time">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblToTime" runat="server" Text='<%# Eval("ToTime")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Hours">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblTotalHours" runat="server" Text='<%# Eval("TotalHours")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Comments">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblComments" runat="server" Text='<%# Eval("Comments")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Reject Comments" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblRejectComments" runat="server" Text='<%# Eval("RejectComment")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Approve Date" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblApproveDate" runat="server" Text='<%# Eval("ApproveDate")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Reject Date" Visible="false">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblRejectDate" runat="server" Text='<%# Eval("RejectDate")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Status">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status")%>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <HeaderStyle BackColor="#3AC0F2" ForeColor="White"></HeaderStyle>
+                                <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+                            </asp:GridView>
+                        </div>
+                        <br />
+                        <asp:Panel ID="pnltotalHours" runat="server">
+                            <div id="DivGrndTotal" runat="server" style="float: right; margin-right: 45px;">
+                                Total Hours:-&nbsp;<b>
+                                    <asp:Label ID="lbl_GrandTotal" runat="server"></asp:Label></b>
+                            </div>
+                        </asp:Panel>
+                    </div>
+                </div>
+            </asp:Panel>
+            <asp:Button ID="Button2" runat="server" Style="display: none" OnClick="btnPanelShowOccurences_Click" />
+            <asp:ModalPopupExtender ID="ModalPopupExtender6" runat="server" PopupControlID="pnlVacationDetailsShow"
+                TargetControlID="Button2" BackgroundCssClass="Background" BehaviorID="mpeVaction" Y="150"> <%--X="520" Y="150"--%>
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="pnlOccurences" runat="server" CssClass="Popup2" Style="display: none">
+                <div style="width: 100%">
+                    <div style="text-align: center; width: 100% !important;" class="divalign">
+                        <h1 class="assign" style="width: 100% !important;">
+                            <b>
+                                <asp:Label runat="server" ID="Label2" Text="Occurrences Details"></asp:Label></b>
+                            <asp:ImageButton ID="imgBtnCancelOccurence" runat="server" OnClientClick="return HideOccurences()"
+                                ImageUrl="Admin/images/Cross3.png" Height="35px" Width="35px" Style="float: right;
+                                margin-right: 20px;" /></h1>
+                    </div>
+                    <br />
+                    <table align="center">
+        <tr><td>     Range:-
+        <asp:DropDownList ID="DDL_Range" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DDL_Range_SelectedIndexChanged" CssClass="textbox77" Width="140px" style="margin-bottom:2px;height: 33px;">
+            <asp:ListItem Text="choose one.." Value="0"></asp:ListItem>
+            <asp:ListItem Text="Last Date" Value="1"></asp:ListItem>
+            <asp:ListItem Text="This Month" Value="2"></asp:ListItem>
+            <asp:ListItem Text="This Qtr" Value="3"></asp:ListItem>
+            <asp:ListItem Text="This Year" Value="4"></asp:ListItem>
+            <asp:ListItem Text="Last Month" Value="5"></asp:ListItem>
+            <asp:ListItem Text="Last Qtr" Value="6"></asp:ListItem>
+            <asp:ListItem Text="Last Year" Value="7"></asp:ListItem>
+         <%--   <asp:ListItem Text="-----------" Value="8"></asp:ListItem>--%>
+            <asp:ListItem Text="First Qtr" Value="9"></asp:ListItem>
+            <asp:ListItem Text="Second Qtr" Value="10"></asp:ListItem>
+            <asp:ListItem Text="Third Qtr" Value="11"></asp:ListItem>
+            <asp:ListItem Text="Fourth Qtr" Value="12"></asp:ListItem>
+        </asp:DropDownList></td>
+            <td>
+                Actions:-&nbsp; <asp:DropDownList ID="ddlAction" runat="server" CssClass="textbox77" Width="180px" style="margin-bottom:5px;height: 33px;"
+                                    EnableViewState="true">
+                                    <asp:ListItem Text="Select Action" Value="0"></asp:ListItem>
+                                     <asp:ListItem Text="For communication Only" Value="1"></asp:ListItem>
+                                    <asp:ListItem Text="Received a warning" Value="2"></asp:ListItem>
+                                    <asp:ListItem Text="Received a write-up and notified" Value="3"></asp:ListItem>
+                                    <asp:ListItem Text="Received a write-up and notified verbally" Value="4"></asp:ListItem>
+                                    <asp:ListItem Text="Received a write-up and suspended" Value="5"></asp:ListItem>
+                                    <asp:ListItem Text="Suspended without pay. Followed with a probationary period for 90 days."
+                                        Value="6"></asp:ListItem>
+                                    <asp:ListItem Text="Sent home" Value="7"></asp:ListItem>
+                                </asp:DropDownList>
+            </td>
+            <td>From:-
+                <asp:TextBox ID="txtFromDateOccur" runat="server" Width="110px" CssClass="textbox88" placeholder="From Date"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender
+                    ID="CalendarExtender2" runat="server" TargetControlID="txtFromDateOccur">
+                    
+                </ajaxToolkit:CalendarExtender><br />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="X"
+                                            ControlToValidate="txtFromDateOccur" ErrorMessage="Enter FromDate" Display="Dynamic"></asp:RequiredFieldValidator>
+            </td>
+            <td>To:-
+                <asp:TextBox ID="txtToDateOccur" Width="110px" runat="server" CssClass="textbox88" placeholder="To Date"></asp:TextBox><ajaxToolkit:CalendarExtender
+                    ID="CalendarExtender3" runat="server" TargetControlID="txtToDateOccur">
+                </ajaxToolkit:CalendarExtender><br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="X"
+                                            ControlToValidate="txtToDateOccur" ErrorMessage="Enter ToDate" Display="Dynamic" ></asp:RequiredFieldValidator>
+            </td>
+            <td>
+                <asp:Button ID="btn_search" Text="Search" runat="server" OnClick="btn_Search_Click" ValidationGroup="X"
+                    CssClass="BtnPrintHistory" />
+            </td>
+        </tr>
+    </table> 
+                    <br />
+                    <div class="rounded_corners" style="width: 98%; overflow: auto; max-height: 500px;">
+                        <asp:GridView ID="grdOccurences" runat="server" Width="100%" DataKeyNames="OccurrencesID"
+                            class="leaves-tbl" AutoGenerateColumns="false" PageSize="10" AllowPaging="true"
+                            OnPageIndexChanging="grdOccurences_PageIndexChanging" HeaderStyle-BackColor="#3AC0F2"
+                            HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White"
+                            RowStyle-ForeColor="#3A3A3A" EmptyDataText="No Request Available" OnRowDataBound="grdOccurences_RowDataBound"
+                            OnRowUpdating="grdOccurences_RowUpdating">
+                            <RowStyle BackColor="#A1DCF2" ForeColor="#3A3A3A"></RowStyle>
+                            <Columns>
+                                <asp:TemplateField HeaderText="Employee Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblEmployeeName" runat="server" Text='<%#Eval("EmployeeName")%>'></asp:Label>
+                                        <asp:Label ID="NeedToSign" runat="server" Text='<%#Eval("NeedToSign")%>' Visible="false"></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Manager Name">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblManagerName" runat="server" Text='<%#Eval("ManagerName")%>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Date">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDate" runat="server" Text='<%#Eval("Date")%>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Narrative">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDescription" runat="server" Text='<%# Limit(Eval("Narrative"), 45)%>'
+                                            ToolTip='<%# Eval("Narrative")%>'></asp:Label>
+                                        <asp:LinkButton ID="lblReadMore" ForeColor="Blue" runat="server" Text="..Read More"
+                                            Visible='<%# SetVisibility(Eval("Narrative"), 45) %>' OnClick="ReadMoreLinkButton_Click"></asp:LinkButton>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="25%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblActionTaken" runat="server" Text='<%# Eval("ActionTaken")%>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="10%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Response">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblResponse" runat="server" Text='<%# Eval("Response")%>'></asp:Label>
+                                    </ItemTemplate>
+                                    <ItemStyle Width="25%" />
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Action">
+                                    <ItemTemplate>
+                                    <asp:Label ID="lblResponseStatus" runat="server" Text='<%# Eval("ResponseStatus")%>'
+                                            Visible="false"></asp:Label>
+                                        <asp:LinkButton ID="lnkbtnAccept" runat="server" Text="Accept" OnClick="grdOccurences_UpdateRow"
+                                            OnClientClick='<%# string.Format("return paymentRjtAlert(\"{0}\",\"{1}\",{2});", Eval("NeedToSign"),Eval("ResponseStatus"),Eval("OccurrencesID")) %>'></asp:LinkButton>
+                                        <asp:UpdatePanel ID="updOccur" runat="server">
+                                            <ContentTemplate>
+                                                <asp:ImageButton ID="lnk_Edit" runat="server" ImageUrl="images/PDF1.png" AlternateText="PDF"
+                                                    Height="30px" Width="25px" CommandName="Update" /><%--OnClick="DownloadFile_Click"--%>
+                                            </ContentTemplate>
+                                            <Triggers>
+                                                <asp:PostBackTrigger ControlID="lnk_Edit" />                                                
+                                            </Triggers>
+                                        </asp:UpdatePanel>
+                                    
+                                    </ItemTemplate>
+                                    <ItemStyle Width="5%" />
+                                </asp:TemplateField>
+                            </Columns>
+                            <HeaderStyle BackColor="#3AC0F2" ForeColor="White"></HeaderStyle>
+                            <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
+                        </asp:GridView>
+                        <asp:HiddenField ID="hdnDatakeyValue" runat="server" />
+                    </div>
+                </div>
+            </asp:Panel>
+               
+            <asp:Button ID="btnPanelOccurences" runat="server" Style="display: none" OnClick="btnPanelShowOccurences_Click" />
+            <asp:ModalPopupExtender ID="ModalPopupExtender4" runat="server" PopupControlID="pnlOccurences"
+                TargetControlID="btnPanelOccurences" BehaviorID="mpe" BackgroundCssClass="Background"  Y="150"
+               > <%--X="520" Y="150"--%>
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="P1" runat="server" DefaultButton="btn_Update" Style="display: none">
+                <table id="Table3" runat="server" backcolor="#E6E6ED" cssclass="pnlBackGround 2-popup cover-bg"
+                    width="225px" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                    background: rgba(0, 0, 0, 0.33); padding-left: 4px; z-index: 9999; padding-left: 4px;
+                    display: none">
+                    <tr>
+                        <td>
+                            <table id="Table4" runat="server" backcolor="#E6E6ED" cssclass="pnlBackGround 2-popup"
+                                width="225px" style="padding-left: 4px; position: absolute; left: 43%; background: #fff;
+                                border: 2px solid #000; top: 25%;">
+                                <tr>
+                                    <td align="center">
+                                        <b>Passcode:</b>&nbsp;&nbsp;<asp:TextBox ID="txt_pwd" runat="server" MaxLength="4"
+                                            onkeydown="return (!(event.keyCode>=65) && event.keyCode!=32);" Style="border: 1px solid #ccc;
+                                            font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: black; border-radius: 5px;
+                                            padding: 8px; margin: 0; width: 150px;"></asp:TextBox><br />
+                                        <asp:Label ID="lblText" runat="server" Text="(By entering your passcode you are signing the acknowledgement of this occurrence)"
+                                            ForeColor="Red"></asp:Label>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="P"
+                                            ControlToValidate="txt_pwd" ErrorMessage="Enter Passcode" Display="Dynamic"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center">
+                                        <asp:Button ID="btn_Update" runat="server" Text="Ok" class="top_btn" OnClick="btn_Update_Click"
+                                            ValidationGroup="P" />
+                                        <button type="button" id="btn_close" class="top_btn" onclick="ClosePopup()">
+                                            Close</button>
+                                        <asp:Label ID="lblErMsg" runat="server" Style="color: Red;"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+              <asp:Button ID="btnHoliday" runat="server" Style="display: none" OnClick="btnHoliday_Click" />
+            <asp:ModalPopupExtender ID="ModalPopupExtender7" runat="server" PopupControlID="pnlHoliday"
+                TargetControlID="btnHoliday" BehaviorID="mpeHoliday" BackgroundCssClass="Background"  Y="150">
+            </asp:ModalPopupExtender>
+                <asp:Panel ID="pnlHoliday" runat="server" CssClass="Popup7" Style="display: none">
+                 <div style="width: 100%">
+                    <div style="text-align: center; width: 100% !important;" class="divalign">
+                        <h1 class="assign" style="width: 100% !important;">
+                            <b>
+                                <asp:Label runat="server" ID="Label5" Text="Holidays"></asp:Label></b>
+                            <asp:ImageButton ID="ImageButton3" runat="server" OnClientClick="return HideHolidays()"
+                                ImageUrl="Admin/images/Cross3.png" style="height: 29px;width: 31px;border-width: 0px;float: right;margin-right: 11px;" /></h1>
+                       
+                    </div>
+                    <br />
+             
+                 <asp:CheckBoxList ID="chkHolidaysList" runat="server"  RepeatLayout="flow" RepeatColumns="3" RepeatDirection="Horizontal" >
+                        <asp:ListItem Value="NewYears" Text="NewYears" class="chkbox" > New Year's Day </asp:ListItem>
+                         <asp:ListItem Value="MLK" Text="MLK" class="chkbox"> Martin Luther King Jr.  </asp:ListItem>
+                          <asp:ListItem Value="MemorialDay" Text="MemorialDay" class="chkbox"> Memorial Day</asp:ListItem>
+                           <asp:ListItem Value="IndependenceDay" Text="IndependenceDay" class="chkbox"> Independence Day </asp:ListItem>
+                            <asp:ListItem Value="LaborDay" Text="LaborDay" class="chkbox"> Labor Day</asp:ListItem>
+                             <asp:ListItem Value="Columbus" Text="Columbus" class="chkbox"> Columbus Day </asp:ListItem>
+                              <asp:ListItem Value="Veterans" Text="Veterans" class="chkbox"> Veterans Day </asp:ListItem>
+                               <asp:ListItem Value="Thanksgiving" Text="Thanksgiving" class="chkbox"> Thanksgiving Day </asp:ListItem>
+                                <asp:ListItem Value="Christmas" Text="Christmas" class="chkbox"> Christmas Day </asp:ListItem>                                
+                                  </asp:CheckBoxList>
+                
+                    </div>
+                     </asp:Panel>
+        </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btn_Update" />
+            <asp:PostBackTrigger ControlID="btnSubmitTime" />
+            <asp:PostBackTrigger ControlID="imgBtnCancelOccurence" />
+            <%--<asp:PostBackTrigger ControlID="imgBtnRequestTimeOffClick" />--%>
+         <%--    <asp:PostBackTrigger ControlID="btnSubmitHolidays" />
+         --%>   <asp:PostBackTrigger ControlID="btnSubmitOccur" />
+            <%--<asp:PostBackTrigger ControlID="grdOccurences" />--%>
+            <%--  <asp:AsyncPostBackTrigger ControlID="lnk_Edit"/>--%>
+        </Triggers>
+    </asp:UpdatePanel>
+    
+    <div>
+        <div class="fix_div">
+            <!-- header -->
+            <div class="header">
+                <div class="logo_div">
+                    <a href="Home.aspx">
+                        <img src="images/logo.jpg" /></a></div>
+                <div class="header_middiv">
+                    Customer Service</div>
+                <div class="head_right">
+                    <div id="HeadIco" runat="server" visible="false">
+                        <div class="top_icons">
+                            <ul>
+                                <li><a href="JobMessages.aspx" class="back" title="Back"></a></li>
+                                <li><a href="Home.aspx" class="home" title="Home"></a></li>
+                            </ul>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <br />
+                    </div>
+                    <div class="head_link">                     
+                        <asp:LinkButton ID="lnk_adminis" runat="server" OnClick="lnk_adminis_Click">Administer Database</asp:LinkButton>
+                        <span id="span_word" runat="server">|</span>
+                        <asp:LinkButton ID="lnkLogin" runat="server" Text="Logout" OnClick="lnkLogin_Click"></asp:LinkButton>
+                        <br />
+                        Hello
+                        <asp:LinkButton ID="lnkUser" runat="server" Text="" OnClientClick="return ShowUserProFileDetails()"></asp:LinkButton><%--OnClick="btnImageProFile_Click"--%>
+                        <asp:ImageButton ID="imgProfileImage" runat="server" ImageUrl="Admin/Upload/noImage.png"
+                            Width="25px" Height="25px" CssClass="img-circle" OnClientClick="return ShowUserProFileDetails1()" /><br />
+                        <%--OnClick="btnImageProFile_Click" --%>
+                        <%--<a id="A1" runat="server" href="EmployeeTimeTracking.aspx?Flag=Home">Request Time</a> |--%>
+                        <a id="HrefTimeTrac" runat="server" href="EmployeeTimeTracking.aspx?Flag=Home">Time Track</a></div>
+                </div>
+            </div>
+            <!-- end header -->
+            <div class="clear">
+            </div>
+            <!-- mid section1 -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- end mid section2 -->
+            <div class="clear">
+            </div>
+            <!-- footer -->
+            <div class="footer" style="padding-bottom: 40px;">
+                Custom Weatherization, LLC © 2013</div>
+            <!-- end footer -->
+        </div>
+    </div>
+    </form>
+</body>
+
+<script type="text/javascript">
+    function ShowUserProFileDetails() {        
+        document.getElementById('<%=pnl_update.ClientID%>').style.display = 'block';        
+            $find("mpeUser").show();
+            return false;        
+    }
+    function ShowUserProFileDetails1() {
+        document.getElementById('<%=pnl_update.ClientID%>').style.display = 'block';         
+            $find("mpeUser").show();     
+           return false;
+    }
+ 
+   
+    function ClosePanelRequestTimeoff() {
+        $find("mpeUserRTimeOff").hide();
+        $find("mpeUser").show();
+        return false;
+    }
+    function ShowPanelHoiday() {
+       
+        $find("mpeHoliday").show();
+        $find("mpeUser").hide();
+        return false;
+    }
+    function CloseResponseBox(){
+	    $find("mpe").show();
+        $find("mpe1").hide();
+		return false;
+	}
+    function ClosePopup() {
+        document.getElementById('<%=Table3.ClientID%>').style.display = 'none';
+        document.getElementById('<%=P1.ClientID%>').style.display = 'none';
+        $find("mpe").show();
+        document.getElementById('<%=pnlOccurences.ClientID%>').style.display = 'block';
+        return false;
+
+    }
+    function CloseUserDetailsPopup() {
+        document.getElementById('<%=pnl_update.ClientID%>').style.display = 'none';
+        $find("mpeUser").hide();
+        return false;
+    }
+
+    function OpenPanelRequestTimeoff() {      
+        var FromTime = document.getElementById('<%=RequiredFieldValidator4.ClientID%>');
+        var ToTime = document.getElementById('<%=RequiredFieldValidator5.ClientID%>');
+        ValidatorEnable(FromTime, false);
+        ValidatorEnable(ToTime, false);
+        $find("mpeUser").hide();
+        $find("mpeUserRTimeOff").show();
+        document.getElementById('<%=ddlTypeOfRequested.ClientID%>').selectedIndex = 0;
+        diffDaysddl();
+        return false;
+    }
+
+    function ShowOccurences() {       
+        $find("mpe").show();
+        $find("mpeUser").hide();
+        $find("mpeUserRTimeOff").hide();
+        $find("mpeSalaryHistory").hide();
+        return false;
+    }
+    function HideOccurences() {
+         $find("mpeUser").show();
+        $find("mpe").hide();
+        return false;
+    }
+    function paymentRjtAlert(e, rs, occurenceid) {
+       
+        var status = rs;
+        var id = e;
+        document.getElementById('<%=pnlOccurences.ClientID%>').style.display = 'none';
+        document.getElementById('<%=hdnDatakeyValue.ClientID%>').value = occurenceid;
+        if (e == "True" && (rs == "False" || rs == "")) {
+            $find("mpe").hide();
+            document.getElementById('<%=P1.ClientID%>').style.display = 'block';
+            document.getElementById('<%=Table3.ClientID%>').style.display = 'block';
+
+        }
+        else if (rs == "True") {
+            document.getElementById('<%=pnlShowOccrRespose.ClientID%>').style.display = 'none';
+            $find("mpe1").hide();
+            $find("mpe").show();
+            document.getElementById('<%=pnlOccurences.ClientID%>').style.display = 'block';
+        } else {
+            document.getElementById('<%=pnlShowOccrRespose.ClientID%>').style.display = 'block';
+            $find("mpe").hide();
+            $find("mpe1").show();
+        }
+        return false;
+
+    }
+    function ShowPanelPaymentHistory() {
+        $find("mpeSalaryHistory").show();
+       $find("mpeUser").hide();
+        return false;
+    }
+    function CloseVaction() {
+        $find("mpeUser").show();
+        $find("mpeVaction").hide();
+        return false;
+    }
+    function HideHolidays() {
+        $find("mpeUser").show();
+        $find("mpeHoliday").hide();
+        return false;
+    }
+    
+    function hidePaymentHistory() {
+        $find("mpeSalaryHistory").hide();
+        $find("mpeUser").show();
+        return false;
+    }
+    function ShowUserTimeDetails() {
+     
+        document.getElementById('<%=pnlTypeOfTimeView.ClientID%>').style.display = 'block';
+        document.getElementById('<%=imgShowView.ClientID%>').style.display = 'block';
+        document.getElementById('<%=imgHideView.ClientID%>').style.display = 'none';
+        return false;
+    }
+    function HideUserTimeDetails() {   
+        document.getElementById('<%=pnlTypeOfTimeView.ClientID%>').style.display = 'none';
+        document.getElementById('<%=imgShowView.ClientID%>').style.display = 'none';
+        document.getElementById('<%=imgHideView.ClientID%>').style.display = 'block';
+        return false;
+    }
+
+    function diffDays() {    
+        var ndays;
+        var date1 = new Date(document.getElementById('<%=txtFromDate.ClientID%>').value);
+        var date2 = new Date(document.getElementById('<%=txtToDate.ClientID%>').value);
+        var lblFromTime = document.getElementById('<%=lblFromTime.ClientID%>');
+        var lblToTime = document.getElementById('<%=lblToTime.ClientID%>');
+        var ddlFromTime = document.getElementById('<%=ddlFromTime.ClientID%>');
+        var ddlToTime = document.getElementById('<%=ddlToTime.ClientID%>');
+        var FromTime = document.getElementById('<%=RequiredFieldValidator4.ClientID%>');
+        var ToTime = document.getElementById('<%=RequiredFieldValidator5.ClientID%>');
+     
+          var ddlFromTimeText = ddlFromTime.options[ddlFromTime.selectedIndex].text;
+         var ddlToTimeText = ddlToTime.options[ddlToTime.selectedIndex].text;
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        var currentdate =new Date(mm + "/" + dd + "/" + yyyy);
+        var days = (currentdate - date1) / 1000 / 60 / 60 / 24;
+        var ddlReport = document.getElementById("<%=ddlTypeOfRequested.ClientID%>");
+        var ddlSelectedText = ddlReport.options[ddlReport.selectedIndex].text;
+        if ((ddlSelectedText != "Sickness" && ddlSelectedText != "Unpaid Sickness") && days <= 0) {
+            if (date1.getTime() == date2.getTime()) {
+                document.getElementById('<%=lblFromTime.ClientID%>').style.display = 'block';
+                document.getElementById('<%=lblToTime.ClientID%>').style.display = 'block';
+                document.getElementById('<%=ddlFromTime.ClientID%>').style.display = 'block';
+                document.getElementById('<%=ddlToTime.ClientID%>').style.display = 'block';
+                ValidatorEnable(FromTime, true);
+                ValidatorEnable(ToTime, true);
+                
+            } else {
+            document.getElementById('<%=lblFromTime.ClientID%>').style.display = 'none';
+            document.getElementById('<%=lblToTime.ClientID%>').style.display = 'none';
+            document.getElementById('<%=ddlFromTime.ClientID%>').style.display = 'none';
+            document.getElementById('<%=ddlToTime.ClientID%>').style.display = 'none';
+            ValidatorEnable(FromTime, false);
+            ValidatorEnable(ToTime, false);
+              }
+
+          } else if (ddlSelectedText != "Sickness" && ddlSelectedText != "Unpaid Sickness") {
+        alert('Please select Date greater or equel Current Date!');
+        document.getElementById('<%=txtFromDate.ClientID%>').value = "";
+        document.getElementById('<%=txtToDate.ClientID%>').value = "";
+    }
+    if ((ddlSelectedText == "Sickness" || ddlSelectedText == "Unpaid Sickness") && days <= 3) {
+        if (date1.getTime() == date2.getTime()) {
+            document.getElementById('<%=lblFromTime.ClientID%>').style.display = 'block';
+            document.getElementById('<%=lblToTime.ClientID%>').style.display = 'block';
+            document.getElementById('<%=ddlFromTime.ClientID%>').style.display = 'block';
+            document.getElementById('<%=ddlToTime.ClientID%>').style.display = 'block';
+            ValidatorEnable(FromTime, true);
+            ValidatorEnable(ToTime, true);
+
+        } else {
+            document.getElementById('<%=lblFromTime.ClientID%>').style.display = 'none';
+            document.getElementById('<%=lblToTime.ClientID%>').style.display = 'none';
+            document.getElementById('<%=ddlFromTime.ClientID%>').style.display = 'none';
+            document.getElementById('<%=ddlToTime.ClientID%>').style.display = 'none';
+            ValidatorEnable(FromTime, false);
+            ValidatorEnable(ToTime, false);
+        }
+
+    } else if (ddlSelectedText == "Sickness" || ddlSelectedText == "Unpaid Sickness" ) {
+    alert('Please select Date only 3 days before Current Date!');
+    document.getElementById('<%=txtFromDate.ClientID%>').value = "";
+    document.getElementById('<%=txtToDate.ClientID%>').value = "";
+  }
+}
+function diffDaysddl() {
+    var FromTime = document.getElementById('<%=RequiredFieldValidator4.ClientID%>');
+    var ToTime = document.getElementById('<%=RequiredFieldValidator5.ClientID%>');
+     
+    ValidatorEnable(FromTime, false);
+    ValidatorEnable(ToTime, false);
+   
+    document.getElementById('<%=txtFromDate.ClientID%>').value = "";
+    document.getElementById('<%=txtToDate.ClientID%>').value = "";
+    document.getElementById('<%=txtComments.ClientID%>').value = "";
+    document.getElementById('<%=lblFromTime.ClientID%>').style.display = 'none';
+    document.getElementById('<%=lblToTime.ClientID%>').style.display = 'none';
+    document.getElementById('<%=ddlFromTime.ClientID%>').style.display = 'none';
+    document.getElementById('<%=ddlToTime.ClientID%>').style.display = 'none';
+ 
+  
+}
+                       
+</script>
+
+<script type="text/javascript">
+
+    $('.imgAdd').click(function() {
+
+        $('#<%=lblAddress.ClientID%>').css('display', 'none');
+        $('#<%=txtAddress.ClientID%>').val($('#<%=lblAddress.ClientID%>').text()).css('display', '').focus();
+    });
+
+    $('#<%=txtAddress.ClientID%>').blur(function() {
+        $('#<%=txtAddress.ClientID%>').css('display', 'none');
+        $('#<%=lblAddress.ClientID%>').text($('#<%=txtAddress.ClientID%>').val()).css('display', '');
+    });
+
+    $('.imgCity').click(function() {
+
+        $('#<%=lblCity.ClientID%>').css('display', 'none');
+        $('#<%=txtCity.ClientID%>').val($('#<%=lblCity.ClientID%>').text()).css('display', '').focus();
+    });
+
+    $('#<%=txtCity.ClientID%>').blur(function() {
+        $('#<%=txtCity.ClientID%>').css('display', 'none');
+        $('#<%=lblCity.ClientID%>').text($('#<%=txtCity.ClientID%>').val()).css('display', '');
+    });
+
+    $('.imgState').click(function() {
+
+        $('#<%=lblState.ClientID%>').css('display', 'none');
+        $('#<%=txtState.ClientID%>').val($('#<%=lblState.ClientID%>').text()).css('display', '').focus();
+    });
+
+    $('#<%=txtState.ClientID%>').blur(function() {
+        $('#<%=txtState.ClientID%>').css('display', 'none');
+        $('#<%=lblState.ClientID%>').text($('#<%=txtState.ClientID%>').val()).css('display', '');
+    });
+
+    $('.imgPincode').click(function() {
+
+        $('#<%=lblPincode.ClientID%>').css('display', 'none');
+        $('#<%=txtPincode.ClientID%>').val($('#<%=lblPincode.ClientID%>').text()).css('display', '').focus();
+    });
+
+    $('#<%=txtPincode.ClientID%>').blur(function() {
+        $('#<%=txtPincode.ClientID%>').css('display', 'none');
+        $('#<%=lblPincode.ClientID%>').text($('#<%=txtPincode.ClientID%>').val()).css('display', '');
+    });
+
+    $('.imgPhoneNumber').click(function() {
+
+        $('#<%=lblPhoneNumber.ClientID%>').css('display', 'none');
+        $('#<%=txtPhoneNumber.ClientID%>').val($('#<%=lblPhoneNumber.ClientID%>').text()).css('display', '').focus();
+    });
+
+    $('#<%=txtPhoneNumber.ClientID%>').blur(function() {
+        $('#<%=txtPhoneNumber.ClientID%>').css('display', 'none');
+        $('#<%=lblPhoneNumber.ClientID%>').text($('#<%=txtPhoneNumber.ClientID%>').val()).css('display', '');
+    });
+ 
+</script>
+
+<script type="text/javascript">
+    function CurrencyFormat(number) {
+        var decimalplaces = 2;
+        var decimalcharacter = ".";
+        var thousandseparater = "";
+        number = parseFloat(number);
+        var sign = number < 0 ? "-" : "";
+        var formatted = new String(number.toFixed(decimalplaces));
+        if (decimalcharacter.length && decimalcharacter != ".") { formatted = formatted.replace(/\./, decimalcharacter); }
+        var integer = "";
+        var fraction = "";
+        var strnumber = new String(formatted);
+        var dotpos = decimalcharacter.length ? strnumber.indexOf(decimalcharacter) : -1;
+        if (dotpos > -1) {
+            if (dotpos) { integer = strnumber.substr(0, dotpos); }
+            fraction = strnumber.substr(dotpos + 1);
+        }
+        else { integer = strnumber; }
+        if (integer) { integer = String(Math.abs(integer)); }
+        while (fraction.length < decimalplaces) { fraction += "0"; }
+        temparray = new Array();
+        while (integer.length > 3) {
+            temparray.unshift(integer.substr(-3));
+            integer = integer.substr(0, integer.length - 3);
+        }
+        temparray.unshift(integer);
+        integer = temparray.join(thousandseparater);
+        if (isNaN(integer)) {
+            integer = '0';
+        }
+        return '$ ' + sign + integer + decimalcharacter + fraction;
+    }
+</script>
+
+<script type="text/javascript">
+    function Currency_Format(ID) {
+        var cost = document.getElementById(ID).value;
+        cost = cost.replace('$', '');
+        var amt = CurrencyFormat(cost);
+        document.getElementById(ID).value = amt;
+    }
+
+        
+
+</script>
+
+</html>

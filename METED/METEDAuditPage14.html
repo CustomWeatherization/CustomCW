@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Cweather</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body
+        {
+            font-size: 13px;
+        }
+        input[type="radio"]
+        {
+            margin-left: 10px;
+        }
+        input[type="checkbox"]
+        {
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fix_div">
+        <!-- header -->
+        <div class="header">
+            <div class="logo_div">
+                <a href="#">
+                    <img src="images/logo.jpg" /></a></div>
+            <div class="header_middiv">
+            </div>
+            <div class="head_link">
+                <a href="#">Administer Database</a> | <a href="#">Logout</a></div>
+        </div>
+        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td colspan="2">
+                        <strong>Attic Access:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        Horizontal attic access - insulate to at least equivalent R value of surrounding
+                        surfaces
+                    </td>
+                    <td>
+                        <input type="radio" />
+                        Already done
+                        <input type="radio" />
+                        Will do &nbsp; &nbsp; Location:
+                        <input type="text" class="txt_city" />
+                        Weather Stripping
+                        <input type="radio" />
+                        Existing
+                        <input type="radio" />
+                        Add
+                        <br />
+                        <br />
+                        # of accesses existing:<input type="text" class="txt_city" />
+                        &nbsp; &nbsp; # of accesses to be added:<input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Vertical openings - insulate to equivalent R value of surrounding surfaces
+                    </td>
+                    <td>
+                        <input type="radio" />
+                        Already done
+                        <input type="radio" />
+                        Will do &nbsp; &nbsp; Location:
+                        <input type="text" class="txt_city" />
+                        Weather Stripping
+                        <input type="radio" />
+                        Existing
+                        <input type="radio" />
+                        Add
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Pull down stairs - insulate to at least equivalent R value of surrounding surfaces
+                    </td>
+                    <td>
+                        <input type="radio" />
+                        Already done
+                        <input type="radio" />
+                        Will do &nbsp; &nbsp; Location:
+                        <input type="text" class="txt_city" />
+                        Weather Stripping
+                        <input type="radio" />
+                        Existing
+                        <input type="radio" />
+                        Add
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Be sure to dam the access if it will remain operable.
+                    </td>
+                    <td>
+                        Recommended?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>Heat Producing Fixtures</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Are there recessed heat producing fixtures:
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        How many recessed fixtures are there?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        How many recessed fixtures are there?
+                        <input type="text" class="txt_city" />
+                        # of lights
+                        <input type="text" class="txt_city" />
+                        # of fans
+                        <input type="text" class="txt_city" />
+                        # other
+                        <input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>If you are going to insulate the attic floor or air seal the fixtures, please
+                            continue.</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        How many are IC rated?
+                        <input type="text" class="txt_city" />
+                        How many are non-IC rated?
+                        <input type="text" class="txt_city" />
+                        How many have an unknown rating?
+                        <input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        How many will be dammed to protect them from insulation?<input type="text" class="txt_state" />
+                        How many will be air sealed either with sealed dams or with air tight inserts?<input
+                            type="text" class="txt_state" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Will customer allow recessed light(s) to be changed out?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        How many will be replaced with either air tight, IC rated recessed fixtures, or
+                        surface mounted fixtures?
+                        <input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        How many are under the floored attic and protected with metal dam blocking or fiberglass
+                        batt blocking?
+                        <input type="text" class="txt_city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        When complete, the recessed fixtures must not leak air into the attic and dams must
+                        be able to be seen from the attic unless they are under the attic floor.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Be sure to dam any chimney flues. Recommended?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; # of chimneys:
+                        <input type="text" class="txt_state" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;
+            margin-top: 3px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>
+                        <strong>Cantilever Overhangs</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Are there cantilever overhangs?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; Is the underside blocked with an impermeable air barrier?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Are floor joists bays blocked?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; If no, please block these joist bays and insulate.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                            <tr>
+                                <td align="center" width="15%">
+                                    Area
+                                </td>
+                                <td align="center" width="15%">
+                                    Location
+                                </td>
+                                <td align="center">
+                                    Sq Ft
+                                </td>
+                                <td align="center" width="15%">
+                                    Existing Effective R Value
+                                </td>
+                                <td align="center">
+                                    Add R
+                                </td>
+                                <td align="center" width="15%">
+                                    New Insulation Type
+                                </td>
+                                <td align="center" width="30%">
+                                    Comments
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    Cantilever
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    Cantilever
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    Bay Window
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>
+                        <strong>Side walls</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Siding Type:
+                        <input type="checkbox" />
+                        Wood
+                        <input type="checkbox" />
+                        Asphalt
+                        <input type="checkbox" />
+                        Stucco
+                        <input type="checkbox" />
+                        Aluminum
+                        <input type="checkbox" />
+                        Vinyl
+                        <input type="checkbox" />
+                        Brick &nbsp; &nbsp; Other
+                        <input type="text" class="txt_style11" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Interior Wall Material:
+                        <input type="text" class="txt_style7" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Can side walls be insulated?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; If not, why?
+                        <input type="text" class="txt_style1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        If yes, list the facing direction of the side walls you want to insulate &nbsp;
+                        &nbsp; North
+                        <input type="text" class="txt_sevvy" />
+                        sq ft &nbsp; &nbsp; South
+                        <input type="text" class="txt_sevvy" />
+                        sq ft &nbsp; &nbsp; East
+                        <input type="text" class="txt_sevvy" />
+                        sq ft &nbsp; &nbsp; West
+                        <input type="text" class="txt_sevvy" />
+                        sq ft
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="27%" valign="top">
+                                    Document side wall issues such as weak
+                                    <br />
+                                    walls, open cavities, electrical issues, etc:
+                                </td>
+                                <td>
+                                    <textarea style="width: 100%; height: 50px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="newtable" style="border: 1px solid #000; padding: 5px; height: auto;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                <tr>
+                    <td>
+                        <strong>Other Zones such as attached garage</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Insulation:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="1" cellspacing="0" cellpadding="5">
+                            <tr>
+                                <td width="15%" align="center">
+                                    Area
+                                </td>
+                                <td align="center">
+                                    Sq Ft
+                                </td>
+                                <td width="15%" align="center">
+                                    Existing Effective R Value
+                                </td>
+                                <td align="center">
+                                    Add R
+                                </td>
+                                <td width="15%" align="center">
+                                    New Insulation Type
+                                </td>
+                                <td width="40%" align="center">
+                                    Comments
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    Garage Ceiling
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                                <td align="center">
+                                    <input type="text" class="new_field" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Is garage isolated from thermal envelope?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No &nbsp; &nbsp; If no, air seal &nbsp; &nbsp; Health and Safety?
+                        <input type="radio" />
+                        Yes
+                        <input type="radio" />
+                        No
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="20%">
+                                    Other Zones outside Thermal and Pressure Boundaries, ie porches, bay windows
+                                </td>
+                                <td>
+                                    <textarea style="width: 100%; height: 50px;"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
