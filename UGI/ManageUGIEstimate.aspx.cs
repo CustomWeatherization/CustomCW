@@ -116,7 +116,8 @@ public partial class UGI_ManageUGIEstimate : System.Web.UI.Page
     }
     public void ShowAllCategory()
     {
-        DataTable dt = objCat.showAllPrivateCategory();
+      //  DataTable dt = objCat.showAllPrivateCategory();
+        DataTable dt = objCat.showAllUGICategory();
         rptr.DataSource = dt;
         rptr.DataBind();
     }
@@ -137,7 +138,8 @@ public partial class UGI_ManageUGIEstimate : System.Web.UI.Page
     }
     public void BindSubCatDDL(int Cat_Id)
     {
-        DataTable dt = objInvoice.ShowSubCatByCatId(CatId);
+       // DataTable dt = objInvoice.ShowSubCatByCatId(CatId);
+        DataTable dt = objInvoice.ShowUGISubCatByCatId(CatId);
         DDl_MEASURE_DESCRIPTION.DataSource = dt;
         DDl_MEASURE_DESCRIPTION.DataTextField = "SubCatName";
         DDl_MEASURE_DESCRIPTION.DataValueField = "SubCatId";

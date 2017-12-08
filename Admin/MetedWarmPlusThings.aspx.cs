@@ -43,6 +43,8 @@ public partial class Admin_MetedWarmPlusThings : System.Web.UI.Page
             Response.Write("<script type = 'text/javascript'>alert('Cost is not in Format(Exp.12.34)');</script>");
         }
     }
+
+
     public void ShowLaborRate()
     {
        // DataTable dt = objNewThing.showMetedLaborRate1();//No SP in DB, Similar SP found in DB

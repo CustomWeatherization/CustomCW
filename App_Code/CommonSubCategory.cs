@@ -39,6 +39,34 @@ public class CommonSubCategory
         return i;
     }
 
+    public int insertUGISubCategory(int CatId, string SubCatName)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_InsertUGISubCategory";
+        cmd.Parameters.AddWithValue("@CatId", CatId);
+        cmd.Parameters.AddWithValue("@SubCatName", SubCatName);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i;
+    }
+
+    public int insertDCEDSubCategory(int CatId, string SubCatName)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_InsertDCEDSubCategory";
+        cmd.Parameters.AddWithValue("@CatId", CatId);
+        cmd.Parameters.AddWithValue("@SubCatName", SubCatName);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i;
+    }
+
     public DataTable showAllPrivateSubCategory()
     {
         DataTable dt = new DataTable();
@@ -46,6 +74,30 @@ public class CommonSubCategory
         cmd.Connection = con;
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "proc_ShowAllCommonSubCategory";
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
+    public DataTable showAllUGISubCategory()
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_ShowAllUGISubCategory";
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
+    public DataTable showAllDCEDSubCategory()
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_ShowAllDCEDSubCategory";
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(dt);
         return dt;
@@ -65,12 +117,67 @@ public class CommonSubCategory
         return i;
     }
 
+    public int UpdateUGISubCategorybyId(int SubId, string SubCatName)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_UpdateUGISubCategoryByID";
+        cmd.Parameters.AddWithValue("@SubCatName", SubCatName);
+        cmd.Parameters.AddWithValue("@SubCatId", SubId);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i;
+    }
+
+
+    public int UpdateDCEDSubCategorybyId(int SubId, string SubCatName)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_UpdateDCEDSubCategoryByID";
+        cmd.Parameters.AddWithValue("@SubCatName", SubCatName);
+        cmd.Parameters.AddWithValue("@SubCatId", SubId);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i;
+    }
+
     public int DeletePrivateSubCategorybyId(int SubId)
     {
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "proc_DeleteCommonSubCategoryByID";
+        cmd.Parameters.AddWithValue("@SubCatId", SubId);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i;
+    }
+
+    public int DeleteUGISubCategorybyId(int SubId)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_DeleteUGISubCategoryByID";
+        cmd.Parameters.AddWithValue("@SubCatId", SubId);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i;
+    }
+
+    public int DeleteDCEDSubCategorybyId(int SubId)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_DeleteDCEDSubCategoryByID";
         cmd.Parameters.AddWithValue("@SubCatId", SubId);
         con.Open();
         int i = cmd.ExecuteNonQuery();

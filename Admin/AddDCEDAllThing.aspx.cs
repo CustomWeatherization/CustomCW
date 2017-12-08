@@ -37,6 +37,7 @@ public partial class Admin_AddDCEDAllThing : System.Web.UI.Page
             Response.Write("<script type = 'text/javascript'>alert('Record is Inserted');</script>");
         }
         DDl_MEASURE_DESCRIPTION.SelectedIndex = 0;
+        DDl_Category.SelectedIndex = 0;
         txt_Location.Text = txt_SC.Text= txt_Liurp.Text = txt_Unit.Text = txt_LaborRate.Text = txt_CPU.Text = "";
         
         ShowAllThing();
@@ -52,7 +53,8 @@ public partial class Admin_AddDCEDAllThing : System.Web.UI.Page
             System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "proc_ShowCommonSubCatByCatId";
+           // cmd.CommandText = "proc_ShowCommonSubCatByCatId";
+            cmd.CommandText = "proc_ShowDCEDSubCatByCatId";
             cmd.Parameters.AddWithValue("@catId", Convert.ToInt32(DDl_Category.SelectedValue));
             System.Data.SqlClient.SqlDataAdapter da = new System.Data.SqlClient.SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -67,7 +69,8 @@ public partial class Admin_AddDCEDAllThing : System.Web.UI.Page
     }
     public void bindCategory()
     {
-        DataTable dt = objCat.showAllPrivateCategory();
+      //  DataTable dt = objCat.showAllPrivateCategory();
+        DataTable dt = objCat.showAllDCEDCategory();
         DDl_Category.DataSource = dt;
         DDl_Category.DataTextField = "Category";
         DDl_Category.DataValueField = "CatID";

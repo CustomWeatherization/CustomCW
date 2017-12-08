@@ -158,9 +158,11 @@
                                 <ul>
                                        
                                         <li id="Cat" runat="server"><a href="#">BCOC&raquo; </a>
-                                            <ul>
-                                             <li><a href="CommonCategory.aspx">Category</a></li>
-                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>
+                                            <ul><%--
+                                             <li><a href="CommonCategory.aspx">Category</a></li>--%>
+                                              <li><a href="AddBCOCCategory.aspx">Category</a></li>
+                                             <li><a href="AddBCOCSubCategory.aspx">SubCategory</a></li>
+                                              <%--<li><a href="CommonSubCategory.aspx">SubCategory</a></li>--%>
                                               <li><a href="BcocAllThing.aspx">BCOC Details</a></li>                                    
                                             </ul>
                                         </li>
@@ -168,8 +170,10 @@
                                             <ul>
                                                <li id="Li2" runat="server"><a href="#">DCED&raquo; </a>
                                             <ul>
-                                             <li><a href="CommonCategory.aspx">Category</a></li>
-                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>
+                                           <%--  <li><a href="CommonCategory.aspx">Category</a></li>
+                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>--%>
+                                              <li><a href="AddDCEDCategory.aspx">Category</a></li>
+                                             <li><a href="AddDCEDSubcategory.aspx">SubCategory</a></li>
                                               <li><a href="AddDCEDAllThing.aspx">DCED Details</a></li>                                    
                                             </ul>
                                              </li>
@@ -208,12 +212,13 @@
                                           <%--  <li><a href="AddSubCategory.aspx">SubCategory</a></li>--%>
                                                <li><a href="Act129_2_AllThing.aspx">PPL Act129 II Details</a></li>                                 
                                             </ul>
-                                             </li>
-                                           
+                                             </li>                                           
                                                <li id="Li7" runat="server"><a href="#">UGI&raquo; </a>
                                             <ul>
-                                             <li><a href="CommonCategory.aspx">Category</a></li>
-                                             <li><a href="CommonSubCategory.aspx">SubCategory</a></li>
+                                             <%--<li><a href="CommonCategory.aspx">Category</a></li>--%>
+                                             <li><a href="AddUGICategory.aspx">Category</a></li>
+                                            <%-- <li><a href="CommonSubCategory.aspx">SubCategory</a></li>--%>
+                                             <li><a href="AddUGISubcategory.aspx">SubCategory</a></li>
                                               <li><a href="AddUGIAllThing.aspx">UGI Details</a></li>   
                                                                         
                                             </ul>
@@ -226,7 +231,7 @@
                                             <ul>
                                              <li><a href="CommonCategory.aspx">Category</a></li>
                                              <%--<li><a href="CommonSubCategory.aspx">SubCategory</a></li>--%>
-                                             <li><a href="AddMetedSubCategory.aspx">SubCategory</a></li>
+                                             <li><a href="AddSubCategory.aspx">SubCategory</a></li>
                                               <li><a href="PPlZoneAllThing.aspx">PPL Zone 1 & 2 Details</a></li>   
                                                                         
                                             </ul>

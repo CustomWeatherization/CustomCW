@@ -931,6 +931,30 @@ public class Dc_Category
         return dt;
     }
 
+    public DataTable showAllUGICategory()
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_ShowAllUGICategory";
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
+    public DataTable showAllDCEDCategory()
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_ShowAllDCEDCategory";
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
     public int UpdateMetedCategorybyId(int Id, string category)
     {
         SqlCommand cmd = new SqlCommand();
@@ -970,6 +994,8 @@ public class Dc_Category
         da.Fill(dt);
         return dt;
     }
+
+
     public DataTable ShowInvo(int Id)
     {
         DataTable dt = new DataTable();

@@ -185,7 +185,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         lblleftHsAllowance.Text = "$" + string.Format("{0:0.00}", HealthLeftallowance);
         lblShellleftAllowance.Text = "$" + string.Format("{0:0.00}", ShellLeftAllowance);
         lblOtherAllowance.Text = "$" + string.Format("{0:0.00}", OtherLeftAllowance);
-        BudgetLeftAllowance = RepairLeftAllowance + HealthLeftallowance + ShellLeftAllowance - OtherLeftAllowance;
+        BudgetLeftAllowance = RepairLeftAllowance + HealthLeftallowance + ShellLeftAllowance ;
         lblBudgetLeftAllwance.Text = "$"+string.Format("{0:0.00}", BudgetLeftAllowance);
         
         return dt1;
@@ -250,9 +250,13 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
             trEditTypeMeasure.Style.Add("display", "table-row");
             trEditDescLoc.Style.Add("display", "table-row");
             ddlTypeMeasure.SelectedIndex = 0;
+            
             txt_MEASURE_DESCRIPTION.Text = txtEditCost.Text = txtEditLabor.Text = txt_Qty.Text = txt_Location.Text = txt_Liurp.Text = txt_Unit.Text = txt_LaborRate.Text = txt_THW.Text = txt_TMC.Text = txt_Total.Text = "";
             BindSubCatDDL(CatId);
         }
+        ddlTypeMeasureStandard.SelectedIndex = 0;
+        txtSDesc.Text = "";
+        txtLoc.Text = "";
     }
     protected void lnkBtnBack_Click(object sender, EventArgs e)
     {

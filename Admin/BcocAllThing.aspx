@@ -251,7 +251,8 @@ function CalculateLineSC() {
 
     var SC = document.getElementById('<%=txt_SC.ClientID %>').value;
     if (SC != '') {
-        if (SC != 'S' && SC != 'C' && SC != 'R' && SC != 'SC') {
+        if (SC != 'S' && SC != 'C' && SC != 'R' && SC != 'SC') 
+        {
             alert('SC must be set to either  S  or  C  or  R  or  SC . ');
             document.getElementById('<%=txt_SC.ClientID %>').value = '';
         }
@@ -265,8 +266,6 @@ function CalculateLineSC() {
     }
 
 }
-
-
-    </script>
+ </script>
 </asp:Content>
 

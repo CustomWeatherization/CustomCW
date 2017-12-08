@@ -198,36 +198,36 @@ width: 84%;}
                                 class="audit" title="Audit"></a></li>--%>
                                 <li> <asp:LinkButton ID="lnkAudit" runat="server" class="audit" title="Audit" OnClick="lnkAudit_Click" ></asp:LinkButton>
 
-                            <%--    <div class="main_left1" id="Quick_LinkMETED" style="display:none" >
+                                <div class="main_left1" id="Quick_LinkMETED" style="display:none" >
                                             <ul id="Ul2">                          
-                            <li id="Li1"> <a href="NewMETED/METED_Audit_Page1.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(1) Customer Info</a> </li>
-                            <li id="Li2"> <a href="NewMETED/METED_Audit_Page2.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(2) Demographic</a> </li>
-                            <li id="Li3"> <a href="NewMETED/METED_Audit_Page3.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(3) Customer Interview</a> </li>
-                            <li id="Li4"> <a href="NewMETED/METED_Audit_Page4.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(4) CFL Standard Bulbs</a> </li>
-                            <li id="Li5"> <a href="NewMETED/METED_Audit_Page5.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(5) LED Bulbs/ ACT 129</a> </li>
-                            <li id="Li6"> <a href="NewMETED/METED_Audit_Page6.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(6) Refrigerators</a> </li>
-                            <li id="Li7"> <a href="NewMETED/METED_Audit_Page7.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(7) Freezers</a> </li>
-                            <li id="Li8"> <a href="NewMETED/METED_Audit_Page8.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(8) Washer and Dryer Assessment</a> </li>
-                            <li id="Li9"> <a href="NewMETED/METED_Audit_Page9.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(9) Electric Water Heating Assessment</a> </li>
-                            <li id="Li10"><a href="NewMETED/METED_Audit_Page10.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(10) Heat Pump Water Heater</a> </li>
-                            <li id="Page11"><a href="NewMETED/METED_Audit_Page11.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(11) Cooling Assessment</a> </li>
-                            <li id="Page12"><a href="NewMETED/METED_Audit_Page12.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(12) Heating Assessment</a> </li>
-                            <li id="Page13"><a href="NewMETED/METED_Audit_Page13.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(13) Fossil Fuel Heating Assessment</a> </li>
-                            <li id="Page14"><a href="NewMETED/METED_Audit_Page14.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(14) Ductless Mini-Split Heat Pump</a> </li>
-                            <li id="Page15"><a href="NewMETED/METED_Audit_Page15.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(15) House Photos</a> </li>
-                            <li id="Page16"><a href="NewMETED/METED_Audit_Page16.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(16) Basement/Crawl/Belly</a> </li>
-                            <li id="Page17"><a href="NewMETED/METED_Audit_Page17.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(17) Attic Access</a> </li>
-                            <li id="Page18"><a href="NewMETED/METED_Audit_Page18.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(18) Air Leakage Testing</a> </li>
-                            <li id="Page19"><a href="NewMETED/METED_Audit_Page19.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(19) CAZ Testing 1</a> </li>
-                            <li id="Page20"><a href="NewMETED/METED_Audit_Page20.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(20) CAZ Testing 2</a> </li>
-                            <li id="Page21"><a href="NewMETED/METED_Audit_Page21.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(21) CAZ Testing 3</a> </li>
-                            <li id="Page22"><a href="NewMETED/METED_Audit_Page22.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(22) CAZ Testing 4</a> </li>
-                            <li id="Page23"><a href="NewMETED/METED_Audit_Page23.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(23) House Air Sealing</a> </li>
-                            <li id="Page24"><a href="NewMETED/METED_Audit_Page24.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(24) Measures Called & Refused</a> </li>
-                            <li id="Li11"><a href="NewMETED/METED_Photo_Page_Manage.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(Photos)Other Photos</a> </li>
+                            <li id="Li1"> <a href="../NewMETED/METED_Audit_Page1.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(1) Customer Info</a> </li>
+                            <li id="Li2"> <a href="../NewMETED/METED_Audit_Page2.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(2) Demographic</a> </li>
+                            <li id="Li3"> <a href="../NewMETED/METED_Audit_Page3.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(3) Customer Interview</a> </li>
+                            <li id="Li4"> <a href="../NewMETED/METED_Audit_Page4.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(4) CFL Standard Bulbs</a> </li>
+                            <li id="Li5"> <a href="../NewMETED/METED_Audit_Page5.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(5) LED Bulbs/ ACT 129</a> </li>
+                            <li id="Li6"> <a href="../NewMETED/METED_Audit_Page6.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(6) Refrigerators</a> </li>
+                            <li id="Li7"> <a href="../NewMETED/METED_Audit_Page7.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(7) Freezers</a> </li>
+                            <li id="Li8"> <a href="../NewMETED/METED_Audit_Page8.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(8) Washer and Dryer Assessment</a> </li>
+                            <li id="Li9"> <a href="../NewMETED/METED_Audit_Page9.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(9) Electric Water Heating Assessment</a> </li>
+                            <li id="Li10"><a href="../NewMETED/METED_Audit_Page10.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(10) Heat Pump Water Heater</a> </li>
+                            <li id="Page11"><a href="../NewMETED/METED_Audit_Page11.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(11) Cooling Assessment</a> </li>
+                            <li id="Page12"><a href="../NewMETED/METED_Audit_Page12.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(12) Heating Assessment</a> </li>
+                            <li id="Page13"><a href="../NewMETED/METED_Audit_Page13.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(13) Fossil Fuel Heating Assessment</a> </li>
+                            <li id="Page14"><a href="../NewMETED/METED_Audit_Page14.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(14) Ductless Mini-Split Heat Pump</a> </li>
+                            <li id="Page15"><a href="../NewMETED/METED_Audit_Page15.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(15) House Photos</a> </li>
+                            <li id="Page16"><a href="../NewMETED/METED_Audit_Page16.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(16) Basement/Crawl/Belly</a> </li>
+                            <li id="Page17"><a href="../NewMETED/METED_Audit_Page17.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(17) Attic Access</a> </li>
+                            <li id="Page18"><a href="../NewMETED/METED_Audit_Page18.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(18) Air Leakage Testing</a> </li>
+                            <li id="Page19"><a href="../NewMETED/METED_Audit_Page19.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(19) CAZ Testing 1</a> </li>
+                            <li id="Page20"><a href="../NewMETED/METED_Audit_Page20.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(20) CAZ Testing 2</a> </li>
+                            <li id="Page21"><a href="../NewMETED/METED_Audit_Page21.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(21) CAZ Testing 3</a> </li>
+                            <li id="Page22"><a href="../NewMETED/METED_Audit_Page22.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(22) CAZ Testing 4</a> </li>
+                            <li id="Page23"><a href="../NewMETED/METED_Audit_Page23.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(23) House Air Sealing</a> </li>
+                            <li id="Page24"><a href="../NewMETED/METED_Audit_Page24.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(24) Measures Called & Refused</a> </li>
+                            <li id="Li11"><a href="../NewMETED/METED_Photo_Page_Manage.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(Photos)Other Photos</a> </li>
                             
-                        </ul> </div>--%>
-                       <div class="main_left1" id="Quick_LinkMETED" style="display:none" >
+                        </ul> </div>
+                      <%-- <div class="main_left1" id="Quick_LinkMETED" style="display:none" >
                                             <ul id="Ul2">                          
                             <li id="Li1"> <a href="METED_Audit_Page1.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(1) Customer Info</a> </li>
                             <li id="Li2"> <a href="METED_Audit_Page2.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(2) Demographic</a> </li>
@@ -255,7 +255,7 @@ width: 84%;}
                             <li id="Page24"><a href="METED_Audit_Page24.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(24) Measures Called & Refused</a> </li>
                             <li id="Li11"><a href="METED_Photo_Page_Manage.aspx?InvoiceNo=1&Jobs=<%=Request.QueryString["Jobs"].ToString()%>&Utility=1">(Photos)Other Photos</a> </li>
                             
-                        </ul> </div>
+                        </ul> </div>--%>
                              
                                 </li>
                         </ul>

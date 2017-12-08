@@ -36,6 +36,33 @@ public class DC_ManageBCOCEstimate
         return dt;
     }
 
+    public DataTable ShowDCEDSubCatByCatId(int catId)
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_ShowDCEDSubCatByCatId";
+        cmd.Parameters.AddWithValue("@catId", catId);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
+    public DataTable ShowUGISubCatByCatId(int catId)
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_ShowUGISubCatByCatId";
+        cmd.Parameters.AddWithValue("@catId", catId);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
+
     public DataTable NoOfRecord(string JobNumber)
     {
         DataTable dt = new DataTable();
