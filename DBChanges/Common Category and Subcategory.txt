@@ -1,0 +1,80 @@
+Add New Pages
+
+1	AddBCOCCategory.aspx
+2	AddBCOCCategory.aspx.cs
+3	AddBCOCSubCategory.aspx
+4	AddBCOCSubCategory.aspx.cs
+5	AddDCEDCategory.aspx
+6	AddDCEDCategory.aspx.cs
+7	AddDCEDSubcategory.aspx
+8	AddDCEDSubcategory.aspx.cs
+9	AddUGICategory.aspx
+10	AddUGICategory.aspx.cs
+11	AddUGISubcategory.aspx
+12	AddUGISubcategory.aspx.cs
+13	ManageUGIOrder.aspx
+14	ManageUGIOrder.aspx.cs
+15	ManageDCEDOrder.aspx
+16	ManageDCEDOrder.aspx.cs
+
+
+Changes  pages
+
+1	AddAllThing.aspx
+2	AddAllThing.aspx.cs
+3	PPlZoneAllThing.aspx
+4	PPlZoneAllThing.aspx.cs
+5	MetedWarmPlusThings.aspx
+6	AddAllMetedThing.aspx
+7	RecivePayment.aspx.cs
+
+Change procedure
+
+1	proc_InsertInvoiceContain
+2	proc_UpdateAllThingByID
+3	proc_InsertAct129CaclvInvoiceContain
+4	proc_UpdateAllAct129CaclvByID
+5	SelectJobByJobNumber
+6	Proc_InsertOrUpdatePaidAmount
+7	Proc_InvoiceShow
+8	proc_InsertDCEDInvoiceContain
+9	proc_ShowAllUGIThings
+10	proc_ShowAllDCEDThings
+
+Add procedures
+1	proc_InsertDCEDCategory
+2	proc_UpdateDCEDCategoryByID
+3	proc_ShowAllDCEDCategory
+4	proc_SelectDCEDCategoryByID
+5	proc_DeleteDCEDCategoryByID
+6	proc_InsertDCEDSubCategory
+7	proc_UpdateDCEDSubCategoryByID
+8	proc_DeleteDCEDSubCategoryByID
+9	proc_ShowAllDCEDSubCategory
+10	proc_InsertUGICategory
+11	proc_DeleteUGICategoryByID
+12	proc_SelectUGICategoryByID
+13	proc_UpdaeUGICategoryByID
+14	proc_ShowAllUGISubCategory
+15	proc_InsertUGISubCategory
+16	proc_UpdateUGISubCategoryByID
+17	proc_DeleteUGISubCategoryByID
+18	proc_ShowUGISubCatByCatId
+19	proc_ShowDCEDSubCatByCatId
+20	proc_ShowAllUGICategory
+
+Add Tables
+1	DCEDCatTBL
+2	DCEDSubCatTBL
+3	UGICatTBL
+4	UGISubCatTBL
+
+
+
+
+
+
+
+
+
+
