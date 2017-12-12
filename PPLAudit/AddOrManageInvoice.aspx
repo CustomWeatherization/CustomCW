@@ -1266,12 +1266,6 @@ debugger;
         function activeMenu(Id) {
             localStorage.setItem('SetMenu', Id);
         }
-
-        //----------------------------------------
-
-
-
-
         function Test(rad) {
         
            var rads = document.getElementsByName(rad.name);
@@ -1297,34 +1291,26 @@ debugger;
             }
         }
           
-          function ddlfocus(sender){
-          debugger;
- $("#hfResponse").val(sender.value);
+          function ddlfocus(sender){          
+                $("#hfResponse").val(sender.value);
           }
         
         function Confirm(sender) {
         debugger;
         var selectedText = $(sender).find("option:selected").text();
+        var hiddenfieldtext=$("#hfResponse").val();
+        if(hiddenfieldtext!="Select Measure Type")
+        {
             if (confirm("Are you sure you want to change the type of measure?" )){
             
                return true;
             } 
             else {
              document.getElementById('<%= ddlTypeMeasureStandard.ClientID %>').value = $("#hfResponse").val();
-            
-             // $("#hfResponse").val();
-              
              return false;
            }
         }
- 
- 
- 
-
-  
- 
- 
- 
+     } 
  
 //        $(document).ready(function () {
 
@@ -1349,10 +1335,6 @@ debugger;
 //        $("#Quick_LinkPPL").hide();
 //        });
 //         });
-//        
-//        
-
-
     </script>
 
     </form>

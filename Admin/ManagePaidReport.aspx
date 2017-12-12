@@ -19,19 +19,22 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+        
             var rmng = localStorage.getItem("TCount");
             rmng = parseFloat(rmng).toFixed(2);
+            var total=document.getElementById("<%=txt_Total.ClientID%>").value;
             // $("#ctl00_ContentPlaceHolder1_txt_Remaining").val(rmng);
             var PaidAmt = '0.00';
             if (parseFloat(rmng) > 0) {
+            
               //  PaidAmt = parseFloat($("#ctl00_ContentPlaceHolder1_txt_Total").val()) - parseFloat($("#ctl00_ContentPlaceHolder1_txt_Remaining").val());
-                PaidAmt = parseFloat(document.getElementById("<%=txt_Total.ClientID%>").value - parseFloat("<%=txt_Total.ClientID%>").value);
+                PaidAmt = parseFloat(total) - parseFloat(total);
               
                 PaidAmt = parseFloat(PaidAmt).toFixed(2);
             }
             else {
            
-                PaidAmt = parseFloat($('<%= txt_Total.ClientID %>').val());
+                PaidAmt = parseFloat(total);
                 PaidAmt = parseFloat(PaidAmt).toFixed(2);
             }
             // $("#ctl00_ContentPlaceHolder1_txt_Paid").val(PaidAmt);
@@ -39,13 +42,13 @@
             var LSPT_ = localStorage.getItem("LSPT");
             var LSCN_ = localStorage.getItem("LSCN");
 
-            $('<%= txt_PaymentType.ClientID %>').val(LSPT_);
+            document.getElementById('<%= txt_PaymentType.ClientID %>').value=LSPT_;
             if (LSPT_ == 'Credit Card') {
                 LSCN_ = "";
             }
-            $('<%= txt_Payment_no.ClientID %>').val(LSCN_);
-            $('<%= hdn_txt_PaymentType.ClientID %>').val(LSPT_);
-            $('<%= txt_Payment_no.ClientID %>').val(LSCN_);
+            document.getElementById('<%= txt_Payment_no.ClientID %>').value=LSCN_;
+            document.getElementById('<%= hdn_txt_PaymentType.ClientID %>').value=LSPT_;
+            document.getElementById('<%= txt_Payment_no.ClientID %>').value=LSCN_;
             document.getElementById("<%=txt_Payment_no.ClientID%>").value=LSCN_;
         });
     </script>
@@ -241,7 +244,7 @@
             //localStorage.setItem("LSPT", "");
         }
         function ChkAct129(ID) {
-        debugger;
+      
             var CheckBox = document.getElementById(ID);
             var checkvalueyes=document.getElementById('<%= ChkYes.ClientID %>');
             var checkvalueno=document.getElementById('<%= ChkNo.ClientID %>');
@@ -263,7 +266,7 @@
     }
 
     function SetCalculation() {
-    debugger;
+    
         var total = document.getElementById('<%=txt_Total.ClientID%>').value;
         var paidAmt = document.getElementById('<%=txt_Paid.ClientID%>').value;
         var rmngAmt = parseFloat(total) - parseFloat(paidAmt);
