@@ -216,6 +216,8 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         trEditLabor.Visible = false;
         rdo_Custom.Checked = false;
         rdo_Standard.Checked = true;
+
+        ddlTypeMeasureStandard.SelectedIndex = 0;
         CatId = Convert.ToInt32(e.CommandArgument.ToString());
         lblCatagory.Text = ((LinkButton)e.CommandSource).Text;
         BindSubCatDDL(CatId);
@@ -1198,8 +1200,16 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
     {
         txtLoc.Text = "";
         txtSDesc.Text = "";
+        ddlTypeMeasureStandard.SelectedIndex = 0;
         int SubCatId = Convert.ToInt32(DDl_MEASURE_DESCRIPTION.SelectedValue);
         DataTable dt__Fill = new DataTable();
+      string  SubCatName1 = Convert.ToString(DDl_MEASURE_DESCRIPTION.SelectedItem);
+        int lenghth = Convert.ToInt32(SubCatName1.Length);
+        var pos = 2 + (SubCatName1.IndexOf('-'));
+       string  SubCat = SubCatName1.Substring(pos, lenghth - pos);
+       pos = (SubCat.IndexOf('$')) - 3;
+       SubCat = SubCat.Substring(0, pos);
+       var amount = SubCatName1.Substring(SubCatName1.LastIndexOf('-') + 3);
 
         if (Convert.ToString(ViewState["PPlZone"]) == "1" || Convert.ToString(ViewState["PPlZone"]) == "2")
         {
@@ -1209,8 +1219,6 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         {
             dt__Fill = objInvoice.showAllThingByCatId_SubCatId(CatId, SubCatId, Convert.ToString(Request.QueryString["Jobs"]));
         }
-
-
 
         if (dt__Fill.Rows.Count > 0)
         {
@@ -1232,8 +1240,25 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
             {
                 txtSDesc.Text = DDl_MEASURE_DESCRIPTION.SelectedItem.Text;
             }
+                       
+            for (int i = 0; i < dt__Fill.Rows.Count; i++)
+            {
+                if (!DBNull.Value.Equals(dt__Fill.Rows[i]["SubCatName"]) && Convert.ToString(dt__Fill.Rows[i]["SubCatName"]) != "" && (!DBNull.Value.Equals(dt__Fill.Rows[i]["costPerUnit"]) && Convert.ToString(dt__Fill.Rows[i]["costPerUnit"]) != ""))
+                {
+                    string catname = dt__Fill.Rows[i]["SubCatName"].ToString();
+                    string unit = dt__Fill.Rows[i]["costPerUnit"].ToString();
+                    if (catname == SubCat && unit == amount)
+                    {
 
+                        if (!DBNull.Value.Equals(dt__Fill.Rows[i]["TypeOfMeasure"]) && Convert.ToString(dt__Fill.Rows[i]["TypeOfMeasure"]) != "")
+                        {
+                            string measure = dt__Fill.Rows[i]["TypeOfMeasure"].ToString();
 
+                            ddlTypeMeasureStandard.SelectedValue = ddlTypeMeasureStandard.Items.FindByText(measure).Value;
+                        }
+                    }
+                }
+            }
         }
     }
 

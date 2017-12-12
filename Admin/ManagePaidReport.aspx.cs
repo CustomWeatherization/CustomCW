@@ -148,5 +148,10 @@ public partial class Admin_ManagePaidReport : System.Web.UI.Page
         {
         }
     }
-
+    //    function Check_Cash() {
+    //        var PaymentType = document.getElementById('<%=txt_PaymentType.ClientID%>');
+    //        if (PaymentType.value.toLowerCase() == 'cash') {
+    //            document.getElementById('<%=txt_Payment_no.ClientID%>').disabled = true;
+    //        }
+    //    }
 }

@@ -148,11 +148,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
-    <!--$("#ctl00_ContentPlaceHolder1_btn_PaySelect").removeAttr('disabled');
-    $("#ctl00_ContentPlaceHolder1_btn_PaySelect").attr('disabled', 'disabled');      -->
-    <br />
-    <br />
-    <fieldset style="width: 28%; margin-left: 332px;">
+   
+    <fieldset style="width: 28%; margin-left: 332px;" hidden>
         <legend>Temporary Mechanism </legend>
         <table align="center">
             <tr>
@@ -173,9 +170,10 @@
                 </td>
             </tr>
         </table>
+          <br />
+    <br />
     </fieldset>
-    <br />
-    <br />
+  
     <h1>
         Receive Payments</h1>
     <asp:HiddenField ID="hdnID" Value="" runat="server" />
@@ -280,6 +278,7 @@
     </table>
     <br />
     <br />
+       <div  style="width: 100%; overflow: auto; max-height: 440px;">
     <div class="grid">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
@@ -424,7 +423,7 @@
             </tr>
         </table>
     </div>
-
+</div>
     <script language="javascript" type="text/javascript">
         function callFun(UC, JobID, NoOfInvoice) {
             //var val = $("#ctl00_ContentPlaceHolder1_hdnUrl").val();

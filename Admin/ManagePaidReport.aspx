@@ -30,21 +30,22 @@
                 PaidAmt = parseFloat(PaidAmt).toFixed(2);
             }
             else {
-                PaidAmt = parseFloat($("#ctl00_ContentPlaceHolder1_txt_Total").val());
+           
+                PaidAmt = parseFloat($('<%= txt_Total.ClientID %>').val());
                 PaidAmt = parseFloat(PaidAmt).toFixed(2);
             }
             // $("#ctl00_ContentPlaceHolder1_txt_Paid").val(PaidAmt);
-            $("#ctl00_ContentPlaceHolder1_txt_NewInvoiceAmount").val(PaidAmt);
+            document.getElementById('<%= txt_NewInvoiceAmount.ClientID %>').value=PaidAmt;
             var LSPT_ = localStorage.getItem("LSPT");
             var LSCN_ = localStorage.getItem("LSCN");
 
-            $("#ctl00_ContentPlaceHolder1_txt_PaymentType").val(LSPT_);
+            $('<%= txt_PaymentType.ClientID %>').val(LSPT_);
             if (LSPT_ == 'Credit Card') {
                 LSCN_ = "";
             }
-            $("#ctl00_ContentPlaceHolder1_txt_Payment_no").val(LSCN_);
-            $("#ctl00_ContentPlaceHolder1_hdn_txt_PaymentType").val(LSPT_);
-            $("#ctl00_ContentPlaceHolder1_hdn_txt_Payment_no").val(LSCN_);
+            $('<%= txt_Payment_no.ClientID %>').val(LSCN_);
+            $('<%= hdn_txt_PaymentType.ClientID %>').val(LSPT_);
+            $('<%= txt_Payment_no.ClientID %>').val(LSCN_);
             document.getElementById("<%=txt_Payment_no.ClientID%>").value=LSCN_;
         });
     </script>
@@ -151,29 +152,21 @@
                             ErrorMessage="*" ValidationGroup="rfv"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
-                <tr>
-                    <td width="40%">
+                <tr style="display:none">
+                    <td width="40%" >
                         Payment Type:
                     </td>
-                    <td>
+                    <td visible="false">
                         <asp:TextBox ID="txt_PaymentType" runat="server" onkeyup="Check_Cash();" Enabled="false"
-                            onblur="Check_Cash();"></asp:TextBox>
+                            onblur="Check_Cash();" ></asp:TextBox>
                         <asp:HiddenField ID="hdn_txt_PaymentType" runat="server" />
                         <ajx:FilteredTextBoxExtender ID="Fltr_txt_PaymentType" runat="server" TargetControlID="txt_PaymentType"
                             FilterType="UppercaseLetters,LowercaseLetters,Custom" ValidChars=" ">
                         </ajx:FilteredTextBoxExtender>
-                       <%-- <asp:RequiredFieldValidator ID="rfv_txt_PaymentType" runat="server" ControlToValidate="txt_PaymentType"
-                            ErrorMessage="*" ValidationGroup="rfv"></asp:RequiredFieldValidator>--%>
-                        <%-- <asp:DropDownList ID="DDL_PaymentType" runat="server">
-                    <asp:ListItem Text="Select" Value="Select"></asp:ListItem>
-                    <asp:ListItem Text="Check" Value="Check"></asp:ListItem>
-                    <asp:ListItem Text="Credit Card" Value="Credit Card"></asp:ListItem>
-                </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfv_DDL_PaymentType" runat="server" ControlToValidate="DDL_PaymentType"
-                    ErrorMessage="*" ValidationGroup="rfv" InitialValue="Select"></asp:RequiredFieldValidator>--%>
+                      
                     </td>
                 </tr>
-                <tr>
+                <tr style="display:none">
                     <td width="40%">
                         Payment Type No.:
                     </td>
@@ -202,9 +195,7 @@
                         Reason:
                     </td>
                     <td>
-                        <%--<asp:TextBox ID="txt_Question" runat="server"></asp:TextBox>--%>
-                        <%--<asp:RequiredFieldValidator ID="rfv_txt_Question" runat="server" ControlToValidate="txt_Question"
-                    ErrorMessage="*" ValidationGroup="rfv"></asp:RequiredFieldValidator>--%>
+                       
                         <asp:DropDownList ID="DDL_Quetion" runat="server" Width="53%">
                             <asp:ListItem Text="Select" Value="Select"></asp:ListItem>
                             <asp:ListItem Text="Travel Time Was Charged When Not Allowed" Value="Travel Time Was Charged When Not Allowed"></asp:ListItem>
@@ -213,6 +204,8 @@
                             <asp:ListItem Text="Refrigerator/Freezer Test Not Billed" Value="Refrigerator/Freezer Test Not Billed"></asp:ListItem>
                             <asp:ListItem Text="Other" Value="Other"></asp:ListItem>
                         </asp:DropDownList>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DDL_Quetion" InitialValue="Select"
+                            ErrorMessage="*" ValidationGroup="rfv"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -221,6 +214,8 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtComment" TextMode="MultiLine" runat="server" Rows="10" Columns="40"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtComment"
+                            ErrorMessage="*" ValidationGroup="rfv"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -246,22 +241,29 @@
             //localStorage.setItem("LSPT", "");
         }
         function ChkAct129(ID) {
+        debugger;
             var CheckBox = document.getElementById(ID);
+            var checkvalueyes=document.getElementById('<%= ChkYes.ClientID %>');
+            var checkvalueno=document.getElementById('<%= ChkNo.ClientID %>');
             document.getElementById('<%= ChkYes.ClientID %>').checked = false;
             document.getElementById('<%= ChkNo.ClientID %>').checked = false;
             CheckBox.checked = true;
-            if (CheckBox.name == 'ctl00$ContentPlaceHolder1$ChkYes') {
-                $("#ctl00_ContentPlaceHolder1_txt_NewInvoiceAmount").val(parseFloat($("#ctl00_ContentPlaceHolder1_txt_Total").val()).toFixed(2));
+            if (CheckBox == checkvalueyes) {
+            var newamount=document.getElementById('<%= txt_NewInvoiceAmount.ClientID%>')
+            var totalamount=document.getElementById('<%= txt_Total.ClientID%>');
+                newamount.value=parseFloat(totalamount.value).toFixed(2);
                 document.getElementById('<%= hdn_Keeping.ClientID %>').value = "Y";
             }
-            else if (CheckBox.name == 'ctl00$ContentPlaceHolder1$ChkNo') {
-                var Newtotl = parseFloat($("#ctl00_ContentPlaceHolder1_txt_Paid").val());
-                $("#ctl00_ContentPlaceHolder1_txt_NewInvoiceAmount").val(Newtotl);
+            else if (CheckBox == checkvalueno) {
+            var paidamount=document.getElementById('<%= txt_Paid.ClientID%>');
+                var Newtotl = parseFloat(paidamount.value);
+                document.getElementById('<%= txt_NewInvoiceAmount.ClientID%>').value=Newtotl;
                 document.getElementById('<%= hdn_Keeping.ClientID %>').value = "N";
             }
     }
 
     function SetCalculation() {
+    debugger;
         var total = document.getElementById('<%=txt_Total.ClientID%>').value;
         var paidAmt = document.getElementById('<%=txt_Paid.ClientID%>').value;
         var rmngAmt = parseFloat(total) - parseFloat(paidAmt);
@@ -284,12 +286,12 @@
 
         if ((parseFloat(paidAmt) > parseFloat(total)) && (document.getElementById('<%= ChkNo.ClientID %>').checked == true)) {
             //$("#ctl00_ContentPlaceHolder1_txt_NewInvoiceAmount").val(paidAmt.toFixed(2));
-            $("#ctl00_ContentPlaceHolder1_txt_NewInvoiceAmount").val(parseFloat($("#ctl00_ContentPlaceHolder1_txt_Paid").val()));
+            document.getElementById('<%= txt_NewInvoiceAmount.ClientID%>').value=parseFloat(paidAmt);
         }
         else {
             if (document.getElementById('<%= ChkNo.ClientID %>').checked == true) {
-                var Newtotl = parseFloat($("#ctl00_ContentPlaceHolder1_txt_Paid").val());
-                $("#ctl00_ContentPlaceHolder1_txt_NewInvoiceAmount").val(Newtotl);
+                var Newtotl = parseFloat(paidAmt);
+                document.getElementById('<%= txt_NewInvoiceAmount.ClientID%>').value=Newtotl;
             }
         }
     }

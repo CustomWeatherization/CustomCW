@@ -9,6 +9,8 @@
     <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>--%>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <%--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--%>
+
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
@@ -451,14 +453,14 @@ width: 84%;}
                                  
                         </td>
                         
-                    </tr>
+                    </tr> <%--onchange="return Confirm(this);"--%>
                     <tr id="trEditTypeMeasure" runat="server" class="style1"><td><strong>Type Of Measure:</strong></td><td>
-                  <asp:DropDownList ID="ddlTypeMeasureStandard" runat="server" Style="border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: black; border-radius: 5px; padding: 8px; margin: 0; width: 172px;">
-                  <asp:ListItem>Select Measure Type</asp:ListItem>
-                  <asp:ListItem>H & S</asp:ListItem>
-                  <asp:ListItem>Other</asp:ListItem>
-                  <asp:ListItem>Repair</asp:ListItem>
-                  <asp:ListItem>Shell</asp:ListItem>
+                  <asp:DropDownList ID="ddlTypeMeasureStandard" runat="server" OnFocus="ddlfocus(this);" onchange="return Confirm(this);" Style="border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: black; border-radius: 5px; padding: 8px; margin: 0; width: 172px;">
+                  <asp:ListItem Value="Select Measure Type">Select Measure Type</asp:ListItem>
+                  <asp:ListItem Value="H & S">H & S</asp:ListItem>
+                  <asp:ListItem Value="Other">Other</asp:ListItem>
+                  <asp:ListItem Value="Repair">Repair</asp:ListItem>
+                  <asp:ListItem Value="Shell">Shell</asp:ListItem>
                   
                 </asp:DropDownList></td></tr>
                 </table>
@@ -491,7 +493,7 @@ width: 84%;}
                                             <strong>Type Of Measure: </strong>
                                         </td>
                                         <td>
-                                        <asp:DropDownList ID="ddlTypeMeasure" runat="server" Style="border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: black; border-radius: 5px; padding: 8px; margin: 0; width: 172px;">
+                                        <asp:DropDownList  ID="ddlTypeMeasure" runat="server" Style="border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: black; border-radius: 5px; padding: 8px; margin: 0; width: 172px;">
                   <asp:ListItem>Select Measure Type</asp:ListItem>
                   <asp:ListItem>H & S</asp:ListItem>
                   <asp:ListItem>Other</asp:ListItem>
@@ -499,6 +501,7 @@ width: 84%;}
                   <asp:ListItem>Shell</asp:ListItem>
                   
                 </asp:DropDownList>
+                 <asp:HiddenField ID="hfResponse" runat="server"  />
                                             <%--<asp:TextBox ID="txt_SC" runat="server" Style="border: 1px solid #ccc; font-family: Arial, Helvetica, sans-serif;
                                                 font-size: 14px; color: black; border-radius: 5px; padding: 8px; margin: 0; width: 150px;"
                                                 MaxLength="40" onkeyup="CalculateLineSC()"></asp:TextBox>--%>
@@ -1293,8 +1296,36 @@ debugger;
                 
             }
         }
+          
+          function ddlfocus(sender){
+          debugger;
+ $("#hfResponse").val(sender.value);
+          }
         
-        
+        function Confirm(sender) {
+        debugger;
+        var selectedText = $(sender).find("option:selected").text();
+            if (confirm("Are you sure you want to change the type of measure?" )){
+            
+               return true;
+            } 
+            else {
+             document.getElementById('<%= ddlTypeMeasureStandard.ClientID %>').value = $("#hfResponse").val();
+            
+             // $("#hfResponse").val();
+              
+             return false;
+           }
+        }
+ 
+ 
+ 
+
+  
+ 
+ 
+ 
+ 
 //        $(document).ready(function () {
 
 //        var i=$("#Quick_LinkPPL").value;

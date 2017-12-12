@@ -229,8 +229,10 @@
                                          <li id="LipPrivate" runat="server"><a href="#">PPL Zone 1 & 2&raquo;</a>
                                            
                                             <ul>
-                                             <li><a href="CommonCategory.aspx">Category</a></li>
+                                            <%-- <li><a href="CommonCategory.aspx">Category</a></li>--%>
                                              <%--<li><a href="CommonSubCategory.aspx">SubCategory</a></li>--%>
+                                            <%-- <li><a href="AddSubCategory.aspx">SubCategory</a></li>--%>
+                                                <li><a href="AddCategory.aspx">Category</a></li>
                                              <li><a href="AddSubCategory.aspx">SubCategory</a></li>
                                               <li><a href="PPlZoneAllThing.aspx">PPL Zone 1 & 2 Details</a></li>   
                                                                         
