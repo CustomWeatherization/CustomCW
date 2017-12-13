@@ -1275,10 +1275,7 @@ debugger;
                 document.getElementById('<%= txt_MEASURE_DESCRIPTION.ClientID %>').style.display = 'none';
                 document.getElementById('<%= DDl_MEASURE_DESCRIPTION.ClientID %>').style.display = 'block';
                  document.getElementById('<%= trEditTypeMeasure.ClientID %>').style.display = 'table-row';
-                 document.getElementById('<%= trEditDescLoc.ClientID %>').style.display = 'table-row';
-                 
-                 
-                 
+                 document.getElementById('<%= trEditDescLoc.ClientID %>').style.display = 'table-row';          
             }
             else {
                 document.getElementById('<%= courier.ClientID %>').style.display = 'block';
@@ -1286,8 +1283,7 @@ debugger;
                 document.getElementById('<%= DDl_MEASURE_DESCRIPTION.ClientID %>').style.display = 'none';
                  document.getElementById('<%= trEditDescLoc.ClientID %>').style.display = 'none';
                  document.getElementById('<%= trEditTypeMeasure.ClientID %>').style.display = 'none';
-                 document.getElementById('<%= trEditLabor.ClientID %>').style.display = 'none';
-                
+                 document.getElementById('<%= trEditLabor.ClientID %>').style.display = 'none';                
             }
         }
           

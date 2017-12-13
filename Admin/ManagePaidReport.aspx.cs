@@ -115,13 +115,15 @@ public partial class Admin_ManagePaidReport : System.Web.UI.Page
             {
                 hdn_Keeping.Value = "N";
             }
-            ObjAdmin.updatePaidTblChanges(txt_JobNumber.Text, txt_Total.Text, txt_Paid.Text, hdn_txt_Remaining.Value, Convert.ToString(Request.QueryString["NoOfInvoice"]), hdn_txt_PaymentType.Value, hdn_txt_Payment_no.Value, DDL_Quetion.SelectedValue, txtComment.Text, hdn_Keeping.Value, txt_NewInvoiceAmount.Text);
+            //ObjAdmin.updatePaidTblChanges(txt_JobNumber.Text, txt_Total.Text, txt_Paid.Text, hdn_txt_Remaining.Value, Convert.ToString(Request.QueryString["NoOfInvoice"]), hdn_txt_PaymentType.Value, hdn_txt_Payment_no.Value, DDL_Quetion.SelectedValue, txtComment.Text, hdn_Keeping.Value, txt_NewInvoiceAmount.Text);
+            ObjAdmin.updatePaidTblChanges(txt_JobNumber.Text, txt_Total.Text, txt_Paid.Text, hdn_txt_Remaining.Value, Convert.ToString(Request.QueryString["NoOfInvoice"]), "", hdn_txt_Payment_no.Value, DDL_Quetion.SelectedValue, txtComment.Text, hdn_Keeping.Value, txt_NewInvoiceAmount.Text);
             Response.Redirect("RecivePayment.aspx?VUrl=" + Vurl);
         }
         catch
         {
         }
     }
+
     protected void lnkBtnClose_Click(object sender, EventArgs e)
     {
         try

@@ -145,6 +145,25 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 
+    <style type="text/css">
+        .style4
+        {
+            width: 8%;
+        }
+        .style5
+        {
+            width: 9%;
+        }
+        .style6
+        {
+            width: 6%;
+        }
+        .style7
+        {
+            width: 1%;
+        }
+    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <br />
@@ -278,47 +297,50 @@
     </table>
     <br />
     <br />
-       <div  style="width: 100%; overflow: auto; max-height: 440px;">
+    
     <div class="grid">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    
+        <table width="93%" border="0" cellspacing="0" cellpadding="0" style="position:absolute;">
             <tr>
-                <th>
+                <th style="width: 18%;">
                     Customer Name
                 </th>
-                <th>
+                <th style="width: 9%;">
                     Job Number
                 </th>
-                <th>
-                    &nbsp;&nbsp;&nbsp;
+                <th style="width: 3%;">
+                   
                 </th>
-                <th>
-                    Job Type
+                <th class="style5">
+                    Job Type 
                 </th>
-                <th>
-                    Total Amount
+                <th class="style5">
+                   Total Amount
                 </th>
-                <th>
+                <th style="width: 10%;">
                     Paid Amount
                 </th>
-                <th>
+                <th style="width: 10%;">
                     Remaining Amount
                 </th>
-                <th>
+                <th style="width: 7%;">
                     Payment Type
                 </th>
-                <th>
+                <th style="width: 7%;">
                     Payment No
                 </th>
                 <%--<th>
                     Status
                 </th>--%>
-                <th style="width: 10%;">
+                <th style="width:10%;">
                     Return Date
                 </th>
-                <th>
+                <th style="width: 7%;" align="left">
                     Manage
                 </th>
             </tr>
+            </table><br /><br /><br /><br />
+            
             <% if (dtRed != null)
                {
                    if (dtRed.Rows.Count > 0)
@@ -339,15 +361,17 @@
                            TotalAmt += str_total;
                            
             %>
+               <div style="width: 100%; overflow: auto; max-height: 370px;" >
+            <table style="width: 100%;">
             <tr class="red">
-                <td class="bold">
+                <td class="bold" style="width: 14%;">
                     <%=dtRed.Rows[i]["FirstName"].ToString()%>
                     <%=dtRed.Rows[i]["Lastname"].ToString()%>
                 </td>
-                <td>
+                <td class="style5">
                     <%=dtRed.Rows[i]["JobNumber"].ToString()%>
                 </td>
-                <td align="center">
+                <td class="style7">
                     <%--<asp:CheckBox ID="chk_RecivePayment" value="<%=dtRed.Rows[i]["JobId"].ToString()%>"    onclick="myFunction()" runat="server" />--%>
                     <% if (dtRed.Rows[i]["PaidStatus"].ToString() == "Paid")
                        {
@@ -361,7 +385,7 @@
                         onclick="myFunction()" /><%} %>
                 </td>
                 <%--<td><a href="AddNewJob.aspx?Jobs=<%=dtRed.Rows[i]["JobNumber"].ToString()%>&UC=<%=Request.QueryString["UC"].ToString()%>"><%=dtRed.Rows[i]["JobNumber"].ToString()%></a></td>--%>
-                <td>
+                <td class="style4">
                     <%if (Convert.ToBoolean(dtRed.Rows[i]["LowCost"]) == true)
                       { %>
                     Low Cost
@@ -371,31 +395,31 @@
                     FullCost
                     <%} %>
                 </td>
-                <td>
+                <td style="width: 10%;">
                     <%=dtRed.Rows[i]["PaidTotalAmount"].ToString()%>
                 </td>
-                <td>
+                <td class="style4">
                     <%=dtRed.Rows[i]["PaidAmount"].ToString()%>
                 </td>
-                <td>
+                <td class="style5">
                     <%=dtRed.Rows[i]["PaidRemainingAmount"].ToString()%>
                 </td>
-                <td>
+                <td class="style6">
                     <%=dtRed.Rows[i]["Payment_Type"].ToString()%>
                 </td>
-                <td>
+                <td style="width: 7%;">
                     <%=dtRed.Rows[i]["PaymentType_No"].ToString()%>
                 </td>
                 <%--<td>
                     <%=dtRed.Rows[i]["PaidStatus"].ToString()%>
                 </td>--%>
-                <td>
+                <td style="width: 10%;">
                     <% if (Convert.ToDateTime(dtRed.Rows[i]["CWReturnDate"]).ToString("MM-dd-yyy") != "01-01-1900")
                        {%>
                     <%=Convert.ToDateTime(dtRed.Rows[i]["CWReturnDate"]).ToString("MM-dd-yyy")%>
                     <% }%>
                 </td>
-                <td>
+                <td style="width: 7%;">
                     <% if (dtRed.Rows[i]["PaidStatus"].ToString() == "Paid")
                        {
                        }

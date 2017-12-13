@@ -142,7 +142,7 @@
                     Payment Type
                 </th>
                 <th>
-                    Payment No
+                    Cheque No
                 </th>
             </tr>
             <% if (dtMergeAllPaidJob != null)
@@ -224,7 +224,7 @@
                     <%=dtMergeAllPaidJob.Rows[i]["Payment_Type"].ToString()%>
                 </td>
                 <td>
-                <%--    <%=dtMergeAllPaidJob.Rows[i]["PaymentType_NoComman"].ToString()%>--%>
+                  <%=dtMergeAllPaidJob.Rows[i]["PaymentType_No"].ToString()%>
                 </td>
             </tr>
             <%}

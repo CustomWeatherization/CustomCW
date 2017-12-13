@@ -1,0 +1,32 @@
+USE [CW_Staging]
+GO
+/****** Object:  StoredProcedure [dbo].[proc_SetNewInvAmt]    Script Date: 12/13/2017 1:08:08 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[proc_SetNewInvAmt]   --exec proc_SetNewInvAmt '184309',1       Select KeepRemain from tbl_paidreport where JobNumber='184309' and NoOfInvoice=1
+@JobNumber nvarchar(50),
+@NoOfInvoice int,
+@flag nvarchar(50)=null 
+as
+Declare @KPR nvarchar(50)
+Declare @Que nvarchar(50)
+set @KPR = (Select KeepRemain from tbl_paidreport where JobNumber=@JobNumber and NoOfInvoice=@NoOfInvoice)
+	if(@KPR='N' or @KPR='New')
+		Begin	
+		    set @Que = (Select Question from tbl_paidreport where JobNumber=@JobNumber and NoOfInvoice=@NoOfInvoice)
+			if(@Que='Other')
+				Begin
+					select NewInvoiceAmt,Question,Comment from tbl_paidreport where JobNumber=@JobNumber and NoOfInvoice=@NoOfInvoice
+				End
+		    Else
+				Begin	
+				--	select NewInvoiceAmt,Question,'' as Comment from tbl_paidreport where JobNumber=@JobNumber and NoOfInvoice=@NoOfInvoice
+					select NewInvoiceAmt,Question,Comment from tbl_paidreport where JobNumber=@JobNumber and NoOfInvoice=@NoOfInvoice
+				End
+	 End
+	If(@flag='Audit')
+		Begin
+			select NewInvoiceAmt from tbl_paidreport where JobNumber=@JobNumber and NoOfInvoice=@NoOfInvoice
+		End

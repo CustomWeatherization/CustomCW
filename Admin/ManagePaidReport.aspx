@@ -279,7 +279,8 @@
             document.getElementById('<%= ChkYes.ClientID %>').disabled = true;
             document.getElementById('<%= ChkNo.ClientID %>').disabled = true;
         }
-        else {
+        else 
+        {
             document.getElementById('<%= ChkNo.ClientID %>').checked = true;
             document.getElementById('<%= hdn_Keeping.ClientID %>').value = "N";
             document.getElementById('<%= ChkYes.ClientID %>').checked = false;
