@@ -23,35 +23,69 @@ public partial class Admin_Occurrences : System.Web.UI.Page
         if (!Page.IsPostBack)
         {           
            FilDDlEmployee();
-            BindOccurenceDetails();
             BindDDLManager();
-            lblOccurenceDate.Text = DateTime.Now.ToShortDateString();           
-        }       
+            lblOccurenceDate.Text = DateTime.Now.ToShortDateString();
+
+            string lginname = objSm.GetCookie("UserId");
+            string role = objSm.GetCookie("Rol_Id");
+            DataTable dtDLL1 = new DataTable();
+            dtDLL1 = objCat.GetUseManagerCount(lginname);
+
+            if (role == "Admin")
+            {
+                BindOccurenceDetails();
+                ddlListEmployee.Enabled = true;
+                DropDownList1.Enabled = true;
+                  lbtnAddOccurence.Visible = true;
+            }
+            else if (dtDLL1.Rows.Count > 0)
+            {
+                BindOccurenceDetails();
+                ddlListEmployee.Enabled = true;
+                DropDownList1.Enabled = true;
+                lbtnAddOccurence.Visible = true;
+            }
+            else {
+                ddlListEmployee.Enabled = false;
+                DropDownList1.Enabled = false;
+                lbtnAddOccurence.Visible = false;
+            }            
+          
+        }
+       
     }
 
     public void BindOccurenceDetails()
     {
         string emplyeeId = "";
+        string role1 = objSm.GetCookie("Rol_Id");
+            string lginname1 = objSm.GetCookie("UserId");
+
         if (Session["UserLogin1"] != null)
         {
             emplyeeId = Session["UserLogin1"].ToString();
             ddlListEmployee.Items.FindByValue(emplyeeId).Selected = true;
          
         }
-        else
+        else 
         {
             emplyeeId = ddlListEmployee.SelectedItem.Value.ToString();
           
           
         }
         DataTable dt1 = new DataTable();
-        if (emplyeeId == "All")
+        if (emplyeeId == "All" && role1=="Admin")
         {
             dt1 = objCat.ViewOccurencesDetails();
         }
-        else
+        else if (emplyeeId == "All" && role1 != "Admin")
+        {
+            dt1 = objCat.ViewSelctedEmployeeOcurDetailsManager(lginname1);
+        }
+        else 
         {
             dt1 = objCat.ViewSelctedEmployeeOcurDetails(emplyeeId);
+        
         }
         Session["UserLogin1"] = null;
         grdOccurences.DataSource = dt1;
@@ -60,8 +94,17 @@ public partial class Admin_Occurrences : System.Web.UI.Page
 
     public void BindDDLManager()
     {
+       
+
         DataTable dtDLL = new DataTable();
-        dtDLL = objCat.GetUserRegistrationNames();
+        //if (role1 == "Admin")
+        //{
+            dtDLL = objCat.GetUserRegistrationNames();
+        //}
+        //else
+        //{
+        //    dtDLL = objCat.GetUseManagerCount(lginname1); 
+        //}
         ddlSupervisorName.DataSource = dtDLL;
         ddlSupervisorName.DataValueField = "ID";
         ddlSupervisorName.DataTextField = "CWLogin";
@@ -107,7 +150,17 @@ public partial class Admin_Occurrences : System.Web.UI.Page
     }
     public void FilDDlEmployee()
     {
-        DataTable dt = objAdmin.EmpDropDownInUser();
+        string role1 = objSm.GetCookie("Rol_Id");
+        string lginname1 = objSm.GetCookie("UserId");
+        DataTable dt = new DataTable();
+        if (role1 == "Admin")
+        {
+           dt = objAdmin.EmpDropDownInUser();
+        }
+        else
+        {
+            dt = objAdmin.EmpDropDownInUserManager(lginname1);
+        }
         if (dt.Rows.Count > 0)
         {
             ddlEmployeeName.DataSource = dt;

@@ -91,6 +91,7 @@ public partial class Admin_JobsReportStatus : System.Web.UI.Page
         {
         }
     }
+
     public void showDataByJobCompany(string StrCompany)
     {
         try
@@ -204,7 +205,7 @@ public partial class Admin_JobsReportStatus : System.Web.UI.Page
             {
                 if (Convert.ToString(dtGreen.Rows[i]["PaidTotalAmount"]) != "" && Convert.ToString(dtGreen.Rows[i]["PaidTotalAmount"]) != "" && Convert.ToString(dtGreen.Rows[i]["PaidTotalAmount"]) != "")
                 {
-                    Total = Total + Convert.ToDecimal(dtGreen.Rows[i]["PaidTotalAmount"]);
+                    Total =Total + Convert.ToDecimal(dtGreen.Rows[i]["PaidTotalAmount"]);
                     TotalRemain = TotalRemain + Convert.ToDecimal(dtGreen.Rows[i]["PaidRemainingAmount"]);
                     TotalPaid = TotalPaid + Convert.ToDecimal(dtGreen.Rows[i]["PaidAmount"]);
                 }

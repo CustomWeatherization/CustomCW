@@ -145,7 +145,8 @@ public partial class Admin_PaidReportPage : System.Web.UI.Page
                 DateTime ToDate = Convert.ToDateTime(txtToDate.Text);
                 ToDate = ToDate.AddDays(1);
                 string To_Date = Convert.ToString(ToDate);
-                dtMergeAllPaidJob = ObjAdmin.All_PaidReportByDate(To_Date, txtFromDate.Text);
+                //dtMergeAllPaidJob = ObjAdmin.All_PaidReportByDate(To_Date, txtFromDate.Text);
+                dtMergeAllPaidJob = ObjAdmin.All_PaidReportByDate(txtToDate.Text, txtFromDate.Text, txt_SearchChk.Text);
             }
         }
         else if (FltrBy == 1)
@@ -220,7 +221,6 @@ public partial class Admin_PaidReportPage : System.Web.UI.Page
                 else if (METED_TYPE == "Warm")
                 {
                     METED_TYPE = "Warm";
-
                 }
                 else if (METED_TYPE == "Warm Plus")
                 {

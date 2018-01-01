@@ -63,8 +63,7 @@
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>
-                        <label>
-                            Passcode</label>
+                        <label>Passcode</label>
                         <%--<input name="" type="text" />--%>
                         <asp:TextBox ID="txtPasscode" runat="server" MaxLength="4" TextMode="Password" class="InputBox"
                             Style="width: 216px;"></asp:TextBox>
@@ -99,6 +98,7 @@
                                 !!</a>       JWC0R5
                     </div>--%>
                         <h2>
+                        <br />
                             <asp:Label ID="lblError" runat="server"></asp:Label></h2>
                     </div>
                 </div>

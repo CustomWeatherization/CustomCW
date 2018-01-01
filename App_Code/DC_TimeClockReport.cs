@@ -68,7 +68,7 @@ public class DC_TimeClockReport
         return i; //i
     }
 
-    public int AddEmployeHour(string Mode, string EmpId, string Adddate, string fromTime, string toTime)
+    public int AddEmployeHour(string Mode, string EmpId, string Adddate, string fromTime, string toTime,string Comment)
     {
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = con;
@@ -77,8 +77,37 @@ public class DC_TimeClockReport
         cmd.Parameters.AddWithValue("@Mode", Mode);
         cmd.Parameters.AddWithValue("@Emp_id", EmpId);
         cmd.Parameters.AddWithValue("@BeforeDate", fromTime);
-        cmd.Parameters.AddWithValue("@CurrentDate", toTime);
+        if (toTime != "")
+        {
+            cmd.Parameters.AddWithValue("@CurrentDate", toTime);
+        }
+        else
+        {
+            cmd.Parameters.AddWithValue("@CurrentDate", null);
+        
+        }
         cmd.Parameters.AddWithValue("@AddDate", Adddate);
+
+        cmd.Parameters.AddWithValue("@OutComment", Comment);
+        con.Open();
+        int i = cmd.ExecuteNonQuery();
+        con.Close();
+        return i; //i
+    }
+
+    public int AddEmployeHour1(string Mode, string EmpId, string Adddate, string fromTime, string Comment)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_showTodayEmployeHour1";
+        cmd.Parameters.AddWithValue("@Mode", Mode);
+        cmd.Parameters.AddWithValue("@Emp_id", EmpId);
+        cmd.Parameters.AddWithValue("@BeforeDate", fromTime);
+        
+        cmd.Parameters.AddWithValue("@AddDate", Adddate);
+
+        cmd.Parameters.AddWithValue("@InComment", Comment);
         con.Open();
         int i = cmd.ExecuteNonQuery();
         con.Close();

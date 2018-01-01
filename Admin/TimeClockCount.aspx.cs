@@ -223,8 +223,7 @@ public partial class Admin_TimeClockCount : System.Web.UI.Page
             double seconds = (TotalDuration % 60);
             minutes1 = Convert.ToDouble(minutes1);
             minutes2 = Math.Round((minutes1 / 60), 2);
-
-
+            
             DurationTotal = Convert.ToString(String.Format("{0:00}", hours)) + ":" + Convert.ToString(String.Format("{0:00}", minutes)) + " Hrs.(" + minutes2 + ")";
             //  DurationTotal = displayTime + " Hrs.(" + minutes2 + ")";
             lblsubid.Text = Convert.ToString(String.Format("{0:00}", hours)) + "Hr. " + Convert.ToString(String.Format("{0:00}", minutes)) + " Min."; ;
@@ -402,8 +401,14 @@ public partial class Admin_TimeClockCount : System.Web.UI.Page
         GridViewRow Gv2Row = (GridViewRow)((LinkButton)sender).NamingContainer;
         GridView Childgrid = (GridView)(Gv2Row.Parent.Parent);
         int rowIndex = ((sender as LinkButton).NamingContainer as GridViewRow).RowIndex;
+       
         int id = Convert.ToInt32(Childgrid.DataKeys[rowIndex].Values[0]);
         string date = Childgrid.DataKeys[rowIndex].Values[1].ToString();
+
+        //HiddenField hdnDataId = (HiddenField)Childgrid.Rows[rowIndex].Cells[0].FindControl("hdnswipetime");
+        //TextBox txttimeddd = (TextBox)Childgrid.Rows[rowIndex].FindControl("txtSwipeIn").ToSt;
+       
+
         ddlEmployeeEdit.SelectedValue = id.ToString();     
         if (date != "")
         {
@@ -411,9 +416,81 @@ public partial class Admin_TimeClockCount : System.Web.UI.Page
         }
 
         dt = objTimeClock.showTodayEmployeHour1("Edit", id.ToString(), date, "","");
-
         grdDetails.DataSource = dt;
         grdDetails.DataBind();
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            string hours1 = "";
+            string minute1 = "";
+            string ampm1 = "";
+            string hours = "";
+            string minute = "";
+            string ampm = "";
+            DropDownList box1 = (DropDownList)grdDetails.Rows[i].FindControl("ddlHoursFromTime");
+
+            DropDownList box2 = (DropDownList)grdDetails.Rows[i].FindControl("ddlMinuteFromTime");
+
+            DropDownList box3 = (DropDownList)grdDetails.Rows[i].FindControl("ddlAMPMFromTime");
+
+            DropDownList box4 = (DropDownList)grdDetails.Rows[i].FindControl("ddlHoursTomTime");
+
+            DropDownList box5 = (DropDownList)grdDetails.Rows[i].FindControl("ddlMinuteToTime");
+
+            DropDownList box6 = (DropDownList)grdDetails.Rows[i].FindControl("ddlAMPMToTime");
+
+            string swipeintext = dt.Rows[i]["SwipeIn"].ToString();
+
+            string swipeouttext = dt.Rows[i]["SwipeOut"].ToString();
+            if (swipeintext != "")
+            {
+                hours = swipeintext.Substring(0, 2);
+                minute = swipeintext.Substring(3, 2);
+                ampm = swipeintext.Substring(6, 2);
+                //box1.SelectedItem.Text = hours;
+
+                //box2.SelectedItem.Text = minute;
+
+                //box3.SelectedItem.Text = ampm;
+
+                box1.Items.FindByText(hours).Selected = true;
+                box2.Items.FindByText(minute).Selected = true;
+                box3.Items.FindByText(ampm).Selected = true;
+            }
+            else 
+            {
+                box1.SelectedIndex=0;
+
+                box2.SelectedIndex = 0;
+
+                box3.SelectedIndex = 0;
+            }
+            if (swipeouttext != "")
+            {
+                hours1 = swipeouttext.Substring(0, 2);
+                minute1 = swipeouttext.Substring(3, 2);
+                ampm1 = swipeouttext.Substring(6, 2);
+              //  box4.SelectedItem.Text = hours1;
+                box4.Items.FindByText(hours1).Selected = true;
+                box5.Items.FindByText(minute1).Selected = true;
+                box6.Items.FindByText(ampm1).Selected = true;
+               // box6.SelectedItem.Text = minute1;
+
+                //box6.SelectedItem.Text = ampm1;
+            }
+            else 
+            {
+                box4.SelectedIndex = 0;
+
+                box5.SelectedIndex = 0;
+
+                box6.SelectedIndex = 0;
+            }
+        }
+
+
+      
+
+
         ModalPopupExtender3.Show();
         Session.Add("DateTime", dt);
         ddlEmployeeEdit.Enabled = false;
@@ -428,23 +505,46 @@ public partial class Admin_TimeClockCount : System.Web.UI.Page
     }
     protected void btn_Add_Click(object sender, EventArgs e)
     {
-           
-        //int rowIndex = ((sender as Button).NamingContainer as GridViewRow).RowIndex;        
-      //  int id = Convert.ToInt32(grdEmployeTimeTracking.DataKeys[rowIndex].Values[0]);
-       // ddlEmployeeAdd.SelectedValue = id.ToString();     
-        ModalPopupExtender1.Show();
-      //  Session["Empid"] = id;       
+        ModalPopupExtender1.Show();          
     }
 
     protected void btn_Submit_Click(object sender, EventArgs e)
     {
-      int j = objTimeClock.AddEmployeHour("Add", ddlEmployeeAdd.SelectedValue, txtAddDate.Text, txtFromTime.Text, txtToTime.Text);
-        ShowAllTodayEmployee();
-        Response.Write("<script>alert('Add Hours successfully');</script>");
-        ddlEmployeeAdd.SelectedIndex = 0;
-        txtAddDate.Text = "";
-        txtFromTime.Text = "";
-        txtToTime.Text = "";
+        string FromTime1 = ddlHoursFromTime.SelectedItem.Text + ":" + ddlMinuteFromTime.SelectedItem.Text + " " + ddlAMPMFromTime.SelectedItem.Text;
+        string ToTime1 = ddlHoursTomTime.SelectedItem.Text + ":" + ddlMinuteToTime.SelectedItem.Text + " " + ddlAMPMToTime.SelectedItem.Text;
+        //DateTime FromTime = DateTime.Parse(string.Format("{0}:{1} {2}", txtFromTime.Hour, txtFromTime.Minute, txtFromTime.AmPm));
+        //DateTime ToTime = DateTime.Parse(string.Format("{0}:{1} {2}", txtToTime.Hour, txtToTime.Minute, txtToTime.AmPm));
+        //string FromTime1 = FromTime.ToString("hh:mm tt");
+        //string ToTime1 = ToTime.ToString("hh:mm tt");
+        if (FromTime1 != "00:00 AM")
+        {
+            if (ToTime1 != "00:00 AM")
+            {
+                //  objTimeClock.AddEmployeHour("Add", ddlEmployeeAdd.SelectedValue, txtAddDate.Text, txtFromTime.Text, txtToTime.Text, txtCommentsAdd.Text.Trim());
+                objTimeClock.AddEmployeHour("Add", ddlEmployeeAdd.SelectedValue, txtAddDate.Text, FromTime1, ToTime1, txtCommentsAdd.Text.Trim());
+            }
+            else
+            {
+                objTimeClock.AddEmployeHour1("AddFromTime", ddlEmployeeAdd.SelectedValue, txtAddDate.Text, FromTime1, txtCommentsAdd.Text.Trim());
+
+            }
+            ShowAllTodayEmployee();
+            Response.Write("<script>alert('Add Hours successfully');</script>");
+            ddlEmployeeAdd.SelectedIndex = 0;
+            txtAddDate.Text = "";
+            ddlHoursFromTime.SelectedIndex=0;
+            ddlHoursTomTime.SelectedIndex=0;
+            ddlMinuteFromTime.SelectedIndex=0;
+            ddlMinuteToTime.SelectedIndex=0;
+            ddlAMPMFromTime.SelectedIndex=0;
+            ddlAMPMToTime.SelectedIndex = 0;
+            txtCommentsAdd.Text = "";
+        }
+        else
+        {
+            Response.Write("<script>alert('Please select from time');</script>");
+            ModalPopupExtender1.Show();
+        }
     }
 
     protected void btn_update_Click(object sender, EventArgs e)
@@ -459,28 +559,39 @@ public partial class Admin_TimeClockCount : System.Web.UI.Page
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     HiddenField attendanceid = (HiddenField)grdDetails.Rows[i].Cells[1].FindControl("id");
-                    TextBox txtSwipeIn = (TextBox)grdDetails.Rows[i].Cells[1].FindControl("txtSwipeIn");
-                    TextBox txtSwipeOut = (TextBox)grdDetails.Rows[i].Cells[2].FindControl("txtSwipeOut");
+                   // TextBox txtSwipeIn = (TextBox)grdDetails.Rows[i].Cells[1].FindControl("txtSwipeIn");
+                   // TextBox txtSwipeOut = (TextBox)grdDetails.Rows[i].Cells[2].FindControl("txtSwipeOut");
+                    DropDownList ddlfromHour = (DropDownList)grdDetails.Rows[i].Cells[2].FindControl("ddlHoursFromTime");
+                    DropDownList ddlfromMinute = (DropDownList)grdDetails.Rows[i].Cells[2].FindControl("ddlMinuteFromTime");
+                    DropDownList ddlfromAmPm = (DropDownList)grdDetails.Rows[i].Cells[2].FindControl("ddlAMPMFromTime");
+                    DropDownList ddlToHour = (DropDownList)grdDetails.Rows[i].Cells[2].FindControl("ddlHoursTomTime");
+                    DropDownList ddlToMinute = (DropDownList)grdDetails.Rows[i].Cells[2].FindControl("ddlMinuteToTime");
+                    DropDownList ddlToAmPm = (DropDownList)grdDetails.Rows[i].Cells[2].FindControl("ddlAMPMToTime");
                     TextBox txtInComment = (TextBox)grdDetails.Rows[i].Cells[2].FindControl("txtInComment");
                     TextBox txtOutComment = (TextBox)grdDetails.Rows[i].Cells[2].FindControl("txtOutComment");
                     DataRow row = dt.Rows[i];
-                    if (txtSwipeIn.Text.Trim() != "")
+                    string intime="";
+                    string outtime = "";
+                    if (ddlfromHour.SelectedItem.Text.Trim() != "00")
                     {
-                        txtSwipeIn.Text = "1900-01-01 " + txtSwipeIn.Text;
+                      //  txtSwipeIn.Text = "1900-01-01 " + txtSwipeIn.Text;
+                        intime = "1900-01-01 " + " " + ddlfromHour.SelectedItem.Text.Trim() + ":" + ddlfromMinute.SelectedItem.Text.Trim() + " " + ddlfromAmPm.SelectedItem.Text.Trim();
                     }
                     else
                     {
-                        txtSwipeIn.Text = "";
+                       // txtSwipeIn.Text = "";
+                        intime = null;
                     }
-                    if (txtSwipeOut.Text.Trim() != "")
+                    if (ddlToHour.SelectedItem.Text.Trim() != "00")
                     {
-                        txtSwipeOut.Text = "1900-01-01 " + txtSwipeOut.Text;
+                        outtime = "1900-01-01 " + " " + ddlToHour.SelectedItem.Text.Trim() + ":" + ddlToMinute.SelectedItem.Text.Trim() + " " + ddlToAmPm.SelectedItem.Text.Trim();
                     }
                     else 
                     {
-                        txtSwipeOut.Text = "";
+                        outtime = null;
                     }
-                    int j = objTimeClock.UpdateEmployeHour("Update", attendanceid.Value, txtSwipeIn.Text, txtSwipeOut.Text, txtInComment.Text, txtOutComment.Text);
+                   // int j = objTimeClock.UpdateEmployeHour("Update", attendanceid.Value, txtSwipeIn.Text, txtSwipeOut.Text, txtInComment.Text, txtOutComment.Text);
+                    int j = objTimeClock.UpdateEmployeHour("Update", attendanceid.Value, intime, outtime, txtInComment.Text, txtOutComment.Text);
 
                 }
 

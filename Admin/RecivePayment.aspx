@@ -154,13 +154,17 @@
         {
             width: 9%;
         }
-        .style6
-        {
-            width: 6%;
-        }
         .style7
         {
             width: 1%;
+        }
+        .style8
+        {
+            width: 15%;
+        }
+        .style9
+        {
+            width: 101px;
         }
     </style>
 
@@ -302,10 +306,10 @@
     
         <table width="93%" border="0" cellspacing="0" cellpadding="0" style="position:absolute;">
             <tr>
-                <th style="width: 18%;">
+                <th class="style8">
                     Customer Name
                 </th>
-                <th style="width: 9%;">
+                <th class="style5">
                     Job Number
                 </th>
                 <th style="width: 3%;">
@@ -314,25 +318,25 @@
                 <th class="style5">
                     Job Type 
                 </th>
-                <th class="style5">
+                <th class="style9">
                    Total Amount
                 </th>
-                <th style="width: 10%;">
+                <th class="style5">
                     Paid Amount
                 </th>
-                <th style="width: 10%;">
+                <th class="style5">
                     Remaining Amount
                 </th>
-                <th style="width: 7%;">
+              <%--  <th style="width: 7%;">
                     Payment Type
                 </th>
                 <th style="width: 7%;">
                     Payment No
-                </th>
+                </th>--%>
                 <%--<th>
                     Status
                 </th>--%>
-                <th style="width:10%;">
+                <th class="style5">
                     Return Date
                 </th>
                 <th style="width: 7%;" align="left">
@@ -369,7 +373,9 @@
                     <%=dtRed.Rows[i]["Lastname"].ToString()%>
                 </td>
                 <td class="style5">
-                    <%=dtRed.Rows[i]["JobNumber"].ToString()%>
+                 <a style="color: inherit;" href="../AddNewJob.aspx?Back=JobsStatus&Jobs=<%=dtRed.Rows[i]["JobNumber"].ToString()%>&UC=<%=dtRed.Rows[i]["UtilityCompany"].ToString()%>">
+                           <%=dtRed.Rows[i]["JobNumber"].ToString()%></a>
+                   
                 </td>
                 <td class="style7">
                     <%--<asp:CheckBox ID="chk_RecivePayment" value="<%=dtRed.Rows[i]["JobId"].ToString()%>"    onclick="myFunction()" runat="server" />--%>
@@ -404,12 +410,12 @@
                 <td class="style5">
                     <%=dtRed.Rows[i]["PaidRemainingAmount"].ToString()%>
                 </td>
-                <td class="style6">
+               <%-- <td class="style6">
                     <%=dtRed.Rows[i]["Payment_Type"].ToString()%>
                 </td>
                 <td style="width: 7%;">
                     <%=dtRed.Rows[i]["PaymentType_No"].ToString()%>
-                </td>
+                </td>--%>
                 <%--<td>
                     <%=dtRed.Rows[i]["PaidStatus"].ToString()%>
                 </td>--%>

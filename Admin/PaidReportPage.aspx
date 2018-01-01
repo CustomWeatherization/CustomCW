@@ -117,6 +117,7 @@
     </table>
     <br />
     <br />
+        <div style="width: 100%; overflow: auto; max-height: 550px;" >
     <div class="grid">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
@@ -142,7 +143,7 @@
                     Payment Type
                 </th>
                 <th>
-                    Cheque No
+                    Payment No
                 </th>
             </tr>
             <% if (dtMergeAllPaidJob != null)
@@ -239,7 +240,7 @@
             </tr>
         </table>
     </div>
-
+</div>
     <script type="text/javascript">
         function ChkAct129(ID) {
             var CheckBox = document.getElementById(ID);

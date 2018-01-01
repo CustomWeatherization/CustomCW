@@ -921,8 +921,7 @@
                                         <asp:TextBox ID="txtFirstName" runat="server" MaxLength="30"></asp:TextBox>
                                         <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender21" runat="server"
                                             TargetControlID="txtFirstName" FilterType="UppercaseLetters,LowercaseLetters,Custom"
-                                            ValidChars=" ">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
+                                            ValidChars=" "> </ajaxToolkit:FilteredTextBoxExtender>
                                         <asp:RequiredFieldValidator ID="rfv_txtFirstName" runat="server" ErrorMessage="*"
                                             ControlToValidate="txtFirstName" ValidationGroup="G" Display="Dynamic"></asp:RequiredFieldValidator>
                                     </td>
@@ -2125,6 +2124,9 @@
             <asp:PostBackTrigger ControlID="DDL_PplZone" />
             <asp:PostBackTrigger ControlID="btnFewFld" />
             <asp:PostBackTrigger ControlID="btnupload" />
+            <asp:PostBackTrigger ControlID="btnSaveAndSend" />
+            
+            
         </Triggers>
     </asp:UpdatePanel>
 

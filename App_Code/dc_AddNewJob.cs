@@ -102,84 +102,15 @@ public class dc_AddNewJob
     #endregion
 
     #region Insert New Job in job table
-    public void InserJob(string JobNumber,
-        string WarmOrWarmPlus,
-        string DateAssigned,
-        string DateCompleted,
-        string AuditScheduleDate,
-        int UtilityCompany1,
-        int UtilityCompany2,
-        string FirstName,
-        string LastName,
-        string AccountNumber,
-        string MailingAddress1,
-        string ServiceAddress1,
-        string MailingCity,
-        string ServiceCity,
-        int MailingState,
-        int ServiceState,
-        string MailingZipCode,
-        string ServiceZipCode,
-        string Email,
-        string YearHomeBuilt,
-        int ServiceCounty,
-        string HomePhone,
-        string CellPhone,
-        int NumberOfOccupants,
-        string HeatSource,
-        string TypeOfHeat,
-        string WaterHeaterType,
-        string AirConditionerType,
-        string NumACUnits,
-        string YearlyKWHHours,
-        string JuneKWHHours,
-        string JulyKWHHours,
-        string AugustKWHHours,
-        string SeptemberKWHHours,
-        string Low1KWHHours,
-        string Low2KWHHours,
-        string BaseLoad,
-        string TWSeasonal,
-        string TSSeasonal,
-        string SpendingAllowance,
-        string ONTRACK,
-        string OwnerTenant,
-        string LandLordName,
-        string LandLordPhone,
-        string LLEmailOrFax,
-        string LLAddress,
-        string LLCity,
-        int LLState,
-        string LLZipCode,
-        string PCAP,
-        decimal PCapAmount,
-        string TODCUSTOMER,
-        string SSNumLast4,
-        string SummerSeasonalUse,
-        string WinterSeasonalUse,
-        string AnnualBaseUse,
-        string TotalAnnualUse,
-        string ContactDate,
-        string ContactTime,
-        int ContactType,
-        int ContactPerson,
-        int ContactResult,
-        string CWReturnDate,
-        bool Act129,
-        bool Act129II,
-        bool Inspection,
-        bool Remedial,
-        bool BaseLoadOnly,
-        bool HighPriority,
-        bool FullCost,
-        string Login,
-        bool LowCost,
-        string OnTrackAmount,
-        string WorkPhone,
-        decimal SeasonalSpendingAllowance,
-        string zone,
-        int Uid,
-    string JobVendor, string ShellAllowance, string RepairAllowance, string HealthAllowance, string BudgetAllowance)
+    public void InserJob(string JobNumber,string WarmOrWarmPlus,string DateAssigned,string DateCompleted,string AuditScheduleDate,int UtilityCompany1,int UtilityCompany2,
+        string FirstName,string LastName,string AccountNumber,string MailingAddress1,string ServiceAddress1,string MailingCity,string ServiceCity,int MailingState,int ServiceState,
+        string MailingZipCode,string ServiceZipCode,string Email,string YearHomeBuilt,int ServiceCounty,string HomePhone,string CellPhone,int NumberOfOccupants,string HeatSource,string TypeOfHeat,
+        string WaterHeaterType,string AirConditionerType,string NumACUnits,string YearlyKWHHours,string JuneKWHHours,string JulyKWHHours,string AugustKWHHours,string SeptemberKWHHours,string Low1KWHHours,
+        string Low2KWHHours,string BaseLoad,string TWSeasonal,string TSSeasonal,string SpendingAllowance,string ONTRACK,string OwnerTenant,string LandLordName,string LandLordPhone,string LLEmailOrFax,
+        string LLAddress,string LLCity,int LLState,string LLZipCode,string PCAP,decimal PCapAmount,string TODCUSTOMER,string SSNumLast4,string SummerSeasonalUse,string WinterSeasonalUse,
+        string AnnualBaseUse,string TotalAnnualUse,string ContactDate,string ContactTime, int ContactType,int ContactPerson,int ContactResult,string CWReturnDate,bool Act129,bool Act129II,
+        bool Inspection,bool Remedial,bool BaseLoadOnly,bool HighPriority,bool FullCost,string Login,bool LowCost,string OnTrackAmount,string WorkPhone,decimal SeasonalSpendingAllowance,string zone,
+        int Uid,string JobVendor, string ShellAllowance, string RepairAllowance, string HealthAllowance, string BudgetAllowance)
     {
         SqlCommand cmd = new SqlCommand();
         try
@@ -732,8 +663,11 @@ public class dc_AddNewJob
             cmd.Parameters.AddWithValue("@Comments", Comments);
             cmd.Parameters.AddWithValue("@CommentHeader", Commentheader);
             cmd.Parameters.AddWithValue("@UserLogin", UserLogin);
-            con.Open();
-            cmd.ExecuteNonQuery();
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+        int i= cmd.ExecuteNonQuery();
             con.Close();
 
         }

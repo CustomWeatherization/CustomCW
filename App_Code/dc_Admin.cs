@@ -495,6 +495,27 @@ public class dc_Admin
         return dt;
     }
 
+    public DataTable EmpDropDownInUserManager(string Manager)
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        try
+        {
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "View_Occurrences_Details";
+            cmd.Parameters.Add("@Mode", "Usr_sel_OnlyManager");
+            cmd.Parameters.Add("@Manager", Manager);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+        }
+        return dt;
+    }
+
 
 
 
@@ -734,7 +755,7 @@ public class dc_Admin
         }
     }
 
-    public DataTable All_PaidReportByDate(string monthTo, string monthFrom)
+    public DataTable All_PaidReportByDate(string monthTo, string monthFrom, string SearchChkNo)
     {
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
@@ -745,6 +766,7 @@ public class dc_Admin
             cmd.CommandText = "proc_PaidReportByDate";
             cmd.Parameters.AddWithValue("@monthFrom", monthFrom);
             cmd.Parameters.AddWithValue("@monthTo", monthTo);
+            cmd.Parameters.AddWithValue("@SearchChkNo", SearchChkNo);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
         }

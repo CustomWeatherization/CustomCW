@@ -22,6 +22,7 @@ public partial class Invoice_Crystal : System.Web.UI.Page
     public static string type = "";
     public Object NewInvoiceAmt_;
     public Object NewInvoiceAmtReason_;
+    
     public Object Comnt;
     public Object CONTRACTOR_AUDIT_TOTAL;
     public Object CUSTOM_MEASURES_TOTAL;
@@ -65,6 +66,7 @@ public partial class Invoice_Crystal : System.Web.UI.Page
             DateTime AsignDate = Convert.ToDateTime(dtAct.Rows[0]["DateAssigned"]);
             DateTime CmprAsignDate = Convert.ToDateTime("2016-01-01 00:00:00.000");
             ReportDocument reportdocument = new ReportDocument();
+           // CrystalReportViewer1 CrystalReportViewer = new CrystalReportViewer1();
             if (utility == 2)
             {
                 string sConstr = ConfigurationManager.ConnectionStrings["CWeatherCon"].ConnectionString;
@@ -102,8 +104,11 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                                     Question = "";
                                     Comment_ = "";
                                     NewInvoiceAmt_ = (Object)(NewInvoiceAmt);
-                                    NewInvoiceAmtReason_ = (Object)(Question);
-                                    Comnt = (Object)(Comment_);
+                                    if (Question != "" && Question != null)
+                                    {
+                                        NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                        Comnt = (Object)(Comment_);
+                                    }
                                 }
                             }
                             else
@@ -111,8 +116,11 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                                 if (Convert.ToString(dtZone.Rows[0]["PPlZone"]) != "3" || (Convert.ToString(dtZone.Rows[0]["PPlZone"]) == "3" && Convert.ToString(dtAct.Rows[0]["Act129"]) == "True"))
                                 {
                                     NewInvoiceAmt_ = (Object)("New invoice amount:                $" + NewInvoiceAmt);
-                                    NewInvoiceAmtReason_ = (Object)(Question);
-                                    Comnt = (Object)(Comment_);
+                                    if (Question != "" && Question != null)
+                                    {
+                                        NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                        Comnt = (Object)(Comment_);
+                                    }
                                 }
                             }
                         }
@@ -261,14 +269,24 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                                 Question = "";
                                 Comment_ = "";
                                 NewInvoiceAmt_ = (Object)(NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
                             }
                             else
                             {
                                 NewInvoiceAmt_ = (Object)("New invoice amount:                $" + NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
                             }
                         }
                     }
@@ -310,15 +328,25 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                                 Question = "";
                                 Comment_ = "";
                                 NewInvoiceAmt_ = (Object)(NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
                             }
                             else
                             {
                                
                                 NewInvoiceAmt_ = (Object)("New invoice amount:                $" + NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
                             }
                         }
                     }
@@ -360,14 +388,24 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                                 Question = "";
                                 Comment_ = "";
                                 NewInvoiceAmt_ = (Object)(NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
                             }
                             else
                             {
                                 NewInvoiceAmt_ = (Object)("New invoice amount:                $" + NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
                             }
                         }
                     }
@@ -433,15 +471,25 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                                 Question = "";
                                 Comment_ = "";
                                 NewInvoiceAmt_ = (Object)(NewInvoiceAmt);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
                             }
                             else
                             {
                                 NewInvoiceAmt_ = (Object)("New invoice amount:                $" + NewInvoiceAmt);
                               //  NewInvoiceAmtReason_ = (Object)("Invoiced amount changed because:  " + Question);
-                                NewInvoiceAmtReason_ = (Object)(Question);
-                                Comnt = (Object)(Comment_);
+                                //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                //Comnt = (Object)(Comment_);
+                                if (Question != "" && Question != null)
+                                {
+                                    NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                    Comnt = (Object)(Comment_);
+                                }
                             }
                         }
                     }
@@ -514,15 +562,25 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                             Question = "";
                             Comment_ = "";
                             NewInvoiceAmt_ = (Object)(NewInvoiceAmt);
-                            NewInvoiceAmtReason_ = (Object)(Question);
-                            Comnt = (Object)(Comment_);
+                            //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                            //Comnt = (Object)(Comment_);
+                            if (Question != "" && Question != null)
+                            {
+                                NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                Comnt = (Object)(Comment_);
+                            }
                         }
                         else
                         {
                             NewInvoiceAmt_ = (Object)("New invoice amount:                $" + NewInvoiceAmt);
                             //NewInvoiceAmtReason_ = (Object)("Invoiced amount changed because:  " + Question);
-                            NewInvoiceAmtReason_ = (Object)(Question);
-                            Comnt = (Object)(Comment_);
+                            //NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                            //Comnt = (Object)(Comment_);
+                            if (Question != "" && Question != null)
+                            {
+                                NewInvoiceAmtReason_ = (Object)("Invoice amount changed because: " + Question);
+                                Comnt = (Object)(Comment_);
+                            }
                         }
                     }
                 }
@@ -536,6 +594,7 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                     //reportdocument.Load(Server.MapPath("~/invoice_Report/PrivateEstimate.rpt"));
                     reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_Staging");
                  //   reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM16", "CW_Staging");
+                  //  reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_DEMO");
                     //reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM-2016\\SQLEXPRESS2014", "CW_Staging");
                     //reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "IP-192-169-235-\\MSSQLSERVER2014", "CW_Staging");
                     //c//reportdocument.SetDatabaseLogon("synoris_admin", "fee1G0oD", "98.130.254.204", "synoris_cwether");
@@ -553,8 +612,9 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                     reportdocument.SetParameterValue("Comnt", Comnt);
                 }
             }
-            //reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM16", "CW_DEMO");
+           // reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM16", "CW_DEMO");
             reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_Staging");
+           // reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_DEMO");
           //  reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM16", "CW_Staging");
             //reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM-2016\\SQLEXPRESS2014", "CW_Staging");
             //reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "IP-192-169-235-\\MSSQLSERVER2014", "CW_Staging");

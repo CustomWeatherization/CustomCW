@@ -21,9 +21,11 @@ public partial class Admin_RecivePayment : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            txt_Date.Text = DateTime.Now.ToString("MM/dd/yyyy");
             if (Convert.ToString(Request.QueryString["VUrl"]) != "" && Request.QueryString["VUrl"] != null)
             {
                 string VUrl = Convert.ToString(Request.QueryString["VUrl"]);
+
                 //RF=PPL Z1*D=6/8/2015*A=$1,544*PT=Cheque*CH=51561*AllId= -chk_RecivePayment@105-chk_RecivePayment@106
                 string[] URL = VUrl.Split('*');
                 for (int i = 0; i < URL.Length; i++)

@@ -34,7 +34,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
     public static double Healthallowance = 650.0;
     public static double BudgetAllowance = 0.0;
     public static double OtherAllowance = 0.0;
-    //string ShellAllowance = "";
+    // string ShellAllowance = "";
     //string RepairAllowance = "";
     //string Healthallowance = "";
     //string BudgetAllowance = "";
@@ -42,7 +42,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
     {
 
         //tanveer
-        OtherAllowance = 0.0;
+        //  OtherAllowance = 0.0;
         hed_link.Visible = true;
         smUtil objSm = new smUtil();
         string role = "";
@@ -54,12 +54,13 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         //end
         if (!IsPostBack)
         {
+            OtherAllowance = 0.0;
             count = 0;
             MakeDataTableForInsert();
             ShowAllCategory();
             ShowLaborRate();
             ShowDataN(Request.QueryString["Jobs"].ToString());
-         
+
             GetCompletedDate(Request.QueryString["Jobs"].ToString());
             dtU = objNewJob.ShowJobByJobNumber_ByJobNumber(Convert.ToString(Request.QueryString["Jobs"]));
 
@@ -76,13 +77,13 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
 
             }
 
-            lblShellAllowance.Text = "$" + string.Format("{0:0.00}",ShellAllowance);
-            lblRepairAllowance.Text = "$" + string.Format("{0:0.00}",RepairAllowance);
-            lblHsAllowance.Text = "$" + string.Format("{0:0.00}",Healthallowance);
-            lblBudgetAllowance.Text = "$" +string.Format("{0:0.00}", BudgetAllowance);
-            lblOtherAllowance.Text = "$" + string.Format("{0:0.00}",OtherAllowance);
+            lblShellAllowance.Text = "$" + string.Format("{0:0.00}", ShellAllowance);
+            lblRepairAllowance.Text = "$" + string.Format("{0:0.00}", RepairAllowance);
+            lblHsAllowance.Text = "$" + string.Format("{0:0.00}", Healthallowance);
+            lblBudgetAllowance.Text = "$" + string.Format("{0:0.00}", BudgetAllowance);
+            lblOtherAllowance.Text = "$" + string.Format("{0:0.00}", OtherAllowance);
             ViewStatePageLoad();
-           
+
         }
     }
 
@@ -148,47 +149,59 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         drModelDetails.CopyToDataTable<DataRow>(dt1, LoadOption.Upsert);
         grdContainOfInvoice.DataSource = dt1;
         grdContainOfInvoice.DataBind();
+        BindLeftAllowance();
 
+
+        return dt1;
+    }
+
+    void BindLeftAllowance()
+    {
         double RepairLeftAllowance = RepairAllowance;
         double HealthLeftallowance = Healthallowance;
         double ShellLeftAllowance = ShellAllowance;
         double OtherLeftAllowance = OtherAllowance;
-        
-        double BudgetLeftAllowance = 0.0;
 
-        for (int i = 0; i < dt1.Rows.Count; i++)
+        double BudgetLeftAllowance = 0.0;
+        DataSet dt1 = objInvoice.LeftAllowanceCount(Request.QueryString["Jobs"].ToString(), Convert.ToInt32(Request.QueryString["InvoiceNo"]), Convert.ToInt32(Request.QueryString["Utility"]));
+
+        //for (int i = 0; i < dt1.Rows.Count; i++)
+        //{
+
+        if (!DBNull.Value.Equals(dt1.Tables[0].Rows[0]["Shell"]))
+        {
+            //if (dt1.Rows[i]["TypeOfMeasure"].ToString().Trim() == "Repair")
+            //{
+            ShellLeftAllowance = Convert.ToDouble(ShellAllowance) - Convert.ToDouble(dt1.Tables[0].Rows[0]["Shell"].ToString());
+            // RepairAllowance = Convert.ToDouble(RepairAllowance) - Convert.ToDouble(dt1.Rows[i]["Total"]);                    
+        }
+
+        if (!DBNull.Value.Equals(dt1.Tables[1].Rows[0]["HS"]))
         {
 
-            if (!DBNull.Value.Equals(dt1.Rows[i]["TypeOfMeasure"]))
-            {
-                if (dt1.Rows[i]["TypeOfMeasure"].ToString().Trim() == "Repair")
-                {
-                    RepairLeftAllowance = Convert.ToDouble(RepairLeftAllowance) - Convert.ToDouble(dt1.Rows[i]["Total"]);                    
-                }
-                if (dt1.Rows[i]["TypeOfMeasure"].ToString().Trim() == "H & S")
-                {
-                   
-                    HealthLeftallowance = Convert.ToDouble(HealthLeftallowance) - Convert.ToDouble(dt1.Rows[i]["Total"]);                    
-                }
-                if (dt1.Rows[i]["TypeOfMeasure"].ToString().Trim() == "Shell")
-                {
-                    ShellLeftAllowance = Convert.ToDouble(ShellLeftAllowance) - Convert.ToDouble(dt1.Rows[i]["Total"]);                    
-                }
-                if (dt1.Rows[i]["TypeOfMeasure"].ToString().Trim() == "Other")
-                {
-                    OtherLeftAllowance = Convert.ToDouble(dt1.Rows[i]["Total"]) + Convert.ToDouble(OtherLeftAllowance);
-                }
-         
-            }            
+            HealthLeftallowance = Convert.ToDouble(Healthallowance) - Convert.ToDouble(dt1.Tables[1].Rows[0]["HS"].ToString());
+            // Healthallowance = Convert.ToDouble(Healthallowance) - Convert.ToDouble(dt1.Rows[i]["Total"]);                    
         }
+        if (!DBNull.Value.Equals(dt1.Tables[2].Rows[0]["Repair"]))
+        {
+            RepairLeftAllowance = Convert.ToDouble(RepairAllowance) - Convert.ToDouble(dt1.Tables[2].Rows[0]["Repair"].ToString());
+            // ShellAllowance = Convert.ToDouble(ShellAllowance) - Convert.ToDouble(dt1.Rows[i]["Total"]);                    
+        }
+        if (!DBNull.Value.Equals(dt1.Tables[3].Rows[0]["Other"]))
+        {
+            OtherLeftAllowance = Convert.ToDouble(dt1.Tables[3].Rows[0]["Other"].ToString());
+            // OtherAllowance = Convert.ToDouble(dt1.Rows[i]["Total"]) + Convert.ToDouble(OtherAllowance);
+        }
+
+        //}
+        // }
         lblRepairLeftAllowance.Text = "$" + string.Format("{0:0.00}", RepairLeftAllowance);
         lblleftHsAllowance.Text = "$" + string.Format("{0:0.00}", HealthLeftallowance);
         lblShellleftAllowance.Text = "$" + string.Format("{0:0.00}", ShellLeftAllowance);
         lblOtherAllowance.Text = "$" + string.Format("{0:0.00}", OtherLeftAllowance);
-        BudgetLeftAllowance = RepairLeftAllowance + HealthLeftallowance + ShellLeftAllowance ;
-        lblBudgetLeftAllwance.Text = "$"+string.Format("{0:0.00}", BudgetLeftAllowance);
-        
-        return dt1;
+        BudgetLeftAllowance = RepairLeftAllowance + HealthLeftallowance + ShellLeftAllowance;
+        // BudgetLeftAllowance = BudgetAllowance - BudgetLeftAllowance;
+        lblBudgetLeftAllwance.Text = "$" + string.Format("{0:0.00}", BudgetLeftAllowance);
     }
     void createCatgOrder()
     {
@@ -252,7 +265,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
             trEditTypeMeasure.Style.Add("display", "table-row");
             trEditDescLoc.Style.Add("display", "table-row");
             ddlTypeMeasure.SelectedIndex = 0;
-            
+
             txt_MEASURE_DESCRIPTION.Text = txtEditCost.Text = txtEditLabor.Text = txt_Qty.Text = txt_Location.Text = txt_Liurp.Text = txt_Unit.Text = txt_LaborRate.Text = txt_THW.Text = txt_TMC.Text = txt_Total.Text = "";
             BindSubCatDDL(CatId);
         }
@@ -312,7 +325,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         int NoOfInvoice = 0;
         string Location, TypeOfMeasure, LiurpCode, Unit, LaborRate, CostPerUnit, QTY, Total, RowType, JobNumber, THW, TMC, SubCatName, Desc, LR, Description;
         Location = TypeOfMeasure = LiurpCode = Unit = LaborRate = CostPerUnit = QTY = Total = RowType = JobNumber = THW = TMC = SubCatName = Desc = LR = Description = "";
-       
+
         DataTable dt_Fill = new DataTable();
         //JobNumber = Convert.ToString(JobNumber);
 
@@ -360,7 +373,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
                     SubCatName = SubCatName.Substring(0, pos);
                     LR = "";
                     Description = txtSDesc.Text;
-                   
+
                 }
                 else
                 {
@@ -387,7 +400,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
                 Total = txt_Total.Text;
                 Total = Total.TrimStart('$');
                 Description = txtCDesc.Text;
-                
+
             }
             if (btnSave.Text == "Add Row")
             {
@@ -403,10 +416,10 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
                 {
                     count = count + 1;
                 }
-                 if (ddlTypeMeasureStandard.SelectedItem.Text != "Select Measure Type")
-                 {
-                   TypeOfMeasure = ddlTypeMeasureStandard.SelectedItem.Text.Trim();
-                 }
+                if (ddlTypeMeasureStandard.SelectedItem.Text != "Select Measure Type")
+                {
+                    TypeOfMeasure = ddlTypeMeasureStandard.SelectedItem.Text.Trim();
+                }
                 string UsrId = Convert.ToString(dt_no.Rows[0]["UsrID"]);
                 DataTable dt_Insert = (DataTable)ViewState["InsertTable"];
                 DataRow rowInt = dt_Insert.NewRow();
@@ -479,7 +492,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
                 rowCatgOrder["JobNum"] = Convert.ToString(Request.QueryString["Jobs"]);
                 dt_CatgOrder.Rows.Add(rowCatgOrder);
                 ViewState["catGOrder"] = dt_CatgOrder;
-                
+
 
             }
             else if (btnSave.Text == "Update Row")
@@ -649,7 +662,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
                     abc();
                     BindSubCatDDL(CatId);
                     Response.Write("<script>alert('Record Updated');</script>");
-                   // DDl_MEASURE_DESCRIPTION.SelectedIndex = 0;
+                    // DDl_MEASURE_DESCRIPTION.SelectedIndex = 0;
                 }
             }
             txt_Qty.Text = "";
@@ -883,7 +896,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
             }
             else if (Convert.ToString(dt.Rows[0]["RowType"]) == "C")
             {
-              //  trEditDescLoc.Visible = false;
+                //  trEditDescLoc.Visible = false;
                 rdo_Standard.Checked = false;
                 rdo_Custom.Checked = true;
                 courier.Style.Add("display", "block");
@@ -1203,13 +1216,13 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
         ddlTypeMeasureStandard.SelectedIndex = 0;
         int SubCatId = Convert.ToInt32(DDl_MEASURE_DESCRIPTION.SelectedValue);
         DataTable dt__Fill = new DataTable();
-      string  SubCatName1 = Convert.ToString(DDl_MEASURE_DESCRIPTION.SelectedItem);
+        string SubCatName1 = Convert.ToString(DDl_MEASURE_DESCRIPTION.SelectedItem);
         int lenghth = Convert.ToInt32(SubCatName1.Length);
         var pos = 2 + (SubCatName1.IndexOf('-'));
-       string  SubCat = SubCatName1.Substring(pos, lenghth - pos);
-       pos = (SubCat.IndexOf('$')) - 3;
-       SubCat = SubCat.Substring(0, pos);
-       var amount = SubCatName1.Substring(SubCatName1.LastIndexOf('-') + 3);
+        string SubCat = SubCatName1.Substring(pos, lenghth - pos);
+        pos = (SubCat.IndexOf('$')) - 3;
+        SubCat = SubCat.Substring(0, pos);
+        var amount = SubCatName1.Substring(SubCatName1.LastIndexOf('-') + 3);
 
         if (Convert.ToString(ViewState["PPlZone"]) == "1" || Convert.ToString(ViewState["PPlZone"]) == "2")
         {
@@ -1240,7 +1253,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
             {
                 txtSDesc.Text = DDl_MEASURE_DESCRIPTION.SelectedItem.Text;
             }
-                       
+
             for (int i = 0; i < dt__Fill.Rows.Count; i++)
             {
                 if (!DBNull.Value.Equals(dt__Fill.Rows[i]["SubCatName"]) && Convert.ToString(dt__Fill.Rows[i]["SubCatName"]) != "" && (!DBNull.Value.Equals(dt__Fill.Rows[i]["costPerUnit"]) && Convert.ToString(dt__Fill.Rows[i]["costPerUnit"]) != ""))
@@ -1252,7 +1265,7 @@ public partial class PPLAudit_AddOrManageInvoice : System.Web.UI.Page
 
                         if (!DBNull.Value.Equals(dt__Fill.Rows[i]["TypeOfMeasure"]) && Convert.ToString(dt__Fill.Rows[i]["TypeOfMeasure"]) != "")
                         {
-                            string measure = dt__Fill.Rows[i]["TypeOfMeasure"].ToString();
+                            string measure = dt__Fill.Rows[i]["TypeOfMeasure"].ToString().Trim();
 
                             ddlTypeMeasureStandard.SelectedValue = ddlTypeMeasureStandard.Items.FindByText(measure).Value;
                         }

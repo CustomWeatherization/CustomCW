@@ -2311,13 +2311,17 @@ public partial class AddNewJob : System.Web.UI.Page
                     InsertVendorContactAttempt();
                     strJobNumber = Request.QueryString["Jobs"].ToString();
                     //objNewJob.InsertJobComments(strJobNumber, txtCommentsSendAnd.Text, "", objUserName.ToString());
-                   // showComments();
+                    // showComments();
                     ShowContactAttempt();
                     txtCommentsSendAnd.Text = "";
 
                     lblMsg.Visible = true;
                     lblMsg.Text = "Comment Post Successfully";
                     pnlSuccessMsg_ModalPopupExtender.Show();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Comment Post Successfully');</script>");                
                 }
 			}
 			FillImployee();

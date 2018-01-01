@@ -29,7 +29,8 @@ public partial class EmployeeTimeTracking : System.Web.UI.Page
     }
     public void BindTimeClock()
     {
-        string Emplid = objSm.GetCookie("UsrRegisterId");
+       // string Emplid = objSm.GetCookie("UsrRegisterId");
+        string Emplid =txtPasscode.Text.Trim();
         string cuurentdate = DateTime.Now.ToShortDateString();
 
 
@@ -84,9 +85,11 @@ public partial class EmployeeTimeTracking : System.Web.UI.Page
         DateTime dt = Convert.ToDateTime(Convert.ToString(DateTime.Now));//.AddHours(1).Add(eastern.BaseUtcOffset - local.BaseUtcOffset)));
         string emp_id = EmpIdbyPscd(txtPasscode.Text);
         if (emp_id != "")
-        {            
-            string Emplid = objSm.GetCookie("UsrRegisterId");
+        {
+           // string Emplid = objSm.GetCookie("UsrRegisterId");
+            string Emplid = txtPasscode.Text.Trim();
             string cuurentdate = DateTime.Now.ToShortDateString();
+          //  DataTable dt1 = UserDetails(Emplid, cuurentdate);
             DataTable dt1 = UserDetails(Emplid, cuurentdate);
             if (dt1.Rows.Count > 0)
             {
@@ -257,10 +260,11 @@ public partial class EmployeeTimeTracking : System.Web.UI.Page
             
             //if (result == true)
             //{
-                string Emplid = objSm.GetCookie("UsrRegisterId");
+          //  string Emplid = objSm.GetCookie("UsrRegisterId");
+            string Emplid = txtPasscode.Text.Trim();
                 string cuurentdate = DateTime.Now.ToShortDateString();
                 DataTable dt1 = UserDetails(Emplid, cuurentdate);
-
+            
                 if (dt1.Rows.Count > 0)
                 {
                     string Emp_Id = dt1.Rows[0]["Emp_Id"].ToString();
@@ -399,7 +403,8 @@ public partial class EmployeeTimeTracking : System.Web.UI.Page
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@Mode", "UserTimeDetails");
         cmd.Parameters.AddWithValue("@Date", date);
-        cmd.Parameters.AddWithValue("@EmpId", Emplid); 
+       // cmd.Parameters.AddWithValue("@EmpId", Emplid);
+        cmd.Parameters.AddWithValue("@Passcode", Emplid); 
         SqlDataAdapter daPascd = new SqlDataAdapter(cmd);
         daPascd.Fill(DtUserDetails);
         return DtUserDetails;

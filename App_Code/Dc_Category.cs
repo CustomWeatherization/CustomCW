@@ -542,6 +542,23 @@ public class Dc_Category
         return dt;
     }
 
+    public DataTable ViewSelctedEmployeeOcurDetailsManager(string id)
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "dbo.View_Occurrences_Details";
+        cmd.Parameters.Add("@Mode", "View_Occu_Detl_Manager");
+        cmd.Parameters.Add("@EmpLogin", id);
+
+        con.Open();
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        con.Close();
+        return dt;
+    }
+
     public DataTable ViewOccurencesDetails_User(string id)
     {
         DataTable dt = new DataTable();
@@ -752,6 +769,33 @@ public class Dc_Category
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "proc_ShowUserRegister";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+        }
+        catch (Exception ex)
+        {
+        }
+        finally
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+        }
+
+        return dt;
+    }
+
+    public DataTable GetUseManagerCount(string Manager)
+    {
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        try
+        {
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "proc_ShowUserManagerCount";
+            cmd.Parameters.AddWithValue("@Manager", Manager);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
         }

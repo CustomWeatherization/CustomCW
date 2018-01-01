@@ -111,10 +111,13 @@ public partial class ClientMaster : System.Web.UI.MasterPage
                 {
                     case 1:
                         DataTable dt = objCat.ViewOccurencesDetails_DateTime(obj, "", "", "", "SelectLastDate");
+                        if(!DBNull.Value.Equals(dt.Rows[0]["maxdate"]))
+                        {
                         DateTime LastAproveDate = Convert.ToDateTime(dt.Rows[0]["maxdate"]);
                         txtFromDateOccur.Text = LastAproveDate.ToString("MM/dd/yyyy");
                         txtToDateOccur.Text = LastAproveDate.ToString("MM/dd/yyyy");
                         CommonFilter(Convert.ToString(LastAproveDate), Convert.ToString(LastAproveDate));
+                        }
                         break;
                     case 2:
                         DateTime firstOfThisMonth = new DateTime(FilterDate.Year, FilterDate.Month, 1);
@@ -359,7 +362,6 @@ public partial class ClientMaster : System.Web.UI.MasterPage
                     double TotalHoursTaken = Convert.ToDouble(MaxVacationHours) - TotalHours;
 
                     lblTotalHours.Text = TotalHoursTaken + " " + "Hr. Taken" + " " + "----" + " " + PendingHours + " " + "Hr. Pending -" + " " + ApproveHours + " " + "Hr. Approved -" + TotalHours + " " + "Hr. Available";
-
                     lblHolidaySinceJoining.Text = !DBNull.Value.Equals(ds.Tables[2].Rows[0]["HoidayJoining"]) ? Convert.ToString(ds.Tables[2].Rows[0]["HoidayJoining"]) + " " + "Hr." : "0 Hr.";
 
                     lblHolidayThisYear.Text = !DBNull.Value.Equals(ds.Tables[3].Rows[0]["HolidayThisYear"]) ? Convert.ToString(ds.Tables[3].Rows[0]["HolidayThisYear"]) + " " + "Hr." : "0 Hr.";
@@ -383,15 +385,18 @@ public partial class ClientMaster : System.Web.UI.MasterPage
                     //  lblHolidayPaySinceJoin.Text = !DBNull.Value.Equals(ds.Tables[12].Rows[0]["HolidayPayJoining"]) ? Convert.ToString(ds.Tables[12].Rows[0]["HolidayPayJoining"]) + " " : "0";
                     lblHolidayPaySinceJoin.Text = !DBNull.Value.Equals(ds.Tables[21].Rows[0]["DayJoining"]) ? Convert.ToString(ds.Tables[21].Rows[0]["DayJoining"]) : "0";
                     lblHolidayPayThisYear.Text = !DBNull.Value.Equals(ds.Tables[20].Rows[0]["DayThisYear"]) ? Convert.ToString(ds.Tables[20].Rows[0]["DayThisYear"]) : "0";
-
-                    lblOccurencesSinceJoinng.Text = !DBNull.Value.Equals(ds.Tables[14].Rows[0]["OccurencesJoining"]) ? Convert.ToString(ds.Tables[14].Rows[0]["OccurencesJoining"]) : "0";
-
-                    lblOccurencesThisYear.Text = !DBNull.Value.Equals(ds.Tables[15].Rows[0]["OccurencesThisYear"]) ? Convert.ToString(ds.Tables[15].Rows[0]["OccurencesThisYear"]) : "0";
-
                     lblUnpaidSicknessSinceJoinning.Text = !DBNull.Value.Equals(ds.Tables[16].Rows[0]["UnpaidSicknessJoining"]) ? Convert.ToString(ds.Tables[16].Rows[0]["UnpaidSicknessJoining"]) + " " + "Hr." : "0 Hr.";
 
                     lblUnpaidSicknessThisYear.Text = !DBNull.Value.Equals(ds.Tables[17].Rows[0]["UnpaidSicknessThisYear"]) ? Convert.ToString(ds.Tables[17].Rows[0]["UnpaidSicknessThisYear"]) + " " + "Hr." : "0 Hr.";
+
                 }
+
+      
+                lblOccurencesSinceJoinng.Text = !DBNull.Value.Equals(ds.Tables[14].Rows[0]["OccurencesJoining"]) ? Convert.ToString(ds.Tables[14].Rows[0]["OccurencesJoining"]) : "0";
+
+                lblOccurencesThisYear.Text = !DBNull.Value.Equals(ds.Tables[15].Rows[0]["OccurencesThisYear"]) ? Convert.ToString(ds.Tables[15].Rows[0]["OccurencesThisYear"]) : "0";
+
+              
                 if (Convert.ToString(dt.Rows[0]["Salary"]) == "")
                 {
                     lblSalary.Text = "Not Available";
@@ -560,8 +565,10 @@ public partial class ClientMaster : System.Web.UI.MasterPage
     {
         string role = "";
         role = objSm.GetCookie("Rol_Id");
+
         if (role == "Admin" || role == "Usr_Adm")
             Response.Redirect("admin/Admin_Unfinalize.aspx");
+
         else
             Response.Write("<script>alert('You do not have to Access Administer Database');</script>");
     }

@@ -360,6 +360,22 @@ public class Dc_AddORManageInvoice
         return dt;
     }
 
+    public DataSet LeftAllowanceCount(string JobNumber, int Invoice, int Utility)
+    {
+      //  DataTable dt = new DataTable();
+        DataSet dt = new DataSet();
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "proc_SumCountOfAllAllowance";
+        cmd.Parameters.AddWithValue("@Job_No", JobNumber);
+        cmd.Parameters.AddWithValue("@Invoice_No", Invoice);
+        cmd.Parameters.AddWithValue("@Utility_No", Utility);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(dt);
+        return dt;
+    }
+
     public void InsertOrUpdatePaidAmount(int NoOfInvoice, string JobNumber, string PaidInvAmt, int Utility)
     {
         SqlCommand cmd = new SqlCommand();

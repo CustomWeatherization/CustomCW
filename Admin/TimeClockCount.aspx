@@ -2,7 +2,8 @@
     AutoEventWireup="true" CodeFile="TimeClockCount.aspx.cs" Inherits="Admin_TimeClockCount" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-<%--<%@ Register Assembly="TimePicker" Namespace="MKB.TimePicker" TagPrefix="cc1" %>--%>
+
+<%@ Register Assembly="TimePicker" Namespace="MKB.TimePicker" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 
     <style>
@@ -17,6 +18,17 @@
             border-radius: 5px;
             padding: 8px;
             width: 30px;
+            margin: 6px 0 5px 0;
+        }
+        .textbox90
+        {
+            border: 1px solid #ccc;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #717171;
+            border-radius: 5px;
+            padding: 8px;
+            width: 65px;
             margin: 6px 0 5px 0;
         }
         .Background
@@ -67,17 +79,22 @@
             border-color: black;
             padding-left: 10px;
             width: 380px;
-            height: 300px;
+            height: 450px;
             border-radius: 10px;
         }
-        
+        .timepicker span table tbody tr td input 
+        { 
+            font-size:larger !important;
+            height:29px !important;
+            width:45px !important;
+        }
+        .timepicker span table tbody tr td img
+        {    margin-bottom: 5px;
+             margin-top:4px
+        	
+        	}
     </style>
-    <script>
-        $(function() {
 
-            $(document).tooltip({ html: true });
-        });
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <%--<asp:GridView ID="grdEmployeTimeTracking" runat="server">
@@ -101,6 +118,7 @@
                     ID="CalendarExtender1" runat="server" TargetControlID="txtFromDate">
                 </ajaxToolkit:CalendarExtender>
             </td>
+            
             <td>
                 <asp:TextBox ID="txtToDate" Width="180px" runat="server" CssClass="textbox88" placeholder="To Date"></asp:TextBox><ajaxToolkit:CalendarExtender
                     ID="CalendarExtender2" runat="server" TargetControlID="txtToDate">
@@ -185,7 +203,7 @@
                                                     <%--  <asp:Label ID="lblSwipeIn1" runat="server" Text='<%#Eval("SwipeIn1")%>' ></asp:Label>--%>
                                                     <asp:Label ID="lblSwipeIn1" runat="server" Text='<%#Eval("SwipeIn1")%>'></asp:Label>                                                   
                                                  
-                                                    <asp:Image  ID="commentin1" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment1")) ? ((Eval("InComment1")!="" && Eval("InComment1")!="&nbsp" )?"images/architetto_FEVICON.png":"") : "" %>' title='<%#Eval("InComment1")%>' />
+                                                    <asp:Image  ID="commentin1" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment1")) ? ((Eval("InComment1")!="" && Eval("InComment1")!="&nbsp" )?"images/info-xxl.png":"") : "" %>' title='<%#Eval("InComment1")%>' />
                                                  
                                                 </ItemTemplate>
                                             </asp:TemplateField>
@@ -194,7 +212,7 @@
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblSwipeOut1" runat="server" Text='<%#Eval("SwipeOut1")%>'></asp:Label>
                                              
-                                                    <asp:Image ID="commentout1" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment1")) ? ( (Eval("OutComment1")!="" && Eval("OutComment1")!="&nbsp")?"images/architetto_FEVICON.png":"") : "" %>' title='<%#Eval("OutComment1")%>'/>
+                                                    <asp:Image ID="commentout1" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment1")) ? ( (Eval("OutComment1")!="" && Eval("OutComment1")!="&nbsp")?"images/info-xxl.png":"") : "" %>' title='<%#Eval("OutComment1")%>'/>
                                                    
                                                 </ItemTemplate>
                                             </asp:TemplateField>
@@ -202,7 +220,7 @@
                                                 <ItemStyle Width="12%" />
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblSwipeIn2" runat="server" Text='<%#Eval("SwipeIn2")%>'></asp:Label>
-                                                      <asp:Image ID="commentin2" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment2")) ? ((Eval("InComment2")!="" && Eval("InComment2")!="&nbsp")?"images/architetto_FEVICON.png":"") : "" %>' title='<%#Eval("InComment2")%>'/>
+                                                      <asp:Image ID="commentin2" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment2")) ? ((Eval("InComment2")!="" && Eval("InComment2")!="&nbsp")?"images/info-xxl.png":"") : "" %>' title='<%#Eval("InComment2")%>'/>
                                                      <%--<asp:Image ID="commentin2" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment2")) ?  Eval("InComment2") : "images/architetto_FEVICON.png" %>' />--%>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
@@ -210,7 +228,7 @@
                                                 <ItemStyle Width="12%" />
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblSwipeOut2" runat="server" Text='<%#Eval("SwipeOut2")%>'></asp:Label>
-                                                       <asp:Image ID="commentout2" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment2")) ? ( (Eval("OutComment2")!="" && Eval("OutComment2")!="&nbsp")?"images/architetto_FEVICON.png":"") : "" %>' title='<%#Eval("OutComment2")%>' />
+                                                       <asp:Image ID="commentout2" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment2")) ? ( (Eval("OutComment2")!="" && Eval("OutComment2")!="&nbsp")?"images/info-xxl.png":"") : "" %>' title='<%#Eval("OutComment2")%>' />
                                                     <%--<asp:Image ID="commentin2" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment2")) ?  Eval("OutComment2") : "images/architetto_FEVICON.png" %>' />--%>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
@@ -219,7 +237,7 @@
                                                 <ItemStyle Width="12%" />
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblSwipeIn3" runat="server" Text='<%#Eval("SwipeIn3")%>'></asp:Label>
-                                                    <asp:Image ID="commentin3" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment3")) ? ( (Eval("InComment3")!="" && Eval("InComment3")!="&nbsp")?"images/architetto_FEVICON.png":"") : "" %>' title='<%#Eval("InComment3")%>'/>
+                                                    <asp:Image ID="commentin3" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment3")) ? ( (Eval("InComment3")!="" && Eval("InComment3")!="&nbsp")?"images/info-xxl.png":"") : "" %>' title='<%#Eval("InComment3")%>'/>
                                                       <%--<asp:Image ID="commentin3" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("InComment3")) ?  Eval("InComment3") : "images/architetto_FEVICON.png" %>' />--%>
                                                 </ItemTemplate>
                                                 <FooterTemplate>
@@ -236,7 +254,7 @@
                                                 <ItemStyle Width="12%" />
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblSwipeOut3" runat="server" Text='<%#Eval("SwipeOut3")%>'></asp:Label>
-                                                   <asp:Image ID="commentout3" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment3")) ? ( (Eval("OutComment3")!="" && Eval("OutComment3")!="&nbsp")?"images/architetto_FEVICON.png":"") : "" %>'  title='<%#Eval("OutComment3")%>'/>
+                                                   <asp:Image ID="commentout3" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment3")) ? ( (Eval("OutComment3")!="" && Eval("OutComment3")!="&nbsp")?"images/info-xxl.png":"") : "" %>'  title='<%#Eval("OutComment3")%>'/>
                                                       <%--<asp:Image ID="commentout3" runat="server" ImageUrl='<%#!DBNull.Value.Equals(Eval("OutComment3")) ?  Eval("OutComment3") : "images/architetto_FEVICON.png" %>' />--%>
                                                 </ItemTemplate>
                                                 <FooterTemplate>
@@ -316,6 +334,7 @@
                         <ajaxToolkit:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="txtDate">
                         </ajaxToolkit:CalendarExtender>
                     </td>
+                   
                 </tr>
             </table>
             <br />
@@ -329,12 +348,98 @@
                     <RowStyle BackColor="#A1DCF2" ForeColor="#3A3A3A"></RowStyle>
                     <Columns>
                         <asp:TemplateField HeaderText="Sign In">
-                        <ItemStyle Width="15%" />
+                        <ItemStyle Width="20%" />
                             <ItemTemplate>
-                           
-                                <asp:TextBox ID="txtSwipeIn" Width="80px" runat="server" Text='<%#Eval("SwipeIn")%>' CssClass="textbox88"></asp:TextBox>
-                                <br />
-                                  <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ValidationGroup="G" ControlToValidate="txtSwipeIn" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"></asp:RegularExpressionValidator> 
+                           <%--<asp:HiddenField ID="hdnswipetime" value='<%#Eval("SwipeIn")%>' runat="server" />--%>
+                             <%--   <asp:TextBox ID="txtSwipeIn" Width="80px" runat="server" Text='<%#Eval("SwipeIn")%>' CssClass="textbox88"></asp:TextBox> <br />--%>
+                               <asp:DropDownList ID="ddlHoursFromTime" CssClass="textbox90" ValidationGroup="R"
+                                            runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                            <asp:ListItem Text="01" Value="01" />
+                                            <asp:ListItem Text="02" Value="02" />
+                                            <asp:ListItem Text="03" Value="03" />
+                                            <asp:ListItem Text="04" Value="04" />
+                                            <asp:ListItem Text="05" Value="05" />
+                                            <asp:ListItem Text="06" Value="06" />
+                                            <asp:ListItem Text="07" Value="07" />
+                                            <asp:ListItem Text="08" Value="08" />
+                                            <asp:ListItem Text="09" Value="09" />
+                                            <asp:ListItem Text="10" Value="10" />
+                                            <asp:ListItem Text="11" Value="11" />
+                                            <asp:ListItem Text="12" Value="12" />
+                                           
+                                        </asp:DropDownList>
+                                          <asp:DropDownList ID="ddlMinuteFromTime" AppendDataBoundItems="true" CssClass="textbox90" runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                           <asp:ListItem Text="01" Value="01" />
+                                           <asp:ListItem Text="02" Value="02" />
+                                           <asp:ListItem Text="03" Value="03" />
+                                           <asp:ListItem Text="04" Value="04" />
+                                           <asp:ListItem Text="05" Value="05" />
+                                           <asp:ListItem Text="06" Value="06" />
+                                           <asp:ListItem Text="07" Value="07" />
+                                           <asp:ListItem Text="08" Value="08" />
+                                           <asp:ListItem Text="09" Value="09" />
+                                           <asp:ListItem Text="10" Value="10" />
+                                           <asp:ListItem Text="11" Value="11" />
+                                           <asp:ListItem Text="12" Value="12" />
+                                           <asp:ListItem Text="13" Value="13" />
+                                           <asp:ListItem Text="14" Value="14" />
+                                           <asp:ListItem Text="15" Value="15" />
+                                           <asp:ListItem Text="16" Value="16" />
+                                           <asp:ListItem Text="17" Value="17" />
+                                           <asp:ListItem Text="18" Value="18" />
+                                           <asp:ListItem Text="19" Value="19" />
+                                           <asp:ListItem Text="20" Value="20" />
+                                           <asp:ListItem Text="21" Value="21" />
+                                           <asp:ListItem Text="22" Value="22" />
+                                           <asp:ListItem Text="23" Value="23" />
+                                           <asp:ListItem Text="24" Value="24"/>
+                                           <asp:ListItem Text="25" Value="25"/>
+                                           <asp:ListItem Text="26" Value="26"/>
+                                           <asp:ListItem Text="27" Value="27"/>
+                                           <asp:ListItem Text="28" Value="28"/>
+                                           <asp:ListItem Text="29" Value="29"/>
+                                           <asp:ListItem Text="30" Value="30"/>
+                                           <asp:ListItem Text="31" Value="31"/>
+                                           <asp:ListItem Text="32" Value="32"/>
+                                           <asp:ListItem Text="33" Value="33"/>
+                                           <asp:ListItem Text="34" Value="34" />
+                                           <asp:ListItem Text="35" Value="35" />
+                                           <asp:ListItem Text="36" Value="36" />
+                                           <asp:ListItem Text="37" Value="37" />
+                                           <asp:ListItem Text="38" Value="38" />
+                                           <asp:ListItem Text="39" Value="39" />
+                                           <asp:ListItem Text="40" Value="40" />
+                                           <asp:ListItem Text="41" Value="41" />
+                                           <asp:ListItem Text="42" Value="42" />
+                                           <asp:ListItem Text="43" Value="43" />
+                                           <asp:ListItem Text="44" Value="44" />
+                                           <asp:ListItem Text="45" Value="45" />
+                                           <asp:ListItem Text="46" Value="46" />
+                                           <asp:ListItem Text="47" Value="47" />
+                                           <asp:ListItem Text="48" Value="48"/>
+                                           <asp:ListItem Text="49" Value="49"/>
+                                           <asp:ListItem Text="50" Value="50"/>
+                                           <asp:ListItem Text="51" Value="51" />
+                                           <asp:ListItem Text="52" Value="52" />
+                                           <asp:ListItem Text="53" Value="53" />
+                                           <asp:ListItem Text="54" Value="54" />
+                                           <asp:ListItem Text="55" Value="55" />
+                                           <asp:ListItem Text="56" Value="56" />
+                                           <asp:ListItem Text="57" Value="57" />
+                                           <asp:ListItem Text="58" Value="58" />
+                                           <asp:ListItem Text="59" Value="59" />
+                                           <asp:ListItem Text="60" Value="60" />
+                                           
+                                        </asp:DropDownList>
+                                          <asp:DropDownList ID="ddlAMPMFromTime" AppendDataBoundItems="true" CssClass="textbox90"
+                                           runat="server">
+                                            <asp:ListItem Text="AM" Value="AM" />
+                                            <asp:ListItem Text="PM" Value="PM" />
+                                           
+                                        </asp:DropDownList>
+                               <%--   <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ValidationGroup="G" ControlToValidate="txtSwipeIn" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"></asp:RegularExpressionValidator> --%>
                               <%--  <asp:RegularExpressionValidator ID="TimeValidator" runat="server" ControlToValidate="txtSwipeIn" Display="Dynamic" ErrorMessage="Invalid Time.  Enter time in a valid format.  Example: 12:30 or 5:00" ValidationExpression="^(1[0-2]|[1-9]):[0-5][0-9]$" EnableClientScript="False"></asp:RegularExpressionValidator>--%>
                                 <%--<asp:Label ID="lbl_SwipeIn" runat="server" ></asp:Label>--%>
                                 <%--<asp:DropDownList ID="ddlAmPmIn" runat="server">
@@ -350,11 +455,99 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Sign Out">
-                        <ItemStyle Width="15%" />
+                        <ItemStyle Width="20%" />
                             <ItemTemplate>
-                                <asp:TextBox ID="txtSwipeOut" Width="80px" runat="server" Text='<%#Eval("SwipeOut")%>' CssClass="textbox88"></asp:TextBox>
-                                  <br />
-                                  <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationGroup="G" ControlToValidate="txtSwipeOut" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"></asp:RegularExpressionValidator> 
+                                <%--<asp:TextBox ID="txtSwipeOut" Width="80px" runat="server" Text='<%#Eval("SwipeOut")%>' CssClass="textbox88"></asp:TextBox>
+                                  <br />--%>
+                                   <asp:DropDownList ID="ddlHoursTomTime" CssClass="textbox90"
+                                            runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                            <asp:ListItem Text="01" Value="01" />
+                                            <asp:ListItem Text="02" Value="02" />
+                                            <asp:ListItem Text="03" Value="03" />
+                                            <asp:ListItem Text="04" Value="04" />
+                                            <asp:ListItem Text="05" Value="05" />
+                                            <asp:ListItem Text="06" Value="06" />
+                                            <asp:ListItem Text="07" Value="07" />
+                                            <asp:ListItem Text="08" Value="08" />
+                                            <asp:ListItem Text="09" Value="09" />
+                                            <asp:ListItem Text="10" Value="10" />
+                                            <asp:ListItem Text="11" Value="11" />
+                                            <asp:ListItem Text="12" Value="12" />
+                                           
+                                        </asp:DropDownList>
+                                        
+                                          <asp:DropDownList ID="ddlMinuteToTime" CssClass="textbox90" runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                           <asp:ListItem Text="01" Value="01" />
+                                           <asp:ListItem Text="02" Value="02" />
+                                           <asp:ListItem Text="03" Value="03" />
+                                           <asp:ListItem Text="04" Value="04" />
+                                           <asp:ListItem Text="05" Value="05" />
+                                           <asp:ListItem Text="06" Value="06" />
+                                           <asp:ListItem Text="07" Value="07" />
+                                           <asp:ListItem Text="08" Value="08" />
+                                           <asp:ListItem Text="09" Value="09" />
+                                           <asp:ListItem Text="10" Value="10" />
+                                           <asp:ListItem Text="11" Value="11" />
+                                           <asp:ListItem Text="12" Value="12" />
+                                           <asp:ListItem Text="13" Value="13" />
+                                           <asp:ListItem Text="14" Value="14" />
+                                           <asp:ListItem Text="15" Value="15" />
+                                           <asp:ListItem Text="16" Value="16" />
+                                           <asp:ListItem Text="17" Value="17" />
+                                           <asp:ListItem Text="18" Value="18" />
+                                           <asp:ListItem Text="19" Value="19" />
+                                           <asp:ListItem Text="20" Value="20" />
+                                           <asp:ListItem Text="21" Value="21" />
+                                           <asp:ListItem Text="22" Value="22" />
+                                           <asp:ListItem Text="23" Value="23" />
+                                           <asp:ListItem Text="24" Value="24"/>
+                                           <asp:ListItem Text="25" Value="25"/>
+                                           <asp:ListItem Text="26" Value="26"/>
+                                           <asp:ListItem Text="27" Value="27"/>
+                                           <asp:ListItem Text="28" Value="28"/>
+                                           <asp:ListItem Text="29" Value="29"/>
+                                           <asp:ListItem Text="30" Value="30"/>
+                                           <asp:ListItem Text="31" Value="31"/>
+                                           <asp:ListItem Text="32" Value="32"/>
+                                           <asp:ListItem Text="33" Value="33"/>
+                                           <asp:ListItem Text="34" Value="34" />
+                                           <asp:ListItem Text="35" Value="35" />
+                                           <asp:ListItem Text="36" Value="36" />
+                                           <asp:ListItem Text="37" Value="37" />
+                                           <asp:ListItem Text="38" Value="38" />
+                                           <asp:ListItem Text="39" Value="39" />
+                                           <asp:ListItem Text="40" Value="40" />
+                                           <asp:ListItem Text="41" Value="41" />
+                                           <asp:ListItem Text="42" Value="42" />
+                                           <asp:ListItem Text="43" Value="43" />
+                                           <asp:ListItem Text="44" Value="44" />
+                                           <asp:ListItem Text="45" Value="45" />
+                                           <asp:ListItem Text="46" Value="46" />
+                                           <asp:ListItem Text="47" Value="47" />
+                                           <asp:ListItem Text="48" Value="48"/>
+                                           <asp:ListItem Text="49" Value="49"/>
+                                           <asp:ListItem Text="50" Value="50"/>
+                                           <asp:ListItem Text="51" Value="51" />
+                                           <asp:ListItem Text="52" Value="52" />
+                                           <asp:ListItem Text="53" Value="53" />
+                                           <asp:ListItem Text="54" Value="54" />
+                                           <asp:ListItem Text="55" Value="55" />
+                                           <asp:ListItem Text="56" Value="56" />
+                                           <asp:ListItem Text="57" Value="57" />
+                                           <asp:ListItem Text="58" Value="58" />
+                                           <asp:ListItem Text="59" Value="59" />
+                                           <asp:ListItem Text="60" Value="60" />
+                                           
+                                        </asp:DropDownList>
+                                          <asp:DropDownList ID="ddlAMPMToTime" CssClass="textbox90"
+                                           runat="server">
+                                            <asp:ListItem Text="AM" Value="AM" />
+                                            <asp:ListItem Text="PM" Value="PM" />
+                                           
+                                        </asp:DropDownList>
+                                  <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ValidationGroup="G" ControlToValidate="txtSwipeOut" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"></asp:RegularExpressionValidator> --%>
                            
                                  <asp:HiddenField ID="id" runat="server" Value='<%#Eval("Id")%>'/>
                               <%--  <asp:DropDownList ID="ddlAmPmOut" runat="server">
@@ -390,7 +583,7 @@
                     <b>
                         <asp:Label runat="server" ID="Label2" Text="Add Details"></asp:Label></b>
                     <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="images/Cross3.png" Height="35px"
-                        Width="35px" Style="float: right; margin-right: 10px;" OnClick="btn_Edit_Click" /></h1>
+                        Width="35px" Style="float: right; margin-right: 10px;" OnClick="btn_Edit_Click"  /></h1>
                 <%--OnClick="btn_cancelPayment_Click"--%>
             </div>
             <table align="center">
@@ -405,35 +598,239 @@
                         </asp:DropDownList><br />
                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="R"
                                     ControlToValidate="ddlEmployeeAdd" ErrorMessage="Select Employee Name" InitialValue="Select Employee"
-                                    Display="Dynamic"></asp:RequiredFieldValidator>
-                    </td></tr>
+                                    Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </td>
+                    <td></td>
+                    </tr>
                     <tr><td>
                     <strong>Date:-</strong>&nbsp;  </td>  <td>
                         <asp:TextBox ID="txtAddDate" runat="server" Width="180px" CssClass="textbox88" placeholder="Select Date"></asp:TextBox><br />
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="R" ControlToValidate="txtAddDate" ErrorMessage="Enter Date" 
-                                    Display="Dynamic"></asp:RequiredFieldValidator> 
+                                   ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator> 
                         <ajaxToolkit:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="txtAddDate">
                         </ajaxToolkit:CalendarExtender>
-                    </td></tr>
+                    </td>
+                    <td></td>
+                    </tr>
                     
                 
                  <tr>
                     <td>
                     <strong>From Time:-</strong>&nbsp;</td>  <td>
-                        <asp:TextBox ID="txtFromTime" runat="server" Width="180px" CssClass="textbox88" placeholder="From Time(12:00 AM)"></asp:TextBox> <br />
-                         <asp:RequiredFieldValidator ID="rfv_DDL_AllDates" runat="server" ValidationGroup="R"
+                    
+                     <asp:DropDownList ID="ddlHoursFromTime" CssClass="textbox90" ValidationGroup="R"
+                                            runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                            <asp:ListItem Text="01" Value="01" />
+                                            <asp:ListItem Text="02" Value="02" />
+                                            <asp:ListItem Text="03" Value="03" />
+                                            <asp:ListItem Text="04" Value="04" />
+                                            <asp:ListItem Text="05" Value="05" />
+                                            <asp:ListItem Text="06" Value="06" />
+                                            <asp:ListItem Text="07" Value="07" />
+                                            <asp:ListItem Text="08" Value="08" />
+                                            <asp:ListItem Text="09" Value="09" />
+                                            <asp:ListItem Text="10" Value="10" />
+                                            <asp:ListItem Text="11" Value="11" />
+                                            <asp:ListItem Text="12" Value="12" />
+                                           
+                                        </asp:DropDownList>
+                                          <asp:DropDownList ID="ddlMinuteFromTime" AppendDataBoundItems="true" CssClass="textbox90" runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                           <asp:ListItem Text="01" Value="01" />
+                                           <asp:ListItem Text="02" Value="02" />
+                                           <asp:ListItem Text="03" Value="03" />
+                                           <asp:ListItem Text="04" Value="04" />
+                                           <asp:ListItem Text="05" Value="05" />
+                                           <asp:ListItem Text="06" Value="06" />
+                                           <asp:ListItem Text="07" Value="07" />
+                                           <asp:ListItem Text="08" Value="08" />
+                                           <asp:ListItem Text="09" Value="09" />
+                                           <asp:ListItem Text="10" Value="10" />
+                                           <asp:ListItem Text="11" Value="11" />
+                                           <asp:ListItem Text="12" Value="12" />
+                                           <asp:ListItem Text="13" Value="13" />
+                                           <asp:ListItem Text="14" Value="14" />
+                                           <asp:ListItem Text="15" Value="15" />
+                                           <asp:ListItem Text="16" Value="16" />
+                                           <asp:ListItem Text="17" Value="17" />
+                                           <asp:ListItem Text="18" Value="18" />
+                                           <asp:ListItem Text="19" Value="19" />
+                                           <asp:ListItem Text="20" Value="20" />
+                                           <asp:ListItem Text="21" Value="21" />
+                                           <asp:ListItem Text="22" Value="22" />
+                                           <asp:ListItem Text="23" Value="23" />
+                                           <asp:ListItem Text="24" Value="24"/>
+                                           <asp:ListItem Text="25" Value="25"/>
+                                           <asp:ListItem Text="26" Value="26"/>
+                                           <asp:ListItem Text="27" Value="27"/>
+                                           <asp:ListItem Text="28" Value="28"/>
+                                           <asp:ListItem Text="29" Value="29"/>
+                                           <asp:ListItem Text="30" Value="30"/>
+                                           <asp:ListItem Text="31" Value="31"/>
+                                           <asp:ListItem Text="32" Value="32"/>
+                                           <asp:ListItem Text="33" Value="33"/>
+                                           <asp:ListItem Text="34" Value="34" />
+                                           <asp:ListItem Text="35" Value="35" />
+                                           <asp:ListItem Text="36" Value="36" />
+                                           <asp:ListItem Text="37" Value="37" />
+                                           <asp:ListItem Text="38" Value="38" />
+                                           <asp:ListItem Text="39" Value="39" />
+                                           <asp:ListItem Text="40" Value="40" />
+                                           <asp:ListItem Text="41" Value="41" />
+                                           <asp:ListItem Text="42" Value="42" />
+                                           <asp:ListItem Text="43" Value="43" />
+                                           <asp:ListItem Text="44" Value="44" />
+                                           <asp:ListItem Text="45" Value="45" />
+                                           <asp:ListItem Text="46" Value="46" />
+                                           <asp:ListItem Text="47" Value="47" />
+                                           <asp:ListItem Text="48" Value="48"/>
+                                           <asp:ListItem Text="49" Value="49"/>
+                                           <asp:ListItem Text="50" Value="50"/>
+                                           <asp:ListItem Text="51" Value="51" />
+                                           <asp:ListItem Text="52" Value="52" />
+                                           <asp:ListItem Text="53" Value="53" />
+                                           <asp:ListItem Text="54" Value="54" />
+                                           <asp:ListItem Text="55" Value="55" />
+                                           <asp:ListItem Text="56" Value="56" />
+                                           <asp:ListItem Text="57" Value="57" />
+                                           <asp:ListItem Text="58" Value="58" />
+                                           <asp:ListItem Text="59" Value="59" />
+                                           <asp:ListItem Text="60" Value="60" />
+                                           
+                                        </asp:DropDownList>
+                                          <asp:DropDownList ID="ddlAMPMFromTime" AppendDataBoundItems="true" CssClass="textbox90"
+                                           runat="server">
+                                            <asp:ListItem Text="AM" Value="AM" />
+                                            <asp:ListItem Text="PM" Value="PM" />
+                                           
+                                        </asp:DropDownList><br />
+                                          <asp:RequiredFieldValidator ID="requiredfieldvalidator4" runat="server" ValidationGroup="R"
+                                    ControlToValidate="ddlHoursFromTime" ErrorMessage="Select From time" Display="dynamic" InitialValue="00" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <%--<asp:TextBox ID="txtFromTime" runat="server" Width="180px" CssClass="textbox88" placeholder="From Time(12:00 AM)"></asp:TextBox> <br />--%>
+                     <%--   <div class="timepicker">--%>
+                        
+                       <%-- <cc1:TimeSelector ID="txtFromTime" runat="server" DisplaySeconds="false" MinuteIncrement="1" >
+                           </cc1:TimeSelector></div>--%>
+                         <%--<asp:RequiredFieldValidator ID="rfv_DDL_AllDates" runat="server" ValidationGroup="R"
                                     ControlToValidate="txtFromTime" ErrorMessage="Enter from time" 
-                                    Display="Dynamic"></asp:RequiredFieldValidator> 
-                           <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="R" ControlToValidate="txtFromTime" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"  ></asp:RegularExpressionValidator>         
+                                    Display="Dynamic"></asp:RequiredFieldValidator> --%>
+                           <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationGroup="R" ControlToValidate="txtFromTime" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"  ></asp:RegularExpressionValidator>         --%>
                                     
-                                    </td>                   
+                                    </td>     
+                                    <td></td>              
                       </tr>
                    <tr> <td>
                    <strong>To Time:-</strong>&nbsp;</td>  <td>
-                        <asp:TextBox ID="txtToTime" runat="server" Width="180px" CssClass="textbox88" placeholder="To Time((12:00 AM)(Optional)"></asp:TextBox><br />
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationGroup="R" ControlToValidate="txtToTime" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"></asp:RegularExpressionValidator>         
+                     <asp:DropDownList ID="ddlHoursTomTime" CssClass="textbox90"
+                                            runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                            <asp:ListItem Text="01" Value="01" />
+                                            <asp:ListItem Text="02" Value="02" />
+                                            <asp:ListItem Text="03" Value="03" />
+                                            <asp:ListItem Text="04" Value="04" />
+                                            <asp:ListItem Text="05" Value="05" />
+                                            <asp:ListItem Text="06" Value="06" />
+                                            <asp:ListItem Text="07" Value="07" />
+                                            <asp:ListItem Text="08" Value="08" />
+                                            <asp:ListItem Text="09" Value="09" />
+                                            <asp:ListItem Text="10" Value="10" />
+                                            <asp:ListItem Text="11" Value="11" />
+                                            <asp:ListItem Text="12" Value="12" />
+                                           
+                                        </asp:DropDownList>
+                                        
+                                          <asp:DropDownList ID="ddlMinuteToTime" CssClass="textbox90" runat="server">
+                                            <asp:ListItem Text="00" Value="00" />
+                                           <asp:ListItem Text="01" Value="01" />
+                                           <asp:ListItem Text="02" Value="02" />
+                                           <asp:ListItem Text="03" Value="03" />
+                                           <asp:ListItem Text="04" Value="04" />
+                                           <asp:ListItem Text="05" Value="05" />
+                                           <asp:ListItem Text="06" Value="06" />
+                                           <asp:ListItem Text="07" Value="07" />
+                                           <asp:ListItem Text="08" Value="08" />
+                                           <asp:ListItem Text="09" Value="09" />
+                                           <asp:ListItem Text="10" Value="10" />
+                                           <asp:ListItem Text="11" Value="11" />
+                                           <asp:ListItem Text="12" Value="12" />
+                                           <asp:ListItem Text="13" Value="13" />
+                                           <asp:ListItem Text="14" Value="14" />
+                                           <asp:ListItem Text="15" Value="15" />
+                                           <asp:ListItem Text="16" Value="16" />
+                                           <asp:ListItem Text="17" Value="17" />
+                                           <asp:ListItem Text="18" Value="18" />
+                                           <asp:ListItem Text="19" Value="19" />
+                                           <asp:ListItem Text="20" Value="20" />
+                                           <asp:ListItem Text="21" Value="21" />
+                                           <asp:ListItem Text="22" Value="22" />
+                                           <asp:ListItem Text="23" Value="23" />
+                                           <asp:ListItem Text="24" Value="24"/>
+                                           <asp:ListItem Text="25" Value="25"/>
+                                           <asp:ListItem Text="26" Value="26"/>
+                                           <asp:ListItem Text="27" Value="27"/>
+                                           <asp:ListItem Text="28" Value="28"/>
+                                           <asp:ListItem Text="29" Value="29"/>
+                                           <asp:ListItem Text="30" Value="30"/>
+                                           <asp:ListItem Text="31" Value="31"/>
+                                           <asp:ListItem Text="32" Value="32"/>
+                                           <asp:ListItem Text="33" Value="33"/>
+                                           <asp:ListItem Text="34" Value="34" />
+                                           <asp:ListItem Text="35" Value="35" />
+                                           <asp:ListItem Text="36" Value="36" />
+                                           <asp:ListItem Text="37" Value="37" />
+                                           <asp:ListItem Text="38" Value="38" />
+                                           <asp:ListItem Text="39" Value="39" />
+                                           <asp:ListItem Text="40" Value="40" />
+                                           <asp:ListItem Text="41" Value="41" />
+                                           <asp:ListItem Text="42" Value="42" />
+                                           <asp:ListItem Text="43" Value="43" />
+                                           <asp:ListItem Text="44" Value="44" />
+                                           <asp:ListItem Text="45" Value="45" />
+                                           <asp:ListItem Text="46" Value="46" />
+                                           <asp:ListItem Text="47" Value="47" />
+                                           <asp:ListItem Text="48" Value="48"/>
+                                           <asp:ListItem Text="49" Value="49"/>
+                                           <asp:ListItem Text="50" Value="50"/>
+                                           <asp:ListItem Text="51" Value="51" />
+                                           <asp:ListItem Text="52" Value="52" />
+                                           <asp:ListItem Text="53" Value="53" />
+                                           <asp:ListItem Text="54" Value="54" />
+                                           <asp:ListItem Text="55" Value="55" />
+                                           <asp:ListItem Text="56" Value="56" />
+                                           <asp:ListItem Text="57" Value="57" />
+                                           <asp:ListItem Text="58" Value="58" />
+                                           <asp:ListItem Text="59" Value="59" />
+                                           <asp:ListItem Text="60" Value="60" />
+                                           
+                                        </asp:DropDownList>
+                                          <asp:DropDownList ID="ddlAMPMToTime" CssClass="textbox90"
+                                           runat="server">
+                                            <asp:ListItem Text="AM" Value="AM" />
+                                            <asp:ListItem Text="PM" Value="PM" />
+                                           
+                                        </asp:DropDownList>
+                                        
+                  <%-- <div class="timepicker">
+                   
+                        <cc1:TimeSelector ID="txtToTime" runat="server" DisplaySeconds="false" MinuteIncrement="1"  >
+                           </cc1:TimeSelector></div>--%>
+                        <%--<asp:TextBox ID="txtToTime" runat="server" Width="180px" CssClass="textbox88" placeholder="To Time((12:00 AM)(Optional)"></asp:TextBox>--%><br />
+                        
+                       <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationGroup="R" ControlToValidate="txtToTime" Display="Dynamic" ErrorMessage="Enter time in a valid format.(Ex. 12:30 AM)" ValidationExpression="^(1[0-2]|0[1-9]):[0-5][0-9]\040(AM|am|PM|pm)$"></asp:RegularExpressionValidator>         --%>
                  
-                    </td></tr>
+                    </td>
+                    <td></td>
+                    </tr>
+                     <tr> <td>
+                   <strong>Comment:-</strong>&nbsp;</td>  <td>
+                        <asp:TextBox ID="txtCommentsAdd" runat="server" Width="180px" TextMode="MultiLine" Height="60px" CssClass="textbox88" placeholder="Comment"></asp:TextBox>
+                             
+                 
+                    </td>
+                    <td><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="R" ControlToValidate="txtCommentsAdd" ErrorMessage="*" ForeColor="Red"
+                                    Display="Dynamic"></asp:RequiredFieldValidator></td>
+                    </tr>
                     <tr>
                     <td></td>
                      <td >
@@ -444,6 +841,7 @@
             </div>
             </asp:Panel>
 
+    <script src="../Js/timepicki.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
         function divexpandcollapse(divname) {
             var div = document.getElementById(divname);
@@ -460,19 +858,6 @@
         }
         
     </script>
-   <%-- <script type="text/javascript">
-        function ClientValidationFunction(sender, args) {
-            debugger;
-            var start = $find("<%= txtFromTime.ClientID %>");
-            var end = $find("<%= txtToTime.ClientID %>");
-            var date1 = new Date();
-            date1 = start.get_selectedDate();
-            var date2 = new Date();
-            date2 = end.get_selectedDate();
-            if (date1 > date2) {
-                args.IsValid = false;
-            }
-        } 
-</script> --%>
+   
 
 </asp:Content>
