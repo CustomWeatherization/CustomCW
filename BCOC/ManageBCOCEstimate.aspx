@@ -869,6 +869,7 @@
 
 
         function CalculateLineCode() {
+        debugger;
             if (document.getElementById('<%=txt_Liurp.ClientID %>').value == '') {
                 document.getElementById('<%=txt_THW.ClientID %>').value = '';
                 document.getElementById('<%=txt_TMC.ClientID %>').value = '';
@@ -890,7 +891,7 @@
                 }
                 var Rate = document.getElementById('<%=txt_LaborRate.ClientID %>').value;
                 if (isNaN(Rate) || document.getElementById('<%=txt_LaborRate.ClientID %>').value == '') {
-                    Total = 0;
+                    Rate = 0;
                 }
 
                 var Cal1 = parseFloat(THW) * parseFloat(Rate);
@@ -913,6 +914,7 @@
         }
 
         function CalculateLine() {
+        debugger;
             //For Multiply the Values and assign it to Total Coulmn
             var Min = document.getElementById('<%=hdn_txt_MinLaborRate.ClientID %>').value;
             var Max = document.getElementById('<%=hdn_txt_MaxLaborRate.ClientID %>').value;

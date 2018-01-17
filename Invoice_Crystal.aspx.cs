@@ -291,6 +291,15 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                         }
                     }
                 }
+                if (Comnt == null)
+                {
+                    Comnt = "";
+                }
+
+                if (NewInvoiceAmtReason_ == null)
+                {
+                    NewInvoiceAmtReason_ = "";
+                }
                 reportdocument.Load(Server.MapPath("~/invoice_Report/BCOCInvoice.rpt"));
                 reportdocument.SetParameterValue("NewInvoiceAMT", NewInvoiceAmt_);
                 reportdocument.SetParameterValue("NewInvoiceAmtReason", NewInvoiceAmtReason_);
@@ -351,6 +360,15 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                         }
                     }
                 }
+                if (Comnt == null)
+                {
+                    Comnt = "";
+                }
+
+                if (NewInvoiceAmtReason_ == null)
+                {
+                    NewInvoiceAmtReason_ = "";
+                }
                 reportdocument.Load(Server.MapPath("~/invoice_Report/DCEDInvoice.rpt"));
                 reportdocument.SetParameterValue("NewInvoiceAMT", NewInvoiceAmt_);
                 reportdocument.SetParameterValue("NewInvoiceAmtReason", NewInvoiceAmtReason_);
@@ -409,6 +427,15 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                             }
                         }
                     }
+                }
+                if (Comnt == null)
+                {
+                    Comnt = "";
+                }
+
+                if (NewInvoiceAmtReason_ == null)
+                {
+                    NewInvoiceAmtReason_ = "";
                 }
                 reportdocument.Load(Server.MapPath("~/invoice_Report/UGIInvoice.rpt"));
                 reportdocument.SetParameterValue("NewInvoiceAMT", NewInvoiceAmt_);
@@ -493,6 +520,16 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                             }
                         }
                     }
+                }
+
+                if (Comnt == null)
+                {
+                    Comnt = "";
+                }
+
+                if (NewInvoiceAmtReason_ == null)
+                {
+                    NewInvoiceAmtReason_ = "";
                 }
                 reportdocument.Load(Server.MapPath("~/invoice_Report/Report_meted.rpt"));
                 reportdocument.SetParameterValue("ActTotal", Total_);
@@ -586,13 +623,21 @@ public partial class Invoice_Crystal : System.Web.UI.Page
                 }
 
                 //==============================
+                if (Comnt == null)
+                {
+                    Comnt = "";
+                }
 
+                if (NewInvoiceAmtReason_ == null)
+                {
+                    NewInvoiceAmtReason_ = "";
+                }
 
                 if (Convert.ToString(Request.QueryString["Type"]) == "Default Estimate")
                 {
                    // reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM16", "CW_DEMO");
-                    //reportdocument.Load(Server.MapPath("~/invoice_Report/PrivateEstimate.rpt"));
-                    reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_Staging");
+                    reportdocument.Load(Server.MapPath("~/invoice_Report/PrivateEstimate.rpt"));
+                  //  reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_Staging");
                  //   reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM16", "CW_Staging");
                   //  reportdocument.SetDatabaseLogon("sa", "12345", "DESKTOP-IRT09KE\\SQLEXPRESS", "CW_DEMO");
                     //reportdocument.SetDatabaseLogon("sa", "Sa123!@#", "CUSTOM-2016\\SQLEXPRESS2014", "CW_Staging");

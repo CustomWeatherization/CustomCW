@@ -199,7 +199,7 @@ public partial class BCOC_ManageBCOCEstimate : System.Web.UI.Page
         string Location, SC, LiurpCode, Unit, LaborRate, CostPerUnit, QTY, Total, RowType, JobNumber, THW, TMC, SubCatName, Desc, LR;
         Location = SC = LiurpCode = Unit = LaborRate = CostPerUnit = QTY = Total = RowType = JobNumber = THW = TMC = SubCatName = Desc = LR = "";
         DataTable dt_Fill = new DataTable();
-
+      
         if (rdo_Standard.Checked == true)
         {
             SubCatId = Convert.ToInt32(DDl_MEASURE_DESCRIPTION.SelectedValue);
@@ -243,7 +243,14 @@ public partial class BCOC_ManageBCOCEstimate : System.Web.UI.Page
             TMC = txt_TMC.Text;
             SubCatName = txt_MEASURE_DESCRIPTION.Text;
             QTY = txt_Qty.Text;
-            Total = txt_Total.Text;
+            if (txt_Total.Text != "$NaN")
+            {
+                Total = txt_Total.Text;
+            }
+            else 
+            {
+                Total = "0.00";
+            }
             Total = Total.TrimStart('$');
         }
         if (btnSave.Text == "Add Row")
@@ -789,7 +796,11 @@ public partial class BCOC_ManageBCOCEstimate : System.Web.UI.Page
         DataTable dtFnlAmt = new DataTable();
         ViewStatePageLoad();
         dtFnlAmt = (DataTable)ViewState["InvoiceTable"];
-        string FnlInvAmt = Convert.ToString(dtFnlAmt.Rows[0]["Fnl_Total"]);
+        string FnlInvAmt = "0.00";
+        if (dtFnlAmt.Rows.Count > 0)
+        {
+            FnlInvAmt = Convert.ToString(dtFnlAmt.Rows[0]["Fnl_Total"]);
+        }
         //string ActTotal = "";
         //string sConstr = ConfigurationManager.ConnectionStrings["CWeatherCon"].ConnectionString;
         //using (SqlConnection conn = new SqlConnection(sConstr))
